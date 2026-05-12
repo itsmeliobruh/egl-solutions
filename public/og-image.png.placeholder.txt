@@ -1,0 +1,8 @@
+Place the Open Graph image at:
+  public/og-image.png
+
+Required dimensions: 1200x630px
+Used for: all pages' og:image meta tag (social sharing previews)
+
+Design suggestion: EGL Solutions logo centered on #080808 background
+with the orange glow effect and "EMPOWERING LOCAL BUSINESS" headline.
