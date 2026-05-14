@@ -77,7 +77,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-bone leading-tight tracking-wider mb-3"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-bone leading-tight tracking-wider mb-3"
             >
               EMPOWERING
               <br />
@@ -98,7 +98,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="font-body text-light/80 text-base lg:text-lg leading-relaxed mb-4 max-w-lg"
+              className="font-body text-light/80 text-base lg:text-lg leading-relaxed mb-4 lg:max-w-lg"
             >
               Dedicated to crafting impactful systems that attract, convert, and retain customers,
               helping your local service business scale faster than ever.
