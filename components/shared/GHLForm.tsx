@@ -3,7 +3,7 @@
 import Script from 'next/script'
 import { useState, useEffect } from 'react'
 
-const FORM_NATURAL_HEIGHT = 900
+const FORM_NATURAL_HEIGHT = 980
 
 interface GHLFormProps {
   fitToViewport?: boolean
@@ -20,7 +20,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       const reserved = 184
       const available = window.innerHeight - reserved
       const calculated = Math.min(1, available / FORM_NATURAL_HEIGHT)
-      setZoom(Math.max(0.65, calculated))
+      setZoom(Math.max(0.55, calculated))
     }
 
     calculate()
@@ -50,7 +50,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
         data-form-name="Main: Website Form"
-        data-height={FORM_NATURAL_HEIGHT}
+        data-height="980"
         data-layout-iframe-id="inline-wBCLWyveluv1QqGnAKzL"
         data-form-id="wBCLWyveluv1QqGnAKzL"
         title="Main: Website Form"
