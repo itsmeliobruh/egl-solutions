@@ -54,8 +54,8 @@ export default function Hero() {
       <div className="noise-overlay" aria-hidden="true" />
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20 pb-8 lg:pt-28 lg:pb-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full pt-20 pb-8 lg:pt-28 lg:pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
 
           {/* ── LEFT: Copy ─────────────────────────────────────────── */}
           <div>

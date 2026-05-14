@@ -16,8 +16,8 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     if (!fitToViewport) return
 
     const calculate = () => {
-      // Navbar (80px) + hero top padding lg:pt-28 (112px) + hero bottom padding (24px) + buffer (8px)
-      const reserved = 224
+      // Navbar (80px) + hero top padding lg:pt-28 (112px) + hero bottom padding lg:pb-10 (40px) + buffer (8px)
+      const reserved = 240
       const available = window.innerHeight - reserved
       const calculated = Math.min(1, available / FORM_NATURAL_HEIGHT)
       setZoom(Math.max(0.55, calculated))
