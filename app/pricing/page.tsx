@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import SectionLabel from '@/components/shared/SectionLabel'
-import PricingTable from '@/components/shared/PricingTable'
 import CTAStrip from '@/components/shared/CTAStrip'
 import ProcessSteps from '@/components/shared/ProcessSteps'
+import PricingSection from '@/components/home/PricingSection'
 
 export const metadata: Metadata = {
   title: 'Pricing | Marketing Packages for Local Service Businesses in CT',
@@ -53,12 +53,8 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Pricing table */}
-      <section className="bg-ash py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <PricingTable />
-        </div>
-      </section>
+      {/* Pricing cards */}
+      <PricingSection />
 
       {/* Process */}
       <section className="bg-void py-20 px-4">
