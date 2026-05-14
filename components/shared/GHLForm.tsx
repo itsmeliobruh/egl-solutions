@@ -9,7 +9,7 @@ export default function GHLForm() {
         src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
         style={{
           width: '100%',
-          height: '760px',
+          height: '900px',
           border: 'none',
           borderRadius: '20px',
           display: 'block',
@@ -23,7 +23,7 @@ export default function GHLForm() {
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
         data-form-name="Main: Website Form"
-        data-height="760"
+        data-height="900"
         data-layout-iframe-id="inline-wBCLWyveluv1QqGnAKzL"
         data-form-id="wBCLWyveluv1QqGnAKzL"
         title="Main: Website Form"

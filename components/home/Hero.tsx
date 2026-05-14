@@ -68,8 +68,8 @@ export default function Hero() {
       {/* Grid lines */}
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-8 lg:pt-24 lg:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── LEFT: Copy ─────────────────────────────────────────── */}
           <div>
