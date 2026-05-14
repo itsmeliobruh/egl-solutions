@@ -190,7 +190,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <a
               href="tel:+18602003455"
-              className="flex items-center justify-center gap-2 h-10 px-5 text-sm font-body font-semibold text-black bg-white hover:bg-gray-100 rounded-full whitespace-nowrap transition-all shadow-sm"
+              className="flex items-center gap-2 text-sm font-body font-semibold text-black bg-white hover:bg-gray-100 px-4 py-2.5 rounded-full whitespace-nowrap transition-all shadow-sm"
               aria-label="Call EGL Solutions"
             >
               <Phone size={14} />
@@ -198,28 +198,26 @@ export default function Navbar() {
             </a>
             <a
               href={BOOKING_URL}
-              className="glass-btn-inferno flex items-center justify-center h-10 px-5 font-display text-base rounded-full tracking-widest whitespace-nowrap"
+              className="glass-btn-inferno font-display text-sm px-5 py-2.5 rounded-full tracking-widest whitespace-nowrap"
               aria-label="Work with EGL Solutions"
             >
               WORK WITH US
             </a>
           </div>
 
-          {/* ── MOBILE RIGHT: Phone + CTA + Hamburger ────────────── */}
+          {/* ── MOBILE RIGHT: Phone icon + CTA + Hamburger ───────── */}
           <div className="lg:hidden flex items-center gap-2 flex-shrink-0">
-            {/* Same h-8 on both so they're identical height */}
             <a
               href="tel:+18602003455"
-              className="flex items-center justify-center gap-1.5 h-8 px-3 text-xs font-body font-semibold text-black bg-white hover:bg-gray-100 rounded-full whitespace-nowrap transition-all shadow-sm"
+              className="flex items-center gap-1.5 text-xs font-body font-semibold text-black bg-white hover:bg-gray-100 px-3 py-2 rounded-full whitespace-nowrap transition-all shadow-sm"
               aria-label="Call EGL Solutions"
             >
               <Phone size={12} />
               <span className="hidden xs:inline">(860) 200-3455</span>
             </a>
-            {/* text-sm compensates for Bebas Neue being visually smaller than DM Sans */}
             <a
               href={BOOKING_URL}
-              className="glass-btn-inferno flex items-center justify-center h-8 px-3 font-display text-sm rounded-full tracking-wider whitespace-nowrap"
+              className="glass-btn-inferno font-display text-xs px-3 py-2 rounded-full tracking-wider whitespace-nowrap"
               aria-label="Work with EGL Solutions"
             >
               WORK WITH US
