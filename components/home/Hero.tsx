@@ -1,15 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
+import GHLForm from '@/components/shared/GHLForm'
 
 const BOOKING_URL = 'https://egl.solutions/booking-step1'
 
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden bg-void"
+      className="relative flex items-start overflow-hidden bg-void"
       aria-label="Hero section"
     >
       {/* Left orange accent bar */}
@@ -35,8 +35,9 @@ export default function Hero() {
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Copy */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          {/* ── LEFT: Copy ─────────────────────────────────────────── */}
           <div>
             {/* Free website badge */}
             <motion.div
@@ -64,9 +65,7 @@ export default function Hero() {
               WITH{' '}
               <span
                 className="text-transparent"
-                style={{
-                  WebkitTextStroke: '2px #FF5500',
-                }}
+                style={{ WebkitTextStroke: '2px #FF5500' }}
               >
                 SMART
               </span>
@@ -86,10 +85,21 @@ export default function Hero() {
               helping your local service business scale faster than ever.
             </motion.p>
 
+            {/* ── MOBILE FORM — appears right under the description ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="lg:hidden mb-8"
+            >
+              <GHLForm />
+            </motion.div>
+
+            {/* CTA buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <a
@@ -108,27 +118,16 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Logo with glow */}
+          {/* ── RIGHT: GHL Form (desktop only) ─────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="hidden lg:flex items-center justify-center"
-            aria-hidden="true"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hidden lg:block"
           >
-            <div
-              className="relative w-80 h-80 xl:w-96 xl:h-96"
-              style={{ filter: 'drop-shadow(0 0 48px rgba(255,85,0,0.35))' }}
-            >
-              <Image
-                src="/egl-logo.png"
-                alt="EGL Solutions marketing agency logo"
-                fill
-                className="object-contain opacity-90"
-                priority
-              />
-            </div>
+            <GHLForm />
           </motion.div>
+
         </div>
       </div>
     </section>
