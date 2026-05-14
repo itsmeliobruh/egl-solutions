@@ -68,7 +68,7 @@ export default function Hero() {
       {/* Grid lines */}
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-8 lg:pt-24 lg:pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-8 lg:pt-20 lg:pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── LEFT: Copy ─────────────────────────────────────────── */}
@@ -151,14 +151,14 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── RIGHT: Form (desktop only, no CTA buttons) ─────────── */}
+          {/* ── RIGHT: Form (desktop only, fitted to viewport) ─────── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <GHLForm />
+            <GHLForm fitToViewport={true} />
           </motion.div>
 
         </div>
