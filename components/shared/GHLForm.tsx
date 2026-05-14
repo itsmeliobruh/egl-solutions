@@ -7,7 +7,13 @@ export default function GHLForm() {
     <div className="w-full" id="contact-form">
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
-        style={{ width: '100%', border: 'none', borderRadius: '20px', display: 'block' }}
+        style={{
+          width: '100%',
+          height: '1273px',
+          border: 'none',
+          borderRadius: '20px',
+          display: 'block',
+        }}
         id="inline-wBCLWyveluv1QqGnAKzL"
         data-layout="{'id':'INLINE'}"
         data-trigger-type="alwaysShow"
@@ -21,7 +27,6 @@ export default function GHLForm() {
         data-layout-iframe-id="inline-wBCLWyveluv1QqGnAKzL"
         data-form-id="wBCLWyveluv1QqGnAKzL"
         title="Main: Website Form"
-        scrolling="no"
       />
       <Script
         src="https://link.msgsndr.com/js/form_embed.js"

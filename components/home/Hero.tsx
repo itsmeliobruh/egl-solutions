@@ -9,21 +9,21 @@ const BOOKING_URL = 'https://egl.solutions/booking-step1'
 
 function ScrollArrows() {
   return (
-    <div className="flex items-center justify-center gap-3 mt-6 mb-2" aria-hidden="true">
+    <div className="flex items-center justify-center gap-5 py-6" aria-hidden="true">
       {[0, 1, 2].map((i) => (
         <motion.div
           key={i}
-          animate={{ y: [0, 10, 0], opacity: [0.4, 1, 0.4] }}
+          animate={{ y: [0, 12, 0], opacity: [0.35, 1, 0.35] }}
           transition={{
             duration: 1.4,
             repeat: Infinity,
-            delay: i * 0.2,
+            delay: i * 0.22,
             ease: 'easeInOut',
           }}
         >
           <ChevronDown
-            size={36}
-            strokeWidth={2.5}
+            size={52}
+            strokeWidth={2.2}
             className="text-white drop-shadow-lg"
           />
         </motion.div>
@@ -139,15 +139,15 @@ export default function Hero() {
               </button>
             </motion.div>
 
-            {/* ── MOBILE ONLY: Form ────────────────────────────────── */}
+            {/* ── MOBILE ONLY: Arrows then Form ───────────────────── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="lg:hidden"
             >
-              <GHLForm />
               <ScrollArrows />
+              <GHLForm />
             </motion.div>
           </div>
 
