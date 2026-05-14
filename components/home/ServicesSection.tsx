@@ -11,6 +11,7 @@ const systemServices = [
     emoji: '🚀',
     description: 'High-converting website + full backend automation. Your 24/7 sales engine.',
     price: '$297/mo',
+    number: '01',
   },
   {
     slug: 'lead-generation',
@@ -20,6 +21,7 @@ const systemServices = [
     price: '$1,499/mo',
     originalPrice: '$1,999/mo',
     badge: 'MOST POPULAR',
+    number: '02',
   },
   {
     slug: 'all-in-one-system',
@@ -28,6 +30,7 @@ const systemServices = [
     description: 'The complete growth powerhouse. Everything combined.',
     price: '$2,499/mo',
     badge: 'MOST VALUE',
+    number: '03',
   },
 ]
 
@@ -38,6 +41,7 @@ const contentServices = [
     emoji: '📸',
     description: '1 filming day/mo, 10–12 short-form videos, posting guidance.',
     price: '$997/mo',
+    number: '01',
   },
   {
     slug: 'content-growth',
@@ -47,6 +51,7 @@ const contentServices = [
     price: '$2,499/mo',
     originalPrice: '$3,299/mo',
     badge: 'MOST POPULAR',
+    number: '02',
   },
   {
     slug: 'content-authority',
@@ -54,12 +59,14 @@ const contentServices = [
     emoji: '📸',
     description: '3–4 filming days/mo, 30–40 videos, dominate locally.',
     price: '$4,997/mo',
+    badge: 'MOST RESULTS',
+    number: '03',
   },
 ]
 
 export default function ServicesSection() {
   return (
-    <section className="bg-ash py-24 px-4 grid-overlay" id="services">
+    <section className="bg-[#0D0D0D] py-24 px-4 grid-overlay" id="services">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

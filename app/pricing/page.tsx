@@ -96,9 +96,12 @@ export default function PricingPage() {
                 a: 'Ad spend budgets are separate from our management fees. We recommend a minimum of $500–$1,000/mo in ad spend for Lead Generation plans. We help you set and optimize this budget.',
               },
             ].map(({ q, a }) => (
-              <div key={q} className="bg-mid border border-steel rounded p-6">
-                <h3 className="font-body font-semibold text-light mb-2">{q}</h3>
-                <p className="font-body text-sm text-muted">{a}</p>
+              <div
+                key={q}
+                className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.28)] p-6"
+              >
+                <h3 className="font-body font-semibold text-[#0A0A0A] mb-2">{q}</h3>
+                <p className="font-body text-sm text-[#666666]">{a}</p>
               </div>
             ))}
           </div>

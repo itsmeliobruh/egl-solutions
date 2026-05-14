@@ -8,7 +8,7 @@ const BOOKING_URL = 'https://egl.solutions/booking-step1'
 
 export default function ProcessSection() {
   return (
-    <section className="bg-void py-24 px-4" id="process">
+    <section className="bg-[#0D0D0D] py-24 px-4" id="process">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

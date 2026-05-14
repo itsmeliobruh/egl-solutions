@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Check, Phone } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
+import { Card } from '@/components/shared/Card'
 
 const BOOKING_URL = 'https://egl.solutions/booking-step1'
 
@@ -113,19 +114,17 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="group block bg-mid border border-steel rounded p-5 hover:border-inferno transition-all"
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xl">{s.emoji}</span>
-                  <h3 className="font-display text-lg text-bone tracking-wide group-hover:text-inferno transition-colors">
-                    {s.name}
-                  </h3>
-                </div>
-                <p className="font-body text-xs text-muted leading-relaxed mb-3">{s.description}</p>
-                <span className="font-display text-lg text-inferno">{s.price}</span>
+              <Link key={s.href} href={s.href} className="group block">
+                <Card className="p-5 h-full">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xl">{s.emoji}</span>
+                    <h3 className="font-display text-lg text-[#0A0A0A] tracking-wide group-hover:text-[#FF5500] transition-colors">
+                      {s.name}
+                    </h3>
+                  </div>
+                  <p className="font-body text-xs text-[#666666] leading-relaxed mb-3">{s.description}</p>
+                  <span className="font-display text-lg text-[#FF5500]">{s.price}</span>
+                </Card>
               </Link>
             ))}
           </div>
@@ -150,9 +149,9 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
           </div>
           <div className="space-y-3">
             {reasons.map((r) => (
-              <div key={r} className="flex items-start gap-3 bg-mid border border-steel rounded px-4 py-3">
-                <Check size={15} className="text-inferno mt-0.5 flex-shrink-0" />
-                <span className="font-body text-sm text-light">{r}</span>
+              <div key={r} className="flex items-start gap-3 bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl px-4 py-3">
+                <Check size={15} className="text-[#FF5500] mt-0.5 flex-shrink-0" />
+                <span className="font-body text-sm text-[#333]">{r}</span>
               </div>
             ))}
           </div>
@@ -170,7 +169,7 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
             {trades.map((t) => (
               <div
                 key={t}
-                className="border border-steel rounded px-4 py-2 font-mono text-xs text-muted uppercase tracking-[0.1em] hover:border-inferno hover:text-inferno transition-all cursor-default"
+                className="bg-[#F5F0E8] border border-[#E0D8CC] rounded px-4 py-2 font-mono text-xs text-[#333] uppercase tracking-[0.1em] hover:border-[#FF5500] hover:text-[#FF5500] transition-all cursor-default"
               >
                 {t}
               </div>

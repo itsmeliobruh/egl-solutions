@@ -6,6 +6,14 @@
   --font-bebas: 'Bebas Neue', sans-serif;
   --font-dm-sans: 'DM Sans', sans-serif;
   --font-dm-mono: 'DM Mono', monospace;
+  --card-bg: #F5F0E8;
+  --card-border: #E0D8CC;
+  --card-hover-border: #D4C8BC;
+  --card-shadow: 0 2px 16px rgba(0,0,0,0.28);
+  --card-hover-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  --card-title: #0A0A0A;
+  --card-body: #666666;
+  --card-num: #C8C0B4;
 }
 
 html {

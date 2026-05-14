@@ -42,7 +42,7 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    'w-full bg-mid border border-steel rounded px-4 py-3 font-body text-sm text-light placeholder:text-muted focus:border-inferno focus:outline-none transition-colors'
+    'w-full bg-white border border-[#E0D8CC] rounded px-4 py-3 font-body text-sm text-[#0A0A0A] placeholder:text-[#AAA] focus:border-[#FF5500] focus:outline-none transition-colors'
 
   return (
     <section className="bg-ash py-24 px-4 relative overflow-hidden" id="contact">
@@ -81,12 +81,12 @@ export default function ContactForm() {
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
           onSubmit={handleSubmit}
-          className="bg-mid border border-steel rounded p-8 space-y-5"
+          className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.28)] p-8 space-y-5"
           aria-label="Contact form"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="full_name" className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] block mb-1.5">
+              <label htmlFor="full_name" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
                 Full Name *
               </label>
               <input
@@ -102,7 +102,7 @@ export default function ContactForm() {
               />
             </div>
             <div>
-              <label htmlFor="phone" className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] block mb-1.5">
+              <label htmlFor="phone" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
                 Phone *
               </label>
               <input
@@ -120,7 +120,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="email" className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] block mb-1.5">
+            <label htmlFor="email" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
               Email *
             </label>
             <input
@@ -137,7 +137,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="services_interested" className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] block mb-1.5">
+            <label htmlFor="services_interested" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
               Service Interested In *
             </label>
             <select
@@ -157,7 +157,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] block mb-1.5">
+            <label htmlFor="message" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
               Message
             </label>
             <textarea
@@ -171,11 +171,11 @@ export default function ContactForm() {
             />
           </div>
 
-          <p className="font-body text-xs text-muted leading-relaxed">
+          <p className="font-body text-xs text-[#888] leading-relaxed">
             By providing my phone number, I agree to receive text messages from the business.{' '}
-            <a href="/terms" className="text-inferno hover:text-blaze underline">Terms & Conditions</a>
+            <a href="/terms" className="text-[#FF5500] hover:text-[#FF8C00] underline">Terms & Conditions</a>
             {' '}|{' '}
-            <a href="/privacy" className="text-inferno hover:text-blaze underline">Privacy Policy</a>
+            <a href="/privacy" className="text-[#FF5500] hover:text-[#FF8C00] underline">Privacy Policy</a>
           </p>
 
           <button

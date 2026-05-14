@@ -83,9 +83,9 @@ const contentRows: PricingRow[] = [
 ]
 
 function CellIcon({ value }: { value: CellValue }) {
-  if (value === true) return <Check size={16} className="text-inferno mx-auto" />
-  if (value === '—' || value === false) return <Minus size={14} className="text-steel mx-auto" />
-  return <span className="font-body text-xs text-light text-center block leading-tight">{value}</span>
+  if (value === true) return <Check size={16} className="text-[#FF5500] mx-auto" />
+  if (value === '—' || value === false) return <Minus size={14} className="text-[#AAA] mx-auto" />
+  return <span className="font-body text-xs text-[#444] text-center block leading-tight">{value}</span>
 }
 
 function PricingTableGrid({
@@ -102,33 +102,35 @@ function PricingTableGrid({
       <table className="w-full min-w-[700px] border-collapse">
         <thead>
           <tr>
-            <th className="text-left font-mono text-[10px] text-muted uppercase tracking-[0.18em] p-4 border-b border-steel w-48" />
+            <th className="text-left font-mono text-[10px] text-muted uppercase tracking-[0.18em] p-4 border-b border-[#E0D8CC] w-48" />
             {plans.names.map((name, i) => (
               <th
                 key={name}
-                className={`p-4 border-b border-steel text-center ${
-                  plans.popular[i] ? 'border-t-2 border-t-inferno bg-inferno/5' : ''
+                className={`p-4 border-b border-[#E0D8CC] text-center ${
+                  plans.popular[i]
+                    ? 'border-t-[3px] border-t-[#FF5500] bg-[#F5F0E8]'
+                    : 'bg-[#FAFAF8]'
                 }`}
               >
                 {plans.popular[i] && (
-                  <span className="font-mono text-[9px] text-black bg-inferno px-2 py-0.5 rounded uppercase tracking-widest block mb-2">
+                  <span className="font-mono text-[9px] text-black bg-[#FF5500] px-2 py-0.5 rounded-sm uppercase tracking-[0.14em] block mb-2">
                     MOST POPULAR
                   </span>
                 )}
-                <div className="font-display text-lg text-bone tracking-wide">{name}</div>
+                <div className="font-display text-lg text-[#0A0A0A] tracking-wide">{name}</div>
                 <div>
                   {plans.originalPrices[i] && (
-                    <span className="font-body text-xs text-muted line-through mr-1">{plans.originalPrices[i]}</span>
+                    <span className="font-body text-xs text-[#999] line-through mr-1">{plans.originalPrices[i]}</span>
                   )}
-                  <span className="font-display text-2xl text-inferno">{plans.prices[i]}</span>
+                  <span className="font-display text-2xl text-[#FF5500]">{plans.prices[i]}</span>
                 </div>
-                <div className="font-mono text-[9px] text-muted uppercase tracking-widest mt-1">{plans.badges[i]}</div>
+                <div className="font-mono text-[9px] text-[#999] uppercase tracking-widest mt-1">{plans.badges[i]}</div>
                 <Link
                   href={plans.hrefs[i]}
                   className={`mt-3 inline-block text-xs font-display tracking-widest px-4 py-2 rounded transition-colors ${
                     plans.popular[i]
-                      ? 'bg-inferno text-black hover:bg-scorch'
-                      : 'border border-inferno text-inferno hover:bg-inferno/10'
+                      ? 'bg-[#FF5500] text-black hover:bg-[#CC3300]'
+                      : 'border border-[#FF5500] text-[#FF5500] hover:bg-[#FF5500]/10'
                   }`}
                 >
                   GET STARTED
@@ -139,13 +141,13 @@ function PricingTableGrid({
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={row.feature} className={ri % 2 === 0 ? 'bg-void/30' : ''}>
-              <td className="p-4 font-body text-sm text-muted border-b border-steel/50">{row.feature}</td>
+            <tr key={row.feature} className={ri % 2 === 0 ? 'bg-[#FAFAF8]' : 'bg-white'}>
+              <td className="p-4 font-body text-sm text-[#666] border-b border-[#E0D8CC]/60">{row.feature}</td>
               {row.plans.map((val, ci) => (
                 <td
                   key={ci}
-                  className={`p-4 border-b border-steel/50 text-center ${
-                    plans.popular[ci] ? 'bg-inferno/5' : ''
+                  className={`p-4 border-b border-[#E0D8CC]/60 text-center ${
+                    plans.popular[ci] ? 'bg-[#F5F0E8]/60' : ''
                   }`}
                 >
                   <CellIcon value={val} />
@@ -158,13 +160,16 @@ function PricingTableGrid({
           <tr>
             <td className="p-4" />
             {plans.names.map((name, i) => (
-              <td key={name} className={`p-4 text-center ${plans.popular[i] ? 'bg-inferno/5' : ''}`}>
+              <td
+                key={name}
+                className={`p-4 text-center ${plans.popular[i] ? 'bg-[#F5F0E8]' : 'bg-[#FAFAF8]'}`}
+              >
                 <a
                   href={BOOKING_URL}
-                  className={`inline-block font-display text-sm tracking-widest px-6 py-3 rounded transition-colors shadow-inferno ${
+                  className={`inline-block font-display text-sm tracking-widest px-6 py-3 rounded transition-colors ${
                     plans.popular[i]
-                      ? 'bg-inferno text-black hover:bg-scorch'
-                      : 'border border-steel text-light hover:border-inferno hover:text-inferno'
+                      ? 'bg-[#FF5500] text-black hover:bg-[#CC3300] shadow-[0_4px_24px_rgba(255,85,0,0.35)]'
+                      : 'border border-[#E0D8CC] text-[#444] hover:border-[#FF5500] hover:text-[#FF5500]'
                   }`}
                 >
                   GET STARTED
@@ -184,34 +189,36 @@ export default function PricingTable() {
   return (
     <div>
       {/* Tabs */}
-      <div className="flex gap-2 mb-8 bg-mid border border-steel rounded p-1 w-fit">
+      <div className="flex gap-2 mb-8 bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl p-1 w-fit shadow-[0_2px_16px_rgba(0,0,0,0.28)]">
         <button
           onClick={() => setActiveTab('systems')}
-          className={`font-display text-sm tracking-widest px-6 py-2.5 rounded transition-all ${
+          className={`font-display text-sm tracking-widest px-6 py-2.5 rounded-lg transition-all ${
             activeTab === 'systems'
-              ? 'bg-inferno text-black shadow-inferno'
-              : 'text-muted hover:text-light'
+              ? 'bg-[#FF5500] text-black shadow-[0_4px_24px_rgba(255,85,0,0.35)]'
+              : 'text-[#666] hover:text-[#0A0A0A]'
           }`}
         >
           ⚡ SYSTEMS
         </button>
         <button
           onClick={() => setActiveTab('content')}
-          className={`font-display text-sm tracking-widest px-6 py-2.5 rounded transition-all ${
+          className={`font-display text-sm tracking-widest px-6 py-2.5 rounded-lg transition-all ${
             activeTab === 'content'
-              ? 'bg-inferno text-black shadow-inferno'
-              : 'text-muted hover:text-light'
+              ? 'bg-[#FF5500] text-black shadow-[0_4px_24px_rgba(255,85,0,0.35)]'
+              : 'text-[#666] hover:text-[#0A0A0A]'
           }`}
         >
           📸 CONTENT
         </button>
       </div>
 
-      {activeTab === 'systems' ? (
-        <PricingTableGrid plans={systemsPlans} rows={systemsRows} />
-      ) : (
-        <PricingTableGrid plans={contentPlans} rows={contentRows} />
-      )}
+      <div className="rounded-xl overflow-hidden border border-[#E0D8CC] shadow-[0_2px_16px_rgba(0,0,0,0.28)]">
+        {activeTab === 'systems' ? (
+          <PricingTableGrid plans={systemsPlans} rows={systemsRows} />
+        ) : (
+          <PricingTableGrid plans={contentPlans} rows={contentRows} />
+        )}
+      </div>
     </div>
   )
 }

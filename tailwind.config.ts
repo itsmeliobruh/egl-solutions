@@ -23,6 +23,12 @@ const config: Config = {
         muted: '#6B5A52',
         light: '#D4C8C0',
         bone: '#F0EDE8',
+        card: '#F5F0E8',
+        'card-border': '#E0D8CC',
+        'card-hover': '#D4C8BC',
+        'card-num': '#C8C0B4',
+        'card-title': '#0A0A0A',
+        'card-body': '#666666',
       },
       fontFamily: {
         display: ['var(--font-bebas)', 'sans-serif'],

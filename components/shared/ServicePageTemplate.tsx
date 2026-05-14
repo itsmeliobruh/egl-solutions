@@ -5,6 +5,7 @@ import SectionLabel from '@/components/shared/SectionLabel'
 import ProcessSteps from '@/components/shared/ProcessSteps'
 import CTAStrip from '@/components/shared/CTAStrip'
 import PricingTable from '@/components/shared/PricingTable'
+import { Card } from '@/components/shared/Card'
 
 const BOOKING_URL = 'https://egl.solutions/booking-step1'
 
@@ -30,7 +31,7 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-16">
           {service.badge && (
-            <span className="font-mono text-[10px] text-black bg-inferno px-3 py-1 rounded uppercase tracking-widest inline-block mb-4">
+            <span className="font-mono text-[10px] text-black bg-[#FF5500] px-3 py-1 rounded-sm uppercase tracking-[0.14em] inline-block mb-4">
               {service.badge}
             </span>
           )}
@@ -48,7 +49,7 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
             {service.originalPrice && (
               <span className="font-body text-muted line-through text-lg">{service.originalPrice}</span>
             )}
-            <span className="font-display text-4xl text-inferno">{service.price}</span>
+            <span className="font-display text-4xl text-[#FF5500]">{service.price}</span>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
@@ -97,9 +98,9 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {service.included.map((item) => (
-              <div key={item} className="flex items-start gap-3 bg-mid border border-steel rounded px-5 py-4">
-                <Check size={16} className="text-inferno mt-0.5 flex-shrink-0" />
-                <span className="font-body text-sm text-light">{item}</span>
+              <div key={item} className="flex items-start gap-3 bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl px-5 py-4">
+                <Check size={16} className="text-[#FF5500] mt-0.5 flex-shrink-0" />
+                <span className="font-body text-sm text-[#333]">{item}</span>
               </div>
             ))}
           </div>
@@ -110,10 +111,10 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
                 {service.addons.map((addon) => (
                   <div
                     key={addon.name}
-                    className="border border-steel rounded px-4 py-3 flex items-center gap-3"
+                    className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl px-4 py-3 flex items-center gap-3"
                   >
-                    <span className="font-body text-sm text-light">{addon.name}</span>
-                    <span className="font-display text-base text-inferno">{addon.price}</span>
+                    <span className="font-body text-sm text-[#333]">{addon.name}</span>
+                    <span className="font-display text-base text-[#FF5500]">{addon.price}</span>
                   </div>
                 ))}
               </div>
@@ -126,34 +127,35 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
       <section className="bg-ash py-20 px-4">
         <div className="max-w-md mx-auto text-center">
           <SectionLabel label="PRICING" className="mb-3 justify-center" />
-          <div
-            className={`bg-mid border rounded p-8 ${
-              service.badge === 'MOST POPULAR' || service.badge === 'MOST VALUE' || service.badge === 'MOST RESULTS'
-                ? 'border-t-2 border-inferno'
-                : 'border-steel'
-            }`}
+          <Card
+            featured={
+              service.badge === 'MOST POPULAR' ||
+              service.badge === 'MOST VALUE' ||
+              service.badge === 'MOST RESULTS'
+            }
+            className="p-8"
           >
             <div className="text-4xl mb-3">{service.emoji}</div>
-            <h3 className="font-display text-2xl text-bone tracking-wide mb-2">{service.name}</h3>
+            <h3 className="font-display text-2xl text-[#0A0A0A] tracking-wide mb-2">{service.name}</h3>
             {service.badge && (
-              <span className="font-mono text-[9px] text-black bg-inferno px-2 py-0.5 rounded uppercase tracking-widest inline-block mb-3">
+              <span className="font-mono text-[9px] text-black bg-[#FF5500] px-2.5 py-1 rounded-sm uppercase tracking-[0.14em] inline-block mb-3">
                 {service.badge}
               </span>
             )}
             <div className="mb-6">
               {service.originalPrice && (
-                <span className="font-body text-sm text-muted line-through block">{service.originalPrice}</span>
+                <span className="font-body text-sm text-[#999] line-through block">{service.originalPrice}</span>
               )}
-              <span className="font-display text-5xl text-inferno">{service.price}</span>
+              <span className="font-display text-5xl text-[#FF5500]">{service.price}</span>
             </div>
             <a
               href={BOOKING_URL}
-              className="block bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno mb-3"
+              className="block bg-[#FF5500] text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_24px_rgba(255,85,0,0.35)] mb-3"
             >
               GET STARTED
             </a>
-            <p className="font-body text-xs text-muted">Month-to-month. No contracts required.</p>
-          </div>
+            <p className="font-body text-xs text-[#888]">Month-to-month. No contracts required.</p>
+          </Card>
         </div>
       </section>
 

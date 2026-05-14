@@ -47,7 +47,7 @@ export default function TradesSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.03 }}
-              className="border border-steel rounded px-4 py-2 font-mono text-xs text-muted uppercase tracking-[0.12em] hover:border-inferno hover:text-inferno transition-all cursor-default"
+              className="bg-[#F5F0E8] border border-[#E0D8CC] rounded px-4 py-2 font-mono text-xs text-[#333] uppercase tracking-[0.12em] hover:border-[#FF5500] hover:text-[#FF5500] transition-all cursor-default"
             >
               {trade}
             </motion.div>

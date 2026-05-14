@@ -31,16 +31,23 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div className="border-b border-steel last:border-0">
+    <div
+      className={`border-b border-[#E0D8CC] last:border-0 transition-colors duration-200 ${
+        open ? 'bg-[#FFFCF7]' : ''
+      }`}
+    >
+      {open && (
+        <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#FF5500] rounded-l-xl" aria-hidden="true" />
+      )}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center justify-between w-full py-5 text-left group"
+        className="flex items-center justify-between w-full py-5 text-left group px-6"
         aria-expanded={open}
       >
-        <span className="font-body font-medium text-light group-hover:text-inferno transition-colors pr-4">
+        <span className={`font-body font-medium transition-colors pr-4 ${open ? 'text-[#0A0A0A]' : 'text-[#0A0A0A] group-hover:text-[#FF5500]'}`}>
           {q}
         </span>
-        <span className="flex-shrink-0 text-inferno">
+        <span className="flex-shrink-0 text-[#FF5500]">
           {open ? <Minus size={18} /> : <Plus size={18} />}
         </span>
       </button>
@@ -53,7 +60,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="font-body text-sm text-muted leading-relaxed pb-5 pr-8">{a}</p>
+            <p className="font-body text-sm text-[#666666] leading-relaxed pb-5 pr-8 px-6">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -63,7 +70,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQSection() {
   return (
-    <section className="bg-void py-24 px-4">
+    <section className="bg-[#0D0D0D] py-24 px-4">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,7 +90,7 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-mid border border-steel rounded px-8"
+          className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.28)] overflow-hidden relative"
         >
           {faqs.map((faq) => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />
