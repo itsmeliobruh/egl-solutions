@@ -16,11 +16,10 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     if (!fitToViewport) return
 
     const calculate = () => {
-      // Navbar (80px) + hero top padding (80px) + hero bottom padding (16px)
-      const reserved = 176
+      // Navbar (80px) + hero top padding (80px) + hero bottom padding (16px) + small buffer (8px)
+      const reserved = 184
       const available = window.innerHeight - reserved
       const calculated = Math.min(1, available / FORM_NATURAL_HEIGHT)
-      // Never go below 0.65 so the form stays readable
       setZoom(Math.max(0.65, calculated))
     }
 
@@ -29,37 +28,19 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     return () => window.removeEventListener('resize', calculate)
   }, [fitToViewport])
 
-  const wrapperStyle = fitToViewport
-    ? {
-        width: '100%',
-        height: `${FORM_NATURAL_HEIGHT * zoom}px`,
-        overflow: 'hidden' as const,
-        borderRadius: '20px',
-      }
-    : { width: '100%' }
-
-  const iframeStyle = fitToViewport
-    ? {
-        width: `${100 / zoom}%`,
-        height: `${FORM_NATURAL_HEIGHT}px`,
-        border: 'none',
-        display: 'block' as const,
-        transform: `scale(${zoom})`,
-        transformOrigin: 'top left',
-      }
-    : {
-        width: '100%',
-        height: `${FORM_NATURAL_HEIGHT}px`,
-        border: 'none',
-        borderRadius: '20px',
-        display: 'block' as const,
-      }
-
   return (
-    <div className="w-full" id="contact-form" style={wrapperStyle}>
+    <div className="w-full" id="contact-form">
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
-        style={iframeStyle}
+        style={{
+          width: '100%',
+          height: `${FORM_NATURAL_HEIGHT}px`,
+          border: 'none',
+          borderRadius: '20px',
+          display: 'block',
+          // CSS zoom shrinks both visual size AND layout footprint — no clipping wrapper needed
+          zoom: fitToViewport ? zoom : 1,
+        }}
         id="inline-wBCLWyveluv1QqGnAKzL"
         data-layout="{'id':'INLINE'}"
         data-trigger-type="alwaysShow"
@@ -73,6 +54,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
         data-layout-iframe-id="inline-wBCLWyveluv1QqGnAKzL"
         data-form-id="wBCLWyveluv1QqGnAKzL"
         title="Main: Website Form"
+        scrolling="no"
       />
       <Script
         src="https://link.msgsndr.com/js/form_embed.js"
