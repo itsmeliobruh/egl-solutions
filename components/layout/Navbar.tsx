@@ -187,10 +187,10 @@ export default function Navbar() {
           </div>
 
           {/* ── DESKTOP RIGHT: Phone + CTA ───────────────────────── */}
-          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <a
               href="tel:+18602003455"
-              className="flex items-center gap-1.5 text-sm font-body text-light hover:text-inferno transition-colors whitespace-nowrap"
+              className="flex items-center gap-2 text-sm font-body font-semibold text-black bg-white hover:bg-gray-100 px-4 py-2.5 rounded-full whitespace-nowrap transition-all shadow-sm"
               aria-label="Call EGL Solutions"
             >
               <Phone size={14} />
@@ -205,15 +205,32 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden text-light hover:text-inferno transition-colors p-1"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* ── MOBILE RIGHT: Phone icon + CTA + Hamburger ───────── */}
+          <div className="lg:hidden flex items-center gap-2 flex-shrink-0">
+            <a
+              href="tel:+18602003455"
+              className="flex items-center gap-1.5 text-xs font-body font-semibold text-black bg-white hover:bg-gray-100 px-3 py-2 rounded-full whitespace-nowrap transition-all shadow-sm"
+              aria-label="Call EGL Solutions"
+            >
+              <Phone size={12} />
+              <span className="hidden xs:inline">(860) 200-3455</span>
+            </a>
+            <a
+              href={BOOKING_URL}
+              className="glass-btn-inferno font-display text-xs px-3 py-2 rounded-full tracking-wider whitespace-nowrap"
+              aria-label="Work with EGL Solutions"
+            >
+              WORK WITH US
+            </a>
+            <button
+              className="text-light hover:text-inferno transition-colors p-1 ml-1"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -361,21 +378,11 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Bottom CTA */}
-            <div className="px-6 pb-10 pt-5 space-y-3 border-t border-white/10">
-              <a
-                href="tel:+18602003455"
-                className="flex items-center justify-center gap-2 text-light/80 hover:text-inferno py-2 text-sm transition-colors"
-              >
-                <Phone size={16} /> (860) 200-3455
-              </a>
-              <a
-                href={BOOKING_URL}
-                className="block w-full bg-inferno text-black font-display text-base px-5 py-4 rounded-full tracking-widest hover:bg-scorch text-center shadow-inferno transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                WORK WITH US
-              </a>
+            {/* Bottom close hint */}
+            <div className="px-6 pb-10 pt-5 border-t border-white/10">
+              <p className="text-center text-light/30 text-xs font-body">
+                Tap anywhere outside to close
+              </p>
             </div>
           </motion.div>
         )}
