@@ -3,10 +3,44 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import GHLForm from '@/components/shared/GHLForm'
+import { ChevronDown } from 'lucide-react'
 
 const BOOKING_URL = 'https://egl.solutions/booking-step1'
 
+function ScrollArrows() {
+  return (
+    <div className="flex items-center justify-center gap-3 mt-6 mb-2" aria-hidden="true">
+      {[0, 1, 2].map((i) => (
+        <motion.div
+          key={i}
+          animate={{ y: [0, 10, 0], opacity: [0.4, 1, 0.4] }}
+          transition={{
+            duration: 1.4,
+            repeat: Infinity,
+            delay: i * 0.2,
+            ease: 'easeInOut',
+          }}
+        >
+          <ChevronDown
+            size={36}
+            strokeWidth={2.5}
+            className="text-white drop-shadow-lg"
+          />
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
 export default function Hero() {
+  const scrollToForm = () => {
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const scrollToPricing = () => {
+    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <section
       className="relative flex items-start overflow-hidden bg-void"
@@ -39,7 +73,7 @@ export default function Hero() {
 
           {/* ── LEFT: Copy ─────────────────────────────────────────── */}
           <div>
-            {/* Free website badge */}
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -52,6 +86,7 @@ export default function Hero() {
               </span>
             </motion.div>
 
+            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,10 +98,7 @@ export default function Hero() {
               LOCAL BUSINESS
               <br />
               WITH{' '}
-              <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: '2px #FF5500' }}
-              >
+              <span className="text-transparent" style={{ WebkitTextStroke: '2px #FF5500' }}>
                 SMART
               </span>
               <br />
@@ -75,6 +107,7 @@ export default function Hero() {
               SOLUTIONS!
             </motion.h1>
 
+            {/* Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,40 +118,40 @@ export default function Hero() {
               helping your local service business scale faster than ever.
             </motion.p>
 
-            {/* ── MOBILE FORM — appears right under the description ── */}
+            {/* ── MOBILE ONLY: CTA buttons above the form ─────────── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="lg:hidden mb-8"
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 mb-8 lg:hidden"
             >
-              <GHLForm />
-            </motion.div>
-
-            {/* CTA buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <a
-                href={BOOKING_URL}
+              <button
+                onClick={scrollToForm}
                 className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
-                aria-label="Work with EGL Solutions"
               >
                 ⚡ WORK WITH US
-              </a>
-              <Link
-                href="/pricing"
+              </button>
+              <button
+                onClick={scrollToPricing}
                 className="inline-flex items-center justify-center gap-2 border-2 border-inferno text-inferno font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-inferno/10 transition-colors"
               >
                 VIEW PRICING
-              </Link>
+              </button>
+            </motion.div>
+
+            {/* ── MOBILE ONLY: Form ────────────────────────────────── */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="lg:hidden"
+            >
+              <GHLForm />
+              <ScrollArrows />
             </motion.div>
           </div>
 
-          {/* ── RIGHT: GHL Form (desktop only) ─────────────────────── */}
+          {/* ── RIGHT: Form (desktop only, no CTA buttons) ─────────── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
