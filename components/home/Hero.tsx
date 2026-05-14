@@ -54,8 +54,8 @@ export default function Hero() {
       <div className="noise-overlay" aria-hidden="true" />
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
-      {/* lg:pt-28 gives breathing room between navbar and content on desktop */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20 pb-8 lg:pt-28 lg:pb-6">
+      {/* pt-16 on mobile keeps content compact so arrows stay above fold */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-16 pb-8 lg:pt-28 lg:pb-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── LEFT: Copy ─────────────────────────────────────────── */}
@@ -73,12 +73,12 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Headline — smaller on mobile so arrows stay above the fold */}
+            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-bone leading-tight tracking-wider mb-4"
+              className="font-display text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-bone leading-tight tracking-wider mb-3"
             >
               EMPOWERING
               <br />
@@ -94,21 +94,12 @@ export default function Hero() {
               SOLUTIONS!
             </motion.h1>
 
-            {/* Arrows — right after headline so they're visible on first load on mobile */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.25 }}
-            >
-              <ScrollArrows />
-            </motion.div>
-
-            {/* Subtext — desktop always, mobile below the fold (users scroll) */}
+            {/* Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="font-body text-light/80 text-lg leading-relaxed mb-6 max-w-lg"
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="font-body text-light/80 text-base lg:text-lg leading-relaxed mb-4 max-w-lg"
             >
               Dedicated to crafting impactful systems that attract, convert, and retain customers,
               helping your local service business scale faster than ever.
@@ -118,21 +109,30 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 mb-8 lg:hidden"
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-3 mb-0 lg:hidden"
             >
               <button
                 onClick={scrollToForm}
-                className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
+                className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-base px-6 py-3 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
               >
                 ⚡ WORK WITH US
               </button>
               <button
                 onClick={scrollToPricing}
-                className="inline-flex items-center justify-center gap-2 border-2 border-inferno text-inferno font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-inferno/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-inferno text-inferno font-display text-base px-6 py-3 rounded tracking-widest hover:bg-inferno/10 transition-colors"
               >
                 VIEW PRICING
               </button>
+            </motion.div>
+
+            {/* ── MOBILE ONLY: Arrows below View Pricing, visible on load ── */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+            >
+              <ScrollArrows />
             </motion.div>
 
             {/* ── MOBILE ONLY: Form ────────────────────────────────── */}
