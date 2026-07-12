@@ -5,15 +5,15 @@ import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
 import { Card } from '@/components/shared/Card'
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
 const services = [
-  { href: '/services/website-and-systems', emoji: '🚀', name: 'Website + Systems', price: '$297/mo', description: 'High-converting website + full marketing automation.' },
-  { href: '/services/lead-generation', emoji: '🚀', name: 'Lead Generation', price: '$1,499/mo', description: 'Google Ads, Facebook, LSA — consistent leads on autopilot.' },
-  { href: '/services/all-in-one-system', emoji: '🚀', name: 'All-In-One System', price: '$2,499/mo', description: 'Complete growth powerhouse with AI and full automation.' },
-  { href: '/services/content-foundation', emoji: '📸', name: 'Content Foundation', price: '$997/mo', description: '1 filming day, 10–12 short-form videos per month.' },
-  { href: '/services/content-growth', emoji: '📸', name: 'Content Growth', price: '$2,499/mo', description: '2 filming days, 15–25 videos + full content strategy.' },
-  { href: '/services/content-authority', emoji: '📸', name: 'Content Authority', price: '$4,997/mo', description: '3–4 filming days, 30–40 videos — dominate your market.' },
+  { href: '/services/website-and-systems', emoji: '🚀', name: 'Growth Foundation', price: '$1,000 setup + $297/mo', description: 'Website, CRM, lead capture, follow-up, reviews, and tracking.' },
+  { href: '/services/lead-generation', emoji: '🚀', name: 'Lead Flow System', price: '$2,000 setup + $1,500/mo', description: 'Google, Meta Ads, LSA — generate and capture new leads every month. Ad spend separate.' },
+  { href: '/services/all-in-one-system', emoji: '🚀', name: 'Revenue Engine', price: '$5,000 setup + $2,997/mo', description: 'Complete done-for-you growth system with AI, ads, content, and reporting. Ad spend separate.' },
+  { href: '/services/content-foundation', emoji: '📸', name: 'Content Starter', price: '$997/mo', description: '1 filming day, 8–12 short-form videos per month.' },
+  { href: '/services/content-growth', emoji: '📸', name: 'Content Growth', price: '$1,997/mo', description: '2 filming days, 15–20 videos + full content strategy.' },
+  { href: '/services/content-authority', emoji: '📸', name: 'Local Authority Content', price: '$3,997/mo', description: '3 filming days max, 25–30 videos — dominate your local market.' },
 ]
 
 const trades = [
@@ -84,7 +84,7 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
             </a>
             <a
               href="tel:+18602003455"
-              className="inline-flex items-center justify-center gap-2 border-2 border-steel text-light font-display text-sm px-8 py-4 rounded tracking-widest hover:border-inferno hover:text-inferno transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-black font-display text-sm px-8 py-4 rounded tracking-widest hover:bg-gray-100 transition-colors shadow-sm"
             >
               <Phone size={16} /> (860) 200-3455
             </a>
@@ -175,10 +175,10 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
               </div>
             ))}
           </div>
-          <p className="font-body text-sm text-muted mb-6">
+          <p className="font-body text-sm text-[#CCCCCC] mb-6">
             Don&apos;t see your trade? We work with all local service businesses in {location}.
           </p>
-          <Link href="/contact" className="inline-block border-2 border-inferno text-inferno font-display text-sm px-6 py-3 rounded tracking-widest hover:bg-inferno/10 transition-colors">
+          <Link href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding" className="inline-block bg-[#FF5500] text-white font-display text-sm px-6 py-3 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_24px_rgba(255,85,0,0.35)]">
             CONTACT US
           </Link>
         </div>
@@ -193,7 +193,7 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
-            name: 'EGL Solutions',
+            name: 'EGL Marketing',
             description: `Marketing agency serving local service businesses in ${location}.`,
             url: `https://egl.solutions/service-areas/${area.slug}`,
             telephone: '+18602003455',

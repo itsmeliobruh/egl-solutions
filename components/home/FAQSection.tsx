@@ -4,38 +4,20 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
+import type { FAQItemData } from '@/lib/payload/queries'
 
-const faqs = [
-  {
-    q: 'Can you provide references from past clients?',
-    a: "Absolutely. We can provide references from past clients. You can also read reviews from our satisfied customers on Google. Contact information for specific past clients available upon request.",
-  },
-  {
-    q: 'What sets you apart from other agencies?',
-    a: "At EGL Solutions, we distinguish ourselves through meticulous attention to detail, a dedication to quality results, and a personalized approach. We prioritize communication to seamlessly bring your vision to life.",
-  },
-  {
-    q: 'Is there a fee for a consultation?',
-    a: "No. EGL Solutions offers complimentary consultations and estimates to all prospective clients.",
-  },
-  {
-    q: 'How long does it take to build my system?',
-    a: "Most systems are built and launched within 7–10 business days after receiving your onboarding information.",
-  },
-  {
-    q: 'Do I need a contract?',
-    a: "We offer month-to-month agreements. No long-term contracts required.",
-  },
+const DEFAULT_FAQS: FAQItemData[] = [
+  { question: 'Can you provide references from past clients?', answer: 'Absolutely. We can provide references from past clients. You can also read reviews from our satisfied customers on Google. Contact information for specific past clients available upon request.', group: 'homepage' },
+  { question: 'What sets you apart from other agencies?', answer: 'At EGL Marketing, we distinguish ourselves through meticulous attention to detail, a dedication to quality results, and a personalized approach. We prioritize communication to seamlessly bring your vision to life.', group: 'homepage' },
+  { question: 'Is there a fee for a consultation?', answer: 'No. EGL Marketing offers complimentary consultations and estimates to all prospective clients.', group: 'homepage' },
+  { question: 'How long does it take to build my system?', answer: 'Most systems are built and launched within 7–10 business days after receiving your onboarding information.', group: 'homepage' },
+  { question: 'Do I need a contract?', answer: 'We offer month-to-month agreements. No long-term contracts required.', group: 'homepage' },
 ]
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div
-      className={`border-b border-[#E0D8CC] last:border-0 transition-colors duration-200 ${
-        open ? 'bg-[#FFFCF7]' : ''
-      }`}
-    >
+    <div className={`border-b border-[#E0D8CC] last:border-0 transition-colors duration-200 ${open ? 'bg-[#FFFCF7]' : ''}`}>
       {open && (
         <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#FF5500] rounded-l-xl" aria-hidden="true" />
       )}
@@ -68,7 +50,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   )
 }
 
-export default function FAQSection() {
+export default function FAQSection({ faqs }: { faqs?: FAQItemData[] | null }) {
+  const items = faqs ?? DEFAULT_FAQS
+
   return (
     <section className="bg-[#0D0D0D] py-24 px-4">
       <div className="max-w-3xl mx-auto">
@@ -92,8 +76,8 @@ export default function FAQSection() {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.28)] overflow-hidden relative"
         >
-          {faqs.map((faq) => (
-            <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+          {items.map((faq) => (
+            <FAQItem key={faq.question} q={faq.question} a={faq.answer} />
           ))}
         </motion.div>
       </div>

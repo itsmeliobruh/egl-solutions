@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Check, Minus, Plus } from 'lucide-react'
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book'
 
 type CellValue = boolean | string | 'addon' | '—'
 

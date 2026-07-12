@@ -1,204 +1,227 @@
 'use client'
 
-import { useState } from 'react'
+import { Check } from 'lucide-react'
 import { PricingCard, type PricingCardData } from '@/components/pricing/PricingCard'
-import { PricingToggle } from '@/components/pricing/PricingToggle'
 import { PricingCarousel } from '@/components/pricing/PricingCarousel'
+import { BOOKING_LINKS } from '@/lib/bookingLinks'
+import type { ContentAddOnData } from '@/lib/payload/queries'
 
-const CONSULTATION_URL =
-  'https://egl.solutions/booking-step1?services_interested=FREE+Consultation'
+const CONSULTATION_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
-const systemsCards: PricingCardData[] = [
+const coreCards: PricingCardData[] = [
   {
-    title: '[ Website + Systems ]',
-    subtitle: 'Essentials to Get You Started',
-    price: 297,
-    oldPrice: null,
-    savings: null,
-    cta: 'Get Started Now',
-    badge: null,
-    features: [
-      'Website Design',
-      'SEO Optimization',
-      'Lead Capture Form',
-      'Central Marketing Hub',
-      'Appointment Reminders',
-      'Google Review Capture',
-      'AI Chat Agents',
-      'Lead Reactivation Campaigns',
-      'Reputation Management',
-      'Ongoing Support',
-    ],
-    addons: ['Google Business Setup ($499)', 'Google Local Service Advertising ($299)'],
-    href: '/services/website-and-systems',
-  },
-  {
-    title: '[ Lead Generation ]',
-    subtitle: 'High-Performance Growth System',
-    price: 1499,
-    oldPrice: 1999,
-    savings: '$500 OFF',
-    cta: 'Boost My Growth',
+    title: 'Growth Foundation',
+    tagline: 'Build the system before you buy more traffic.',
+    description: 'For businesses that need a website, CRM, follow-up, reviews, and tracking built right.',
+    setup: 1000,
+    monthly: 297,
+    adSpendSeparate: false,
+    cta: 'Build My Foundation',
     badge: 'MOST POPULAR',
     features: [
-      'Everything In Website + Systems',
-      'PLUS',
-      'Google Business Setup',
-      'Google Local Service Advertising (LSA)',
-      'Facebook Business Page Setup',
-      'Facebook Ads Campaign Setup',
-      'Ad Creatives & Copy',
-      'Pixel & Tracking Setup',
-      'Monthly Performance Report',
+      '10–15 page high-converting website',
+      'Lead capture form + call button + booking link',
+      'CRM pipeline setup',
+      'Basic SMS/email follow-up automations',
+      'Google review request workflow',
+      'Review capture system',
+      'Lead source tracking',
+      'Light monthly support',
     ],
-    addons: ['In Person Content Shoot ($499)'],
-    href: '/services/lead-generation',
+    bookingHref: BOOKING_LINKS['website-and-systems'],
   },
   {
-    title: '[ All-In-One System ]',
-    subtitle: 'Your All-In-One Marketing Powerhouse',
-    price: 2499,
-    oldPrice: null,
-    savings: null,
-    cta: 'Go All In',
+    title: 'Lead Flow System',
+    tagline: 'Generate, capture, and follow up with new leads every month.',
+    description: 'For businesses ready to run ads and create predictable, consistent lead flow.',
+    setup: 2000,
+    monthly: 1500,
+    adSpendSeparate: true,
+    cta: 'Get More Leads',
     badge: 'MOST VALUE',
     features: [
-      'Everything In Lead Generation',
+      'Everything in Growth Foundation',
       'PLUS',
-      'Custom Built Central Marketing Hub',
-      'Advanced AI Agents',
-      'Pipeline Automations',
-      'Power Dialers',
-      'Email and SMS Marketing',
-      'Lead Attribution & Distribution',
-      'Dedicated 24/7 Support',
-      'Assigned Client Success Manager',
-      '1 In Person Content Shoot /Month',
+      'Google Business Profile setup & optimization',
+      'Local Service Ads setup, if eligible',
+      'Meta Ads setup',
+      'Google Ads setup (optional by industry)',
+      'Offer-specific landing page',
+      'Pixel, UTM & call tracking',
+      'Monthly performance report',
+      'Leads, appointments & cost per lead reporting',
+      'Weekly campaign adjustments',
     ],
-    subFeatures: [
-      'AI Receptionist',
-      'AI Appointment Setter',
-      'AI Chat Bot',
-      'AI Reputation Management',
-    ],
-    addons: [],
-    href: '/services/all-in-one-system',
-  },
-]
-
-const contentCards: PricingCardData[] = [
-  {
-    title: '[ Content Foundation ]',
-    subtitle: 'Establish Your Presence',
-    price: 997,
-    oldPrice: null,
-    savings: null,
-    cta: 'Start Creating',
-    badge: null,
-    features: [
-      '1 Filming Day / Month',
-      '10–12 Short-Form Videos',
-      'Simple Editing',
-      'Posting Guidance',
-      'Content Calendar',
-      'Content Dashboard',
-      'Monthly Review',
-    ],
-    addons: [],
-    href: '/services/content-foundation',
+    bookingHref: BOOKING_LINKS['lead-generation'],
   },
   {
-    title: '[ Content Growth ]',
-    subtitle: 'Get More Leads With Content',
-    price: 2499,
-    oldPrice: 3299,
-    savings: '$800 OFF',
-    cta: 'Grow My Brand',
-    badge: 'MOST POPULAR',
-    features: [
-      '2 Filming Days / Month',
-      '15–25 Short-Form Videos',
-      'Advanced Editing',
-      'Content Strategy + Topic Planning',
-      'Content Calendar + Scripting',
-      'Content Dashboard',
-      'Posting: IG, TikTok, Facebook, YouTube',
-      'Monthly Review',
-    ],
-    addons: [],
-    href: '/services/content-growth',
-  },
-  {
-    title: '[ Content Authority ]',
-    subtitle: 'Dominate Your Local Market',
-    price: 4997,
-    oldPrice: null,
-    savings: null,
-    cta: 'Dominate My Market',
+    title: 'Revenue Engine',
+    tagline: 'The complete done-for-you growth system.',
+    description: 'Website, CRM, ads, AI follow-up, content, reviews, reporting, and optimization.',
+    setup: 5000,
+    monthly: 2997,
+    adSpendSeparate: true,
+    cta: 'Build My Growth Engine',
     badge: 'MOST RESULTS',
     features: [
-      '3–4 Filming Days / Month',
-      '30–40 Short-Form Videos',
-      'Advanced Editing',
-      'Content Strategy + Topic Planning',
-      'Content Calendar + Scripting',
-      'Content Dashboard',
-      'Posting: IG, TikTok, Facebook, YouTube',
-      'CRM & Lead Nurture Integration',
-      'Monthly Review',
+      'Everything in Lead Flow System',
+      'PLUS',
+      'Advanced AI agents',
+      'AI chat agent + missed-call text-back',
+      'AI appointment setter',
+      'Sales pipeline automations',
+      'Lead reactivation campaign',
+      'Automated review engine',
+      'Email/SMS nurture',
+      '1 filming day + 8–12 videos/mo',
+      'Monthly strategy call',
+      'Priority support',
     ],
-    addons: [],
-    href: '/services/content-authority',
+    bookingHref: BOOKING_LINKS['all-in-one-system'],
   },
 ]
 
-export default function PricingSection() {
-  const [activeTab, setActiveTab] = useState<'systems' | 'content'>('systems')
+const contentAddOns = [
+  {
+    name: 'Content Starter',
+    price: '$997/mo',
+    bestFor: 'Businesses that need consistent trust-building content without a full content team.',
+    includes: [
+      '1 filming day per month',
+      '8–12 short-form videos per month',
+      'Captions included',
+      'Posting guidance',
+      'Basic content calendar',
+    ],
+    bookingHref: BOOKING_LINKS['content-foundation'],
+  },
+  {
+    name: 'Content Growth',
+    price: '$1,997/mo',
+    badge: 'MOST POPULAR',
+    bestFor: 'Businesses that want to post more consistently and build stronger local authority.',
+    includes: [
+      '2 filming days per month',
+      '15–20 short-form videos per month',
+      'Hooks/scripts included',
+      'Content calendar + strategy',
+      'Posting support',
+      'Monthly strategy call',
+    ],
+    bookingHref: BOOKING_LINKS['content-growth'],
+  },
+  {
+    name: 'Local Authority Content',
+    price: '$3,997/mo',
+    bestFor: 'Businesses that want to dominate their local market with content, trust, and testimonials.',
+    includes: [
+      '3 filming days per month max',
+      '25–30 short-form videos per month',
+      'Founder/owner content',
+      'Team/trust content',
+      'Testimonial content',
+      'Monthly campaign themes',
+      'Posting support',
+    ],
+    bookingHref: BOOKING_LINKS['content-authority'],
+  },
+]
 
-  const cards = activeTab === 'systems' ? systemsCards : contentCards
-
-  function handleTabChange(tab: 'systems' | 'content') {
-    setActiveTab(tab)
-  }
-
+export default function PricingSection({
+  cards,
+  addOns,
+}: {
+  cards?: PricingCardData[] | null
+  addOns?: ContentAddOnData[] | null
+}) {
+  const coreCardsData = cards ?? coreCards
+  const contentAddOnsData = addOns ?? contentAddOns
   return (
     <section id="pricing" className="bg-[#080808] py-24 px-6 md:px-16">
       <div className="max-w-6xl mx-auto">
+
         {/* Label + Heading */}
         <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#FF5500] mb-2">
           04 — PRICING
         </p>
-        <h2 className="font-display text-5xl md:text-6xl tracking-wide text-white mb-6">
-          CHOOSE YOUR PLAN
+        <h2 className="font-display text-5xl md:text-6xl tracking-wide text-white mb-2">
+          CHOOSE YOUR GROWTH SYSTEM
         </h2>
-
-        {/* Toggle */}
-        <div className="flex justify-center">
-          <PricingToggle activeTab={activeTab} onTabChange={handleTabChange} />
-        </div>
+        <p className="font-body text-[#AAAAAA] text-base mb-10 max-w-xl">
+          Three systems built to fit where you are now and where you want to go. Month-to-month. No long-term contracts.
+        </p>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-3 gap-6 items-stretch">
-          {cards.map((card) => (
+        <div className="hidden md:grid grid-cols-3 gap-6 items-stretch mb-6">
+          {coreCardsData.map((card) => (
             <PricingCard key={card.title} {...card} />
           ))}
         </div>
 
         {/* Mobile carousel */}
-        <div className="md:hidden">
-          <PricingCarousel cards={cards} resetKey={activeTab} />
+        <div className="md:hidden mb-6">
+          <PricingCarousel cards={coreCardsData} resetKey="core" />
+        </div>
+
+        {/* Content Add-Ons */}
+        <div className="mt-20">
+          <div className="mb-8">
+            <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#FF5500] mb-2">
+              CONTENT ADD-ONS
+            </p>
+            <h3 className="font-display text-3xl md:text-4xl tracking-wide text-white mb-2">
+              Add Content to Any Plan
+            </h3>
+            <p className="font-body text-[#AAAAAA] text-sm max-w-lg">
+              Build trust, stay visible, and turn your business into the obvious local choice with monthly short-form content.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {contentAddOnsData.map((addon) => (
+              <div
+                key={addon.name}
+                className="relative rounded-xl bg-[#F5F0E8] border border-[#E0D8CC] shadow-[0_2px_16px_rgba(0,0,0,0.28)] flex flex-col overflow-hidden"
+              >
+                {addon.badge && (
+                  <div className="bg-[#FF5500] text-white text-center font-mono text-[9px] tracking-[0.2em] uppercase py-1.5">
+                    {addon.badge}
+                  </div>
+                )}
+                <div className="p-5 flex-1 flex flex-col">
+                  <p className="font-display text-xl tracking-wide text-[#0A0A0A] mb-1">{addon.name}</p>
+                  <p className="font-display text-2xl text-[#FF5500] mb-3">{addon.price}</p>
+                  <p className="font-body text-xs text-[#666] italic mb-4 leading-relaxed">{addon.bestFor}</p>
+                  <div className="space-y-1.5 mb-5 flex-1">
+                    {addon.includes.map((item) => (
+                      <div key={item} className="flex items-start gap-2">
+                        <Check size={12} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
+                        <span className="font-body text-sm text-[#333]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <a
+                    href={addon.bookingHref}
+                    className="block text-center bg-[#0A0A0A] text-white font-display text-sm tracking-widest py-3 rounded-lg hover:bg-[#222] transition-colors"
+                  >
+                    Add Content
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#888] mb-4">
-            NEED HELP DECIDING?
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-[#CCCCCC] mb-4">
+            NOT SURE WHICH PLAN IS RIGHT FOR YOU?
           </p>
           <a
             href={CONSULTATION_URL}
             className="inline-block bg-transparent border border-[#FF5500] text-[#FF5500] font-bold text-base px-10 py-4 rounded-lg hover:bg-[#FF5500] hover:text-black transition-colors tracking-widest"
           >
-            SCHEDULE FREE CALL
+            SCHEDULE A FREE CALL
           </a>
         </div>
       </div>

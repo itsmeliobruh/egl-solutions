@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion'
 import SectionLabel from '@/components/shared/SectionLabel'
 import ProcessSteps from '@/components/shared/ProcessSteps'
+import type { ProcessStepData } from '@/lib/payload/queries'
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
-export default function ProcessSection() {
+export default function ProcessSection({ steps }: { steps?: ProcessStepData[] | null }) {
   return (
     <section className="bg-[#0D0D0D] py-24 px-4" id="process">
       <div className="max-w-7xl mx-auto">
@@ -23,7 +24,7 @@ export default function ProcessSection() {
           </h2>
         </motion.div>
 
-        <ProcessSteps />
+        <ProcessSteps steps={steps} />
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

@@ -28,11 +28,11 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'EGL Solutions | Marketing Agency for Local Service Businesses in CT',
-    template: '%s | EGL Solutions',
+    default: 'EGL Marketing | Marketing Agency for Local Service Businesses in CT',
+    template: '%s | EGL Marketing',
   },
   description:
-    'EGL Solutions helps local service businesses in Connecticut grow with high-converting websites, lead generation, AI automation, and content creation. Based in Wethersfield, CT. Call (860) 200-3455.',
+    'EGL Marketing helps local service businesses in Connecticut grow with high-converting websites, lead generation, AI automation, and content creation. Based in Wethersfield, CT. Call (860) 200-3455.',
   keywords: [
     'marketing agency Connecticut',
     'lead generation CT',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL('https://egl.solutions'),
   openGraph: {
-    siteName: 'EGL Solutions',
+    siteName: 'EGL Marketing',
     type: 'website',
     locale: 'en_US',
   },

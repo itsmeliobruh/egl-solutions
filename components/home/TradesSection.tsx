@@ -61,13 +61,13 @@ export default function TradesSection() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-center"
         >
-          <p className="font-body text-muted mb-4">
+          <p className="font-body text-[#CCCCCC] mb-4">
             Don&apos;t see your trade? No problem — if you run a local service business, we can build the
             marketing system to grow it.
           </p>
           <Link
-            href="/contact"
-            className="inline-block border-2 border-inferno text-inferno font-display text-sm px-8 py-3 rounded tracking-widest hover:bg-inferno/10 transition-colors"
+            href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"
+            className="inline-block bg-[#FF5500] text-white font-display text-sm px-8 py-3 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_24px_rgba(255,85,0,0.35)]"
           >
             LET&apos;S TALK
           </Link>

@@ -15,14 +15,25 @@ interface Props {
 }
 
 export function PricingCarousel({ cards, resetKey }: Props) {
-  const [active, setActive]     = useState(0)
-  const [cardW, setCardW]       = useState(280)   // updated on mount/resize
+  // Internal index: 0 = clone-of-last, 1..N = real cards, N+1 = clone-of-first
+  const [index, setIndex]       = useState(1)
+  const [animate, setAnimate]   = useState(true)
+  const [cardW, setCardW]       = useState(280)
   const [isAuto, setIsAuto]     = useState(true)
 
-  const containerRef  = useRef<HTMLDivElement>(null)
-  const touchStartX   = useRef<number | null>(null)
-  const autoTimerRef  = useRef<ReturnType<typeof setInterval> | null>(null)
+  const containerRef   = useRef<HTMLDivElement>(null)
+  const touchStartX    = useRef<number | null>(null)
+  const autoTimerRef   = useRef<ReturnType<typeof setInterval> | null>(null)
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const transitioning  = useRef(false)
+
+  const N = cards.length
+
+  // Cloned track: [last, ...cards, first]
+  const track = [cards[N - 1], ...cards, cards[0]]
+
+  // Active card index (0-based) for dot/button logic
+  const active = index - 1  // 0..N-1 when in real range
 
   // ── Measure card width from container ──────────────────────────────────
   useEffect(() => {
@@ -36,8 +47,35 @@ export function PricingCarousel({ cards, resetKey }: Props) {
     return () => window.removeEventListener('resize', measure)
   }, [])
 
-  // ── Reset to first card when tab changes ───────────────────────────────
-  useEffect(() => { setActive(0) }, [resetKey])
+  // ── Reset to first real card when tab changes ───────────────────────────
+  useEffect(() => {
+    setAnimate(false)
+    setIndex(1)
+    // Re-enable animation after one frame
+    requestAnimationFrame(() => requestAnimationFrame(() => setAnimate(true)))
+  }, [resetKey])
+
+  // ── Snap logic: after transition ends, silently jump back into real range ─
+  const handleTransitionEnd = useCallback(() => {
+    transitioning.current = false
+    if (index === 0) {
+      // Jumped past the start — snap to real last card
+      setAnimate(false)
+      setIndex(N)
+    } else if (index === N + 1) {
+      // Jumped past the end — snap to real first card
+      setAnimate(false)
+      setIndex(1)
+    }
+  }, [index, N])
+
+  // Re-enable animation after a snap (next paint after animate=false)
+  useEffect(() => {
+    if (!animate) {
+      const id = requestAnimationFrame(() => requestAnimationFrame(() => setAnimate(true)))
+      return () => cancelAnimationFrame(id)
+    }
+  }, [animate])
 
   // ── Auto-scroll helpers ────────────────────────────────────────────────
   const stopAuto = useCallback(() => {
@@ -51,11 +89,11 @@ export function PricingCarousel({ cards, resetKey }: Props) {
     stopAuto()
     setIsAuto(true)
     autoTimerRef.current = setInterval(() => {
-      setActive(i => (i + 1) % cards.length)
+      setIndex(i => i + 1)
+      setAnimate(true)
     }, AUTO_DELAY)
-  }, [cards.length, stopAuto])
+  }, [stopAuto])
 
-  // Called on any user interaction — pauses auto, schedules resume
   const onEngage = useCallback(() => {
     stopAuto()
     setIsAuto(false)
@@ -63,7 +101,6 @@ export function PricingCarousel({ cards, resetKey }: Props) {
     resumeTimerRef.current = setTimeout(startAuto, RESUME_DELAY)
   }, [stopAuto, startAuto])
 
-  // Start auto-scroll on mount, clean up on unmount
   useEffect(() => {
     startAuto()
     return () => {
@@ -73,9 +110,21 @@ export function PricingCarousel({ cards, resetKey }: Props) {
   }, [startAuto, stopAuto])
 
   // ── Navigation ─────────────────────────────────────────────────────────
-  const go   = (i: number) => { setActive(i); onEngage() }
-  const prev = () => { setActive(i => Math.max(0, i - 1)); onEngage() }
-  const next = () => { setActive(i => Math.min(cards.length - 1, i + 1)); onEngage() }
+  const go = (realIndex: number) => {
+    setAnimate(true)
+    setIndex(realIndex + 1)
+    onEngage()
+  }
+  const prev = () => {
+    setAnimate(true)
+    setIndex(i => i - 1)
+    onEngage()
+  }
+  const next = () => {
+    setAnimate(true)
+    setIndex(i => i + 1)
+    onEngage()
+  }
 
   // ── Touch / swipe ──────────────────────────────────────────────────────
   const onTouchStart = (e: React.TouchEvent) => {
@@ -89,8 +138,10 @@ export function PricingCarousel({ cards, resetKey }: Props) {
     touchStartX.current = null
   }
 
-  // Pixel offset of the sliding track
-  const translateX = active * (cardW + GAP)
+  // Clamp active for dot display (handles clone positions 0 and N+1)
+  const activeDot = index <= 0 ? N - 1 : index >= N + 1 ? 0 : index - 1
+
+  const translateX = index * (cardW + GAP)
 
   return (
     <div className="flex flex-col gap-5">
@@ -98,18 +149,19 @@ export function PricingCarousel({ cards, resetKey }: Props) {
       {/* ── Sliding track ─────────────────────────────────────────── */}
       <div ref={containerRef} className="overflow-hidden w-full">
         <div
-          className="flex transition-transform duration-300 ease-in-out"
+          className={animate ? 'flex transition-transform duration-300 ease-in-out' : 'flex'}
           style={{ gap: `${GAP}px`, transform: `translateX(-${translateX}px)` }}
+          onTransitionEnd={handleTransitionEnd}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          {cards.map((card, i) => (
+          {track.map((card, i) => (
             <div
               key={i}
               className="flex-shrink-0 transition-opacity duration-300"
               style={{
                 width: cardW,
-                opacity: i === active ? 1 : 0.55,
+                opacity: i === index ? 1 : 0.55,
               }}
             >
               <PricingCard {...card} />
@@ -122,16 +174,15 @@ export function PricingCarousel({ cards, resetKey }: Props) {
       <div className="flex items-center justify-center gap-4">
         <button
           onClick={prev}
-          disabled={active === 0}
           className="w-9 h-9 rounded-full bg-[#1A1A1A] border border-[#333] text-white
                      flex items-center justify-center hover:bg-[#FF5500] hover:border-[#FF5500]
-                     disabled:opacity-20 transition-all"
+                     transition-all"
           aria-label="Previous card"
         >
           <ChevronLeft size={16} />
         </button>
 
-        {/* Pill dots — active dot stretches wide */}
+        {/* Pill dots */}
         <div className="flex items-center gap-1.5">
           {cards.map((_, i) => (
             <button
@@ -139,7 +190,7 @@ export function PricingCarousel({ cards, resetKey }: Props) {
               onClick={() => go(i)}
               aria-label={`Go to card ${i + 1}`}
               className={`rounded-full transition-all duration-300 ${
-                i === active
+                i === activeDot
                   ? 'w-6 h-2 bg-[#FF5500]'
                   : 'w-2 h-2 bg-[#444] hover:bg-[#666]'
               }`}
@@ -149,10 +200,9 @@ export function PricingCarousel({ cards, resetKey }: Props) {
 
         <button
           onClick={next}
-          disabled={active === cards.length - 1}
           className="w-9 h-9 rounded-full bg-[#1A1A1A] border border-[#333] text-white
                      flex items-center justify-center hover:bg-[#FF5500] hover:border-[#FF5500]
-                     disabled:opacity-20 transition-all"
+                     transition-all"
           aria-label="Next card"
         >
           <ChevronRight size={16} />

@@ -1,22 +1,23 @@
 import type { Metadata } from 'next'
 import { getServiceBySlug } from '@/lib/services'
+import { getPayloadServiceBySlug } from '@/lib/payload/queries'
 import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Lead Generation | Google & Facebook Ads for Contractors in CT',
+  title: 'Lead Flow System | Done-For-You Lead Generation for Local Service Businesses',
   description:
-    'Managed Google Ads, Facebook campaigns, LSA, and ad creatives for local service businesses in Connecticut. Consistent leads on autopilot. $1,499/mo. EGL Solutions.',
+    'Generate, capture, and follow up with new leads every month. Google Ads, Meta Ads, LSA, CRM, tracking, and monthly reporting. $2,000 setup + $1,500/mo. Ad spend separate. EGL Marketing.',
   alternates: { canonical: 'https://egl.solutions/services/lead-generation' },
   openGraph: {
-    title: 'Lead Generation — EGL Solutions',
-    description: 'Google, Facebook ads, LSA, and full tracking. Consistent leads for Connecticut contractors. $1,499/mo.',
+    title: 'Lead Flow System — EGL Marketing',
+    description: 'Done-for-you lead generation. Google, Meta Ads, LSA, tracking, and reporting. $2,000 setup + $1,500/mo.',
     url: 'https://egl.solutions/services/lead-generation',
   },
 }
 
-export default function Page() {
-  const service = getServiceBySlug('lead-generation')
+export default async function Page() {
+  const service = (await getPayloadServiceBySlug('lead-generation')) ?? getServiceBySlug('lead-generation')
   if (!service) notFound()
   return <ServicePageTemplate service={service} />
 }

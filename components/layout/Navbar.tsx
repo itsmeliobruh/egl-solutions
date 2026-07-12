@@ -6,15 +6,15 @@ import Image from 'next/image'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book'
 
 const serviceLinks = [
-  { href: '/services/website-and-systems', label: 'Website + Systems', emoji: '🚀' },
-  { href: '/services/lead-generation', label: 'Lead Generation', emoji: '🚀' },
-  { href: '/services/all-in-one-system', label: 'All-In-One System', emoji: '🚀' },
-  { href: '/services/content-foundation', label: 'Content Foundation', emoji: '📸' },
+  { href: '/services/website-and-systems', label: 'Growth Foundation', emoji: '🚀' },
+  { href: '/services/lead-generation', label: 'Lead Flow System', emoji: '🚀' },
+  { href: '/services/all-in-one-system', label: 'Revenue Engine', emoji: '🚀' },
+  { href: '/services/content-foundation', label: 'Content Starter', emoji: '📸' },
   { href: '/services/content-growth', label: 'Content Growth', emoji: '📸' },
-  { href: '/services/content-authority', label: 'Content Authority', emoji: '📸' },
+  { href: '/services/content-authority', label: 'Local Authority Content', emoji: '📸' },
 ]
 
 const areaLinks = [
@@ -73,11 +73,11 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="EGL Solutions home">
+          <Link href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="EGL Marketing home">
             <div className="w-10 h-10 rounded-full bg-inferno/90 flex items-center justify-center ring-1 ring-inferno/40 shadow-inferno">
               <Image
                 src="/egl-logo.png"
-                alt="EGL Solutions logo"
+                alt="EGL Marketing logo"
                 width={28}
                 height={28}
                 className="object-contain"
@@ -191,7 +191,7 @@ export default function Navbar() {
             <a
               href="tel:+18602003455"
               className="flex items-center gap-2 text-sm font-body font-semibold text-black bg-white hover:bg-gray-100 px-4 py-2.5 rounded-full whitespace-nowrap transition-all shadow-sm"
-              aria-label="Call EGL Solutions"
+              aria-label="Call EGL Marketing"
             >
               <Phone size={14} />
               (860) 200-3455
@@ -199,7 +199,7 @@ export default function Navbar() {
             <a
               href={BOOKING_URL}
               className="glass-btn-inferno font-display text-sm px-5 py-2.5 rounded-full tracking-widest whitespace-nowrap"
-              aria-label="Work with EGL Solutions"
+              aria-label="Work with EGL Marketing"
             >
               WORK WITH US
             </a>
@@ -210,7 +210,7 @@ export default function Navbar() {
             <a
               href="tel:+18602003455"
               className="flex items-center gap-1.5 text-xs font-body font-semibold text-black bg-white hover:bg-gray-100 px-3 py-2 rounded-full whitespace-nowrap transition-all shadow-sm"
-              aria-label="Call EGL Solutions"
+              aria-label="Call EGL Marketing"
             >
               <Phone size={12} />
               <span className="hidden xs:inline">(860) 200-3455</span>
@@ -218,7 +218,7 @@ export default function Navbar() {
             <a
               href={BOOKING_URL}
               className="glass-btn-inferno font-display text-xs px-3 py-2 rounded-full tracking-wider whitespace-nowrap"
-              aria-label="Work with EGL Solutions"
+              aria-label="Work with EGL Marketing"
             >
               WORK WITH US
             </a>
@@ -242,7 +242,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="fixed inset-0 z-40 lg:hidden flex flex-col"
+            className="fixed inset-0 z-40 lg:hidden flex flex-col overflow-hidden"
             style={{
               background: 'rgba(4, 3, 3, 0.88)',
               backdropFilter: 'blur(28px)',
@@ -253,7 +253,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-white/10">
               <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-inferno/90 flex items-center justify-center ring-1 ring-inferno/40">
-                  <Image src="/egl-logo.png" alt="EGL Solutions" width={24} height={24} className="object-contain" />
+                  <Image src="/egl-logo.png" alt="EGL Marketing" width={24} height={24} className="object-contain" />
                 </div>
                 <span className="font-display text-xl text-bone tracking-wider">EGL SOLUTIONS</span>
               </Link>

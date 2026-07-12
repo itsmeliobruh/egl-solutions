@@ -1,22 +1,23 @@
 import type { Metadata } from 'next'
 import { getServiceBySlug } from '@/lib/services'
+import { getPayloadServiceBySlug } from '@/lib/payload/queries'
 import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'All-In-One Marketing System | Complete Growth System for Contractors CT',
+  title: 'Revenue Engine | Complete Done-For-You Growth System for Local Service Businesses',
   description:
-    'The complete growth powerhouse for local service businesses. AI agents, pipeline automations, power dialers, email & SMS, content shoot, and a dedicated Client Success Manager. $2,499/mo.',
+    'Website, CRM, ads, AI follow-up, content, reviews, reporting, and optimization — all done for you. $5,000 setup + $2,997/mo. Ad spend separate. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://egl.solutions/services/all-in-one-system' },
   openGraph: {
-    title: 'All-In-One System — EGL Solutions',
-    description: 'Every marketing tool, every automation, every system combined. The complete growth powerhouse. $2,499/mo.',
+    title: 'Revenue Engine — EGL Marketing',
+    description: 'The complete done-for-you growth system. Ads, AI, content, and reporting. $5,000 setup + $2,997/mo.',
     url: 'https://egl.solutions/services/all-in-one-system',
   },
 }
 
-export default function Page() {
-  const service = getServiceBySlug('all-in-one-system')
+export default async function Page() {
+  const service = (await getPayloadServiceBySlug('all-in-one-system')) ?? getServiceBySlug('all-in-one-system')
   if (!service) notFound()
   return <ServicePageTemplate service={service} />
 }

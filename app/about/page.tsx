@@ -6,18 +6,18 @@ import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'About EGL Solutions | Local Marketing Agency in Wethersfield, CT',
+  title: 'About EGL Marketing | Local Marketing Agency in Wethersfield, CT',
   description:
-    'EGL Solutions is a results-driven marketing agency based in Wethersfield, CT helping local service businesses grow with websites, lead generation, AI automation, and content creation.',
+    'EGL Marketing is a results-driven marketing agency based in Wethersfield, CT helping local service businesses grow with websites, lead generation, AI automation, and content creation.',
   alternates: { canonical: 'https://egl.solutions/about' },
   openGraph: {
-    title: 'About EGL Solutions — Wethersfield, CT Marketing Agency',
+    title: 'About EGL Marketing — Wethersfield, CT Marketing Agency',
     description: 'Based in Wethersfield, CT. We help local service businesses grow with marketing systems that actually deliver results.',
     url: 'https://egl.solutions/about',
   },
 }
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book'
 
 const values = [
   { title: 'Results First', description: 'Every system we build is designed around measurable outcomes — more calls, more leads, more revenue.' },
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <span className="text-inferno">WIN ONLINE</span>
             </h1>
             <p className="font-body text-light/75 text-lg leading-relaxed mb-6">
-              EGL Solutions is a results-driven marketing agency based in Wethersfield, CT. We
+              EGL Marketing is a results-driven marketing agency based in Wethersfield, CT. We
               specialize in helping local service businesses — trades, contractors, and home
               service providers — build the digital infrastructure they need to attract, convert,
               and retain customers consistently.
@@ -76,7 +76,7 @@ export default function AboutPage() {
               </a>
               <a
                 href="tel:+18602003455"
-                className="inline-flex items-center gap-2 border border-steel text-light font-body text-sm px-6 py-3 rounded hover:border-inferno hover:text-inferno transition-colors"
+                className="inline-flex items-center gap-2 bg-white text-black font-body font-semibold text-sm px-6 py-3 rounded hover:bg-gray-100 transition-colors shadow-sm"
               >
                 <Phone size={14} /> (860) 200-3455
               </a>
@@ -90,7 +90,7 @@ export default function AboutPage() {
             >
               <Image
                 src="/egl-logo.png"
-                alt="EGL Solutions marketing agency logo"
+                alt="EGL Marketing marketing agency logo"
                 fill
                 className="object-contain"
               />

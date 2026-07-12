@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!area) return {}
 
   const location = `${area.name}, ${area.state}`
-  const title = `Marketing Solutions for Local Businesses in ${location} | EGL Solutions`
+  const title = `Marketing Solutions for Local Businesses in ${location} | EGL Marketing`
   const description = area.description
 
   return {

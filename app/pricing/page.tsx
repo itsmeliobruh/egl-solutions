@@ -3,25 +3,49 @@ import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
 import ProcessSteps from '@/components/shared/ProcessSteps'
 import PricingSection from '@/components/home/PricingSection'
+import {
+  getPayloadPricingCards,
+  getPayloadContentAddOns,
+  getPayloadProcessSteps,
+  getPayloadFAQ,
+} from '@/lib/payload/queries'
 
 export const metadata: Metadata = {
-  title: 'Pricing | Marketing Packages for Local Service Businesses in CT',
+  title: 'Pricing | Done-For-You Growth Systems for Local Service Businesses',
   description:
-    'Transparent, month-to-month pricing for websites, lead generation, AI automation, and content creation. Plans starting at $297/mo. No contracts. EGL Solutions, Wethersfield CT.',
+    'Transparent pricing for Growth Foundation ($297/mo), Lead Flow System ($1,500/mo), Revenue Engine ($2,997/mo), and content add-ons. Month-to-month. No contracts. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://egl.solutions/pricing' },
   openGraph: {
-    title: 'Pricing — EGL Solutions',
-    description: 'Month-to-month marketing packages starting at $297/mo. No long-term contracts.',
+    title: 'Pricing — EGL Marketing',
+    description: 'Growth systems starting at $297/mo. Lead generation, AI follow-up, content, and more. Month-to-month.',
     url: 'https://egl.solutions/pricing',
   },
 }
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
-export default function PricingPage() {
+const DEFAULT_FAQS = [
+  { q: 'Do I need a long-term contract?', a: 'No. All plans are month-to-month. You can cancel anytime with 30 days notice.' },
+  { q: 'What does the setup fee cover?', a: 'The setup fee covers the full build — your website or landing page, CRM pipeline, automations, tracking, and any campaigns included in your plan. Most foundational systems are launched within 7–10 business days after we receive access and assets.' },
+  { q: 'Can I upgrade my plan later?', a: "Yes. You can move to a higher tier at any time. We'll credit your remaining setup toward the upgrade." },
+  { q: 'Is ad spend included in the price?', a: 'No. Ad spend is billed separately and paid directly by the client to the ad platform (Google, Meta, etc.). We manage the campaigns — you control and own the budget.' },
+  { q: 'Can I add content to my growth system plan?', a: 'Yes. Content add-ons (Content Starter, Content Growth, Local Authority Content) can be added to any plan at any time.' },
+]
+
+export default async function PricingPage() {
+  const [pricingCards, contentAddOns, processSteps, faqItems] = await Promise.all([
+    getPayloadPricingCards(),
+    getPayloadContentAddOns(),
+    getPayloadProcessSteps(),
+    getPayloadFAQ('pricing'),
+  ])
+
+  const faqs = faqItems?.length
+    ? faqItems.map((f) => ({ q: f.question, a: f.answer }))
+    : DEFAULT_FAQS
+
   return (
     <>
-      {/* Hero */}
       <section className="relative bg-void pt-32 pb-16 px-4 overflow-hidden">
         <div
           className="absolute left-0 top-0 bottom-0 w-1.5"
@@ -30,9 +54,7 @@ export default function PricingPage() {
         />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 600px 400px at 80% 40%, rgba(255,85,0,0.12), transparent 65%)',
-          }}
+          style={{ background: 'radial-gradient(ellipse 600px 400px at 80% 40%, rgba(255,85,0,0.12), transparent 65%)' }}
           aria-hidden="true"
         />
         <div className="noise-overlay" aria-hidden="true" />
@@ -42,7 +64,7 @@ export default function PricingPage() {
             SIMPLE, TRANSPARENT PRICING
           </h1>
           <p className="font-body text-light/70 text-lg max-w-xl mx-auto mb-8">
-            Month-to-month agreements. No long-term contracts. No hidden fees. Just results.
+            Three growth systems built for where you are now and where you want to go. Month-to-month. No long-term contracts. No hidden fees.
           </p>
           <a
             href={BOOKING_URL}
@@ -53,49 +75,26 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Pricing cards */}
-      <PricingSection />
+      <PricingSection cards={pricingCards} addOns={contentAddOns} />
 
-      {/* Process */}
       <section className="bg-void py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <SectionLabel label="HOW IT WORKS" className="mb-3" />
           <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider mb-10">
             GETTING STARTED IS EASY
           </h2>
-          <ProcessSteps />
+          <ProcessSteps steps={processSteps} />
         </div>
       </section>
 
-      {/* FAQ strip */}
       <section className="bg-ash py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-3xl text-bone tracking-wider mb-8 text-center">
             COMMON PRICING QUESTIONS
           </h2>
           <div className="space-y-4">
-            {[
-              {
-                q: 'Do I need a long-term contract?',
-                a: 'No. All plans are month-to-month. You can cancel anytime.',
-              },
-              {
-                q: 'What is the setup fee?',
-                a: 'There is no separate setup fee. Your first month covers the full build and launch.',
-              },
-              {
-                q: 'Can I upgrade my plan later?',
-                a: 'Absolutely. You can upgrade to a higher tier at any time — just let your account manager know.',
-              },
-              {
-                q: 'Is there an ad spend budget included?',
-                a: 'Ad spend budgets are separate from our management fees. We recommend a minimum of $500–$1,000/mo in ad spend for Lead Generation plans. We help you set and optimize this budget.',
-              },
-            ].map(({ q, a }) => (
-              <div
-                key={q}
-                className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.28)] p-6"
-              >
+            {faqs.map(({ q, a }) => (
+              <div key={q} className="bg-[#F5F0E8] border border-[#E0D8CC] rounded-xl shadow-[0_2px_16px_rgba(0,0,0,0.28)] p-6">
                 <h3 className="font-body font-semibold text-[#0A0A0A] mb-2">{q}</h3>
                 <p className="font-body text-sm text-[#666666]">{a}</p>
               </div>

@@ -2,7 +2,7 @@ export default function JsonLd() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'EGL Solutions',
+    name: 'EGL Marketing',
     description:
       'Marketing agency specializing in websites, lead generation, and content creation for local service businesses in Connecticut.',
     url: 'https://egl.solutions',

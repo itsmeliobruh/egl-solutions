@@ -8,10 +8,10 @@ import { MapPin } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Service Areas | Marketing Agency Serving Connecticut & Western MA',
   description:
-    'EGL Solutions serves local service businesses throughout Connecticut — Hartford County, New Haven County, Litchfield, Middlesex, Tolland, New London, Fairfield, and western Massachusetts.',
+    'EGL Marketing serves local service businesses throughout Connecticut — Hartford County, New Haven County, Litchfield, Middlesex, Tolland, New London, Fairfield, and western Massachusetts.',
   alternates: { canonical: 'https://egl.solutions/service-areas' },
   openGraph: {
-    title: 'Service Areas — EGL Solutions',
+    title: 'Service Areas — EGL Marketing',
     description: 'Marketing systems for local service businesses throughout Connecticut and western Massachusetts.',
     url: 'https://egl.solutions/service-areas',
   },
@@ -59,8 +59,7 @@ export default function ServiceAreasPage() {
             SERVING CONNECTICUT AND BEYOND
           </h1>
           <p className="font-body text-light/75 text-lg max-w-2xl mx-auto">
-            EGL Solutions is based in Wethersfield, CT and serves local service businesses
-            throughout Connecticut and into western Massachusetts. Find your area below.
+            EGL Marketing is based in Wethersfield, CT and serves local service businesses throughout Connecticut. If your service area is not listed don&apos;t worry, we work with businesses across multiple regions. Fit matters more than zip code.
           </p>
         </div>
       </section>
@@ -90,7 +89,11 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      <CTAStrip headline="DON'T SEE YOUR EXACT LOCATION?" subtext="We serve all of Connecticut and the surrounding region. Contact us and we'll confirm your area." />
+      <CTAStrip
+        headline="DON'T SEE YOUR AREA? NO PROBLEM."
+        subtext="We don't limit ourselves to specific locations — we work with businesses that are ready to grow. We partner with businesses in multiple regions and focus more on fit than location."
+        bookingHref="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"
+      />
     </>
   )
 }

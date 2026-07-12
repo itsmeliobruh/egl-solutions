@@ -1,22 +1,23 @@
 import type { Metadata } from 'next'
 import { getServiceBySlug } from '@/lib/services'
+import { getPayloadServiceBySlug } from '@/lib/payload/queries'
 import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Content Growth | Video Marketing for Local Service Businesses CT',
+  title: 'Content Growth | Monthly Video Content & Strategy for Local Service Businesses',
   description:
-    '2 filming days, 15–25 short-form videos, full strategy, scripting and posting on IG, TikTok, Facebook, YouTube. $2,499/mo. EGL Solutions, Wethersfield CT.',
+    '2 filming days, 15–20 short-form videos, hooks, scripts, content calendar, and posting support. Build consistent local authority. $1,997/mo. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://egl.solutions/services/content-growth' },
   openGraph: {
-    title: 'Content Growth — EGL Solutions',
-    description: '2 filming days, 15–25 videos/month, full content strategy and scripting. Generate leads with content. $2,499/mo.',
+    title: 'Content Growth — EGL Marketing',
+    description: '2 filming days, 15–20 videos/month, scripts, strategy, and posting support. $1,997/mo.',
     url: 'https://egl.solutions/services/content-growth',
   },
 }
 
-export default function Page() {
-  const service = getServiceBySlug('content-growth')
+export default async function Page() {
+  const service = (await getPayloadServiceBySlug('content-growth')) ?? getServiceBySlug('content-growth')
   if (!service) notFound()
   return <ServicePageTemplate service={service} />
 }

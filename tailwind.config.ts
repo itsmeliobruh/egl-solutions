@@ -20,7 +20,7 @@ const config: Config = {
         ash: '#0F0D0C',
         mid: '#191411',
         steel: '#2A1F1A',
-        muted: '#6B5A52',
+        muted: '#AAAAAA',
         light: '#D4C8C0',
         bone: '#F0EDE8',
         card: '#F5F0E8',

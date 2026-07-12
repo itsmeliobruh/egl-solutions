@@ -4,12 +4,12 @@ import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 import ProcessSteps from '@/components/shared/ProcessSteps'
 import CTAStrip from '@/components/shared/CTAStrip'
-import PricingTable from '@/components/shared/PricingTable'
+import PricingSection from '@/components/home/PricingSection'
 import { Card } from '@/components/shared/Card'
-
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+import { BOOKING_LINKS, DEFAULT_BOOKING } from '@/lib/bookingLinks'
 
 export default function ServicePageTemplate({ service }: { service: Service }) {
+  const bookingUrl = BOOKING_LINKS[service.slug] ?? DEFAULT_BOOKING
   return (
     <>
       {/* Hero */}
@@ -45,15 +45,17 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
           <p className="font-body text-light/80 text-lg max-w-2xl mb-6 leading-relaxed">
             {service.subheadline}
           </p>
-          <div className="flex items-center gap-6 mb-8">
-            {service.originalPrice && (
-              <span className="font-body text-muted line-through text-lg">{service.originalPrice}</span>
+          <div className="mb-8">
+            <span className="font-display text-3xl text-[#FF5500]">
+              {service.setup ? `${service.setup} + ${service.price}` : service.price}
+            </span>
+            {service.pricingNote && (
+              <p className="font-body text-sm text-muted mt-2">{service.pricingNote}</p>
             )}
-            <span className="font-display text-4xl text-[#FF5500]">{service.price}</span>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href={BOOKING_URL}
+              href={bookingUrl}
               className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
             >
               ⚡ GET STARTED TODAY
@@ -70,22 +72,27 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
 
       {/* What is it / Why important / When to consider */}
       <section className="bg-ash py-20 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div>
-            <SectionLabel label="WHAT IS IT?" className="mb-3" />
-            <h2 className="font-display text-2xl text-bone tracking-wide mb-4">{service.name}</h2>
-            <p className="font-body text-sm text-muted leading-relaxed">{service.description}</p>
-          </div>
-          <div>
-            <SectionLabel label="WHY IT MATTERS" className="mb-3" />
-            <h2 className="font-display text-2xl text-bone tracking-wide mb-4">The Impact</h2>
-            <p className="font-body text-sm text-muted leading-relaxed">{service.whyImportant}</p>
-          </div>
-          <div>
-            <SectionLabel label="IS THIS FOR YOU?" className="mb-3" />
-            <h2 className="font-display text-2xl text-bone tracking-wide mb-4">When To Consider It</h2>
-            <p className="font-body text-sm text-muted leading-relaxed">{service.whenToConsider}</p>
-          </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {[
+            { label: 'WHAT IS IT?', heading: service.name, body: service.description, number: '01' },
+            { label: 'WHY IT MATTERS', heading: 'The Impact', body: service.whyImportant, number: '02' },
+            { label: 'IS THIS FOR YOU?', heading: 'When To Consider It', body: service.whenToConsider, number: '03' },
+          ].map(({ label, heading, body, number }) => (
+            <div
+              key={label}
+              className="relative overflow-hidden rounded-xl bg-[#F5F0E8] border border-[#E0D8CC] shadow-[0_2px_16px_rgba(0,0,0,0.28)] p-7 flex flex-col"
+            >
+              {/* Ghost number watermark */}
+              <span className="absolute top-3 right-4 font-display text-[96px] leading-none text-[#C8C0B4] opacity-25 pointer-events-none select-none">
+                {number}
+              </span>
+              <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#FF5500] mb-3 block">
+                {label}
+              </span>
+              <h2 className="font-display text-2xl text-[#0A0A0A] tracking-wide mb-4">{heading}</h2>
+              <p className="font-body text-sm text-[#555] leading-relaxed">{body}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -143,18 +150,20 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
               </span>
             )}
             <div className="mb-6">
-              {service.originalPrice && (
-                <span className="font-body text-sm text-[#999] line-through block">{service.originalPrice}</span>
+              <span className="font-display text-3xl text-[#FF5500] block leading-tight">
+                {service.setup ? `${service.setup} + ${service.price}` : service.price}
+              </span>
+              {service.pricingNote && (
+                <p className="font-body text-xs text-[#999] mt-2 leading-snug">{service.pricingNote}</p>
               )}
-              <span className="font-display text-5xl text-[#FF5500]">{service.price}</span>
             </div>
             <a
-              href={BOOKING_URL}
+              href={bookingUrl}
               className="block bg-[#FF5500] text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_24px_rgba(255,85,0,0.35)] mb-3"
             >
               GET STARTED
             </a>
-            <p className="font-body text-xs text-[#888]">Month-to-month. No contracts required.</p>
+            <p className="font-body text-xs text-[#AAAAAA]">Month-to-month. No contracts required.</p>
           </Card>
         </div>
       </section>
@@ -171,18 +180,10 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
       </section>
 
       {/* CTA Strip */}
-      <CTAStrip />
+      <CTAStrip bookingHref={bookingUrl} />
 
       {/* Full pricing comparison */}
-      <section className="bg-ash py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <SectionLabel label="COMPARE ALL PLANS" className="mb-3" />
-          <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider mb-10">
-            FIND THE RIGHT FIT
-          </h2>
-          <PricingTable />
-        </div>
-      </section>
+      <PricingSection />
     </>
   )
 }

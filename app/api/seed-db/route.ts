@@ -180,8 +180,8 @@ export async function GET(request: Request) {
     // ── FAQ Items ─────────────────────────────────────────────────────────────
     const faqs = [
       { order: 1, group: 'homepage', question: 'Can you provide references from past clients?', answer: 'Absolutely. We can provide references from past clients. You can also read reviews from our satisfied customers on Google. Contact information for specific past clients available upon request.' },
-      { order: 2, group: 'homepage', question: 'What sets you apart from other agencies?', answer: 'At EGL Solutions, we distinguish ourselves through meticulous attention to detail, a dedication to quality results, and a personalized approach. We prioritize communication to seamlessly bring your vision to life.' },
-      { order: 3, group: 'homepage', question: 'Is there a fee for a consultation?', answer: 'No. EGL Solutions offers complimentary consultations and estimates to all prospective clients.' },
+      { order: 2, group: 'homepage', question: 'What sets you apart from other agencies?', answer: 'At EGL Marketing, we distinguish ourselves through meticulous attention to detail, a dedication to quality results, and a personalized approach. We prioritize communication to seamlessly bring your vision to life.' },
+      { order: 3, group: 'homepage', question: 'Is there a fee for a consultation?', answer: 'No. EGL Marketing offers complimentary consultations and estimates to all prospective clients.' },
       { order: 4, group: 'homepage', question: 'How long does it take to build my system?', answer: 'Most systems are built and launched within 7–10 business days after receiving your onboarding information.' },
       { order: 5, group: 'homepage', question: 'Do I need a contract?', answer: 'We offer month-to-month agreements. No long-term contracts required.' },
       { order: 1, group: 'pricing', question: 'Do I need a long-term contract?', answer: 'No. All plans are month-to-month. You can cancel anytime with 30 days notice.' },

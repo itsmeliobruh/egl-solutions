@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react'
 
 const serviceLinks = [
-  { href: '/services/website-and-systems', label: 'Website + Systems' },
-  { href: '/services/lead-generation', label: 'Lead Generation' },
-  { href: '/services/all-in-one-system', label: 'All-In-One System' },
-  { href: '/services/content-foundation', label: 'Content Foundation' },
+  { href: '/services/website-and-systems', label: 'Growth Foundation' },
+  { href: '/services/lead-generation', label: 'Lead Flow System' },
+  { href: '/services/all-in-one-system', label: 'Revenue Engine' },
+  { href: '/services/content-foundation', label: 'Content Starter' },
   { href: '/services/content-growth', label: 'Content Growth' },
-  { href: '/services/content-authority', label: 'Content Authority' },
+  { href: '/services/content-authority', label: 'Local Authority Content' },
 ]
 
 const areaLinks = [
@@ -40,7 +40,7 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-full bg-inferno flex items-center justify-center flex-shrink-0">
                 <Image
                   src="/egl-logo.png"
-                  alt="EGL Solutions marketing agency logo"
+                  alt="EGL Marketing marketing agency logo"
                   width={28}
                   height={28}
                   className="object-contain"
@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="font-display text-2xl text-bone tracking-wider">EGL SOLUTIONS</span>
             </div>
             <p className="font-body text-sm text-muted leading-relaxed mb-6">
-              Helping local service businesses in Connecticut grow with high-converting websites, lead generation, AI automation, and content creation.
+              Helping local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems.
             </p>
             <div className="space-y-3 text-sm font-body">
               <a href="tel:+18602003455" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
@@ -67,20 +67,20 @@ export default function Footer() {
             </div>
             {/* Social */}
             <div className="flex items-center gap-3 mt-6">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Solutions on Facebook" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Facebook" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <Facebook size={15} />
               </a>
-              <a href="https://www.instagram.com/egl.solutions/" target="_blank" rel="noopener noreferrer" aria-label="EGL Solutions on Instagram" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
+              <a href="https://www.instagram.com/egl.solutions/" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Instagram" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <Instagram size={15} />
               </a>
               {/* TikTok */}
-              <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Solutions on TikTok" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
+              <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on TikTok" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.5a8.16 8.16 0 004.77 1.52V7.57a4.85 4.85 0 01-1-.88z"/>
                 </svg>
               </a>
               {/* Google */}
-              <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Solutions on Google" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
+              <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Google" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -149,7 +149,7 @@ export default function Footer() {
       <div className="border-t border-steel">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-body text-xs text-muted">
-            © 2026 EGL Solutions. All Rights Reserved.
+            © 2026 EGL Marketing. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4 font-body text-xs text-muted">
             <Link href="/terms" className="hover:text-light transition-colors">Terms & Conditions</Link>

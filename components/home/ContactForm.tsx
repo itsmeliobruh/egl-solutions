@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionLabel from '@/components/shared/SectionLabel'
 
-const BOOKING_URL = 'https://egl.solutions/booking-step1'
+const BOOKING_URL = '/book'
 
 const services = [
   'Website + Systems ($297/mo)',
@@ -86,7 +86,7 @@ export default function ContactForm() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="full_name" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
+              <label htmlFor="full_name" className="font-mono text-[10px] text-[#555555] uppercase tracking-[0.15em] block mb-1.5">
                 Full Name *
               </label>
               <input
@@ -102,7 +102,7 @@ export default function ContactForm() {
               />
             </div>
             <div>
-              <label htmlFor="phone" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
+              <label htmlFor="phone" className="font-mono text-[10px] text-[#555555] uppercase tracking-[0.15em] block mb-1.5">
                 Phone *
               </label>
               <input
@@ -120,7 +120,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="email" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
+            <label htmlFor="email" className="font-mono text-[10px] text-[#555555] uppercase tracking-[0.15em] block mb-1.5">
               Email *
             </label>
             <input
@@ -137,7 +137,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="services_interested" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
+            <label htmlFor="services_interested" className="font-mono text-[10px] text-[#555555] uppercase tracking-[0.15em] block mb-1.5">
               Service Interested In *
             </label>
             <select
@@ -157,7 +157,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] block mb-1.5">
+            <label htmlFor="message" className="font-mono text-[10px] text-[#555555] uppercase tracking-[0.15em] block mb-1.5">
               Message
             </label>
             <textarea
@@ -171,7 +171,7 @@ export default function ContactForm() {
             />
           </div>
 
-          <p className="font-body text-xs text-[#888] leading-relaxed">
+          <p className="font-body text-xs text-[#AAAAAA] leading-relaxed">
             By providing my phone number, I agree to receive text messages from the business.{' '}
             <a href="/terms" className="text-[#FF5500] hover:text-[#FF8C00] underline">Terms & Conditions</a>
             {' '}|{' '}
