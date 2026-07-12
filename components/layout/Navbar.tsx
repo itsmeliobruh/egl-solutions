@@ -84,7 +84,7 @@ export default function Navbar() {
               />
             </div>
             <span className="font-display text-2xl text-bone tracking-wider hidden sm:block">
-              EGL SOLUTIONS
+              EGL MARKETING
             </span>
           </Link>
 
@@ -255,7 +255,7 @@ export default function Navbar() {
                 <div className="w-9 h-9 rounded-full bg-inferno/90 flex items-center justify-center ring-1 ring-inferno/40">
                   <Image src="/egl-logo.png" alt="EGL Marketing" width={24} height={24} className="object-contain" />
                 </div>
-                <span className="font-display text-xl text-bone tracking-wider">EGL SOLUTIONS</span>
+                <span className="font-display text-xl text-bone tracking-wider">EGL MARKETING</span>
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}
