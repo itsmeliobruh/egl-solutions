@@ -31,7 +31,7 @@ export default function AboutSection() {
           >
             <SectionLabel label="WHO WE ARE" className="mb-4" />
             <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider mb-6 leading-tight">
-              AT EGL SOLUTIONS, WE HELP LOCAL SERVICE BUSINESSES TURN{' '}
+              AT EGL MARKETING, WE HELP LOCAL SERVICE BUSINESSES TURN{' '}
               <span className="text-inferno">ATTENTION INTO REVENUE</span>
             </h2>
             <p className="font-body text-light/75 leading-relaxed text-base">

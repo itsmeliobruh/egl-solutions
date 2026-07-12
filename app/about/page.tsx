@@ -49,7 +49,7 @@ export default function AboutPage() {
 
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel label="ABOUT EGL SOLUTIONS" className="mb-4" />
+            <SectionLabel label="ABOUT EGL MARKETING" className="mb-4" />
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-bone tracking-wider mb-6 leading-tight">
               WE HELP LOCAL BUSINESSES{' '}
               <span className="text-inferno">WIN ONLINE</span>

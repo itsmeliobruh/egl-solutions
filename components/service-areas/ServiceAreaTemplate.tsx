@@ -137,7 +137,7 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
           <div>
             <SectionLabel label={`WHY ${area.name.toUpperCase()} BUSINESSES CHOOSE EGL`} className="mb-3" />
             <h2 className="font-display text-3xl md:text-4xl text-bone tracking-wider mb-6">
-              THE EGL SOLUTIONS DIFFERENCE
+              THE EGL MARKETING DIFFERENCE
             </h2>
             <p className="font-body text-light/70 leading-relaxed mb-6">{area.whyEGL}</p>
             <a

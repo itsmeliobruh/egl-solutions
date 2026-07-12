@@ -46,7 +46,7 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-display text-2xl text-bone tracking-wider">EGL SOLUTIONS</span>
+              <span className="font-display text-2xl text-bone tracking-wider">EGL MARKETING</span>
             </div>
             <p className="font-body text-sm text-muted leading-relaxed mb-6">
               Helping local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems.
