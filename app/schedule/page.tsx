@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Schedule a Call | EGL Marketing',
   description:
     'Pick a time that works for you. Free 15-minute strategy call with EGL Marketing — no obligation, no contracts.',
-  alternates: { canonical: 'https://egl.solutions/schedule' },
+  alternates: { canonical: 'https://eglmarketing.co/schedule' },
   robots: { index: false },
 }
 

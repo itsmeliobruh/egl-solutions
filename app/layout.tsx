@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     'contractor marketing',
     'trades marketing',
   ],
-  metadataBase: new URL('https://egl.solutions'),
+  metadataBase: new URL('https://eglmarketing.co'),
   openGraph: {
     siteName: 'EGL Marketing',
     type: 'website',

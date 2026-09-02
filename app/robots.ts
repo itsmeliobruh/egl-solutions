@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://egl.solutions/sitemap.xml',
+    sitemap: 'https://eglmarketing.co/sitemap.xml',
   }
 }

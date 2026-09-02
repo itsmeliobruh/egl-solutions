@@ -39,6 +39,6 @@ export default buildConfig({
   }),
   cors: [
     'http://localhost:3000',
-    'https://egl.solutions',
+    'https://eglmarketing.co',
   ],
 })

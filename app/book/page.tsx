@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Book a Free Call | EGL Marketing',
   description:
     'Schedule your free 15-minute intro call with EGL Marketing. No obligation, no contracts — just a focused conversation about growing your business.',
-  alternates: { canonical: 'https://egl.solutions/book' },
+  alternates: { canonical: 'https://eglmarketing.co/book' },
   robots: { index: false }, // keep funnel page out of search results
 }
 

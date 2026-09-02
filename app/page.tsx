@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
   description:
     'EGL Marketing helps local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems — website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT. Call (860) 200-3455.',
-  alternates: { canonical: 'https://egl.solutions' },
+  alternates: { canonical: 'https://eglmarketing.co' },
   openGraph: {
     title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
     description: 'Turn more attention into booked jobs. Website, CRM, ads, AI follow-up, reviews, and content for local service businesses in Connecticut.',
-    url: 'https://egl.solutions',
-    images: [{ url: 'https://egl.solutions/og-image.png', width: 1200, height: 630 }],
+    url: 'https://eglmarketing.co',
+    images: [{ url: 'https://eglmarketing.co/og-image.png', width: 1200, height: 630 }],
   },
 }
 

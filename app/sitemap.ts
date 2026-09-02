@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { getAllServiceAreas } from '@/lib/serviceAreas'
 import { services } from '@/lib/services'
 
-const BASE_URL = 'https://egl.solutions'
+const BASE_URL = 'https://eglmarketing.co'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

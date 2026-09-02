@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: 'Revenue Engine | Complete Done-For-You Growth System for Local Service Businesses',
   description:
     'Website, CRM, ads, AI follow-up, content, reviews, reporting, and optimization — all done for you. $5,000 setup + $2,997/mo. Ad spend separate. EGL Marketing, Wethersfield CT.',
-  alternates: { canonical: 'https://egl.solutions/services/all-in-one-system' },
+  alternates: { canonical: 'https://eglmarketing.co/services/all-in-one-system' },
   openGraph: {
     title: 'Revenue Engine — EGL Marketing',
     description: 'The complete done-for-you growth system. Ads, AI, content, and reporting. $5,000 setup + $2,997/mo.',
-    url: 'https://egl.solutions/services/all-in-one-system',
+    url: 'https://eglmarketing.co/services/all-in-one-system',
   },
 }
 

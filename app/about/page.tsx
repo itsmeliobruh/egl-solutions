@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: 'About EGL Marketing | Local Marketing Agency in Wethersfield, CT',
   description:
     'EGL Marketing is a results-driven marketing agency based in Wethersfield, CT helping local service businesses grow with websites, lead generation, AI automation, and content creation.',
-  alternates: { canonical: 'https://egl.solutions/about' },
+  alternates: { canonical: 'https://eglmarketing.co/about' },
   openGraph: {
     title: 'About EGL Marketing — Wethersfield, CT Marketing Agency',
     description: 'Based in Wethersfield, CT. We help local service businesses grow with marketing systems that actually deliver results.',
-    url: 'https://egl.solutions/about',
+    url: 'https://eglmarketing.co/about',
   },
 }
 

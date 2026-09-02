@@ -29,7 +29,7 @@ async function seed() {
     slug: 'site-settings',
     data: {
       phone: '(860) 200-3455',
-      email: 'info@egl.solutions',
+      email: 'info@eglmarketing.co',
       address: 'Wethersfield, CT',
       consultationUrl: '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding',
       defaultBookingUrl: '/book',

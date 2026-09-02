@@ -195,9 +195,9 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
             '@type': 'LocalBusiness',
             name: 'EGL Marketing',
             description: `Marketing agency serving local service businesses in ${location}.`,
-            url: `https://egl.solutions/service-areas/${area.slug}`,
+            url: `https://eglmarketing.co/service-areas/${area.slug}`,
             telephone: '+18602003455',
-            email: 'info@egl.solutions',
+            email: 'info@eglmarketing.co',
             address: {
               '@type': 'PostalAddress',
               addressLocality: 'Wethersfield',

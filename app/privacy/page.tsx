@@ -4,7 +4,7 @@ import SectionLabel from '@/components/shared/SectionLabel'
 export const metadata: Metadata = {
   title: 'Privacy Policy | EGL Marketing',
   description: 'Privacy Policy for EGL Marketing marketing agency.',
-  alternates: { canonical: 'https://egl.solutions/privacy' },
+  alternates: { canonical: 'https://eglmarketing.co/privacy' },
 }
 
 export default function PrivacyPage() {
@@ -26,9 +26,9 @@ export default function PrivacyPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">5. Cookies</h2>
           <p>Our website uses cookies for analytics and to improve user experience. You may disable cookies in your browser settings, though this may affect site functionality.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">6. Your Rights</h2>
-          <p>You may request access to, correction of, or deletion of your personal information by contacting us at info@egl.solutions.</p>
+          <p>You may request access to, correction of, or deletion of your personal information by contacting us at info@eglmarketing.co.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">7. Contact</h2>
-          <p>Privacy questions may be directed to info@egl.solutions or <a href="tel:+18602003455" className="text-inferno">(860) 200-3455</a>.</p>
+          <p>Privacy questions may be directed to info@eglmarketing.co or <a href="tel:+18602003455" className="text-inferno">(860) 200-3455</a>.</p>
         </div>
       </div>
     </section>

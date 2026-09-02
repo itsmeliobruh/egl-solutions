@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Contact EGL Marketing | Marketing Agency in Wethersfield, CT',
   description:
     'Get in touch with EGL Marketing. Free consultations for local service businesses in Connecticut. Call (860) 200-3455 or schedule online.',
-  alternates: { canonical: 'https://egl.solutions/contact' },
+  alternates: { canonical: 'https://eglmarketing.co/contact' },
   openGraph: {
     title: 'Contact EGL Marketing',
     description: 'Schedule a free 15-minute intro call with EGL Marketing. No obligation.',
-    url: 'https://egl.solutions/contact',
+    url: 'https://eglmarketing.co/contact',
   },
 }
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="mailto:info@egl.solutions"
+                href="mailto:info@eglmarketing.co"
                 className="flex items-center gap-4 bg-white rounded p-4 hover:bg-gray-100 transition-colors shadow-sm group"
               >
                 <div className="w-10 h-10 rounded bg-inferno/10 border border-inferno/30 flex items-center justify-center flex-shrink-0">
@@ -69,7 +69,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] mb-0.5">Email</div>
-                  <div className="font-body text-black font-semibold">info@egl.solutions</div>
+                  <div className="font-body text-black font-semibold">info@eglmarketing.co</div>
                 </div>
               </a>
 

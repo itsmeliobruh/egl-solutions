@@ -4,7 +4,7 @@ import SectionLabel from '@/components/shared/SectionLabel'
 export const metadata: Metadata = {
   title: 'Terms & Conditions | EGL Marketing',
   description: 'Terms and Conditions for EGL Marketing marketing services.',
-  alternates: { canonical: 'https://egl.solutions/terms' },
+  alternates: { canonical: 'https://eglmarketing.co/terms' },
 }
 
 export default function TermsPage() {
@@ -20,7 +20,7 @@ export default function TermsPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">2. Payment</h2>
           <p>Monthly service fees are billed in advance. All payments are due on the agreed billing date. Failure to pay within 7 days of the due date may result in suspension of services.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">3. Cancellation</h2>
-          <p>Clients may cancel services with 30 days written notice to info@egl.solutions. There are no long-term contracts or cancellation fees.</p>
+          <p>Clients may cancel services with 30 days written notice to info@eglmarketing.co. There are no long-term contracts or cancellation fees.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">4. Intellectual Property</h2>
           <p>Upon full payment of all outstanding balances, clients own the deliverables created specifically for their account. EGL Marketing retains ownership of all proprietary tools, systems, templates, and processes used in delivering services.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">5. SMS Communications</h2>
@@ -28,7 +28,7 @@ export default function TermsPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">6. Limitation of Liability</h2>
           <p>EGL Marketing shall not be liable for any indirect, incidental, or consequential damages. Our total liability shall not exceed the amounts paid by the client in the preceding month.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">7. Contact</h2>
-          <p>Questions about these Terms may be directed to info@egl.solutions or by calling <a href="tel:+18602003455" className="text-inferno">(860) 200-3455</a>.</p>
+          <p>Questions about these Terms may be directed to info@eglmarketing.co or by calling <a href="tel:+18602003455" className="text-inferno">(860) 200-3455</a>.</p>
         </div>
       </div>
     </section>

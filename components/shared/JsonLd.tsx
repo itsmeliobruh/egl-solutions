@@ -5,9 +5,9 @@ export default function JsonLd() {
     name: 'EGL Marketing',
     description:
       'Marketing agency specializing in websites, lead generation, and content creation for local service businesses in Connecticut.',
-    url: 'https://egl.solutions',
+    url: 'https://eglmarketing.co',
     telephone: '+18602003455',
-    email: 'info@egl.solutions',
+    email: 'info@eglmarketing.co',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Wethersfield',
@@ -25,7 +25,7 @@ export default function JsonLd() {
       'New London County CT',
     ],
     openingHours: 'Mo-Su 09:00-19:00',
-    sameAs: ['https://www.instagram.com/egl.solutions/'],
+    sameAs: ['https://www.instagram.com/eglmarketing.co/'],
     priceRange: '$$',
   }
 

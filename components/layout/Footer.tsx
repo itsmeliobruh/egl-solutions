@@ -56,9 +56,9 @@ export default function Footer() {
                 <Phone size={14} className="text-inferno flex-shrink-0" />
                 (860) 200-3455
               </a>
-              <a href="mailto:info@egl.solutions" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
+              <a href="mailto:info@eglmarketing.co" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
                 <Mail size={14} className="text-inferno flex-shrink-0" />
-                info@egl.solutions
+                info@eglmarketing.co
               </a>
               <div className="flex items-start gap-2 text-muted">
                 <MapPin size={14} className="text-inferno flex-shrink-0 mt-0.5" />
@@ -70,7 +70,7 @@ export default function Footer() {
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Facebook" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <Facebook size={15} />
               </a>
-              <a href="https://www.instagram.com/egl.solutions/" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Instagram" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
+              <a href="https://www.instagram.com/eglmarketing.co/" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Instagram" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <Instagram size={15} />
               </a>
               {/* TikTok */}

@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: 'Service Areas | Marketing Agency Serving Connecticut & Western MA',
   description:
     'EGL Marketing serves local service businesses throughout Connecticut — Hartford County, New Haven County, Litchfield, Middlesex, Tolland, New London, Fairfield, and western Massachusetts.',
-  alternates: { canonical: 'https://egl.solutions/service-areas' },
+  alternates: { canonical: 'https://eglmarketing.co/service-areas' },
   openGraph: {
     title: 'Service Areas — EGL Marketing',
     description: 'Marketing systems for local service businesses throughout Connecticut and western Massachusetts.',
-    url: 'https://egl.solutions/service-areas',
+    url: 'https://eglmarketing.co/service-areas',
   },
 }
 

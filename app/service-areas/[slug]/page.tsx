@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: `https://egl.solutions/service-areas/${area.slug}` },
+    alternates: { canonical: `https://eglmarketing.co/service-areas/${area.slug}` },
     openGraph: {
       title,
       description,
-      url: `https://egl.solutions/service-areas/${area.slug}`,
+      url: `https://eglmarketing.co/service-areas/${area.slug}`,
     },
   }
 }

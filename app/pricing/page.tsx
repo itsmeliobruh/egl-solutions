@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   title: 'Pricing | Done-For-You Growth Systems for Local Service Businesses',
   description:
     'Transparent pricing for Growth Foundation ($297/mo), Lead Flow System ($1,500/mo), Revenue Engine ($2,997/mo), and content add-ons. Month-to-month. No contracts. EGL Marketing, Wethersfield CT.',
-  alternates: { canonical: 'https://egl.solutions/pricing' },
+  alternates: { canonical: 'https://eglmarketing.co/pricing' },
   openGraph: {
     title: 'Pricing — EGL Marketing',
     description: 'Growth systems starting at $297/mo. Lead generation, AI follow-up, content, and more. Month-to-month.',
-    url: 'https://egl.solutions/pricing',
+    url: 'https://eglmarketing.co/pricing',
   },
 }
 

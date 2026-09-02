@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: 'Content Starter | Monthly Short-Form Video Content for Local Service Businesses',
   description:
     'Build trust and stay visible with monthly content. 1 filming day, 8–12 short-form videos, captions, and posting guidance. $997/mo. EGL Marketing, Wethersfield CT.',
-  alternates: { canonical: 'https://egl.solutions/services/content-foundation' },
+  alternates: { canonical: 'https://eglmarketing.co/services/content-foundation' },
   openGraph: {
     title: 'Content Starter — EGL Marketing',
     description: '1 filming day/month, 8–12 short-form videos, captions, and posting guidance. $997/mo.',
-    url: 'https://egl.solutions/services/content-foundation',
+    url: 'https://eglmarketing.co/services/content-foundation',
   },
 }
 
