@@ -31,15 +31,16 @@ export default function AboutSection() {
           >
             <SectionLabel label="WHO WE ARE" className="mb-4" />
             <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider mb-6 leading-tight">
-              AT EGL MARKETING, WE HELP LOCAL SERVICE BUSINESSES TURN{' '}
-              <span className="text-inferno">ATTENTION INTO REVENUE</span>
+              AT EGL MARKETING, WE HELP CONNECTICUT HOME REMODELING CONTRACTORS TURN{' '}
+              <span className="text-inferno">ATTENTION INTO BOOKED JOBS</span>
             </h2>
             <p className="font-body text-light/75 leading-relaxed text-base">
-              We combine high-converting websites, lead generation strategies, and AI-powered
-              automation to create a complete growth engine — not just marketing that looks good,
-              but marketing that delivers results. From capturing leads to nurturing and converting
-              them, every piece is designed to work together seamlessly. Our goal is simple: help
-              you get more calls, more customers, and consistent growth without the guesswork.
+              We build done-for-you marketing systems exclusively for home remodeling contractors
+              in Connecticut — kitchen remodelers, bath remodelers, general remodeling contractors,
+              and home addition specialists. We understand your sales cycle, your average job
+              value, and how homeowners research remodelers before they pick up the phone. Every
+              system we build is designed to get your phone ringing with qualified leads, not just
+              website traffic.
             </p>
           </motion.div>
 

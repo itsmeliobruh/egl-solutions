@@ -7,11 +7,11 @@ import SectionLabel from '@/components/shared/SectionLabel'
 import type { FAQItemData } from '@/lib/payload/queries'
 
 const DEFAULT_FAQS: FAQItemData[] = [
-  { question: 'Can you provide references from past clients?', answer: 'Absolutely. We can provide references from past clients. You can also read reviews from our satisfied customers on Google. Contact information for specific past clients available upon request.', group: 'homepage' },
-  { question: 'What sets you apart from other agencies?', answer: 'At EGL Marketing, we distinguish ourselves through meticulous attention to detail, a dedication to quality results, and a personalized approach. We prioritize communication to seamlessly bring your vision to life.', group: 'homepage' },
-  { question: 'Is there a fee for a consultation?', answer: 'No. EGL Marketing offers complimentary consultations and estimates to all prospective clients.', group: 'homepage' },
-  { question: 'How long does it take to build my system?', answer: 'Most systems are built and launched within 7–10 business days after receiving your onboarding information.', group: 'homepage' },
-  { question: 'Do I need a contract?', answer: 'We offer month-to-month agreements. No long-term contracts required.', group: 'homepage' },
+  { question: 'Do you only work with home remodeling contractors?', answer: 'Yes — we are exclusively focused on home remodeling contractors in Connecticut. That means kitchen remodelers, bath remodelers, basement finishers, home addition specialists, and general remodeling contractors. We are not a generalist agency. Our systems are built around the remodeling sales cycle, average job values, and how homeowners research contractors before they call.', group: 'homepage' },
+  { question: 'How quickly can you get my system live?', answer: 'Most systems are built and launched within 7–10 business days after we receive your onboarding information. We move fast because we have built these systems many times for remodelers specifically.', group: 'homepage' },
+  { question: 'Do I need to sign a long-term contract?', answer: 'No. All of our services are month-to-month. We earn your business every month by delivering results, not by locking you in.', group: 'homepage' },
+  { question: 'Is there a fee for the Local Visibility Audit?', answer: 'No. The 15-minute Local Visibility Audit is completely free. We will show you exactly where you stand against competitors in your area and what it would take to start winning more remodeling jobs online.', group: 'homepage' },
+  { question: 'What does the audit actually show me?', answer: 'We review your Google Business Profile, website, online reviews, and paid ad presence compared to your top local competitors. You will leave the call with a clear picture of where you are losing jobs online and what to fix first.', group: 'homepage' },
 ]
 
 function FAQItem({ q, a }: { q: string; a: string }) {

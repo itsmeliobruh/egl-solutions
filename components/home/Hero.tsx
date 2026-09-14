@@ -6,16 +6,17 @@ import { ChevronDown } from 'lucide-react'
 import type { HeroData } from '@/lib/payload/queries'
 
 const DEFAULTS: HeroData = {
-  badgeText: 'LIMITED TIME: FREE WEBSITE BUILD ON US',
-  headlineL1: 'EMPOWERING',
-  headlineL2: 'LOCAL BUSINESS',
-  headlineL3prefix: 'WITH',
-  headlineL3outline: 'SMART',
-  headlineL4: 'MARKETING',
-  headlineL5: 'SOLUTIONS!',
-  subtext: 'Dedicated to crafting impactful systems that attract, convert, and retain customers, helping your local service business scale faster than ever.',
-  ctaPrimary: '⚡ WORK WITH US',
-  ctaSecondary: 'VIEW PRICING',
+  badgeText: "CONNECTICUT'S HOME REMODELING MARKETING AGENCY",
+  headlineL1: 'CONNECTICUT',
+  headlineL2: 'HOME REMODELERS:',
+  headlineL3prefix: 'BOOK MORE',
+  headlineL3outline: 'JOBS',
+  headlineL4: 'WITH DONE-FOR-YOU',
+  headlineL5: 'MARKETING!',
+  subtext:
+    'EGL Marketing helps Connecticut home remodeling contractors book more kitchen and bath jobs with done-for-you growth systems — website, CRM, ads, AI follow-up, reviews, and content.',
+  ctaPrimary: '⚡ BOOK YOUR FREE AUDIT',
+  ctaSecondary: 'HOW IT WORKS',
 }
 
 function ScrollArrows() {
@@ -40,8 +41,8 @@ export default function Hero({ data }: { data?: HeroData | null }) {
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
-  const scrollToPricing = () => {
-    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -116,7 +117,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
                 {d.ctaPrimary}
               </button>
               <button
-                onClick={scrollToPricing}
+                onClick={scrollToServices}
                 className="inline-flex items-center justify-center gap-2 border-2 border-inferno text-inferno font-display text-base px-6 py-3 rounded tracking-widest hover:bg-inferno/10 transition-colors"
               >
                 {d.ctaSecondary}

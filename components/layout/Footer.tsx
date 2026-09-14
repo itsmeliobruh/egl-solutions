@@ -23,9 +23,9 @@ const areaLinks = [
 const companyLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/pricing', label: 'Pricing' },
   { href: '/contact', label: 'Contact' },
   { href: '/service-areas', label: 'Service Areas' },
+  { href: '/book', label: '⚡ Book Free Audit' },
 ]
 
 export default function Footer() {
@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="font-display text-2xl text-bone tracking-wider">EGL MARKETING</span>
             </div>
             <p className="font-body text-sm text-muted leading-relaxed mb-6">
-              Helping local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems.
+              Helping Connecticut home remodeling contractors book more kitchen and bath jobs with done-for-you growth systems — website, CRM, ads, reviews, and content.
             </p>
             <div className="space-y-3 text-sm font-body">
               <a href="tel:+18602003455" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">

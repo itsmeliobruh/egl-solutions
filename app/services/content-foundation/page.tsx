@@ -5,13 +5,13 @@ import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Content Starter | Monthly Short-Form Video Content for Local Service Businesses',
+  title: 'Content Starter | Before & After Remodeling Videos for Connecticut Contractors',
   description:
-    'Build trust and stay visible with monthly content. 1 filming day, 8–12 short-form videos, captions, and posting guidance. $997/mo. EGL Marketing, Wethersfield CT.',
+    'Before/after content from your own job sites turned into short-form video. 1 filming day, 8–12 videos/month. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://eglmarketing.co/services/content-foundation' },
   openGraph: {
     title: 'Content Starter — EGL Marketing',
-    description: '1 filming day/month, 8–12 short-form videos, captions, and posting guidance. $997/mo.',
+    description: 'Remodeling project content filmed on your job sites, turned into 8–12 short-form videos monthly.',
     url: 'https://eglmarketing.co/services/content-foundation',
   },
 }

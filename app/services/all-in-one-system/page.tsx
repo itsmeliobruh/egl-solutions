@@ -5,13 +5,13 @@ import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Revenue Engine | Complete Done-For-You Growth System for Local Service Businesses',
+  title: 'Revenue Engine | Complete Done-For-You Marketing for CT Home Remodeling Contractors',
   description:
-    'Website, CRM, ads, AI follow-up, content, reviews, reporting, and optimization — all done for you. $5,000 setup + $2,997/mo. Ad spend separate. EGL Marketing, Wethersfield CT.',
+    'The complete done-for-you system for Connecticut home remodeling contractors: website, CRM, ads, AI follow-up, reviews, before/after content, and reporting. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://eglmarketing.co/services/all-in-one-system' },
   openGraph: {
     title: 'Revenue Engine — EGL Marketing',
-    description: 'The complete done-for-you growth system. Ads, AI, content, and reporting. $5,000 setup + $2,997/mo.',
+    description: 'The complete done-for-you growth system for CT home remodeling contractors.',
     url: 'https://eglmarketing.co/services/all-in-one-system',
   },
 }

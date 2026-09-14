@@ -7,12 +7,13 @@ import SectionLabel from '@/components/shared/SectionLabel'
 const BOOKING_URL = '/book'
 
 const services = [
-  'Website + Systems ($297/mo)',
-  'Lead Generation ($1,499/mo)',
-  'All-In-One System ($2,499/mo)',
-  'Content Foundation ($997/mo)',
-  'Content Growth ($2,499/mo)',
-  'Content Authority ($4,997/mo)',
+  'Growth Foundation — Website, CRM & Systems',
+  'Lead Flow System — Ads & Lead Generation',
+  'Revenue Engine — Full Done-For-You System',
+  'Content Starter — 8–12 Videos/Month',
+  'Content Growth — 15–20 Videos/Month',
+  'Local Authority Content — 25–30 Videos/Month',
+  'Not Sure — Book a Free Audit',
 ]
 
 export default function ContactForm() {

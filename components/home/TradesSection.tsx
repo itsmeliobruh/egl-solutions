@@ -5,21 +5,18 @@ import Link from 'next/link'
 import SectionLabel from '@/components/shared/SectionLabel'
 
 const trades = [
-  'General Contractors',
-  'Home Builders',
-  'Remodeling',
-  'Landscapers',
-  'Pressure Washing',
-  'Flooring / Carpet Cleaning',
-  'Tree Service',
-  'Pest Control',
-  'Roofing',
-  'Plumbing',
-  'HVAC',
-  'Electricians',
-  'Painters',
-  'Car Cleaning / Detailing',
-  'Pool Construction',
+  'Kitchen Remodeling',
+  'Bathroom Remodeling',
+  'Basement Finishing',
+  'Home Additions',
+  'Whole-Home Renovation',
+  'Deck & Outdoor Living',
+  'Flooring & Interior Finishes',
+  'Siding & Exterior',
+  'Window & Door Replacement',
+  'Custom Closets & Built-Ins',
+  'Garage Conversions',
+  'ADA / Aging-in-Place Remodels',
 ]
 
 export default function TradesSection() {
@@ -33,9 +30,9 @@ export default function TradesSection() {
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <SectionLabel label="03 — WHO WE WORK WITH" className="mb-3 justify-center" />
+          <SectionLabel label="03 — REMODELING SPECIALTIES" className="mb-3 justify-center" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider">
-            SERVING ALL THESE TRADES AND MORE
+            THE REMODELING SPECIALTIES WE SERVE
           </h2>
         </motion.div>
 
@@ -62,14 +59,14 @@ export default function TradesSection() {
           className="text-center"
         >
           <p className="font-body text-[#CCCCCC] mb-4">
-            Don&apos;t see your trade? No problem — if you run a local service business, we can build the
-            marketing system to grow it.
+            If you&apos;re a home remodeling contractor in Connecticut, we built this for you.
+            Book a free 15-minute Local Visibility Audit and see where you&apos;re losing jobs.
           </p>
           <Link
-            href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"
+            href="/book"
             className="inline-block bg-[#FF5500] text-white font-display text-sm px-8 py-3 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_24px_rgba(255,85,0,0.35)]"
           >
-            LET&apos;S TALK
+            BOOK YOUR FREE AUDIT
           </Link>
         </motion.div>
       </div>

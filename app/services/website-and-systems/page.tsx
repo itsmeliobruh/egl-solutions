@@ -5,13 +5,13 @@ import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Growth Foundation | Website, CRM & Follow-Up System for Local Service Businesses',
+  title: 'Growth Foundation | Website & CRM for Connecticut Home Remodeling Contractors',
   description:
-    'Build the system before you buy more traffic. Website, CRM, lead capture, follow-up automations, review system, and tracking. $1,000 setup + $297/mo. EGL Marketing, Wethersfield CT.',
+    'A website built to convert homeowners researching remodels in your area — plus CRM, AI follow-up, review capture, and lead tracking. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://eglmarketing.co/services/website-and-systems' },
   openGraph: {
     title: 'Growth Foundation — EGL Marketing',
-    description: 'Build the system before you buy more traffic. Website, CRM, follow-up, and reviews. $1,000 setup + $297/mo.',
+    description: 'Website, CRM, follow-up, and reviews built for CT home remodeling contractors.',
     url: 'https://eglmarketing.co/services/website-and-systems',
   },
 }
