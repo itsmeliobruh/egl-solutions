@@ -9,7 +9,7 @@ import type { FAQItemData } from '@/lib/payload/queries'
 const DEFAULT_FAQS: FAQItemData[] = [
   { question: 'Can you provide references from past clients?', answer: 'Absolutely. We can provide references from past clients. You can also read reviews from our satisfied customers on Google. Contact information for specific past clients available upon request.', group: 'homepage' },
   { question: 'What sets you apart from other agencies?', answer: 'At EGL Marketing, we distinguish ourselves through meticulous attention to detail, a dedication to quality results, and a personalized approach. We prioritize communication to seamlessly bring your vision to life.', group: 'homepage' },
-  { question: 'Is there a fee for a consultation?', answer: 'No. EGL Marketing offers complimentary consultations and estimates to all prospective clients.', group: 'homepage' },
+  { question: 'Is the consultation free?', answer: 'Yes. The audit call is completely free — no pitch, no pressure. We show you exactly where you\'re losing leads and what it would take to fix it.', group: 'homepage' },
   { question: 'How long does it take to build my system?', answer: 'Most systems are built and launched within 7–10 business days after receiving your onboarding information.', group: 'homepage' },
   { question: 'Do I need a contract?', answer: 'We offer month-to-month agreements. No long-term contracts required.', group: 'homepage' },
 ]
