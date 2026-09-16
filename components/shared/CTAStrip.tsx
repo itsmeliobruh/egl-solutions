@@ -9,8 +9,8 @@ interface CTAStripProps {
 }
 
 export default function CTAStrip({
-  headline = 'READY TO BOOK MORE REMODELING JOBS?',
-  subtext = 'Book a free 15-minute Local Visibility Audit. We show you exactly where you stand against competitors in your Connecticut market.',
+  headline = 'READY TO GROW YOUR BUSINESS?',
+  subtext = 'Schedule a free 15-minute intro call. No obligation, no contracts.',
   bookingHref = DEFAULT_BOOKING_URL,
 }: CTAStripProps) {
   return (
@@ -27,7 +27,7 @@ export default function CTAStrip({
           href={bookingHref}
           className="inline-block bg-black text-bone font-display text-lg px-10 py-4 rounded tracking-widest hover:bg-void transition-colors shadow-lg"
         >
-          ⚡ BOOK YOUR FREE AUDIT ⚡
+          ⚡ SCHEDULE A CALL ⚡
         </a>
       </div>
     </section>

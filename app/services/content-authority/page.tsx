@@ -5,13 +5,13 @@ import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Local Authority Content | Dominate CT Remodeling with Project Content',
+  title: 'Local Authority Content | Dominate Your Local Market with Content',
   description:
-    '3 filming days max, 25–30 remodeling project videos per month, founder content, client testimonials, and campaign themes. Become the known remodeler in your CT market. EGL Marketing.',
+    '3 filming days max, 25–30 short-form videos per month, founder content, testimonials, and monthly campaign themes. $3,997/mo. EGL Marketing, Wethersfield CT.',
   alternates: { canonical: 'https://eglmarketing.co/services/content-authority' },
   openGraph: {
     title: 'Local Authority Content — EGL Marketing',
-    description: '3 filming days, 25–30 remodeling videos/month — dominate your Connecticut local market.',
+    description: '3 filming days max, 25–30 videos/month, founder content, testimonials, and campaign themes. $3,997/mo.',
     url: 'https://eglmarketing.co/services/content-authority',
   },
 }

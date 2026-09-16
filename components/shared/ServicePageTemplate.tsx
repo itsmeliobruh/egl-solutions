@@ -45,19 +45,27 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
           <p className="font-body text-light/80 text-lg max-w-2xl mb-6 leading-relaxed">
             {service.subheadline}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="mb-8">
+            <span className="font-display text-3xl text-[#FF5500]">
+              {service.setup ? `${service.setup} + ${service.price}` : service.price}
+            </span>
+            {service.pricingNote && (
+              <p className="font-body text-sm text-muted mt-2">{service.pricingNote}</p>
+            )}
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4">
             <a
               href={bookingUrl}
               className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
             >
-              ⚡ BOOK YOUR FREE AUDIT
+              ⚡ GET STARTED TODAY
             </a>
-            <a
-              href="tel:+18602003455"
-              className="inline-flex items-center justify-center gap-2 bg-white text-black font-display text-sm px-8 py-4 rounded tracking-widest hover:bg-gray-100 transition-colors shadow-sm"
+            <Link
+              href="/pricing"
+              className="inline-flex items-center justify-center gap-2 border-2 border-steel text-light font-display text-lg px-8 py-4 rounded tracking-widest hover:border-inferno hover:text-inferno transition-colors"
             >
-              (860) 200-3455
-            </a>
+              VIEW ALL PLANS
+            </Link>
           </div>
         </div>
       </section>

@@ -4,32 +4,36 @@ import TrustBar from '@/components/home/TrustBar'
 import AboutSection from '@/components/home/AboutSection'
 import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
+import PricingSection from '@/components/home/PricingSection'
 import ProcessSection from '@/components/home/ProcessSection'
 import ServiceAreaMap from '@/components/home/ServiceAreaMap'
 import FAQSection from '@/components/home/FAQSection'
 import {
   getPayloadHero,
+  getPayloadPricingCards,
+  getPayloadContentAddOns,
   getPayloadProcessSteps,
   getPayloadFAQ,
 } from '@/lib/payload/queries'
 
 export const metadata: Metadata = {
-  title: 'Home Remodeling Marketing Connecticut | EGL Marketing',
+  title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
   description:
-    'EGL Marketing helps Connecticut home remodeling contractors book more kitchen and bath jobs with done-for-you growth systems — website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT. Call (860) 200-3455.',
+    'EGL Marketing helps local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems — website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT. Call (860) 200-3455.',
   alternates: { canonical: 'https://eglmarketing.co' },
   openGraph: {
-    title: 'EGL Marketing | Home Remodeling Marketing Agency Connecticut',
-    description:
-      'Done-for-you marketing for Connecticut home remodeling contractors. Book more kitchen & bath jobs with website, CRM, ads, AI follow-up, reviews, and content.',
+    title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
+    description: 'Turn more attention into booked jobs. Website, CRM, ads, AI follow-up, reviews, and content for local service businesses in Connecticut.',
     url: 'https://eglmarketing.co',
     images: [{ url: 'https://eglmarketing.co/og-image.png', width: 1200, height: 630 }],
   },
 }
 
 export default async function HomePage() {
-  const [hero, processSteps, faqs] = await Promise.all([
+  const [hero, pricingCards, contentAddOns, processSteps, faqs] = await Promise.all([
     getPayloadHero(),
+    getPayloadPricingCards(),
+    getPayloadContentAddOns(),
     getPayloadProcessSteps(),
     getPayloadFAQ('homepage'),
   ])
@@ -41,6 +45,7 @@ export default async function HomePage() {
       <AboutSection />
       <ServicesSection />
       <TradesSection />
+      <PricingSection cards={pricingCards} addOns={contentAddOns} />
       <ProcessSection steps={processSteps} />
       <ServiceAreaMap />
       <FAQSection faqs={faqs} />

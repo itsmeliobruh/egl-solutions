@@ -5,13 +5,13 @@ import ServicePageTemplate from '@/components/shared/ServicePageTemplate'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Lead Flow System | Meta & Google Ads for Connecticut Home Remodeling Contractors',
+  title: 'Lead Flow System | Done-For-You Lead Generation for Local Service Businesses',
   description:
-    'Meta ads that get in front of homeowners actively planning a remodel. Never lose a $20K kitchen job to a missed call again. EGL Marketing, Wethersfield CT.',
+    'Generate, capture, and follow up with new leads every month. Google Ads, Meta Ads, LSA, CRM, tracking, and monthly reporting. $2,000 setup + $1,500/mo. Ad spend separate. EGL Marketing.',
   alternates: { canonical: 'https://eglmarketing.co/services/lead-generation' },
   openGraph: {
     title: 'Lead Flow System — EGL Marketing',
-    description: 'Meta and Google ads built for CT remodeling contractors. Stop losing kitchen and bath jobs to competitors.',
+    description: 'Done-for-you lead generation. Google, Meta Ads, LSA, tracking, and reporting. $2,000 setup + $1,500/mo.',
     url: 'https://eglmarketing.co/services/lead-generation',
   },
 }

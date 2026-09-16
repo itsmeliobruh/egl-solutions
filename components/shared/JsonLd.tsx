@@ -4,7 +4,7 @@ export default function JsonLd() {
     '@type': 'LocalBusiness',
     name: 'EGL Marketing',
     description:
-      'Home remodeling marketing agency in Connecticut. We help kitchen and bath remodelers, general remodeling contractors, and home addition specialists book more jobs with done-for-you marketing systems.',
+      'Marketing agency specializing in websites, lead generation, and content creation for local service businesses in Connecticut.',
     url: 'https://eglmarketing.co',
     telephone: '+18602003455',
     email: 'info@eglmarketing.co',
@@ -26,13 +26,7 @@ export default function JsonLd() {
     ],
     openingHours: 'Mo-Su 09:00-19:00',
     sameAs: ['https://www.instagram.com/eglmarketing.co/'],
-    knowsAbout: [
-      'Home Remodeling Marketing',
-      'Kitchen Remodeling Lead Generation',
-      'Bathroom Remodeling Marketing',
-      'Connecticut Home Improvement Contractor Marketing',
-      'Local SEO for Remodeling Contractors',
-    ],
+    priceRange: '$$',
   }
 
   return (

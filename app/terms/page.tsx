@@ -16,7 +16,7 @@ export default function TermsPage() {
         <div className="prose prose-invert max-w-none font-body text-muted space-y-6 text-sm leading-relaxed">
           <p>Last updated: January 1, 2026</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">1. Services</h2>
-          <p>EGL Marketing provides digital marketing services including website design, lead generation, content creation, and marketing automation for home remodeling contractors and home improvement businesses in Connecticut. All services are delivered on a month-to-month basis unless otherwise agreed in writing.</p>
+          <p>EGL Marketing provides digital marketing services including website design, lead generation, content creation, and marketing automation for local service businesses. All services are delivered on a month-to-month basis unless otherwise agreed in writing.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">2. Payment</h2>
           <p>Monthly service fees are billed in advance. All payments are due on the agreed billing date. Failure to pay within 7 days of the due date may result in suspension of services.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">3. Cancellation</h2>

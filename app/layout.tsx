@@ -28,21 +28,21 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Home Remodeling Marketing Agency Connecticut | EGL Marketing',
+    default: 'EGL Marketing | Marketing Agency for Local Service Businesses in CT',
     template: '%s | EGL Marketing',
   },
   description:
-    'EGL Marketing helps Connecticut home remodeling contractors book more kitchen and bath jobs with done-for-you growth systems — website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT. Call (860) 200-3455.',
+    'EGL Marketing helps local service businesses in Connecticut grow with high-converting websites, lead generation, AI automation, and content creation. Based in Wethersfield, CT. Call (860) 200-3455.',
   keywords: [
-    'home remodeling marketing Connecticut',
-    'marketing for remodeling contractors CT',
-    'kitchen remodeling marketing CT',
-    'bathroom remodeling lead generation Connecticut',
-    'remodeling contractor marketing Wethersfield CT',
-    'home improvement marketing agency Connecticut',
-    'remodeling contractor SEO Connecticut',
-    'marketing agency for contractors CT',
-    'local SEO remodeling contractors',
+    'marketing agency Connecticut',
+    'lead generation CT',
+    'local service business marketing',
+    'HVAC marketing CT',
+    'roofing contractor marketing',
+    'plumber marketing Connecticut',
+    'Wethersfield CT marketing agency',
+    'contractor marketing',
+    'trades marketing',
   ],
   metadataBase: new URL('https://eglmarketing.co'),
   openGraph: {
