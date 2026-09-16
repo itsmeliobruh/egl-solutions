@@ -5,12 +5,10 @@ import PainSection from '@/components/home/PainSection'
 import HowItWorksSection from '@/components/home/HowItWorksSection'
 import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
-import ProcessSection from '@/components/home/ProcessSection'
 import ServiceAreaMap from '@/components/home/ServiceAreaMap'
 import FAQSection from '@/components/home/FAQSection'
 import {
   getPayloadHero,
-  getPayloadProcessSteps,
   getPayloadFAQ,
 } from '@/lib/payload/queries'
 
@@ -28,9 +26,8 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
-  const [hero, processSteps, faqs] = await Promise.all([
+  const [hero, faqs] = await Promise.all([
     getPayloadHero(),
-    getPayloadProcessSteps(),
     getPayloadFAQ('homepage'),
   ])
 
@@ -42,7 +39,6 @@ export default async function HomePage() {
       <HowItWorksSection />
       <ServicesSection />
       <TradesSection />
-      <ProcessSection steps={processSteps} />
       <ServiceAreaMap />
       <FAQSection faqs={faqs} />
     </>
