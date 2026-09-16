@@ -28,14 +28,14 @@ const pains = [
 
 export default function PainSection() {
   return (
-    <section className="bg-[#111] py-24 px-4">
+    <section className="bg-[#111] py-16 lg:py-20 px-4">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-12"
+          className="mb-8"
         >
           <SectionLabel label="SOUND FAMILIAR?" className="mb-4" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider leading-tight max-w-3xl">

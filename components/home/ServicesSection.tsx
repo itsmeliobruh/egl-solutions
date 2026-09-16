@@ -97,7 +97,7 @@ const packages = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-[#0D0D0D] py-24 px-4 grid-overlay" id="services">
+    <section className="bg-[#0D0D0D] py-16 lg:py-20 px-4 grid-overlay" id="services">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

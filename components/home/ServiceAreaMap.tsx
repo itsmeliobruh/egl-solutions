@@ -17,7 +17,7 @@ const counties = [
 
 export default function ServiceAreaMap() {
   return (
-    <section className="bg-[#0D0D0D] py-24 px-4 md:px-8" id="service-areas">
+    <section className="bg-[#0D0D0D] py-16 lg:py-20 px-4 md:px-8" id="service-areas">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

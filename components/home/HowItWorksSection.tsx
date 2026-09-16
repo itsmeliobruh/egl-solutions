@@ -26,14 +26,14 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="bg-[#0D0D0D] py-24 px-4" id="how-it-works">
+    <section className="bg-[#0D0D0D] py-16 lg:py-20 px-4" id="how-it-works">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-14"
+          className="mb-10"
         >
           <SectionLabel label="HOW IT WORKS" className="mb-4" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider leading-tight">
