@@ -28,12 +28,13 @@ export default function ServiceAreaMap() {
           transition={{ duration: 0.4 }}
           className="mb-12"
         >
-          <SectionLabel label="05 — WHERE WE SERVE" className="mb-3" />
+          <SectionLabel label="WHERE WE SERVE" className="mb-3" />
           <h2 className="font-display text-5xl md:text-6xl text-white tracking-wide">
             SERVICE AREAS
           </h2>
-          <p className="font-body text-[#AAAAAA] mt-4 max-w-xl text-sm leading-relaxed">
-            Based in Wethersfield, CT — but we work with businesses across multiple regions. Fit matters more than zip code.
+          <p className="font-body text-bone mt-4 max-w-xl text-base leading-relaxed">
+            Based in <span className="text-inferno font-semibold">Wethersfield, CT</span> — but we work with businesses across multiple regions.{' '}
+            <span className="text-bone font-semibold">Fit matters more than zip code.</span>
           </p>
         </motion.div>
 
