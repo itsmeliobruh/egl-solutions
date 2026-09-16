@@ -221,7 +221,7 @@ export default function ServicesSection() {
                 className={`block text-center font-display text-sm tracking-widest py-3 rounded transition-colors ${
                   pkg.badgeFeatured
                     ? 'bg-inferno text-black hover:bg-scorch'
-                    : 'bg-[#2A2320] text-bone hover:bg-[#3A3320]'
+                    : 'bg-[#2A2320] text-bone hover:bg-inferno hover:text-black'
                 }`}
               >
                 BOOK A FREE CALL
