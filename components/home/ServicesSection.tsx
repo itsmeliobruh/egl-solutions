@@ -111,7 +111,7 @@ export default function ServicesSection() {
             BUILT FOR <CyclingTrade />
           </h2>
           <p className="font-body text-muted text-sm">
-            Connecticut local service businesses. One right fit per client.
+            Built for local service businesses that are serious about growth.
           </p>
         </motion.div>
 
