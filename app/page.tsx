@@ -4,14 +4,11 @@ import TrustBar from '@/components/home/TrustBar'
 import AboutSection from '@/components/home/AboutSection'
 import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
-import PricingSection from '@/components/home/PricingSection'
 import ProcessSection from '@/components/home/ProcessSection'
 import ServiceAreaMap from '@/components/home/ServiceAreaMap'
 import FAQSection from '@/components/home/FAQSection'
 import {
   getPayloadHero,
-  getPayloadPricingCards,
-  getPayloadContentAddOns,
   getPayloadProcessSteps,
   getPayloadFAQ,
 } from '@/lib/payload/queries'
@@ -30,10 +27,8 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
-  const [hero, pricingCards, contentAddOns, processSteps, faqs] = await Promise.all([
+  const [hero, processSteps, faqs] = await Promise.all([
     getPayloadHero(),
-    getPayloadPricingCards(),
-    getPayloadContentAddOns(),
     getPayloadProcessSteps(),
     getPayloadFAQ('homepage'),
   ])
@@ -45,7 +40,6 @@ export default async function HomePage() {
       <AboutSection />
       <ServicesSection />
       <TradesSection />
-      <PricingSection cards={pricingCards} addOns={contentAddOns} />
       <ProcessSection steps={processSteps} />
       <ServiceAreaMap />
       <FAQSection faqs={faqs} />

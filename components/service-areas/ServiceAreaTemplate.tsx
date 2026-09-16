@@ -8,12 +8,8 @@ import { Card } from '@/components/shared/Card'
 const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
 const services = [
-  { href: '/services/website-and-systems', emoji: '🚀', name: 'Growth Foundation', price: '$1,000 setup + $297/mo', description: 'Website, CRM, lead capture, follow-up, reviews, and tracking.' },
-  { href: '/services/lead-generation', emoji: '🚀', name: 'Lead Flow System', price: '$2,000 setup + $1,500/mo', description: 'Google, Meta Ads, LSA — generate and capture new leads every month. Ad spend separate.' },
-  { href: '/services/all-in-one-system', emoji: '🚀', name: 'Revenue Engine', price: '$5,000 setup + $2,997/mo', description: 'Complete done-for-you growth system with AI, ads, content, and reporting. Ad spend separate.' },
-  { href: '/services/content-foundation', emoji: '📸', name: 'Content Starter', price: '$997/mo', description: '1 filming day, 8–12 short-form videos per month.' },
-  { href: '/services/content-growth', emoji: '📸', name: 'Content Growth', price: '$1,997/mo', description: '2 filming days, 15–20 videos + full content strategy.' },
-  { href: '/services/content-authority', emoji: '📸', name: 'Local Authority Content', price: '$3,997/mo', description: '3 filming days max, 25–30 videos — dominate your local market.' },
+  { href: '/book', name: 'Local Presence Builder', badge: 'Foundation First', description: 'Website, GBP, CRM, lead capture, review automation, local SEO — everything you need to be found and look legit before you spend on ads.' },
+  { href: '/book', name: 'Remodeler Growth Engine', badge: 'Main Offer', description: 'Full-service: custom website, Meta ads, AI follow-up, monthly content shoot, ongoing GBP optimization, reporting, and a monthly strategy call.' },
 ]
 
 const trades = [
@@ -112,18 +108,18 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
           <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider mb-10">
             WHAT WE OFFER IN {area.name.toUpperCase()}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {services.map((s) => (
-              <Link key={s.href} href={s.href} className="group block">
+              <Link key={s.name} href={s.href} className="group block">
                 <Card className="p-5 h-full">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xl">{s.emoji}</span>
-                    <h3 className="font-display text-lg text-[#0A0A0A] tracking-wide group-hover:text-[#FF5500] transition-colors">
-                      {s.name}
-                    </h3>
-                  </div>
+                  <span className="inline-block text-[10px] font-bold tracking-[2px] uppercase bg-[#FF550015] text-[#FF5500] border border-[#FF550030] px-2 py-0.5 rounded mb-3">
+                    {s.badge}
+                  </span>
+                  <h3 className="font-display text-lg text-[#0A0A0A] tracking-wide group-hover:text-[#FF5500] transition-colors mb-2">
+                    {s.name}
+                  </h3>
                   <p className="font-body text-xs text-[#666666] leading-relaxed mb-3">{s.description}</p>
-                  <span className="font-display text-lg text-[#FF5500]">{s.price}</span>
+                  <span className="font-display text-sm text-[#FF5500]">Book a Free Call →</span>
                 </Card>
               </Link>
             ))}
