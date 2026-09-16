@@ -43,6 +43,9 @@ export default function Hero({ data }: { data?: HeroData | null }) {
   const scrollToPricing = () => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
+  const scrollToProcess = () => {
+    document.getElementById('process')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <section className="relative flex items-start overflow-hidden bg-void" aria-label="Hero section">
@@ -150,6 +153,45 @@ export default function Hero({ data }: { data?: HeroData | null }) {
             <GHLForm fitToViewport={true} />
           </motion.div>
         </div>
+
+        {/* Stats bar + See how it works */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
+          className="mt-10 pt-8 border-t border-[#2A2320]"
+        >
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-0">
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8 sm:gap-12 flex-1">
+              {[
+                { value: '7–10', label: 'Days to launch' },
+                { value: '30+', label: 'Google reviews in 90 days' },
+                { value: '0', label: 'Leads lost to missed calls' },
+                { value: '1', label: 'Extra job pays for it all' },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="font-display text-2xl text-inferno tracking-wide leading-none mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] leading-tight">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* See how it works button */}
+            <button
+              onClick={scrollToProcess}
+              className="flex items-center gap-3 border-l-2 border-inferno pl-5 text-left group"
+            >
+              <span className="font-body text-sm text-light/70 group-hover:text-bone transition-colors whitespace-nowrap">
+                See how it works ↓
+              </span>
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
