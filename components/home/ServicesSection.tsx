@@ -1,8 +1,50 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
+import { useState, useEffect } from 'react'
+
+const TRADES = [
+  'REMODELERS',
+  'ROOFERS',
+  'PLUMBERS',
+  'HVAC PROS',
+  'LANDSCAPERS',
+  'ELECTRICIANS',
+  'PAINTERS',
+  'CONTRACTORS',
+  'FLOORING PROS',
+  'POOL BUILDERS',
+]
+
+function CyclingTrade() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % TRADES.length)
+    }, 1800)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <span className="inline-block relative" style={{ minWidth: '1ch' }}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={TRADES[index]}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -16 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="text-inferno inline-block"
+        >
+          {TRADES[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  )
+}
 
 const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
@@ -65,11 +107,11 @@ export default function ServicesSection() {
           className="mb-3"
         >
           <SectionLabel label="02 — SERVICE PACKAGES" className="mb-3" />
-          <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider mb-2">
-            BUILT FOR REMODELERS
+          <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider mb-2 leading-tight">
+            BUILT FOR <CyclingTrade />
           </h2>
           <p className="font-body text-muted text-sm">
-            Connecticut home remodeling contractors only. One right fit per client.
+            Connecticut local service businesses. One right fit per client.
           </p>
         </motion.div>
 
