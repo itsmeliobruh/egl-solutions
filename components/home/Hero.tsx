@@ -161,7 +161,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="mt-10 pt-8 border-t border-[#2A2320]"
         >
-          <div className="flex flex-wrap gap-8 sm:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
               { value: '7–10', label: 'Days to launch' },
               { value: '30+', label: 'Google reviews in 90 days' },
@@ -169,7 +169,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               { value: '1', label: 'Extra job pays for it all' },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className="font-display text-2xl text-inferno tracking-wide leading-none mb-1">
+                <div className="font-display text-2xl tracking-wide leading-none mb-1" style={{ color: '#FF5500' }}>
                   {stat.value}
                 </div>
                 <div className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] leading-tight">
