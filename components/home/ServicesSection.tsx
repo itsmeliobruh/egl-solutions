@@ -106,9 +106,8 @@ export default function ServicesSection() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <SectionLabel label="02 — SERVICE PACKAGES" className="mb-3" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider mb-2 leading-tight">
-            BUILT FOR <CyclingTrade />
+            SERVICE PACKAGES
           </h2>
           <p className="font-body text-muted text-sm">
             Connecticut local service businesses. One right fit per client.
