@@ -52,7 +52,7 @@ const packages = [
   {
     badge: 'Foundation First',
     badgeFeatured: false,
-    name: 'Local Presence Builder',
+    name: '🏗️ Local Presence Builder',
     description:
       'Before ads, before content, before anything else — get your foundation right. Be found, look legit, capture every lead.',
     features: [
@@ -72,7 +72,7 @@ const packages = [
   {
     badge: 'Full System',
     badgeFeatured: true,
-    name: 'Market Dominator',
+    name: '🔥 Market Dominator',
     description:
       'Full-service marketing system built to generate consistent leads and dominate your local market month after month.',
     setupFeatures: [
