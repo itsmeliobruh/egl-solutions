@@ -2,8 +2,8 @@ import type { Service } from '@/lib/services'
 import Link from 'next/link'
 import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
-import ProcessSteps from '@/components/shared/ProcessSteps'
 import CTAStrip from '@/components/shared/CTAStrip'
+import HowItWorksSection from '@/components/home/HowItWorksSection'
 import { BOOKING_LINKS, DEFAULT_BOOKING } from '@/lib/bookingLinks'
 
 export default function ServicePageTemplate({ service }: { service: Service }) {
@@ -121,16 +121,8 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
       </section>
 
 
-      {/* Process */}
-      <section className="bg-void py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <SectionLabel label="HOW IT WORKS" className="mb-3" />
-          <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider mb-10">
-            OUR PROCESS IS SIMPLE
-          </h2>
-          <ProcessSteps />
-        </div>
-      </section>
+      {/* How It Works */}
+      <HowItWorksSection />
 
       {/* CTA Strip */}
       <CTAStrip bookingHref={bookingUrl} />
