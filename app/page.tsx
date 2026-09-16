@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import TrustBar from '@/components/home/TrustBar'
-import AboutSection from '@/components/home/AboutSection'
 import PainSection from '@/components/home/PainSection'
 import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
@@ -38,7 +37,6 @@ export default async function HomePage() {
     <>
       <Hero data={hero} />
       <TrustBar />
-      <AboutSection />
       <PainSection />
       <ServicesSection />
       <TradesSection />
