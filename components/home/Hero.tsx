@@ -44,7 +44,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
   const scrollToProcess = () => {
-    document.getElementById('process')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (

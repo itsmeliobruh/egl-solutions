@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import TrustBar from '@/components/home/TrustBar'
 import PainSection from '@/components/home/PainSection'
+import HowItWorksSection from '@/components/home/HowItWorksSection'
 import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
 import ProcessSection from '@/components/home/ProcessSection'
@@ -38,6 +39,7 @@ export default async function HomePage() {
       <Hero data={hero} />
       <TrustBar />
       <PainSection />
+      <HowItWorksSection />
       <ServicesSection />
       <TradesSection />
       <ProcessSection steps={processSteps} />
