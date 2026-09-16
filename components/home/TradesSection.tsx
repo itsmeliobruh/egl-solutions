@@ -33,7 +33,7 @@ export default function TradesSection() {
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <SectionLabel label="03 — WHO WE WORK WITH" className="mb-3 justify-center" />
+          <SectionLabel label="WHO WE WORK WITH" className="mb-3 justify-center" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider">
             SERVING ALL THESE TRADES AND MORE
           </h2>
