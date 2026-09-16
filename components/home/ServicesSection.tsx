@@ -91,7 +91,7 @@ const packages = [
       'Monthly strategy call',
     ],
     goal: 'One job. That\'s all it takes to cover the cost. We aim to deliver a lot more than that.',
-    goalLabel: 'The Math',
+    goalLabel: 'The ROI',
   },
 ]
 
@@ -211,7 +211,7 @@ export default function ServicesSection() {
               {/* Goal/Math callout */}
               <div className="bg-[#FF550015] border border-[#FF550030] rounded-lg px-4 py-3 mb-6">
                 <p className="font-mono text-[11px] text-inferno tracking-[2px] uppercase mb-1">
-                  {pkg.goalLabel === 'The Math' ? '💰' : '📈'} {pkg.goalLabel}
+                  {pkg.goalLabel === 'The ROI' ? '💰' : '📈'} {pkg.goalLabel}
                 </p>
                 <p className="font-body text-[13px] text-[#C8C0B8] leading-relaxed">{pkg.goal}</p>
               </div>
