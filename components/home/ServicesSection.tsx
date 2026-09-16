@@ -90,7 +90,7 @@ const packages = [
       'Monthly performance report',
       'Monthly strategy call',
     ],
-    goal: 'Avg remodel job = $15K–$40K. One extra job from our marketing pays for 6+ months of this retainer.',
+    goal: 'One job. That\'s all it takes to cover the cost. We aim to deliver a lot more than that.',
     goalLabel: 'The Math',
   },
 ]
