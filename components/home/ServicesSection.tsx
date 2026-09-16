@@ -70,9 +70,9 @@ const packages = [
     goalLabel: 'The Goal',
   },
   {
-    badge: 'Main Offer',
+    badge: 'Full System',
     badgeFeatured: true,
-    name: 'Remodeler Growth Engine',
+    name: 'Market Dominator',
     description:
       'Full-service marketing system built to generate consistent leads and dominate your local market month after month.',
     setupFeatures: [
