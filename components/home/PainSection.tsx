@@ -19,6 +19,11 @@ const pains = [
     heading: 'LEADS FALL THROUGH THE CRACKS',
     body: "Someone calls while you're on a job site. You miss it. They call someone else. You never had a system to catch and follow up with leads automatically.",
   },
+  {
+    emoji: '📉',
+    heading: 'WORD OF MOUTH IS DRYING UP',
+    body: "Your last five jobs came from referrals. That used to be enough. Now customers research before they call — and if you don't show up online, the referral means nothing.",
+  },
 ]
 
 export default function PainSection() {
