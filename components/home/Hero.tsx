@@ -13,7 +13,7 @@ const DEFAULTS: HeroData = {
   headlineL3outline: 'SMART',
   headlineL4: 'MARKETING',
   headlineL5: 'SOLUTIONS!',
-  subtext: 'Dedicated to crafting impactful systems that attract, convert, and retain customers, helping your local service business scale faster than ever.',
+  subtext: 'Most local businesses in Connecticut lose customers every week to competitors with a stronger online presence. We fix that — website, Google, leads, and content working together as one system.',
   ctaPrimary: '⚡ WORK WITH US',
   ctaSecondary: 'VIEW PRICING',
 }
