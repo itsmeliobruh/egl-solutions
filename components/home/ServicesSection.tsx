@@ -230,9 +230,6 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        <p className="text-center font-mono text-[11px] text-[#444] tracking-[1px] mt-8">
-          Pricing presented on discovery calls only. One recommendation per client — no menus.
-        </p>
       </div>
     </section>
   )
