@@ -110,7 +110,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-3 mb-0 lg:hidden"
+              className="flex flex-col sm:flex-row gap-3 mb-0"
             >
               <button
                 onClick={scrollToForm}
@@ -119,10 +119,10 @@ export default function Hero({ data }: { data?: HeroData | null }) {
                 {d.ctaPrimary}
               </button>
               <button
-                onClick={scrollToPricing}
-                className="inline-flex items-center justify-center gap-2 border-2 border-inferno text-inferno font-display text-base px-6 py-3 rounded tracking-widest hover:bg-inferno/10 transition-colors"
+                onClick={scrollToProcess}
+                className="inline-flex items-center justify-center gap-2 border border-[#3A3320] text-light/70 font-body text-sm px-6 py-3 rounded hover:text-bone hover:border-[#555] transition-colors"
               >
-                {d.ctaSecondary}
+                See how it works ↓
               </button>
             </motion.div>
 
@@ -161,35 +161,22 @@ export default function Hero({ data }: { data?: HeroData | null }) {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="mt-10 pt-8 border-t border-[#2A2320]"
         >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-0">
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8 sm:gap-12 flex-1">
-              {[
-                { value: '7–10', label: 'Days to launch' },
-                { value: '30+', label: 'Google reviews in 90 days' },
-                { value: '0', label: 'Leads lost to missed calls' },
-                { value: '1', label: 'Extra job pays for it all' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="font-display text-2xl text-inferno tracking-wide leading-none mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] leading-tight">
-                    {stat.label}
-                  </div>
+          <div className="flex flex-wrap gap-8 sm:gap-12">
+            {[
+              { value: '7–10', label: 'Days to launch' },
+              { value: '30+', label: 'Google reviews in 90 days' },
+              { value: '0', label: 'Leads lost to missed calls' },
+              { value: '1', label: 'Extra job pays for it all' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="font-display text-2xl text-inferno tracking-wide leading-none mb-1">
+                  {stat.value}
                 </div>
-              ))}
-            </div>
-
-            {/* See how it works button */}
-            <button
-              onClick={scrollToProcess}
-              className="flex items-center gap-3 border-l-2 border-inferno pl-5 text-left group"
-            >
-              <span className="font-body text-sm text-light/70 group-hover:text-bone transition-colors whitespace-nowrap">
-                See how it works ↓
-              </span>
-            </button>
+                <div className="font-mono text-[10px] text-muted uppercase tracking-[0.15em] leading-tight">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
