@@ -118,6 +118,12 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               >
                 {d.ctaPrimary}
               </button>
+              <button
+                onClick={scrollToProcess}
+                className="lg:hidden inline-flex items-center justify-center gap-2 border border-[#3A3320] text-bone font-display text-sm tracking-widest px-6 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_20px_rgba(255,85,0,0.35)]"
+              >
+                SEE HOW IT WORKS ↓
+              </button>
             </motion.div>
 
             <motion.div
