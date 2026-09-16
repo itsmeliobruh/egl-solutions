@@ -34,7 +34,7 @@ export default function PainSection() {
         >
           <SectionLabel label="SOUND FAMILIAR?" className="mb-4" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider leading-tight max-w-3xl">
-            WHY REMODELERS LOSE JOBS THEY SHOULD BE WINNING
+            WHY LOCAL BUSINESSES LOSE CUSTOMERS THEY SHOULD BE WINNING
           </h2>
         </motion.div>
 
