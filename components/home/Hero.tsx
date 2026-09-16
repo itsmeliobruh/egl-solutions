@@ -161,7 +161,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="mt-10 pt-8 border-t border-[#2A2320]"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8 lg:mb-0">
             {[
               { value: '7–10', label: 'Days to launch' },
               { value: '30+', label: 'Google reviews in 90 days' },
@@ -177,6 +177,15 @@ export default function Hero({ data }: { data?: HeroData | null }) {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="hidden lg:flex justify-center mt-8">
+            <button
+              onClick={scrollToProcess}
+              className="inline-flex items-center gap-2 border border-[#3A3320] text-bone font-display text-sm tracking-widest px-8 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_20px_rgba(255,85,0,0.35)]"
+            >
+              SEE HOW IT WORKS ↓
+            </button>
           </div>
 
         </motion.div>
