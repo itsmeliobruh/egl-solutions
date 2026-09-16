@@ -118,12 +118,6 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               >
                 {d.ctaPrimary}
               </button>
-              <button
-                onClick={scrollToProcess}
-                className="inline-flex items-center justify-center gap-2 border border-[#3A3320] text-light/70 font-body text-sm px-6 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_16px_rgba(255,85,0,0.4)]"
-              >
-                See how it works ↓
-              </button>
             </motion.div>
 
             <motion.div
@@ -161,7 +155,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
           transition={{ duration: 0.4, delay: 0.6 }}
           className="mt-10 pt-8 border-t border-[#2A2320]"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
             {[
               { value: '7–10', label: 'Days to launch' },
               { value: '30+', label: 'Google reviews in 90 days' },
@@ -177,6 +171,15 @@ export default function Hero({ data }: { data?: HeroData | null }) {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              onClick={scrollToProcess}
+              className="inline-flex items-center gap-2 border border-[#3A3320] text-bone font-display text-sm tracking-widest px-8 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_20px_rgba(255,85,0,0.35)]"
+            >
+              SEE HOW IT WORKS ↓
+            </button>
           </div>
         </motion.div>
       </div>
