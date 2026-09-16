@@ -9,12 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 const BOOKING_URL = '/book'
 
 const serviceLinks = [
-  { href: '/services/website-and-systems', label: 'Growth Foundation', emoji: '🚀' },
-  { href: '/services/lead-generation', label: 'Lead Flow System', emoji: '🚀' },
-  { href: '/services/all-in-one-system', label: 'Revenue Engine', emoji: '🚀' },
-  { href: '/services/content-foundation', label: 'Content Starter', emoji: '📸' },
-  { href: '/services/content-growth', label: 'Content Growth', emoji: '📸' },
-  { href: '/services/content-authority', label: 'Local Authority Content', emoji: '📸' },
+  { href: '/services/local-presence-builder', label: 'Local Presence Builder', emoji: '🏗️' },
+  { href: '/services/market-dominator', label: 'Market Dominator', emoji: '🔥' },
 ]
 
 const areaLinks = [

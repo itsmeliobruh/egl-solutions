@@ -3,12 +3,8 @@ import Image from 'next/image'
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react'
 
 const serviceLinks = [
-  { href: '/services/website-and-systems', label: 'Growth Foundation' },
-  { href: '/services/lead-generation', label: 'Lead Flow System' },
-  { href: '/services/all-in-one-system', label: 'Revenue Engine' },
-  { href: '/services/content-foundation', label: 'Content Starter' },
-  { href: '/services/content-growth', label: 'Content Growth' },
-  { href: '/services/content-authority', label: 'Local Authority Content' },
+  { href: '/services/local-presence-builder', label: 'Local Presence Builder' },
+  { href: '/services/market-dominator', label: 'Market Dominator' },
 ]
 
 const areaLinks = [

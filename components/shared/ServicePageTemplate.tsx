@@ -4,8 +4,6 @@ import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 import ProcessSteps from '@/components/shared/ProcessSteps'
 import CTAStrip from '@/components/shared/CTAStrip'
-import PricingSection from '@/components/home/PricingSection'
-import { Card } from '@/components/shared/Card'
 import { BOOKING_LINKS, DEFAULT_BOOKING } from '@/lib/bookingLinks'
 
 export default function ServicePageTemplate({ service }: { service: Service }) {
@@ -45,14 +43,6 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
           <p className="font-body text-light/80 text-lg max-w-2xl mb-6 leading-relaxed">
             {service.subheadline}
           </p>
-          <div className="mb-8">
-            <span className="font-display text-3xl text-[#FF5500]">
-              {service.setup ? `${service.setup} + ${service.price}` : service.price}
-            </span>
-            {service.pricingNote && (
-              <p className="font-body text-sm text-muted mt-2">{service.pricingNote}</p>
-            )}
-          </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href={bookingUrl}
@@ -130,43 +120,6 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
         </div>
       </section>
 
-      {/* Pricing Card */}
-      <section className="bg-ash py-20 px-4">
-        <div className="max-w-md mx-auto text-center">
-          <SectionLabel label="PRICING" className="mb-3 justify-center" />
-          <Card
-            featured={
-              service.badge === 'MOST POPULAR' ||
-              service.badge === 'MOST VALUE' ||
-              service.badge === 'MOST RESULTS'
-            }
-            className="p-8"
-          >
-            <div className="text-4xl mb-3">{service.emoji}</div>
-            <h3 className="font-display text-2xl text-[#0A0A0A] tracking-wide mb-2">{service.name}</h3>
-            {service.badge && (
-              <span className="font-mono text-[9px] text-black bg-[#FF5500] px-2.5 py-1 rounded-sm uppercase tracking-[0.14em] inline-block mb-3">
-                {service.badge}
-              </span>
-            )}
-            <div className="mb-6">
-              <span className="font-display text-3xl text-[#FF5500] block leading-tight">
-                {service.setup ? `${service.setup} + ${service.price}` : service.price}
-              </span>
-              {service.pricingNote && (
-                <p className="font-body text-xs text-[#999] mt-2 leading-snug">{service.pricingNote}</p>
-              )}
-            </div>
-            <a
-              href={bookingUrl}
-              className="block bg-[#FF5500] text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_24px_rgba(255,85,0,0.35)] mb-3"
-            >
-              GET STARTED
-            </a>
-            <p className="font-body text-xs text-[#AAAAAA]">Month-to-month. No contracts required.</p>
-          </Card>
-        </div>
-      </section>
 
       {/* Process */}
       <section className="bg-void py-20 px-4">
@@ -182,8 +135,6 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
       {/* CTA Strip */}
       <CTAStrip bookingHref={bookingUrl} />
 
-      {/* Full pricing comparison */}
-      <PricingSection />
     </>
   )
 }
