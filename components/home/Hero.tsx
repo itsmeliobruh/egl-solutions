@@ -114,13 +114,13 @@ export default function Hero({ data }: { data?: HeroData | null }) {
             >
               <button
                 onClick={scrollToForm}
-                className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-base px-6 py-3 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
+                className="lg:hidden inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-base px-6 py-3 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
               >
                 {d.ctaPrimary}
               </button>
               <button
                 onClick={scrollToProcess}
-                className="inline-flex items-center justify-center gap-2 border border-[#3A3320] text-light/70 font-body text-sm px-6 py-3 rounded hover:text-bone hover:border-[#555] transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-[#3A3320] text-light/70 font-body text-sm px-6 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_16px_rgba(255,85,0,0.4)]"
               >
                 See how it works ↓
               </button>
