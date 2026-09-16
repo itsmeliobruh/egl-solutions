@@ -128,8 +128,6 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link href="/pricing" className="hover:text-inferno transition-colors">Pricing</Link>
-
             {/* Service Areas dropdown — same gap-bridge trick */}
             <div
               className="relative py-5 -my-5"
@@ -306,14 +304,6 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
               </div>
-
-              <Link
-                href="/pricing"
-                className="flex items-center text-lg text-bone/90 hover:text-inferno py-4 border-b border-white/8 transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                Pricing
-              </Link>
 
               {/* Service Areas accordion */}
               <div className="border-b border-white/8">

@@ -1,5 +1,4 @@
 import type { Service } from '@/lib/services'
-import Link from 'next/link'
 import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
@@ -50,12 +49,6 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
             >
               ⚡ GET STARTED TODAY
             </a>
-            <Link
-              href="/pricing"
-              className="inline-flex items-center justify-center gap-2 border-2 border-steel text-light font-display text-lg px-8 py-4 rounded tracking-widest hover:border-inferno hover:text-inferno transition-colors"
-            >
-              VIEW ALL PLANS
-            </Link>
           </div>
         </div>
       </section>

@@ -19,7 +19,6 @@ const areaLinks = [
 const companyLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/pricing', label: 'Pricing' },
   { href: '/contact', label: 'Contact' },
   { href: '/service-areas', label: 'Service Areas' },
 ]
