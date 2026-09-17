@@ -99,7 +99,7 @@ export default function TradesSection() {
                     {group.trades.map((trade) => (
                       <span
                         key={trade}
-                        className="bg-[#F5F0E8] border border-[#E0D8CC] rounded text-[#333] font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 leading-none hover:border-[#FF5500] hover:text-[#FF5500] transition-colors cursor-default whitespace-nowrap"
+                        className="bg-[#1C1612] border border-[#2A2320] rounded text-[#C8C0B0] font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 leading-none hover:border-[#FF5500] hover:text-[#FF5500] transition-colors cursor-default whitespace-nowrap"
                       >
                         {trade}
                       </span>
