@@ -41,7 +41,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       <div
         style={{
           position: 'relative',
-          borderRadius: '22px',
+          borderRadius: '20px',
           overflow: 'hidden',
           // Deep shadow + orange glow
           boxShadow: `
@@ -63,6 +63,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
             inset: 0,
             borderRadius: '22px',
             background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)',
+            borderRadius: '20px',
             zIndex: 2,
             pointerEvents: 'none',
           }}
