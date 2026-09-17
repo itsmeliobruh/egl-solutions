@@ -90,7 +90,7 @@ const packages = [
       'Monthly performance report',
       'Monthly strategy call',
     ],
-    goal: 'One job. That\'s all it takes to cover the cost. We aim to deliver a lot more than that.',
+    goal: 'One good lead. That\'s all it takes to make this worth it. We aim to deliver a lot more.',
     goalLabel: 'The ROI',
   },
 ]
