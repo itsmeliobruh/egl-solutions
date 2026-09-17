@@ -52,7 +52,7 @@ const packages = [
   {
     badge: 'Foundation First',
     badgeFeatured: false,
-    name: '🏗️ Local Presence Builder',
+    name: '📍 Local Presence Builder',
     description:
       'Before ads, before content, before anything else — get your foundation right. Be found, look legit, capture every lead.',
     features: [

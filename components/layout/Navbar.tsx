@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const BOOKING_URL = '/book'
 
 const serviceLinks = [
-  { href: '/services/local-presence-builder', label: 'Local Presence Builder', emoji: '🏗️' },
+  { href: '/services/local-presence-builder', label: 'Local Presence Builder', emoji: '📍' },
   { href: '/services/market-dominator', label: 'Market Dominator', emoji: '🔥' },
 ]
 

@@ -21,7 +21,7 @@ export const services: Service[] = [
   {
     slug: 'local-presence-builder',
     name: 'Local Presence Builder',
-    emoji: '🏗️',
+    emoji: '📍',
     category: 'systems',
     badge: 'Foundation First',
     headline: 'GET FOUND. LOOK LEGIT. CAPTURE EVERY LEAD.',
