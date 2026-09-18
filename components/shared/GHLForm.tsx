@@ -87,6 +87,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
           position: 'relative',
           borderRadius: '20px',
           overflow: 'hidden',
+          height: fitToViewport ? `${scaledHeight}px` : undefined,
           // Deep shadow + orange glow — tight, low blur radius so the
           // glow hugs the card evenly on all four sides instead of a
           // large 80px blur that reads unevenly against the dark bg
@@ -128,32 +129,52 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
           }}
         />
 
-        <iframe
-          ref={iframeRef}
-          src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
-          style={{
-            width: '100%',
-            height: `${naturalHeight}px`,
-            border: 'none',
-            borderRadius: 0,
-            display: 'block',
-            zoom: fitToViewport ? zoom : 1,
-          }}
-          id={iframeId}
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="Main: Website Form"
-          data-height="1060"
-          data-layout-iframe-id={iframeId}
-          data-form-id="wBCLWyveluv1QqGnAKzL"
-          title="Main: Website Form"
-          scrolling="no"
-        />
+        {/*
+          CSS `zoom` on the iframe itself made GHL's embed script (which
+          reads/reacts to the iframe's own layout) unstable — the form
+          would render then go blank a few seconds later. `transform:
+          scale` is purely visual and doesn't touch the iframe's internal
+          layout, so GHL's script sees it at its natural, unscaled size.
+          The wrapper's width is inflated by 1/zoom so that after the
+          visual scale-down it still spans 100% of the outer card.
+        */}
+        <div
+          style={
+            fitToViewport
+              ? {
+                  width: `${100 / zoom}%`,
+                  transform: `scale(${zoom})`,
+                  transformOrigin: 'top left',
+                }
+              : undefined
+          }
+        >
+          <iframe
+            ref={iframeRef}
+            src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
+            style={{
+              width: '100%',
+              height: `${naturalHeight}px`,
+              border: 'none',
+              borderRadius: 0,
+              display: 'block',
+            }}
+            id={iframeId}
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Main: Website Form"
+            data-height="1060"
+            data-layout-iframe-id={iframeId}
+            data-form-id="wBCLWyveluv1QqGnAKzL"
+            title="Main: Website Form"
+            scrolling="no"
+          />
+        </div>
       </div>
 
       <Script
