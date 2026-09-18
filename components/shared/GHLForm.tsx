@@ -64,15 +64,24 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
     }
+    // Debounce: GHL's script can touch the style attribute several times
+    // in quick succession while it settles. Reacting to every mutation
+    // with a small >1px threshold chases every intermediate value and
+    // reads as the card jittering/bouncing. Wait for things to go quiet
+    // and only then take the settled height.
+    let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
       enforceOverflow()
-      const match = el.style.height.match(/[\d.]+/)
-      if (!match) return
-      const measured = parseFloat(match[0])
-      if (measured > 100 && Math.abs(measured - naturalHeight) > 1) {
-        setNaturalHeight(measured)
-        setHeightConfirmed(true)
-      }
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
+        const match = el.style.height.match(/[\d.]+/)
+        if (!match) return
+        const measured = parseFloat(match[0])
+        if (measured > 100 && Math.abs(measured - naturalHeight) > 4) {
+          setNaturalHeight(measured)
+          setHeightConfirmed(true)
+        }
+      }, 200)
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
     enforceOverflow()
@@ -81,6 +90,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
     return () => {
       observer.disconnect()
+      clearTimeout(debounceTimer)
       clearTimeout(timeout)
     }
   }, [fitToViewport, naturalHeight])
@@ -117,7 +127,10 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
             0 0 0 1px rgba(255, 85, 0, 0.07) inset
           `,
           opacity: ready ? 1 : 0,
-          transition: 'opacity 0.3s ease',
+          // GHL can report a *later* height update after the card is
+          // already revealed. Without a height transition that resize
+          // snaps instantly, which reads as the card jumping/bouncing.
+          transition: 'opacity 0.3s ease, height 0.3s ease',
         }}
       >
         {/* Specular highlight — top-left shine like glass */}

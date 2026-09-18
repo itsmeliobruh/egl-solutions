@@ -82,21 +82,32 @@ export default function ScaledGHLEmbed({
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
     }
+    // Debounce: GHL's script can touch the style attribute several times
+    // in quick succession while it settles (e.g. as fonts/images load or
+    // its own internal reflow runs). Reacting to every single mutation
+    // — especially with a small >1px threshold — chases every intermediate
+    // value and reads as the card jittering/bouncing. Wait for things to
+    // go quiet for a moment and only then take the settled height.
+    let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
       enforceOverflow()
-      const match = el.style.height.match(/[\d.]+/)
-      if (!match) return
-      const measured = parseFloat(match[0])
-      if (measured > 100 && Math.abs(measured - naturalHeight) > 1) {
-        setNaturalHeight(measured)
-        setHeightConfirmed(true)
-      }
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
+        const match = el.style.height.match(/[\d.]+/)
+        if (!match) return
+        const measured = parseFloat(match[0])
+        if (measured > 100 && Math.abs(measured - naturalHeight) > 4) {
+          setNaturalHeight(measured)
+          setHeightConfirmed(true)
+        }
+      }, 200)
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
     enforceOverflow()
     const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
     return () => {
       observer.disconnect()
+      clearTimeout(debounceTimer)
       clearTimeout(timeout)
     }
   }, [naturalHeight])
@@ -110,7 +121,12 @@ export default function ScaledGHLEmbed({
       style={{
         height: `${scaledHeight}px`,
         opacity: ready ? 1 : 0,
-        transition: 'opacity 0.3s ease',
+        // GHL can report a *later* height update after the card is
+        // already revealed (e.g. the calendar's internal content
+        // changes size as a date is picked or time slots load). Without
+        // a height transition that resize snaps instantly, which reads
+        // as the whole card jumping/bouncing.
+        transition: 'opacity 0.3s ease, height 0.3s ease',
         // Chromium has a known bug where `overflow: hidden` + `border-
         // radius` on a parent doesn't fully clip a `transform`-scaled
         // child right at the rounded corners specifically — the child's
