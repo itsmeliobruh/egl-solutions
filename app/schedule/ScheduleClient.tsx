@@ -73,11 +73,10 @@ export default function ScheduleClient() {
 
         <ScaledGHLEmbed
           src={calendarUrl}
-          iframeId="wFGbFB8J86G1btPMNuPz"
+          iframeId="inline-wFGbFB8J86G1btPMNuPz"
           title="Schedule a call with EGL Marketing"
           fallbackHeight={700}
           reservedSpace={RESERVED}
-          alwaysShow={false}
         />
 
       </div>

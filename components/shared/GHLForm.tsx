@@ -22,8 +22,10 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   const [heightConfirmed, setHeightConfirmed] = useState(!fitToViewport)
   const [naturalHeight, setNaturalHeight] = useState(FORM_NATURAL_HEIGHT_FALLBACK)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  // Once true, stop reacting to further height measurements entirely.
-  const lockedRef = useRef(false)
+  // Freezes the zoom scale once the form has been shown, so a *later*
+  // height increase makes the card grow taller (the page scrolls to
+  // reach it) instead of re-shrinking everything to keep re-fitting.
+  const zoomFrozenRef = useRef(false)
   const ready = zoomReady && heightConfirmed
   // GHL's embed script expects this exact id to find and resize the
   // iframe (it appends its own "___1"/"___2" suffix internally when it
@@ -36,18 +38,20 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     if (!fitToViewport) return
 
     const calculate = () => {
+      if (zoomFrozenRef.current) return
       // Navbar (80) + pt-28 (112) + pb-12 (48) + stats-bar area (155) + form top padding (40) + buffer (8)
       const reserved = 443
       const available = window.innerHeight - reserved
       const calculated = Math.min(1, available / naturalHeight)
       setZoom(Math.max(0.45, calculated))
       setZoomReady(true)
+      if (heightConfirmed) zoomFrozenRef.current = true
     }
 
     calculate()
     window.addEventListener('resize', calculate)
     return () => window.removeEventListener('resize', calculate)
-  }, [fitToViewport, naturalHeight])
+  }, [fitToViewport, naturalHeight, heightConfirmed])
 
   // GHL's embed script overwrites the iframe's own inline height once it
   // measures the real content — pick that up so our wrapper matches it
@@ -66,42 +70,38 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
     }
-    // GHL's script keeps re-measuring on an ongoing basis (not just once
-    // at load) — a debounce alone only slows the resulting resizes down,
-    // it doesn't stop them, and each one is still a visible jump/bounce.
-    // So: take the *first* settled measurement and then lock — stop
-    // reacting to height changes entirely once the form has been shown.
+    // GHL's script keeps re-measuring on an ongoing basis and each small
+    // correction is a few pixels of noise — acting on every one reads as
+    // the card jittering/bouncing. But some height changes are real (a
+    // new view appearing), so: ignore small deltas always, but still
+    // apply large ones even after the initial reveal.
     let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
       enforceOverflow()
-      if (lockedRef.current) return
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(() => {
-        if (lockedRef.current) return
         const match = el.style.height.match(/[\d.]+/)
         if (!match) return
         const measured = parseFloat(match[0])
-        if (measured > 100 && Math.abs(measured - naturalHeight) > 4) {
-          lockedRef.current = true
+        if (measured <= 100) return
+        const threshold = heightConfirmed ? 60 : 4
+        if (Math.abs(measured - naturalHeight) > threshold) {
           setNaturalHeight(measured)
           setHeightConfirmed(true)
         }
-      }, 200)
+      }, 250)
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
     enforceOverflow()
     // Safety net: reveal anyway after 2.5s in case GHL's script is
     // blocked or slow, so the form doesn't stay hidden indefinitely.
-    const timeout = setTimeout(() => {
-      lockedRef.current = true
-      setHeightConfirmed(true)
-    }, 2500)
+    const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
     return () => {
       observer.disconnect()
       clearTimeout(debounceTimer)
       clearTimeout(timeout)
     }
-  }, [fitToViewport, naturalHeight])
+  }, [fitToViewport, naturalHeight, heightConfirmed])
 
   const scaledHeight = naturalHeight * zoom
 

@@ -139,10 +139,10 @@ export default function BookingClient() {
 
             <ScaledGHLEmbed
               src={GHL_CALENDAR_URL}
+              iframeId="inline-wFGbFB8J86G1btPMNuPz"
               title="EGL Marketing — Step 2: Book a Time"
               fallbackHeight={700}
               reservedSpace={STEP2_RESERVED}
-              alwaysShow={false}
             />
 
             <div className="mt-6 text-center">

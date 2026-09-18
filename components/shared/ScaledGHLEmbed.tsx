@@ -14,12 +14,13 @@ interface ScaledGHLEmbedProps {
   /** Floor for how small the embed is allowed to scale down to */
   minZoom?: number
   /**
-   * Form widgets default to a trigger-based (e.g. exit-intent popup)
-   * behavior that stays hidden until manually activated — which never
-   * happens on a plain inline embed, leaving GHL's script hiding the
-   * iframe off-screen indefinitely (opacity:0, left:-9999px). These
-   * attributes tell it to render inline and show immediately instead.
-   * Leave true for form widgets; calendars don't use this trigger model.
+   * GHL widgets (forms *and* calendars) default to a trigger-based (e.g.
+   * exit-intent popup) behavior that stays hidden until manually
+   * activated — which never happens on a plain inline embed, leaving
+   * GHL's script hiding the iframe off-screen indefinitely (opacity:0,
+   * left:-9999px, `data-initial-iframe-hidden="true"`). These attributes
+   * tell it to render inline and show immediately instead. Leave true
+   * unless a specific embed is confirmed not to need it.
    */
   alwaysShow?: boolean
 }
@@ -46,12 +47,25 @@ export default function ScaledGHLEmbed({
   const [heightConfirmed, setHeightConfirmed] = useState(false)
   const [naturalHeight, setNaturalHeight] = useState(fallbackHeight)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  // Once true, stop reacting to further height measurements entirely.
-  const lockedRef = useRef(false)
+  // Freezes the zoom scale once the embed has been shown, so a *later*
+  // height increase (e.g. a calendar's confirmation form appearing after
+  // a time slot is picked) makes the card grow taller — the page scrolls
+  // to reach it — instead of re-shrinking everything to keep re-fitting
+  // the original viewport slot.
+  const zoomFrozenRef = useRef(false)
   const ready = zoomReady && heightConfirmed
 
   useLayoutEffect(() => {
     const calculate = () => {
+      if (zoomFrozenRef.current) return
+      // On mobile, don't shrink the embed to fit one screen — that makes
+      // everything tiny and hard to tap. Render it at natural size and
+      // let the page scroll normally, same as GHL's own mobile layout.
+      if (window.innerWidth < 768) {
+        setZoom(1)
+        setZoomReady(true)
+        return
+      }
       const available = window.innerHeight - reservedSpace
       const calculated = Math.min(1, available / naturalHeight)
       // Round to 3 decimal places — an arbitrarily precise scale factor
@@ -60,11 +74,12 @@ export default function ScaledGHLEmbed({
       const rounded = Math.round(Math.max(minZoom, calculated) * 1000) / 1000
       setZoom(rounded)
       setZoomReady(true)
+      if (heightConfirmed) zoomFrozenRef.current = true
     }
     calculate()
     window.addEventListener('resize', calculate)
     return () => window.removeEventListener('resize', calculate)
-  }, [naturalHeight, reservedSpace, minZoom])
+  }, [naturalHeight, reservedSpace, minZoom, heightConfirmed])
 
   // GHL's embed script overwrites the iframe's own inline height once it
   // measures the real content — pick that up so sizing matches reality
@@ -80,10 +95,13 @@ export default function ScaledGHLEmbed({
   // appear regardless of any height mismatch.
   //
   // GHL's script keeps re-measuring on an ongoing basis (not just once
-  // at load) — a debounce alone only slows the resulting resizes down,
-  // it doesn't stop them, and each one is still a visible jump/bounce.
-  // So: take the *first* settled measurement and then lock — stop
-  // reacting to height changes entirely once the card has been shown.
+  // at load) and each small correction is a few pixels of noise — acting
+  // on every one of those reads as the card jittering/bouncing. But some
+  // height changes are real: e.g. a calendar widget growing taller once
+  // a time slot is picked, to show the booking confirmation form — and
+  // clipping that permanently would hide it with no way to reach it.
+  // So: ignore small deltas always (noise), but still apply large ones
+  // (a genuine view change) even after the initial reveal.
   useLayoutEffect(() => {
     if (!iframeRef.current) return
     const el = iframeRef.current
@@ -93,32 +111,31 @@ export default function ScaledGHLEmbed({
     let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
       enforceOverflow()
-      if (lockedRef.current) return
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(() => {
-        if (lockedRef.current) return
         const match = el.style.height.match(/[\d.]+/)
         if (!match) return
         const measured = parseFloat(match[0])
-        if (measured > 100 && Math.abs(measured - naturalHeight) > 4) {
-          lockedRef.current = true
+        if (measured <= 100) return
+        // Before the first reveal, apply any real reading right away.
+        // After that, only react to a substantial change — a genuine
+        // new view, not measurement noise.
+        const threshold = heightConfirmed ? 60 : 4
+        if (Math.abs(measured - naturalHeight) > threshold) {
           setNaturalHeight(measured)
           setHeightConfirmed(true)
         }
-      }, 200)
+      }, 250)
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
     enforceOverflow()
-    const timeout = setTimeout(() => {
-      lockedRef.current = true
-      setHeightConfirmed(true)
-    }, 2500)
+    const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
     return () => {
       observer.disconnect()
       clearTimeout(debounceTimer)
       clearTimeout(timeout)
     }
-  }, [naturalHeight])
+  }, [naturalHeight, heightConfirmed])
 
   const scaledHeight = naturalHeight * zoom
   const formId = src.split('?')[0].split('/').filter(Boolean).pop()
