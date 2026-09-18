@@ -48,7 +48,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
   }
 
   return (
-    <section className="relative flex items-stretch overflow-hidden bg-void min-h-[calc(100svh-80px)]" aria-label="Hero section">
+    <section className="relative overflow-hidden bg-void" aria-label="Hero section">
       <div
         className="absolute left-0 top-0 bottom-0 w-1.5 z-10"
         style={{ background: 'linear-gradient(180deg, #FF5500, #CC3300)' }}
@@ -62,8 +62,8 @@ export default function Hero({ data }: { data?: HeroData | null }) {
       <div className="noise-overlay" aria-hidden="true" />
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full py-16 lg:py-20 flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full pt-16 pb-10 lg:pt-20 lg:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -148,7 +148,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:block lg:pt-16"
+            className="hidden lg:block"
           >
             <GHLForm fitToViewport={true} />
           </motion.div>
