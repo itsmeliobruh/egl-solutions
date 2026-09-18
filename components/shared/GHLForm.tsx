@@ -44,11 +44,12 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
           position: 'relative',
           borderRadius: '20px',
           overflow: 'hidden',
-          // Deep shadow + orange glow
+          // Deep shadow + orange glow — no y-offset so the glow spreads
+          // evenly on all four sides instead of pooling at the bottom
           boxShadow: `
             0 0 0 1px rgba(255, 255, 255, 0.06),
-            0 8px 16px rgba(0, 0, 0, 0.4),
-            0 32px 80px rgba(0, 0, 0, 0.55),
+            0 0 16px rgba(0, 0, 0, 0.4),
+            0 0 80px rgba(0, 0, 0, 0.55),
             0 0 80px rgba(255, 85, 0, 0.08),
             0 0 0 1px rgba(255, 85, 0, 0.07) inset
           `,
