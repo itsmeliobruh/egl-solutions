@@ -63,7 +63,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full py-16 lg:py-20 flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-stretch">
           <div>
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -148,7 +148,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:block"
+            className="hidden lg:flex lg:flex-col lg:justify-center"
           >
             <GHLForm fitToViewport={true} />
           </motion.div>
