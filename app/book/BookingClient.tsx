@@ -7,7 +7,7 @@ import { CheckCircle, ChevronRight } from 'lucide-react'
 import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 
 const GHL_FORM_BASE     = 'https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL'
-const GHL_CALENDAR_URL  = 'https://api.leadconnectorhq.com/widget/booking/MThMMXnrsJQv9rkaBMg3'
+const GHL_CALENDAR_URL  = 'https://api.leadconnectorhq.com/widget/booking/wFGbFB8J86G1btPMNuPz'
 
 // Vertical space (px) taken up by everything on screen besides the embed
 // itself — navbar + section padding + heading block + step indicator

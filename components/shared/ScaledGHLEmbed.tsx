@@ -131,6 +131,7 @@ export default function ScaledGHLEmbed({
         <iframe
           ref={iframeRef}
           src={src}
+          allow="payment"
           style={{ width: '100%', height: `${naturalHeight}px`, border: 'none', display: 'block' }}
           id={iframeId}
           data-layout-iframe-id={iframeId}

@@ -3,8 +3,15 @@
 import { useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import { CheckCircle, ChevronRight } from 'lucide-react'
+import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 
-const GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/booking/MThMMXnrsJQv9rkaBMg3'
+const GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/booking/wFGbFB8J86G1btPMNuPz'
+
+// Vertical space (px) taken up by everything on screen besides the embed
+// itself — navbar + section padding + heading block + step indicator —
+// so the calendar scales to fill exactly what's left and the whole page
+// fits without scrolling.
+const RESERVED = 460
 
 export default function ScheduleClient() {
   const params = useSearchParams()
@@ -24,15 +31,13 @@ export default function ScheduleClient() {
     return qs ? `${GHL_CALENDAR_BASE}?${qs}` : GHL_CALENDAR_BASE
   })()
 
-  const isReady = true
-
   return (
     <main className="min-h-screen bg-[#080808]">
-      <div className="max-w-3xl mx-auto px-4 pt-28 pb-16">
+      <div className="max-w-3xl mx-auto px-4 pt-20 pb-8">
 
         {/* Header */}
-        <div className="text-center mb-8">
-          <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-4">
+        <div className="text-center mb-6">
+          <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-3">
             Step 2 of 2
           </p>
           <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-3">
@@ -66,26 +71,14 @@ export default function ScheduleClient() {
           </div>
         </div>
 
-        {/* Calendar embed */}
-        {isReady ? (
-          <div className="rounded-2xl overflow-hidden border border-[#2A2A2A] shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
-            <iframe
-              src={calendarUrl}
-              style={{ width: '100%', height: '700px', border: 'none', display: 'block' }}
-              scrolling="no"
-              title="Schedule a call with EGL Marketing"
-            />
-          </div>
-        ) : (
-          <div className="rounded-2xl border border-dashed border-[#FF5500]/40 bg-[#111] p-16 text-center">
-            <p className="font-display text-2xl text-[#FF5500] tracking-wide mb-3">CALENDAR COMING SOON</p>
-            <p className="font-body text-sm text-[#666]">
-              Paste your GHL calendar embed URL into{' '}
-              <code className="text-[#FF5500]">app/schedule/ScheduleClient.tsx</code>{' '}
-              to activate this section.
-            </p>
-          </div>
-        )}
+        <ScaledGHLEmbed
+          src={calendarUrl}
+          iframeId="wFGbFB8J86G1btPMNuPz"
+          title="Schedule a call with EGL Marketing"
+          fallbackHeight={700}
+          reservedSpace={RESERVED}
+          alwaysShow={false}
+        />
 
       </div>
 
