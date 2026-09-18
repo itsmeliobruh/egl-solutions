@@ -1,9 +1,13 @@
 'use client'
 
 import Script from 'next/script'
-import { useState, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect, useRef, useId } from 'react'
 
-const FORM_NATURAL_HEIGHT = 1060
+// Fallback guess used only until the GHL embed script reports the form's
+// real content height (it overwrites the iframe's inline height itself —
+// this used to be a hardcoded 1060 that drifted from the real ~939,
+// leaving the wrapper sized for content taller than what actually renders).
+const FORM_NATURAL_HEIGHT_FALLBACK = 1060
 
 interface GHLFormProps {
   fitToViewport?: boolean
@@ -12,6 +16,13 @@ interface GHLFormProps {
 export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   const [zoom, setZoom] = useState(1)
   const [ready, setReady] = useState(!fitToViewport)
+  const [naturalHeight, setNaturalHeight] = useState(FORM_NATURAL_HEIGHT_FALLBACK)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  // Two instances of this component render on the page (mobile + desktop).
+  // The GHL embed script keys off the iframe id, so a shared hardcoded id
+  // makes it confuse the two and mis-resize/mis-style one of them.
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, '')
+  const iframeId = `inline-wBCLWyveluv1QqGnAKzL-${uid}`
 
   useLayoutEffect(() => {
     if (!fitToViewport) return
@@ -20,7 +31,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       // Navbar (80) + pt-28 (112) + pb-12 (48) + stats-bar area (155) + form top padding (40) + buffer (8)
       const reserved = 443
       const available = window.innerHeight - reserved
-      const calculated = Math.min(1, available / FORM_NATURAL_HEIGHT)
+      const calculated = Math.min(1, available / naturalHeight)
       setZoom(Math.max(0.45, calculated))
       setReady(true)
     }
@@ -28,14 +39,32 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     calculate()
     window.addEventListener('resize', calculate)
     return () => window.removeEventListener('resize', calculate)
-  }, [fitToViewport])
+  }, [fitToViewport, naturalHeight])
 
-  const scaledHeight = FORM_NATURAL_HEIGHT * zoom
+  // GHL's embed script overwrites the iframe's own inline height once it
+  // measures the real content — pick that up so our wrapper matches it
+  // instead of the fallback guess.
+  useLayoutEffect(() => {
+    if (!fitToViewport || !iframeRef.current) return
+    const el = iframeRef.current
+    const observer = new MutationObserver(() => {
+      const match = el.style.height.match(/[\d.]+/)
+      if (!match) return
+      const measured = parseFloat(match[0])
+      if (measured > 100 && Math.abs(measured - naturalHeight) > 1) {
+        setNaturalHeight(measured)
+      }
+    })
+    observer.observe(el, { attributes: true, attributeFilter: ['style'] })
+    return () => observer.disconnect()
+  }, [fitToViewport, naturalHeight])
+
+  const scaledHeight = naturalHeight * zoom
 
   return (
     <div
       className="w-full"
-      id="contact-form"
+      id={fitToViewport ? undefined : 'contact-form'}
       style={{ height: fitToViewport ? `${scaledHeight}px` : undefined }}
     >
       {/* Liquid glass container */}
@@ -86,16 +115,17 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
         />
 
         <iframe
+          ref={iframeRef}
           src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
           style={{
             width: '100%',
-            height: `${FORM_NATURAL_HEIGHT}px`,
+            height: `${naturalHeight}px`,
             border: 'none',
             borderRadius: 0,
             display: 'block',
             zoom: fitToViewport ? zoom : 1,
           }}
-          id="inline-wBCLWyveluv1QqGnAKzL"
+          id={iframeId}
           data-layout="{'id':'INLINE'}"
           data-trigger-type="alwaysShow"
           data-trigger-value=""
@@ -105,7 +135,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
           data-deactivation-value=""
           data-form-name="Main: Website Form"
           data-height="1060"
-          data-layout-iframe-id="inline-wBCLWyveluv1QqGnAKzL"
+          data-layout-iframe-id={iframeId}
           data-form-id="wBCLWyveluv1QqGnAKzL"
           title="Main: Website Form"
           scrolling="no"
