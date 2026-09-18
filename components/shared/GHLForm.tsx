@@ -99,6 +99,12 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
           position: 'relative',
           borderRadius: '20px',
           overflow: 'hidden',
+          // Chromium has a known bug where `overflow: hidden` + `border-
+          // radius` on a parent doesn't fully clip a `transform`-scaled
+          // child right at the rounded corners — the child's rectangular
+          // edge peeks through as a "double corner" artifact. `contain:
+          // paint` forces proper containment of transformed descendants.
+          contain: 'paint',
           height: fitToViewport ? `${scaledHeight}px` : undefined,
           // Deep shadow + orange glow — tight, low blur radius so the
           // glow hugs the card evenly on all four sides instead of a

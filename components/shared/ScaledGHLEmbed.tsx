@@ -111,6 +111,14 @@ export default function ScaledGHLEmbed({
         height: `${scaledHeight}px`,
         opacity: ready ? 1 : 0,
         transition: 'opacity 0.3s ease',
+        // Chromium has a known bug where `overflow: hidden` + `border-
+        // radius` on a parent doesn't fully clip a `transform`-scaled
+        // child right at the rounded corners specifically — the child's
+        // rectangular edge peeks through in a "double corner" artifact.
+        // `contain: paint` forces the browser to properly contain all
+        // painting (including transformed descendants) within this
+        // element's own rounded bounds.
+        contain: 'paint',
       }}
     >
       <div
