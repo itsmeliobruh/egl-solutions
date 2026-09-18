@@ -51,10 +51,21 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   // measures the real content — pick that up so our wrapper matches it
   // instead of the fallback guess. Don't reveal the form until this
   // fires (or a timeout elapses), so it never visibly resizes on screen.
+  //
+  // GHL's script also sets `overflow: auto` on the iframe itself. Inside
+  // our `transform: scale()` wrapper, that iframe's native scrollbar
+  // chrome doesn't scale down with the rest of the content — it can
+  // show up as a faint ghost rectangle at the iframe's original,
+  // unscaled bounds. Force it back to `hidden` every time GHL's script
+  // touches the style, so that can't happen.
   useLayoutEffect(() => {
     if (!fitToViewport || !iframeRef.current) return
     const el = iframeRef.current
+    const enforceOverflow = () => {
+      if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
+    }
     const observer = new MutationObserver(() => {
+      enforceOverflow()
       const match = el.style.height.match(/[\d.]+/)
       if (!match) return
       const measured = parseFloat(match[0])
@@ -64,6 +75,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       }
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
+    enforceOverflow()
     // Safety net: reveal anyway after 2.5s in case GHL's script is
     // blocked or slow, so the form doesn't stay hidden indefinitely.
     const timeout = setTimeout(() => setHeightConfirmed(true), 2500)

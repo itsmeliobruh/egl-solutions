@@ -54,10 +54,22 @@ export default function ScaledGHLEmbed({
   // measures the real content — pick that up so sizing matches reality
   // instead of the fallback guess. Hold the reveal until this fires (or
   // a timeout elapses) so the embed never visibly resizes on screen.
+  //
+  // GHL's script also sets `overflow: auto` on the iframe itself. When
+  // that iframe sits inside our `transform: scale()` wrapper, its native
+  // scrollbar chrome doesn't get scaled the way painted content does —
+  // it can show up as a faint rectangle at the iframe's original,
+  // unscaled bounds. Force it back to `hidden` every time GHL's script
+  // touches the style, so a scrollbar (and that ghost outline) can't
+  // appear regardless of any height mismatch.
   useLayoutEffect(() => {
     if (!iframeRef.current) return
     const el = iframeRef.current
+    const enforceOverflow = () => {
+      if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
+    }
     const observer = new MutationObserver(() => {
+      enforceOverflow()
       const match = el.style.height.match(/[\d.]+/)
       if (!match) return
       const measured = parseFloat(match[0])
@@ -67,6 +79,7 @@ export default function ScaledGHLEmbed({
       }
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
+    enforceOverflow()
     const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
     return () => {
       observer.disconnect()
@@ -78,7 +91,7 @@ export default function ScaledGHLEmbed({
 
   return (
     <div
-      className="rounded-2xl overflow-hidden border border-[#2A2A2A] shadow-[0_4px_32px_rgba(0,0,0,0.5)]"
+      className="rounded-2xl overflow-hidden border border-[#2A2A2A]"
       style={{
         height: `${scaledHeight}px`,
         opacity: ready ? 1 : 0,
