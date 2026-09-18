@@ -147,17 +147,13 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
           would render then go blank a few seconds later. `transform:
           scale` is purely visual and doesn't touch the iframe's internal
           layout, so GHL's script sees it at its natural, unscaled size.
-          The wrapper's width is inflated by 1/zoom so that after the
-          visual scale-down it still spans 100% of the outer card.
+          The width is inflated by 1/zoom so that after the visual
+          scale-down it still spans 100% of the outer card.
         */}
         <div
           style={
             fitToViewport
-              ? {
-                  width: `${100 / zoom}%`,
-                  transform: `scale(${zoom})`,
-                  transformOrigin: 'top left',
-                }
+              ? { width: `${100 / zoom}%`, transform: `scale(${zoom})`, transformOrigin: 'top left' }
               : undefined
           }
         >

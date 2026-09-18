@@ -13,6 +13,15 @@ interface ScaledGHLEmbedProps {
   reservedSpace: number
   /** Floor for how small the embed is allowed to scale down to */
   minZoom?: number
+  /**
+   * Form widgets default to a trigger-based (e.g. exit-intent popup)
+   * behavior that stays hidden until manually activated — which never
+   * happens on a plain inline embed, leaving GHL's script hiding the
+   * iframe off-screen indefinitely (opacity:0, left:-9999px). These
+   * attributes tell it to render inline and show immediately instead.
+   * Leave true for form widgets; calendars don't use this trigger model.
+   */
+  alwaysShow?: boolean
 }
 
 /**
@@ -30,6 +39,7 @@ export default function ScaledGHLEmbed({
   fallbackHeight,
   reservedSpace,
   minZoom = 0.45,
+  alwaysShow = true,
 }: ScaledGHLEmbedProps) {
   const [zoom, setZoom] = useState(1)
   const [zoomReady, setZoomReady] = useState(false)
@@ -42,7 +52,11 @@ export default function ScaledGHLEmbed({
     const calculate = () => {
       const available = window.innerHeight - reservedSpace
       const calculated = Math.min(1, available / naturalHeight)
-      setZoom(Math.max(minZoom, calculated))
+      // Round to 3 decimal places — an arbitrarily precise scale factor
+      // (e.g. 0.506864) can land on a fractional sub-pixel boundary that
+      // some GPUs render with a faint seam along the transformed edge.
+      const rounded = Math.round(Math.max(minZoom, calculated) * 1000) / 1000
+      setZoom(rounded)
       setZoomReady(true)
     }
     calculate()
@@ -88,6 +102,7 @@ export default function ScaledGHLEmbed({
   }, [naturalHeight])
 
   const scaledHeight = naturalHeight * zoom
+  const formId = src.split('?')[0].split('/').filter(Boolean).pop()
 
   return (
     <div
@@ -111,6 +126,18 @@ export default function ScaledGHLEmbed({
           style={{ width: '100%', height: `${naturalHeight}px`, border: 'none', display: 'block' }}
           id={iframeId}
           data-layout-iframe-id={iframeId}
+          {...(alwaysShow
+            ? {
+                'data-layout': "{'id':'INLINE'}",
+                'data-trigger-type': 'alwaysShow',
+                'data-trigger-value': '',
+                'data-activation-type': 'alwaysActivated',
+                'data-activation-value': '',
+                'data-deactivation-type': 'neverDeactivate',
+                'data-deactivation-value': '',
+                'data-form-id': formId,
+              }
+            : {})}
           title={title}
           scrolling="no"
         />
