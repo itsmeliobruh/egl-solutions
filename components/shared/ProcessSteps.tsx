@@ -26,7 +26,7 @@ const DEFAULT_STEPS: ProcessStepData[] = [
 ]
 
 export default function ProcessSteps({ steps }: { steps?: ProcessStepData[] | null }) {
-  const items = steps ?? DEFAULT_STEPS
+  const items = steps?.length ? steps : DEFAULT_STEPS
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">

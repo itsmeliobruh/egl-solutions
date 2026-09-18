@@ -51,7 +51,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function FAQSection({ faqs }: { faqs?: FAQItemData[] | null }) {
-  const items = faqs ?? DEFAULT_FAQS
+  const items = faqs?.length ? faqs : DEFAULT_FAQS
 
   return (
     <section className="bg-[#0D0D0D] py-16 lg:py-20 px-4">
