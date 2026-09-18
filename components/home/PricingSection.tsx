@@ -134,8 +134,8 @@ export default function PricingSection({
   cards?: PricingCardData[] | null
   addOns?: ContentAddOnData[] | null
 }) {
-  const coreCardsData = cards ?? coreCards
-  const contentAddOnsData = addOns ?? contentAddOns
+  const coreCardsData = cards?.length ? cards : coreCards
+  const contentAddOnsData = addOns?.length ? addOns : contentAddOns
   return (
     <section id="pricing" className="bg-[#080808] py-24 px-6 md:px-16">
       <div className="max-w-6xl mx-auto">
