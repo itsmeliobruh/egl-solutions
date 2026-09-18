@@ -1,7 +1,7 @@
 'use client'
 
 import Script from 'next/script'
-import { useState, useLayoutEffect, useRef, useId } from 'react'
+import { useState, useLayoutEffect, useRef } from 'react'
 
 // Fallback guess used only until the GHL embed script reports the form's
 // real content height (it overwrites the iframe's inline height itself —
@@ -18,11 +18,12 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   const [ready, setReady] = useState(!fitToViewport)
   const [naturalHeight, setNaturalHeight] = useState(FORM_NATURAL_HEIGHT_FALLBACK)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  // Two instances of this component render on the page (mobile + desktop).
-  // The GHL embed script keys off the iframe id, so a shared hardcoded id
-  // makes it confuse the two and mis-resize/mis-style one of them.
-  const uid = useId().replace(/[^a-zA-Z0-9]/g, '')
-  const iframeId = `inline-wBCLWyveluv1QqGnAKzL-${uid}`
+  // GHL's embed script expects this exact id to find and resize the
+  // iframe (it appends its own "___1"/"___2" suffix internally when it
+  // finds more than one on the page, to tell our two instances apart).
+  // A custom id here makes it unable to find the iframe at all, so it
+  // never fires its resize — that's what caused the iframe to get stuck.
+  const iframeId = 'inline-wBCLWyveluv1QqGnAKzL'
 
   useLayoutEffect(() => {
     if (!fitToViewport) return
