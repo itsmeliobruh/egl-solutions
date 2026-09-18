@@ -166,7 +166,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               { value: '7–10', label: 'Days to launch' },
               { value: '30+', label: 'Google reviews in 90 days' },
               { value: '100%', label: 'Of leads captured, day or night' },
-              { value: '1', label: 'Extra job pays for it all' },
+              { value: '1', label: 'Good lead pays for it all' },
             ].map((stat) => (
               <div key={stat.label} className="bg-[#0E0B09] lg:bg-transparent px-5 py-4 lg:p-0">
                 <div className="font-display text-3xl lg:text-2xl tracking-wide leading-none mb-1" style={{ color: '#FF5500' }}>
