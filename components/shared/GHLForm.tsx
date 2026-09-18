@@ -15,9 +15,14 @@ interface GHLFormProps {
 
 export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   const [zoom, setZoom] = useState(1)
-  const [ready, setReady] = useState(!fitToViewport)
+  const [zoomReady, setZoomReady] = useState(!fitToViewport)
+  // Held back until GHL's script reports the form's real height (or a
+  // timeout elapses) — reveals the form only once, already at its final
+  // size, instead of showing it at the fallback size and visibly resizing.
+  const [heightConfirmed, setHeightConfirmed] = useState(!fitToViewport)
   const [naturalHeight, setNaturalHeight] = useState(FORM_NATURAL_HEIGHT_FALLBACK)
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const ready = zoomReady && heightConfirmed
   // GHL's embed script expects this exact id to find and resize the
   // iframe (it appends its own "___1"/"___2" suffix internally when it
   // finds more than one on the page, to tell our two instances apart).
@@ -34,7 +39,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       const available = window.innerHeight - reserved
       const calculated = Math.min(1, available / naturalHeight)
       setZoom(Math.max(0.45, calculated))
-      setReady(true)
+      setZoomReady(true)
     }
 
     calculate()
@@ -44,7 +49,8 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
 
   // GHL's embed script overwrites the iframe's own inline height once it
   // measures the real content — pick that up so our wrapper matches it
-  // instead of the fallback guess.
+  // instead of the fallback guess. Don't reveal the form until this
+  // fires (or a timeout elapses), so it never visibly resizes on screen.
   useLayoutEffect(() => {
     if (!fitToViewport || !iframeRef.current) return
     const el = iframeRef.current
@@ -54,10 +60,17 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       const measured = parseFloat(match[0])
       if (measured > 100 && Math.abs(measured - naturalHeight) > 1) {
         setNaturalHeight(measured)
+        setHeightConfirmed(true)
       }
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
-    return () => observer.disconnect()
+    // Safety net: reveal anyway after 2.5s in case GHL's script is
+    // blocked or slow, so the form doesn't stay hidden indefinitely.
+    const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
+    return () => {
+      observer.disconnect()
+      clearTimeout(timeout)
+    }
   }, [fitToViewport, naturalHeight])
 
   const scaledHeight = naturalHeight * zoom
