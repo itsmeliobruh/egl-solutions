@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Bebas_Neue, DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import JsonLd from '@/components/shared/JsonLd'
 
 const bebasNeue = Bebas_Neue({
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd />
         <Navbar />
         <main>{children}</main>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   )

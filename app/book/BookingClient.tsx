@@ -4,9 +4,17 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import { CheckCircle, ChevronRight } from 'lucide-react'
+import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 
 const GHL_FORM_BASE     = 'https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL'
 const GHL_CALENDAR_URL  = 'https://api.leadconnectorhq.com/widget/booking/MThMMXnrsJQv9rkaBMg3'
+
+// Vertical space (px) taken up by everything on screen besides the embed
+// itself — navbar + section padding + heading block + step indicator
+// (+ back-link on step 2) — so the embed scales to fill exactly what's
+// left and the whole page fits without scrolling.
+const STEP1_RESERVED = 420
+const STEP2_RESERVED = 480
 
 function StepIndicator({ step }: { step: 1 | 2 }) {
   return (
@@ -79,11 +87,11 @@ export default function BookingClient() {
 
   return (
     <main className="min-h-screen bg-[#080808]">
-      <div className="max-w-3xl mx-auto px-4 pt-28 pb-16">
+      <div className="max-w-3xl mx-auto px-4 pt-20 pb-8">
 
         {step === 1 && (
           <div>
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-3">
                 Step 1 of 2
               </p>
@@ -97,21 +105,19 @@ export default function BookingClient() {
 
             <StepIndicator step={step} />
 
-            <div className="rounded-2xl overflow-hidden border border-[#2A2A2A] shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
-              <iframe
-                src={ghlFormUrl}
-                style={{ width: '100%', height: '680px', border: 'none', display: 'block' }}
-                scrolling="no"
-                title="EGL Marketing — Step 1: Your Info"
-                id="bNHFPa0DuNhpFjQF1M0E_1778784873350"
-              />
-            </div>
+            <ScaledGHLEmbed
+              src={ghlFormUrl}
+              iframeId="bNHFPa0DuNhpFjQF1M0E_1778784873350"
+              title="EGL Marketing — Step 1: Your Info"
+              fallbackHeight={680}
+              reservedSpace={STEP1_RESERVED}
+            />
           </div>
         )}
 
         {step === 2 && (
           <div>
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-3">
                 Step 2 of 2
               </p>
@@ -131,14 +137,12 @@ export default function BookingClient() {
 
             <StepIndicator step={step} />
 
-            <div className="rounded-2xl overflow-hidden border border-[#2A2A2A] shadow-[0_4px_32px_rgba(0,0,0,0.5)]">
-              <iframe
-                src={GHL_CALENDAR_URL}
-                style={{ width: '100%', height: '700px', border: 'none', display: 'block' }}
-                scrolling="no"
-                title="EGL Marketing — Step 2: Book a Time"
-              />
-            </div>
+            <ScaledGHLEmbed
+              src={GHL_CALENDAR_URL}
+              title="EGL Marketing — Step 2: Book a Time"
+              fallbackHeight={700}
+              reservedSpace={STEP2_RESERVED}
+            />
 
             <div className="mt-6 text-center">
               <button
