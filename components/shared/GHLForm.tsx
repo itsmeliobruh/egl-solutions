@@ -22,6 +22,8 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   const [heightConfirmed, setHeightConfirmed] = useState(!fitToViewport)
   const [naturalHeight, setNaturalHeight] = useState(FORM_NATURAL_HEIGHT_FALLBACK)
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  // Once true, stop reacting to further height measurements entirely.
+  const lockedRef = useRef(false)
   const ready = zoomReady && heightConfirmed
   // GHL's embed script expects this exact id to find and resize the
   // iframe (it appends its own "___1"/"___2" suffix internally when it
@@ -64,20 +66,23 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
     }
-    // Debounce: GHL's script can touch the style attribute several times
-    // in quick succession while it settles. Reacting to every mutation
-    // with a small >1px threshold chases every intermediate value and
-    // reads as the card jittering/bouncing. Wait for things to go quiet
-    // and only then take the settled height.
+    // GHL's script keeps re-measuring on an ongoing basis (not just once
+    // at load) — a debounce alone only slows the resulting resizes down,
+    // it doesn't stop them, and each one is still a visible jump/bounce.
+    // So: take the *first* settled measurement and then lock — stop
+    // reacting to height changes entirely once the form has been shown.
     let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
       enforceOverflow()
+      if (lockedRef.current) return
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(() => {
+        if (lockedRef.current) return
         const match = el.style.height.match(/[\d.]+/)
         if (!match) return
         const measured = parseFloat(match[0])
         if (measured > 100 && Math.abs(measured - naturalHeight) > 4) {
+          lockedRef.current = true
           setNaturalHeight(measured)
           setHeightConfirmed(true)
         }
@@ -87,7 +92,10 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     enforceOverflow()
     // Safety net: reveal anyway after 2.5s in case GHL's script is
     // blocked or slow, so the form doesn't stay hidden indefinitely.
-    const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
+    const timeout = setTimeout(() => {
+      lockedRef.current = true
+      setHeightConfirmed(true)
+    }, 2500)
     return () => {
       observer.disconnect()
       clearTimeout(debounceTimer)

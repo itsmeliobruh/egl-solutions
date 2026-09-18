@@ -46,6 +46,8 @@ export default function ScaledGHLEmbed({
   const [heightConfirmed, setHeightConfirmed] = useState(false)
   const [naturalHeight, setNaturalHeight] = useState(fallbackHeight)
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  // Once true, stop reacting to further height measurements entirely.
+  const lockedRef = useRef(false)
   const ready = zoomReady && heightConfirmed
 
   useLayoutEffect(() => {
@@ -76,27 +78,30 @@ export default function ScaledGHLEmbed({
   // unscaled bounds. Force it back to `hidden` every time GHL's script
   // touches the style, so a scrollbar (and that ghost outline) can't
   // appear regardless of any height mismatch.
+  //
+  // GHL's script keeps re-measuring on an ongoing basis (not just once
+  // at load) — a debounce alone only slows the resulting resizes down,
+  // it doesn't stop them, and each one is still a visible jump/bounce.
+  // So: take the *first* settled measurement and then lock — stop
+  // reacting to height changes entirely once the card has been shown.
   useLayoutEffect(() => {
     if (!iframeRef.current) return
     const el = iframeRef.current
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
     }
-    // Debounce: GHL's script can touch the style attribute several times
-    // in quick succession while it settles (e.g. as fonts/images load or
-    // its own internal reflow runs). Reacting to every single mutation
-    // — especially with a small >1px threshold — chases every intermediate
-    // value and reads as the card jittering/bouncing. Wait for things to
-    // go quiet for a moment and only then take the settled height.
     let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
       enforceOverflow()
+      if (lockedRef.current) return
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(() => {
+        if (lockedRef.current) return
         const match = el.style.height.match(/[\d.]+/)
         if (!match) return
         const measured = parseFloat(match[0])
         if (measured > 100 && Math.abs(measured - naturalHeight) > 4) {
+          lockedRef.current = true
           setNaturalHeight(measured)
           setHeightConfirmed(true)
         }
@@ -104,7 +109,10 @@ export default function ScaledGHLEmbed({
     })
     observer.observe(el, { attributes: true, attributeFilter: ['style'] })
     enforceOverflow()
-    const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
+    const timeout = setTimeout(() => {
+      lockedRef.current = true
+      setHeightConfirmed(true)
+    }, 2500)
     return () => {
       observer.disconnect()
       clearTimeout(debounceTimer)
