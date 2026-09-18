@@ -106,7 +106,7 @@ export default function ScaledGHLEmbed({
 
   return (
     <div
-      className="rounded-2xl overflow-hidden border border-[#2A2A2A]"
+      className="rounded-2xl overflow-hidden"
       style={{
         height: `${scaledHeight}px`,
         opacity: ready ? 1 : 0,
