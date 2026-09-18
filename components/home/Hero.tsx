@@ -48,7 +48,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
   }
 
   return (
-    <section className="relative overflow-hidden bg-void" aria-label="Hero section">
+    <section className="relative overflow-hidden bg-void border-t border-[#1E1B18]" aria-label="Hero section">
       <div
         className="absolute left-0 top-0 bottom-0 w-1.5 z-10"
         style={{ background: 'linear-gradient(180deg, #FF5500, #CC3300)' }}
