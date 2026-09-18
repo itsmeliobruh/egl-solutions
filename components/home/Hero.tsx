@@ -62,7 +62,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
       <div className="noise-overlay" aria-hidden="true" />
       <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full pt-16 pb-10 lg:pt-20 lg:pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full pt-16 pb-10 lg:pt-16 lg:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <motion.div
@@ -81,7 +81,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-bone leading-tight tracking-wider mb-3"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl text-bone leading-none tracking-wider mb-3"
             >
               {d.headlineL1}
               <br />
@@ -159,7 +159,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="mt-10 pt-8 border-t border-[#2A2320]"
+          className="mt-6 pt-6 border-t border-[#2A2320]"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#2A2320] rounded-lg overflow-hidden mb-8 lg:mb-0 lg:bg-transparent lg:gap-6 lg:rounded-none lg:overflow-visible">
             {[
@@ -179,7 +179,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
             ))}
           </div>
 
-          <div className="hidden lg:flex justify-center mt-8">
+          <div className="hidden lg:flex justify-center mt-4">
             <button
               onClick={scrollToProcess}
               className="inline-flex items-center gap-2 border border-[#3A3320] text-bone font-display text-sm tracking-widest px-8 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_20px_rgba(255,85,0,0.35)]"
