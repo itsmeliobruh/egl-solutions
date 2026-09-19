@@ -13,7 +13,33 @@ export const metadata: Metadata = {
   robots: { index: false }, // keep funnel page out of search results
 }
 
-export default function ThankYouPage() {
+export default async function ThankYouPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+  const sp = await searchParams
+  const get = (key: string) => {
+    const v = sp[key]
+    return Array.isArray(v) ? v[0] : v
+  }
+
+  // Forward contact info passed in the URL (e.g. from the booking step
+  // before this page) into the form's iframe src so GHL can prefill it.
+  // The GHL widget expects the plain `phone` key — `phone_raw` is just
+  // how the value arrives here — so both are set to cover either.
+  const qs = new URLSearchParams()
+  const fullName = get('full_name') || get('name')
+  const email = get('email')
+  const phone = get('phone') || get('phone_raw')
+  if (fullName) qs.set('full_name', fullName)
+  if (email) qs.set('email', email)
+  if (phone) {
+    qs.set('phone', phone)
+    qs.set('phone_raw', phone)
+  }
+  const formUrl = qs.toString() ? `${GHL_FORM_URL}?${qs.toString()}` : GHL_FORM_URL
+
   return (
     <main className="min-h-screen bg-[#080808]">
       <div className="max-w-2xl mx-auto px-4 pt-32 pb-24 text-center">
@@ -64,7 +90,7 @@ export default function ThankYouPage() {
 
         {/* Help us help you form */}
         <ScaledGHLEmbed
-          src={GHL_FORM_URL}
+          src={formUrl}
           iframeId="inline-D8VQCSQTADxEdH5d62GR"
           title="Main: Help Us Help You"
           fallbackHeight={1399}
