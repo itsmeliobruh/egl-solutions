@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { CheckCircle, Mail, CalendarCheck, Clock } from 'lucide-react'
+import { CheckCircle, Mail, CalendarCheck, Clock, PenLine } from 'lucide-react'
 import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 import ScrollArrows from '@/components/shared/ScrollArrows'
 
@@ -81,6 +81,12 @@ export default async function ThankYouPage({
               <Clock size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
                 It&apos;s 15 minutes, no pressure — just a straight look at where your business could be losing leads and what it would take to fix it.
+              </span>
+            </li>
+            <li className="flex items-start gap-4">
+              <PenLine size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
+              <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
+                One last thing! Take a minute to fill out the quick form below — it helps us get to know your business so we can make the most of our time together.
               </span>
             </li>
           </ul>
