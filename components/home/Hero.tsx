@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import GHLForm from '@/components/shared/GHLForm'
 import ScrollArrows from '@/components/shared/ScrollArrows'
 import type { HeroData } from '@/lib/payload/queries'
