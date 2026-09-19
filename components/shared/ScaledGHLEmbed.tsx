@@ -9,10 +9,18 @@ interface ScaledGHLEmbedProps {
   title: string
   /** Best-guess content height (px) before GHL's script reports the real one */
   fallbackHeight: number
-  /** Vertical px reserved elsewhere on screen (navbar, headings, padding, footer content) */
-  reservedSpace: number
+  /** Vertical px reserved elsewhere on screen (navbar, headings, padding, footer content) — ignored when scaleToFit is false */
+  reservedSpace?: number
   /** Floor for how small the embed is allowed to scale down to */
   minZoom?: number
+  /**
+   * Default (true): shrink the embed to fit the visible viewport so the
+   * whole thing is reachable with no scrolling (used for /book, /schedule
+   * — single-screen funnel steps). Set false for embeds on a normal,
+   * scrollable content page — it renders at natural size (zoom 1) and
+   * the page just scrolls to it like any other section.
+   */
+  scaleToFit?: boolean
   /**
    * GHL widgets (forms *and* calendars) default to a trigger-based (e.g.
    * exit-intent popup) behavior that stays hidden until manually
@@ -38,9 +46,10 @@ export default function ScaledGHLEmbed({
   iframeId,
   title,
   fallbackHeight,
-  reservedSpace,
+  reservedSpace = 0,
   minZoom = 0.45,
   alwaysShow = true,
+  scaleToFit = true,
 }: ScaledGHLEmbedProps) {
   const [zoom, setZoom] = useState(1)
   const [zoomReady, setZoomReady] = useState(false)
@@ -58,6 +67,13 @@ export default function ScaledGHLEmbed({
   useLayoutEffect(() => {
     const calculate = () => {
       if (zoomFrozenRef.current) return
+      // Embeds on a normal scrollable page render at natural size —
+      // same reasoning as the mobile case below, just opted in explicitly.
+      if (!scaleToFit) {
+        setZoom(1)
+        setZoomReady(true)
+        return
+      }
       // On mobile, don't shrink the embed to fit one screen — that makes
       // everything tiny and hard to tap. Render it at natural size and
       // let the page scroll normally, same as GHL's own mobile layout.
@@ -79,7 +95,7 @@ export default function ScaledGHLEmbed({
     calculate()
     window.addEventListener('resize', calculate)
     return () => window.removeEventListener('resize', calculate)
-  }, [naturalHeight, reservedSpace, minZoom, heightConfirmed])
+  }, [naturalHeight, reservedSpace, minZoom, heightConfirmed, scaleToFit])
 
   // GHL's embed script overwrites the iframe's own inline height once it
   // measures the real content — pick that up so sizing matches reality

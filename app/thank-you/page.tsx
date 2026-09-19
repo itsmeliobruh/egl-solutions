@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Script from 'next/script'
 import { CheckCircle, Mail, CalendarCheck, Clock } from 'lucide-react'
+import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
+
+const GHL_FORM_URL = 'https://api.leadconnectorhq.com/widget/form/D8VQCSQTADxEdH5d62GR'
 
 export const metadata: Metadata = {
   title: "You're All Set | EGL Marketing",
@@ -56,23 +59,18 @@ export default function ThankYouPage() {
           </ul>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 bg-[#FF5500] text-black font-display text-sm px-8 py-3.5 rounded tracking-widest hover:bg-[#CC3300] transition-colors w-full sm:w-auto"
-          >
-            BACK TO HOME
-          </Link>
-          <Link
-            href="/services/local-presence-builder"
-            className="inline-flex items-center justify-center gap-2 border border-[#3A3320] text-white font-display text-sm px-8 py-3.5 rounded tracking-widest hover:text-[#FF5500] hover:border-[#FF5500] transition-all w-full sm:w-auto"
-          >
-            EXPLORE OUR SERVICES
-          </Link>
-        </div>
+        {/* Help us help you form */}
+        <ScaledGHLEmbed
+          src={GHL_FORM_URL}
+          iframeId="inline-D8VQCSQTADxEdH5d62GR"
+          title="Main: Help Us Help You"
+          fallbackHeight={1399}
+          scaleToFit={false}
+        />
 
       </div>
+
+      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
     </main>
   )
 }
