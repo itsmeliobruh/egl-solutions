@@ -42,29 +42,30 @@ export default async function ThankYouPage({
 
   return (
     <main className="min-h-screen bg-[#080808]">
-      <div className="max-w-2xl mx-auto px-4 pt-32 pb-24 text-center">
+      <div className="max-w-2xl mx-auto px-4 pt-20 pb-24 md:pt-32 text-center">
 
         {/* Success icon */}
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#FF5500]/10 border border-[#FF5500]/30 mb-8">
-          <CheckCircle size={40} className="text-[#FF5500]" strokeWidth={1.75} />
+        <div className="inline-flex items-center justify-center w-14 h-14 md:w-20 md:h-20 rounded-full bg-[#FF5500]/10 border border-[#FF5500]/30 mb-5 md:mb-8">
+          <CheckCircle size={28} className="text-[#FF5500] md:hidden" strokeWidth={1.75} />
+          <CheckCircle size={40} className="text-[#FF5500] hidden md:block" strokeWidth={1.75} />
         </div>
 
-        <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-4">
+        <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-3 md:mb-4">
           Call Confirmed
         </p>
-        <h1 className="font-display text-5xl md:text-6xl text-white tracking-wide mb-4">
+        <h1 className="font-display text-4xl md:text-6xl text-white tracking-wide mb-3 md:mb-4">
           YOU&apos;RE ALL SET!
         </h1>
-        <p className="font-body text-[#AAAAAA] text-lg max-w-lg mx-auto mb-12">
+        <p className="font-body text-[#AAAAAA] text-base md:text-lg max-w-lg mx-auto mb-8 md:mb-12">
           Your free 15-minute intro call with EGL Marketing is booked. We&apos;re looking forward to it.
         </p>
 
         {/* What happens next */}
-        <div className="rounded-2xl border border-[#2A2A2A] bg-[#0D0D0D] p-8 text-left mb-10">
-          <p className="font-display text-sm text-white tracking-widest mb-6">
+        <div className="rounded-2xl border border-[#2A2A2A] bg-[#0D0D0D] p-6 md:p-8 text-left mb-4 md:mb-10">
+          <p className="font-display text-sm text-white tracking-widest mb-4 md:mb-6">
             WHAT HAPPENS NEXT
           </p>
-          <ul className="space-y-5">
+          <ul className="space-y-4 md:space-y-5">
             <li className="flex items-start gap-4">
               <Mail size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
