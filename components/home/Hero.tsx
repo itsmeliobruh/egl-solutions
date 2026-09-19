@@ -1,8 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import GHLForm from '@/components/shared/GHLForm'
-import { ChevronDown } from 'lucide-react'
+import ScrollArrows from '@/components/shared/ScrollArrows'
 import type { HeroData } from '@/lib/payload/queries'
 
 const DEFAULTS: HeroData = {
@@ -16,22 +15,6 @@ const DEFAULTS: HeroData = {
   subtext: 'Most local businesses in Connecticut lose customers every week to competitors with a stronger online presence. We fix that — website, Google, leads, and content working together as one system.',
   ctaPrimary: '⚡ WORK WITH US',
   ctaSecondary: 'VIEW PRICING',
-}
-
-function ScrollArrows() {
-  return (
-    <div className="flex items-center justify-center gap-5 py-4 lg:hidden" aria-hidden="true">
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          animate={{ y: [0, 12, 0], opacity: [0.35, 1, 0.35] }}
-          transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.22, ease: 'easeInOut' }}
-        >
-          <ChevronDown size={52} strokeWidth={2.2} className="text-white drop-shadow-lg" />
-        </motion.div>
-      ))}
-    </div>
-  )
 }
 
 export default function Hero({ data }: { data?: HeroData | null }) {
@@ -131,7 +114,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.4 }}
             >
-              <ScrollArrows />
+              <ScrollArrows className="lg:hidden" />
             </motion.div>
 
             <motion.div

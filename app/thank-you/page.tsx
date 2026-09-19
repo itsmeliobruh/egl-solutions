@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { CheckCircle, Mail, CalendarCheck, Clock } from 'lucide-react'
 import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
+import ScrollArrows from '@/components/shared/ScrollArrows'
 
 const GHL_FORM_URL = 'https://api.leadconnectorhq.com/widget/form/D8VQCSQTADxEdH5d62GR'
 
@@ -58,6 +59,8 @@ export default function ThankYouPage() {
             </li>
           </ul>
         </div>
+
+        <ScrollArrows />
 
         {/* Help us help you form */}
         <ScaledGHLEmbed
