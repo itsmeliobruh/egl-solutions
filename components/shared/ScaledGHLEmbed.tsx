@@ -123,6 +123,11 @@ export default function ScaledGHLEmbed({
     const el = iframeRef.current
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
+      // GHL's script also flips the HTML `scrolling` attribute back to
+      // "yes" on every re-measure, which some browsers still honor even
+      // with the CSS overflow above forced to hidden — giving the form
+      // its own visible internal scrollbar. Force it back too.
+      if (el.getAttribute('scrolling') !== 'no') el.setAttribute('scrolling', 'no')
     }
     let debounceTimer: ReturnType<typeof setTimeout>
     const observer = new MutationObserver(() => {
