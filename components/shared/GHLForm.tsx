@@ -65,10 +65,11 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
   // unscaled bounds. Force it back to `hidden` every time GHL's script
   // touches the style, so that can't happen.
   useLayoutEffect(() => {
-    if (!fitToViewport || !iframeRef.current) return
+    if (!iframeRef.current) return
     const el = iframeRef.current
     const enforceOverflow = () => {
       if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
+      if (el.getAttribute('scrolling') !== 'no') el.setAttribute('scrolling', 'no')
     }
     // GHL's script keeps re-measuring on an ongoing basis and each small
     // correction is a few pixels of noise — acting on every one reads as
@@ -203,7 +204,6 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
             data-deactivation-type="neverDeactivate"
             data-deactivation-value=""
             data-form-name="Main: Website Form"
-            data-height="1060"
             data-layout-iframe-id={iframeId}
             data-form-id="wBCLWyveluv1QqGnAKzL"
             title="Main: Website Form"
