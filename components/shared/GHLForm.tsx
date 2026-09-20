@@ -3,11 +3,17 @@
 import Script from 'next/script'
 import { useState, useLayoutEffect, useRef } from 'react'
 
-// Fallback guess used only until the GHL embed script reports the form's
-// real content height (it overwrites the iframe's inline height itself —
-// this used to be a hardcoded 1060 that drifted from the real ~939,
-// leaving the wrapper sized for content taller than what actually renders).
-const FORM_NATURAL_HEIGHT_FALLBACK = 1060
+// Fallback guess used until the GHL embed script reports the form's real
+// content height. In production this page mounts *two* instances of this
+// same form (mobile + desktop, toggled with CSS only — both are always in
+// the DOM), sharing one hardcoded iframe id. That duplicate id seems to
+// confuse GHL's dynamic postMessage-based resize between the two instances
+// (confirmed: reliable in isolation locally, but stuck at this fallback in
+// production) — so this value is a static height GHL is expected to just
+// apply directly, matching the real measured mobile layout (single-column,
+// tallest of the two) plus a small buffer, rather than something we hope
+// gets overwritten.
+const FORM_NATURAL_HEIGHT_FALLBACK = 1320
 
 interface GHLFormProps {
   fitToViewport?: boolean
@@ -204,6 +210,7 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
             data-deactivation-type="neverDeactivate"
             data-deactivation-value=""
             data-form-name="Main: Website Form"
+            data-height={FORM_NATURAL_HEIGHT_FALLBACK}
             data-layout-iframe-id={iframeId}
             data-form-id="wBCLWyveluv1QqGnAKzL"
             title="Main: Website Form"
