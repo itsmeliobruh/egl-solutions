@@ -32,6 +32,7 @@ export const services: Service[] = [
     included: [
       'Standard website with portfolio gallery',
       'Google Business Profile setup & optimization',
+      'Google Local Service Ads (LSA) setup',
       'Automated Google review capture system',
       'GHL CRM & pipeline setup',
       'Lead capture forms',
