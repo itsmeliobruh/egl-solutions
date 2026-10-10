@@ -81,13 +81,13 @@ export default async function ThankYouPage({
             <li className="flex items-start gap-4">
               <Clock size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                No pressure, just a straight look at where your business could be losing leads and what it would take to fix it.
+                Plan on about 45 minutes. No pressure, just a straight look at where your business could be losing leads and what it would take to fix it.
               </span>
             </li>
             <li className="flex items-start gap-4">
               <PenLine size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                One last thing! Take a minute to fill out the quick form below. It helps us get to know your business so we can make the most of our time together.
+                Optional: if you have two minutes, answer the two questions below so we can prep your audit before the call.
               </span>
             </li>
           </ul>

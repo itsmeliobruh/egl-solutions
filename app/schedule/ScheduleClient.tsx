@@ -41,10 +41,10 @@ export default function ScheduleClient() {
             Step 2 of 2
           </p>
           <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-3">
-            PICK YOUR TIME SLOT
+            PICK YOUR AUDIT TIME
           </h1>
           <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto mb-4">
-            Choose a time that works for you. The call is focused, pressure-free, and actually useful.
+            Choose a time that works for you. Plan on about 45 minutes: we&apos;ll walk through your audit together, with no pressure.
           </p>
           <span className="inline-flex items-center gap-2 bg-[#FF5500]/10 border border-[#FF5500]/30 rounded-full px-4 py-1.5">
             <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />

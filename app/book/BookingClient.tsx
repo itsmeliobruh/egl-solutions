@@ -128,10 +128,10 @@ export default function BookingClient() {
                 </span>
               </div>
               <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-3">
-                PICK YOUR TIME SLOT
+                PICK YOUR AUDIT TIME
               </h1>
               <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto">
-                Choose a time that works for you. The call is focused, pressure-free, and actually useful.
+                Choose a time that works for you. Plan on about 45 minutes: we'll walk through your audit together, with no pressure.
               </p>
             </div>
 
