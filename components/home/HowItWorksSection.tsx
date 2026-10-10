@@ -8,19 +8,19 @@ const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help
 const steps = [
   {
     number: '01',
-    title: 'WE AUDIT YOUR ONLINE PRESENCE — FREE',
-    body: 'A live 15-minute screen-share showing exactly where you\'re losing leads to competitors. Your Google profile, your website, your ads presence — compared side by side to the top businesses in your area. No pitch. Just real findings.',
+    title: 'WE AUDIT YOUR ONLINE PRESENCE. FREE.',
+    body: "A live screen-share showing exactly where you're losing jobs to competitors: your Google profile, your reviews, your website and your ads, side by side with the top businesses in your town. No pressure. You keep the findings either way.",
     cta: { label: 'Get My Free Local Visibility Audit →', href: BOOKING_URL },
   },
   {
     number: '02',
-    title: 'WE BUILD YOUR DIGITAL FOUNDATION',
-    body: 'A fast professional website that showcases your best work. Your Google Business Profile optimized to rank locally in Connecticut. A CRM that captures every lead automatically. The review system that builds your reputation while you sleep. Built in 7–10 days.',
+    title: 'WE BUILD YOUR FOUNDATION',
+    body: 'A fast website that shows off your best work, filmed and photographed by us on your job sites. A Google Business Profile built to rank in your town. A CRM that catches every lead, and a review system that builds your reputation while you work. Live in 7 to 10 days.',
   },
   {
     number: '03',
-    title: 'WE FILL YOUR PIPELINE EVERY MONTH',
-    body: 'Ongoing content, ads, and Google optimization that keeps new customers finding you, trusting you, and booking with you — month after month. You focus on the work. We handle the marketing.',
+    title: 'WE KEEP THE CALLS COMING',
+    body: "Every month we keep your Google presence growing, your reviews coming in and your site fresh, plus content and ads when you're ready to scale. You get a monthly report on your calls, rankings and reviews, so you always know what's working.",
   },
 ]
 
@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
         >
           <SectionLabel label="HOW IT WORKS" className="mb-4" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider leading-tight">
-            THREE STEPS TO A FULL PIPELINE
+            THREE STEPS TO A BOOKED-OUT SCHEDULE
           </h2>
         </motion.div>
 
