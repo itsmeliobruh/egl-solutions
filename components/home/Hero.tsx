@@ -138,8 +138,8 @@ export default function Hero(_props: { data?: HeroData | null }) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#2A2320] rounded-lg overflow-hidden mb-8 lg:mb-0 lg:bg-transparent lg:gap-6 lg:rounded-none lg:overflow-visible">
             {[
               { value: '7–10', label: 'Days to launch' },
-              { value: '$0', label: 'Local visibility audit' },
-              { value: '0', label: 'Long-term contracts' },
+              { value: 'FREE', label: 'Local visibility audit' },
+              { value: 'NEVER', label: 'Long-term contracts' },
               { value: '$499/mo', label: 'Plans starting at' },
             ].map((stat) => (
               <div key={stat.label} className="bg-[#0E0B09] lg:bg-transparent px-5 py-4 lg:p-0">
