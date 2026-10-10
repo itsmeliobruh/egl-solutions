@@ -17,7 +17,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing agency serving local service businesses throughout Hartford County, CT.',
     intro: `Hartford County is the beating heart of Connecticut, home to more than 900,000 residents and thousands of local service businesses competing for the same customers. From the city of Hartford itself to thriving suburbs like West Hartford, Glastonbury, and Simsbury, the demand for skilled tradespeople and home service providers is constant. EGL Marketing is based right here in Wethersfield, CT, giving us a ground-level understanding of the Hartford County market that agencies from outside the region simply can't match. We know which neighborhoods are growing, which platforms Hartford County homeowners use to find contractors, and what it takes to stand out in a crowded local market. Our marketing systems are built specifically for the trades and home services space: HVAC companies, plumbers, roofers, landscapers, electricians, and more, all across Hartford County.`,
-    whyEGL: `We're your neighbors. EGL Marketing operates out of Wethersfield, CT, meaning every strategy we build for your Hartford County business is rooted in local knowledge. We've helped trades businesses across Hartford County generate consistent inbound leads, improve their Google rankings, and build recognizable brands through social media content. Whether you're in Hartford, West Hartford, Manchester, or Enfield, we bring the same proven systems that turn local attention into real revenue.`,
+    whyEGL: `We're your neighbors. EGL Marketing operates out of Wethersfield, CT, meaning every strategy we build for your Hartford County business is rooted in local knowledge. We help trades businesses across Hartford County generate consistent inbound leads, improve their Google rankings, and build recognizable brands through video and social media content. Whether you're in Hartford, West Hartford, Manchester, or Enfield, we bring the same system: get found on Google, look like the best choice, and catch every lead.`,
   },
   {
     slug: 'new-haven-county-ct',
@@ -26,7 +26,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing solutions for home service and trade businesses in New Haven County, CT.',
     intro: `New Haven County stretches from the shoreline cities of New Haven and Milford up through densely populated suburbs like Hamden, North Haven, and Wallingford, representing one of Connecticut's largest concentrations of homeowners and commercial properties. For local service businesses in New Haven County, the opportunity is enormous, but so is the competition. EGL Marketing brings purpose-built marketing systems to trades businesses throughout New Haven County: websites that convert, lead generation campaigns that deliver consistent calls, and content creation that builds your brand in the communities you serve. From Waterbury in the north to Guilford and Madison on the shoreline, we help New Haven County contractors and service businesses grow predictably.`,
-    whyEGL: `New Haven County homeowners are online, searching for trusted local service providers every single day. EGL Marketing makes sure your business is the one they find. Our Google Ads, LSA campaigns, and SEO-optimized websites are proven to drive inbound calls for trades businesses across New Haven County. We handle the marketing infrastructure so you can focus on the work.`,
+    whyEGL: `New Haven County homeowners are online, searching for trusted local service providers every single day. EGL Marketing makes sure your business is the one they find. Our Google Ads, LSA campaigns, and SEO-optimized websites are built to drive inbound calls for trades businesses across New Haven County. We handle the marketing infrastructure so you can focus on the work.`,
   },
   {
     slug: 'litchfield-county-ct',
@@ -52,7 +52,7 @@ const serviceAreas: ServiceArea[] = [
     county: 'Tolland County',
     state: 'CT',
     description: 'Digital marketing for local contractors and home service businesses in Tolland County, CT.',
-    intro: `Tolland County is home to a growing population of homeowners spread across communities like Vernon, Ellington, Coventry, Mansfield, and the university town of Storrs. With steady residential growth and a mix of established neighborhoods and newer developments, Tolland County represents a consistent demand for home services, renovations, landscaping, HVAC, and more. EGL Marketing brings the same marketing infrastructure used by top-performing trades businesses in larger markets to Tolland County service providers: helping local contractors get found online, generate steady leads, and build recognizable brands in the communities they serve.`,
+    intro: `Tolland County is home to a growing population of homeowners spread across communities like Vernon, Ellington, Coventry, Mansfield, and the university town of Storrs. With steady residential growth and a mix of established neighborhoods and newer developments, Tolland County represents a consistent demand for home services, renovations, landscaping, HVAC, and more. EGL Marketing gives Tolland County service providers the kind of marketing infrastructure contractors in bigger markets rely on, helping local contractors get found online, generate steady leads, and build recognizable brands in the communities they serve.`,
     whyEGL: `EGL Marketing understands the Tolland County market, smaller communities where reputation travels fast and online visibility can be the difference between a booked calendar and a slow month. Our websites, Google Ads, and content systems are built specifically for trades businesses that want to grow predictably right here in Tolland County.`,
   },
   {
@@ -62,7 +62,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing systems for home service and trade businesses in New London County, CT.',
     intro: `New London County covers Connecticut's southeast corner, a dynamic region that includes the cities of New London and Norwich, coastal communities like Mystic, Stonington, and East Lyme, and suburban areas around Groton and Waterford. The mix of year-round residents, seasonal homeowners, and a robust commercial sector creates constant demand for local service businesses in every trade. EGL Marketing helps New London County contractors stand out in this competitive market with high-converting websites, targeted lead generation through Google and Facebook, and content creation that builds brand recognition across every community you serve.`,
-    whyEGL: `Whether you're serving homeowners in Groton, commercial accounts in Norwich, or coastal properties in Mystic, EGL Marketing builds the marketing infrastructure that puts your business in front of the right customers. Our proven systems for local service businesses are now available to New London County trades, helping you win more jobs and grow faster.`,
+    whyEGL: `Whether you're serving homeowners in Groton, commercial accounts in Norwich, or coastal properties in Mystic, EGL Marketing builds the marketing infrastructure that puts your business in front of the right customers. Our marketing systems for local service businesses are available to New London County trades, helping you win more jobs and grow faster.`,
   },
 
   // ── HARTFORD COUNTY CITIES ────────────────────────────────────────────────────
@@ -82,7 +82,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Digital marketing for contractors and home service businesses in West Hartford, CT.',
     intro: `West Hartford is one of Connecticut's most desirable towns: high incomes, high property values, and homeowners who invest seriously in their homes. For trades businesses, West Hartford represents premium customers who will pay for quality work from businesses they trust. The challenge is being found before the competition. EGL Marketing builds marketing systems specifically for service businesses targeting the West Hartford market: high-converting websites that rank on Google, Google Ads and LSA campaigns that put your business at the top of search results, and social media content that builds brand recognition among West Hartford homeowners before they ever need to search.`,
-    whyEGL: `We've built marketing systems for trades businesses serving West Hartford and understand exactly what it takes to win in this market. West Hartford homeowners research extensively before hiring. Our content and SEO strategies make sure your business is what they find and what they choose.`,
+    whyEGL: `We're based minutes away in Wethersfield and know what it takes to win in this market. West Hartford homeowners research extensively before hiring. Our content and SEO strategies make sure your business is what they find and what they choose.`,
   },
   {
     slug: 'wethersfield-ct',
@@ -109,7 +109,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Local service business marketing in Berlin, CT | EGL Marketing.',
     intro: `Berlin, CT sits at the geographic heart of Connecticut, making it a strategic base for trades businesses that serve the greater Hartford County and New Haven County regions. With a growing residential base and strong demand for home services, Berlin-area contractors have real opportunity to capture local market share. EGL Marketing helps Berlin service businesses build the digital infrastructure they need to compete: a high-converting website, Google and LSA campaigns targeting Berlin homeowners, and consistent social media content that keeps your brand visible in a community where reputation drives referrals.`,
-    whyEGL: `EGL Marketing specializes in marketing for local service businesses exactly like the ones operating out of Berlin, CT. We build proven systems that generate consistent leads, automate follow-up, and build your reputation online, so you stay busy all year.`,
+    whyEGL: `EGL Marketing specializes in marketing for local service businesses exactly like the ones operating out of Berlin, CT. We build systems designed to generate consistent leads, automate follow-up, and build your reputation online, so you stay busy all year.`,
   },
   {
     slug: 'rocky-hill-ct',
@@ -172,7 +172,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing for contractors and home service businesses in Windsor, CT.',
     intro: `Windsor, CT is one of Connecticut's oldest towns and a steadily growing Hartford County community with strong homeownership rates and consistent demand for local service businesses. Whether you're a Windsor-based HVAC company, plumber, landscaper, or general contractor, EGL Marketing builds the marketing systems you need to be found online and convert more local searches into booked jobs. From website design and SEO to paid advertising and social media content, we cover every piece of your digital presence.`,
-    whyEGL: `EGL Marketing serves the full Hartford County corridor, including Windsor, and we bring the same proven marketing systems to Windsor-area businesses that we've used to grow trades companies throughout the region.`,
+    whyEGL: `EGL Marketing serves the full Hartford County corridor, including Windsor, and we bring the same marketing systems to Windsor-area businesses that we build for contractors across the region.`,
   },
   {
     slug: 'simsbury-ct',
@@ -199,7 +199,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing systems for contractors and home service businesses in Farmington, CT.',
     intro: `Farmington, CT is a historic and affluent Hartford County town with beautiful neighborhoods, high property values, and consistent demand for skilled local service businesses. Homeowners in Farmington research contractors carefully before hiring, which means your digital presence: your website, your Google reviews, your social media, can be the deciding factor in whether they call you or your competitor. EGL Marketing builds complete marketing systems for Farmington-area trades businesses that win that research phase: optimized websites, positive review generation, targeted ads, and content that builds trust before the first contact.`,
-    whyEGL: `We help trades businesses win in competitive, discerning markets like Farmington. Our marketing systems are built specifically for the local service space and proven to generate consistent results in Hartford County's premium communities.`,
+    whyEGL: `We help trades businesses win in competitive, discerning markets like Farmington. Our marketing systems are built specifically for local service businesses competing in Hartford County's premium communities.`,
   },
   {
     slug: 'plainville-ct',
@@ -347,7 +347,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing for local service businesses and contractors in New Milford, CT.',
     intro: `New Milford, CT is one of Litchfield County's largest and most active towns, a growing community with strong residential neighborhoods, a thriving downtown, and consistent demand for local home service businesses. For contractors serving New Milford and the surrounding Litchfield County area, EGL Marketing provides the complete marketing infrastructure needed to generate consistent local leads: professional websites, Google and Facebook ad campaigns, and social media content that builds brand recognition in the New Milford community.`,
-    whyEGL: `EGL Marketing brings proven local service business marketing to Litchfield County markets like New Milford. Our systems are designed for towns and regions exactly like this one: strong local identity, word-of-mouth culture, and growing digital search behavior.`,
+    whyEGL: `EGL Marketing brings local service business marketing to Litchfield County markets like New Milford. Our systems are designed for towns and regions exactly like this one: strong local identity, word-of-mouth culture, and growing digital search behavior.`,
   },
   {
     slug: 'danbury-ct',
@@ -367,7 +367,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing for contractors and home service businesses in Middletown, CT.',
     intro: `Middletown, CT is the largest city in Middlesex County and a thriving Connecticut River community with strong residential neighborhoods, Wesleyan University, and a diverse, active population. For service businesses operating in Middletown, the demand for HVAC, plumbing, electrical, roofing, and renovation work is constant. EGL Marketing builds marketing systems for Middletown-area contractors that generate consistent local leads: SEO-optimized websites, Google and Facebook ad campaigns, and reputation management that builds the review profile customers look for before they hire.`,
-    whyEGL: `EGL Marketing serves Middlesex County businesses with proven marketing systems built for the local service space. Middletown is a strong market for trades businesses that invest in digital visibility, and we build that visibility from the ground up.`,
+    whyEGL: `EGL Marketing serves Middlesex County businesses with marketing systems built for the local service space. Middletown is a strong market for trades businesses that invest in digital visibility, and we build that visibility from the ground up.`,
   },
   {
     slug: 'cromwell-ct',
@@ -414,7 +414,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing systems for contractors and home service businesses in Mansfield, CT.',
     intro: `Mansfield, CT, home to the University of Connecticut in Storrs, is a Tolland County town with a unique blend of university community and established residential neighborhoods. For service businesses operating in Mansfield, the combination of student housing, faculty residences, and long-term homeowners creates diverse and consistent demand. EGL Marketing builds marketing systems for Mansfield-area contractors that reach the right customers: targeted digital advertising, SEO-optimized websites, and content that builds credibility in the Mansfield and Storrs community.`,
-    whyEGL: `Mansfield and the greater Storrs area offer real opportunity for trades businesses with the right digital presence. EGL Marketing helps Tolland County service companies capture that market with proven marketing systems.`,
+    whyEGL: `Mansfield and the greater Storrs area offer real opportunity for trades businesses with the right digital presence. EGL Marketing helps Tolland County service companies capture that market with marketing systems built for local service businesses.`,
   },
 
   // ── NEW LONDON COUNTY ─────────────────────────────────────────────────────────
@@ -425,7 +425,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing for contractors and service businesses in New London, CT.',
     intro: `New London, CT is a historic Connecticut city with a large, diverse population and consistent demand for local service businesses across every trade category. With aging housing stock, active commercial corridors, and a waterfront community undergoing revitalization, New London offers real opportunity for contractors and service businesses that invest in their visibility. EGL Marketing builds marketing systems for New London-area trades companies: optimized websites, Google and Facebook ad campaigns targeting New London homeowners, and automated lead capture that keeps your pipeline full year-round.`,
-    whyEGL: `EGL Marketing brings proven marketing systems to New London County service businesses. We understand the southeastern Connecticut market and build strategies that generate consistent results for local trades companies.`,
+    whyEGL: `EGL Marketing brings its marketing systems to New London County service businesses. We understand the southeastern Connecticut market and build strategies designed to generate consistent leads for local trades companies.`,
   },
   {
     slug: 'norwich-ct',
@@ -434,7 +434,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Digital marketing for home service businesses and contractors in Norwich, CT.',
     intro: `Norwich, CT is a central New London County city with strong residential neighborhoods, active commercial development, and consistent demand for local service businesses. For trades companies serving Norwich, digital marketing is the most reliable path to consistent growth. EGL Marketing builds marketing systems for Norwich-area contractors that generate steady inbound leads: high-converting websites, Google Ads and LSA campaigns targeting Norwich homeowners, and social media content that builds your brand in this active northeastern Connecticut market.`,
-    whyEGL: `EGL Marketing serves New London County service businesses with the same proven marketing systems used by top-performing trades companies throughout Connecticut. Norwich is a strong market, and we help local contractors capture it.`,
+    whyEGL: `EGL Marketing serves New London County service businesses with the same marketing systems we build for contractors throughout Connecticut. Norwich is a strong market, and we help local contractors capture it.`,
   },
   {
     slug: 'groton-ct',
@@ -461,7 +461,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Digital marketing for contractors and home service businesses in Waterford, CT.',
     intro: `Waterford, CT is a New London County town with strong residential neighborhoods, upscale waterfront areas, and consistent demand for local home services. For service businesses serving Waterford, a strong digital presence means more inbound calls from homeowners actively searching for your trade. EGL Marketing builds marketing systems that put Waterford-area contractors exactly where those homeowners are looking: at the top of Google search results, visible on social media, and backed by a strong review profile that builds immediate trust.`,
-    whyEGL: `EGL Marketing builds marketing systems for southeastern Connecticut trades businesses that generate consistent local leads. Waterford is a strong market, and our proven digital strategies help local service companies capture it effectively.`,
+    whyEGL: `EGL Marketing builds marketing systems for southeastern Connecticut trades businesses that generate consistent local leads. Waterford is a strong market, and our digital strategies are built to help local service companies capture it.`,
   },
 
   // ── WINDHAM COUNTY ────────────────────────────────────────────────────────────
@@ -481,7 +481,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'CT',
     description: 'Marketing systems for local service businesses in Putnam, CT.',
     intro: `Putnam, CT is a growing Windham County town known for its arts district and active community, a market where local businesses thrive on reputation and community visibility. For service businesses operating in Putnam and the broader Windham County area, EGL Marketing builds the marketing infrastructure that generates consistent local leads and builds lasting brand recognition. From website optimization to targeted advertising and social media content, we cover every piece of your digital presence.`,
-    whyEGL: `EGL Marketing brings proven marketing systems to Windham County markets like Putnam where strong digital presence can quickly set a local service business apart from the competition.`,
+    whyEGL: `EGL Marketing brings its marketing systems to Windham County markets like Putnam where strong digital presence can quickly set a local service business apart from the competition.`,
   },
 
   // ── FAIRFIELD COUNTY ──────────────────────────────────────────────────────────
@@ -556,7 +556,7 @@ const serviceAreas: ServiceArea[] = [
     county: undefined,
     state: 'MA',
     description: 'Marketing for contractors and home service businesses in Springfield, MA.',
-    intro: `Springfield, MA is western Massachusetts's largest city: a major market with a dense residential base, aging housing stock, and consistent, high-volume demand for local service businesses. From HVAC and plumbing to roofing, electrical, and renovation work, Springfield homeowners and property managers need skilled local contractors constantly. EGL Marketing extends its proven marketing systems to Springfield-area businesses, bringing the same lead generation infrastructure, website optimization, and content creation that drives growth for Connecticut trades companies to the western Massachusetts market.`,
+    intro: `Springfield, MA is western Massachusetts's largest city: a major market with a dense residential base, aging housing stock, and consistent, high-volume demand for local service businesses. From HVAC and plumbing to roofing, electrical, and renovation work, Springfield homeowners and property managers need skilled local contractors constantly. EGL Marketing extends its marketing systems to Springfield-area businesses, bringing the same lead generation, website optimization, and content creation we build for Connecticut contractors to the western Massachusetts market.`,
     whyEGL: `EGL Marketing serves the border market between Connecticut and western Massachusetts, and Springfield is a natural extension of our service area. Our marketing systems for local service businesses work just as effectively in Springfield as they do throughout Connecticut: generating consistent leads, building brand recognition, and automating follow-up.`,
   },
   {
@@ -566,7 +566,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'MA',
     description: 'Marketing systems for service businesses and contractors in Holyoke, MA.',
     intro: `Holyoke, MA is a western Massachusetts city right along the Connecticut River, geographically positioned at the Connecticut-Massachusetts border market that EGL Marketing serves. With significant residential density, aging housing, and consistent demand for home services, Holyoke offers real opportunity for local contractors willing to invest in digital marketing. EGL Marketing builds marketing systems for Holyoke-area service businesses: websites that rank locally, targeted Google and Facebook campaigns, and automated lead systems that keep your calendar full year-round.`,
-    whyEGL: `EGL Marketing serves the Connecticut-Massachusetts border market, and Holyoke is a strong opportunity market for local service businesses. We bring the same proven marketing systems that drive growth for Connecticut trades companies to Holyoke contractors.`,
+    whyEGL: `EGL Marketing serves the Connecticut-Massachusetts border market, and Holyoke is a strong opportunity market for local service businesses. We bring the same marketing systems we build for Connecticut contractors to Holyoke.`,
   },
   {
     slug: 'west-springfield-ma',
@@ -575,7 +575,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'MA',
     description: 'Marketing for home service businesses and contractors in West Springfield, MA.',
     intro: `West Springfield, MA is a thriving western Massachusetts community just across the river from Springfield, a town with strong residential neighborhoods, active commercial corridors, and consistent demand for local service businesses. For contractors serving West Springfield, EGL Marketing provides the complete digital marketing infrastructure needed to generate consistent local leads: high-converting websites, Google Ads and LSA campaigns, and content creation that builds brand recognition in the West Springfield community.`,
-    whyEGL: `EGL Marketing extends its Connecticut marketing expertise to western Massachusetts, serving border-market businesses like those in West Springfield. Our proven systems for local service businesses work just as effectively in this market.`,
+    whyEGL: `EGL Marketing extends its Connecticut marketing expertise to western Massachusetts, serving border-market businesses like those in West Springfield. Our systems for local service businesses are built to work just as well in this market.`,
   },
   {
     slug: 'chicopee-ma',
@@ -584,7 +584,7 @@ const serviceAreas: ServiceArea[] = [
     state: 'MA',
     description: 'Marketing for contractors and home service businesses in Chicopee, MA.',
     intro: `Chicopee, MA is a western Massachusetts city with strong residential neighborhoods, industrial heritage, and consistent demand for local home services. For service businesses operating in Chicopee, EGL Marketing provides the marketing infrastructure to compete digitally: professional websites, targeted Google and Facebook campaigns, and automated lead capture systems that keep your pipeline full. We help Chicopee-area contractors generate more calls, book more jobs, and build stronger brand recognition in the community.`,
-    whyEGL: `EGL Marketing serves the Connecticut-Massachusetts border market including Chicopee, bringing proven marketing systems for local service businesses to this western Massachusetts community.`,
+    whyEGL: `EGL Marketing serves the Connecticut-Massachusetts border market including Chicopee, bringing marketing systems built for local service businesses to this western Massachusetts community.`,
   },
   {
     slug: 'agawam-ma',

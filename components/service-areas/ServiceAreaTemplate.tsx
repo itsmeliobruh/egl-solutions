@@ -24,7 +24,7 @@ const reasons = [
   'Full-service marketing: website, ads, content, and automation',
   'AI-powered systems that work 24/7 on your behalf',
   'Plans start at $499/month, with a report every month',
-  'Built and proven for trades and home service businesses',
+  'Built for trades and home service businesses, based in Wethersfield, CT',
 ]
 
 export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
