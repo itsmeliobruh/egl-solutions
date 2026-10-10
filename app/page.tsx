@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
   description:
-    'EGL Marketing helps local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems — website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT.',
+    'EGL Marketing helps local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems: website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT.',
   alternates: { canonical: 'https://eglmarketing.co' },
   openGraph: {
     title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',

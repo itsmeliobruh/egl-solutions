@@ -36,7 +36,7 @@ export default function AboutSection() {
             </h2>
             <p className="font-body text-light/75 leading-relaxed text-base">
               We combine high-converting websites, lead generation strategies, and AI-powered
-              automation to create a complete growth engine — not just marketing that looks good,
+              automation to create a complete growth engine, not just marketing that looks good,
               but marketing that delivers results. From capturing leads to nurturing and converting
               them, every piece is designed to work together seamlessly. Our goal is simple: help
               you get more calls, more customers, and consistent growth without the guesswork.

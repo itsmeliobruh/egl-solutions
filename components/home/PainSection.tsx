@@ -7,7 +7,7 @@ const pains = [
   {
     emoji: '🔍',
     heading: "THEY CAN'T FIND YOU",
-    body: 'Homeowners Google "kitchen remodeler in Hartford" and your competitor shows up first — even though your work is better. You\'re invisible where it counts.',
+    body: 'Homeowners Google "kitchen remodeler in Hartford" and your competitor shows up first, even though your work is better. You\'re invisible where it counts.',
   },
   {
     emoji: '🤷',

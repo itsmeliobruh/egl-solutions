@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'EGL Marketing is a results-driven marketing agency based in Wethersfield, CT helping local service businesses grow with websites, lead generation, AI automation, and content creation.',
   alternates: { canonical: 'https://eglmarketing.co/about' },
   openGraph: {
-    title: 'About EGL Marketing — Wethersfield, CT Marketing Agency',
+    title: 'About EGL Marketing | Wethersfield, CT Marketing Agency',
     description: 'Based in Wethersfield, CT. We help local service businesses grow with marketing systems that actually deliver results.',
     url: 'https://eglmarketing.co/about',
   },
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 const BOOKING_URL = '/book'
 
 const values = [
-  { title: 'Results First', description: 'Every system we build is designed around measurable outcomes — more calls, more leads, more revenue.' },
+  { title: 'Results First', description: 'Every system we build is designed around measurable outcomes: more calls, more leads, more revenue.' },
   { title: 'Full Transparency', description: 'No surprise fees, no confusing reports. You always know what we\'re doing and what results it\'s producing.' },
   { title: 'Local Expertise', description: 'We\'re based in Connecticut and we understand the local service business landscape from the inside.' },
   { title: 'No Long Contracts', description: 'Month-to-month agreements because we\'re confident our results will keep you. No pressure, just performance.' },
   { title: 'Done-For-You', description: 'We handle everything end-to-end. You focus on running your business; we handle the marketing.' },
-  { title: 'AI-Powered', description: 'We integrate cutting-edge AI tools into every system — from lead capture to follow-up to content creation.' },
+  { title: 'AI-Powered', description: 'We integrate cutting-edge AI tools into every system, from lead capture to follow-up to content creation.' },
 ]
 
 export default function AboutPage() {
@@ -56,8 +56,8 @@ export default function AboutPage() {
             </h1>
             <p className="font-body text-light/75 text-lg leading-relaxed mb-6">
               EGL Marketing is a results-driven marketing agency based in Wethersfield, CT. We
-              specialize in helping local service businesses — trades, contractors, and home
-              service providers — build the digital infrastructure they need to attract, convert,
+              specialize in helping local service businesses (trades, contractors, and home
+              service providers) build the digital infrastructure they need to attract, convert,
               and retain customers consistently.
             </p>
             <p className="font-body text-light/75 leading-relaxed mb-8">
@@ -102,7 +102,7 @@ export default function AboutPage() {
           </h2>
           <p className="font-body text-light/70 text-lg leading-relaxed">
             We combine high-converting websites, lead generation strategies, and AI-powered
-            automation to create a complete growth engine — not just marketing that looks good,
+            automation to create a complete growth engine, not just marketing that looks good,
             but marketing that delivers results. From capturing leads to nurturing and converting
             them, every piece is designed to work together seamlessly.
           </p>
@@ -142,7 +142,7 @@ export default function AboutPage() {
           <p className="font-body text-light/70 leading-relaxed mb-8">
             Based in Wethersfield, CT, we serve local service businesses throughout Hartford
             County, New Haven County, Litchfield County, Middlesex County, Tolland County, New
-            London County, and beyond — including Fairfield County and western Massachusetts.
+            London County, and beyond, including Fairfield County and western Massachusetts.
           </p>
           <Link
             href="/service-areas"

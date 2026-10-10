@@ -8,10 +8,10 @@ import { MapPin } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Service Areas | Marketing Agency Serving Connecticut & Western MA',
   description:
-    'EGL Marketing serves local service businesses throughout Connecticut — Hartford County, New Haven County, Litchfield, Middlesex, Tolland, New London, Fairfield, and western Massachusetts.',
+    'EGL Marketing serves local service businesses throughout Connecticut: Hartford County, New Haven County, Litchfield, Middlesex, Tolland, New London, Fairfield, and western Massachusetts.',
   alternates: { canonical: 'https://eglmarketing.co/service-areas' },
   openGraph: {
-    title: 'Service Areas — EGL Marketing',
+    title: 'Service Areas | EGL Marketing',
     description: 'Marketing systems for local service businesses throughout Connecticut and western Massachusetts.',
     url: 'https://eglmarketing.co/service-areas',
   },
@@ -91,7 +91,7 @@ export default function ServiceAreasPage() {
 
       <CTAStrip
         headline="DON'T SEE YOUR AREA? NO PROBLEM."
-        subtext="We don't limit ourselves to specific locations — we work with businesses that are ready to grow. We partner with businesses in multiple regions and focus more on fit than location."
+        subtext="We don't limit ourselves to specific locations. We work with businesses that are ready to grow. We partner with businesses in multiple regions and focus more on fit than location."
         bookingHref="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"
       />
     </>

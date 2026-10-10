@@ -33,7 +33,7 @@ export default function ServiceAreaMap() {
             SERVICE AREAS
           </h2>
           <p className="font-body text-bone mt-4 max-w-xl text-base leading-relaxed">
-            Based in <span className="text-inferno font-semibold">Wethersfield, CT</span> — but we work with businesses across multiple regions.{' '}
+            Based in <span className="text-inferno font-semibold">Wethersfield, CT</span>, but we work with businesses across multiple regions.{' '}
             <span className="text-bone font-semibold">Fit matters more than zip code.</span>
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ export default function ServiceAreaMap() {
             Don&apos;t see your area? No problem.
           </h3>
           <p className="font-body text-black/70 text-base mb-8 max-w-xl mx-auto">
-            We don&apos;t limit ourselves to specific locations — we work with businesses that are ready to grow. Fit matters more than zip code.
+            We don&apos;t limit ourselves to specific locations. We work with businesses that are ready to grow. Fit matters more than zip code.
           </p>
           <a
             href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"

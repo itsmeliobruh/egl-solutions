@@ -54,7 +54,7 @@ const packages = [
     badgeFeatured: false,
     name: '📍 Local Presence Builder',
     description:
-      'Before ads, before content, before anything else — get your foundation right. Be found, look legit, capture every lead.',
+      'Before ads, before content, before anything else, get your foundation right. Be found, look legit, capture every lead.',
     features: [
       'Standard website with portfolio gallery',
       'Google Business Profile setup & optimization',
@@ -77,9 +77,9 @@ const packages = [
     description:
       'Full-service marketing system built to generate consistent leads and dominate your local market month after month.',
     setupFeatures: [
-      'Premium custom website — fully bespoke design',
+      'Premium custom website, fully bespoke design',
       'Meta ads account setup & campaign build',
-      'AI automations — missed call text-back, lead follow-up sequences',
+      'AI automations: missed call text-back, lead follow-up sequences',
       'Full GHL CRM & pipeline build',
     ],
     monthlyFeatures: [

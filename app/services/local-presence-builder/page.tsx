@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Get found online, look professional, and capture every lead automatically. Website, Google Business Profile, CRM, and review system built for local service businesses in Connecticut. EGL Marketing.',
   alternates: { canonical: 'https://eglmarketing.co/services/local-presence-builder' },
   openGraph: {
-    title: 'Local Presence Builder — EGL Marketing',
+    title: 'Local Presence Builder | EGL Marketing',
     description: 'Get found online, look professional, and capture every lead automatically.',
     url: 'https://eglmarketing.co/services/local-presence-builder',
   },

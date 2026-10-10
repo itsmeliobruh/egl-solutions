@@ -69,25 +69,25 @@ export default async function ThankYouPage({
             <li className="flex items-start gap-4">
               <Mail size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                Check your email — you&apos;ll get a confirmation with the call details and a calendar invite.
+                Check your email. You&apos;ll get a confirmation with the call details and a calendar invite.
               </span>
             </li>
             <li className="flex items-start gap-4">
               <CalendarCheck size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                Add it to your calendar so it doesn&apos;t slip — we&apos;ll send a reminder before the call too.
+                Add it to your calendar so it doesn&apos;t slip. We&apos;ll send a reminder before the call too.
               </span>
             </li>
             <li className="flex items-start gap-4">
               <Clock size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                It&apos;s 15 minutes, no pressure — just a straight look at where your business could be losing leads and what it would take to fix it.
+                It&apos;s 15 minutes, no pressure, just a straight look at where your business could be losing leads and what it would take to fix it.
               </span>
             </li>
             <li className="flex items-start gap-4">
               <PenLine size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                One last thing! Take a minute to fill out the quick form below — it helps us get to know your business so we can make the most of our time together.
+                One last thing! Take a minute to fill out the quick form below. It helps us get to know your business so we can make the most of our time together.
               </span>
             </li>
           </ul>

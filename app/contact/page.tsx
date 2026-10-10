@@ -43,7 +43,7 @@ export default function ContactPage() {
             <p className="font-body text-light/75 text-lg leading-relaxed mb-8">
               Schedule a free 15-minute intro call. We&apos;ll learn about your business, show you
               live client accounts, answer every question, and decide together if we&apos;re a good
-              fit — zero pressure.
+              fit, zero pressure.
             </p>
 
             <div className="space-y-4">

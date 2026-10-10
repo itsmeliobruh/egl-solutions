@@ -18,7 +18,7 @@ export default function ProcessSection({ steps }: { steps?: ProcessStepData[] | 
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <SectionLabel label="05 — HOW IT WORKS" className="mb-3 justify-center" />
+          <SectionLabel label="05 · HOW IT WORKS" className="mb-3 justify-center" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider">
             OUR PROCESS IS SIMPLE
           </h2>

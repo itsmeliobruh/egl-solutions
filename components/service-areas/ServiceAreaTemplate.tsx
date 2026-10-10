@@ -8,7 +8,7 @@ import { Card } from '@/components/shared/Card'
 const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
 const services = [
-  { href: '/book', name: 'Local Presence Builder', badge: 'Foundation First', description: 'Website, GBP, CRM, lead capture, review automation, local SEO — everything you need to be found and look legit before you spend on ads.' },
+  { href: '/book', name: 'Local Presence Builder', badge: 'Foundation First', description: 'Website, GBP, CRM, lead capture, review automation, local SEO: everything you need to be found and look legit before you spend on ads.' },
   { href: '/book', name: 'Remodeler Growth Engine', badge: 'Main Offer', description: 'Full-service: custom website, Meta ads, AI follow-up, monthly content shoot, ongoing GBP optimization, reporting, and a monthly strategy call.' },
 ]
 
@@ -20,10 +20,10 @@ const trades = [
 
 const reasons = [
   'Deep understanding of the local service business landscape',
-  'Month-to-month agreements — no long-term contracts',
-  'Full-service marketing — website, ads, content, and automation',
+  'Month-to-month agreements, no long-term contracts',
+  'Full-service marketing: website, ads, content, and automation',
   'AI-powered systems that work 24/7 on your behalf',
-  'Transparent pricing and reporting — no surprises',
+  'Transparent pricing and reporting, no surprises',
   'Built and proven for trades and home service businesses',
 ]
 

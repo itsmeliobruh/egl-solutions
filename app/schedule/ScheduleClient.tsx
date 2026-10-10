@@ -44,7 +44,7 @@ export default function ScheduleClient() {
             PICK YOUR TIME SLOT
           </h1>
           <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto mb-4">
-            Choose a time that works for you. The call is 15 minutes — focused, pressure-free, and actually useful.
+            Choose a time that works for you. The call is 15 minutes: focused, pressure-free, and actually useful.
           </p>
           <span className="inline-flex items-center gap-2 bg-[#FF5500]/10 border border-[#FF5500]/30 rounded-full px-4 py-1.5">
             <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />

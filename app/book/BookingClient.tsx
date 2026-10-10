@@ -108,7 +108,7 @@ export default function BookingClient() {
             <ScaledGHLEmbed
               src={ghlFormUrl}
               iframeId="inline-wBCLWyveluv1QqGnAKzL"
-              title="EGL Marketing — Step 1: Your Info"
+              title="EGL Marketing | Step 1: Your Info"
               fallbackHeight={680}
               reservedSpace={STEP1_RESERVED}
             />
@@ -124,14 +124,14 @@ export default function BookingClient() {
               <div className="inline-flex items-center gap-2 bg-[#FF5500]/10 border border-[#FF5500]/30 rounded-full px-4 py-1.5 mb-4">
                 <CheckCircle size={12} className="text-[#FF5500]" />
                 <span className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.18em]">
-                  Info received — you're almost in!
+                  Info received. You're almost in!
                 </span>
               </div>
               <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-3">
                 PICK YOUR TIME SLOT
               </h1>
               <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto">
-                Choose a time that works for you. The call is 15 minutes — focused, pressure-free, and actually useful.
+                Choose a time that works for you. The call is 15 minutes: focused, pressure-free, and actually useful.
               </p>
             </div>
 
@@ -140,7 +140,7 @@ export default function BookingClient() {
             <ScaledGHLEmbed
               src={GHL_CALENDAR_URL}
               iframeId="inline-wFGbFB8J86G1btPMNuPz"
-              title="EGL Marketing — Step 2: Book a Time"
+              title="EGL Marketing | Step 2: Book a Time"
               fallbackHeight={700}
               reservedSpace={STEP2_RESERVED}
             />

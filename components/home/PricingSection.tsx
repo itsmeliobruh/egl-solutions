@@ -142,7 +142,7 @@ export default function PricingSection({
 
         {/* Label + Heading */}
         <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#FF5500] mb-2">
-          04 — PRICING
+          04 · PRICING
         </p>
         <h2 className="font-display text-5xl md:text-6xl tracking-wide text-white mb-2">
           CHOOSE YOUR GROWTH SYSTEM
