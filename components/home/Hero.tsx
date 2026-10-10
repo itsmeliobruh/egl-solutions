@@ -142,12 +142,12 @@ export default function Hero(_props: { data?: HeroData | null }) {
               { value: 'NEVER', label: 'Long-term contracts' },
               { value: '$499/mo', label: 'Plans starting at' },
             ].map((stat) => (
-              <div key={stat.label} className="bg-[#0E0B09] lg:bg-transparent px-5 py-4 lg:p-0">
-                <div className="font-display text-3xl lg:text-2xl tracking-wide leading-none mb-1" style={{ color: '#FF5500' }}>
-                  {stat.value}
-                </div>
-                <div className="font-mono text-[10px] text-muted uppercase tracking-[0.12em] leading-tight">
+              <div key={stat.label} className="bg-[#0E0B09] lg:bg-transparent px-5 py-4 lg:p-0 flex flex-col justify-between">
+                <div className="font-mono text-[10px] text-muted uppercase tracking-[0.12em] leading-tight mb-1.5">
                   {stat.label}
+                </div>
+                <div className="font-display text-3xl lg:text-2xl tracking-wide leading-none" style={{ color: '#FF5500' }}>
+                  {stat.value}
                 </div>
               </div>
             ))}
