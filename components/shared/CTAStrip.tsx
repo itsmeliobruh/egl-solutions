@@ -10,7 +10,7 @@ interface CTAStripProps {
 
 export default function CTAStrip({
   headline = 'READY TO GROW YOUR BUSINESS?',
-  subtext = 'Schedule a free 15-minute intro call. No obligation, no contracts.',
+  subtext = 'Book a free, no-pressure Local Visibility Audit. No obligation.',
   bookingHref = DEFAULT_BOOKING_URL,
 }: CTAStripProps) {
   return (

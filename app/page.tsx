@@ -7,10 +7,7 @@ import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
 import ServiceAreaMap from '@/components/home/ServiceAreaMap'
 import FAQSection from '@/components/home/FAQSection'
-import {
-  getPayloadHero,
-  getPayloadFAQ,
-} from '@/lib/payload/queries'
+import { getPayloadHero } from '@/lib/payload/queries'
 
 export const metadata: Metadata = {
   title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
@@ -26,10 +23,7 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
-  const [hero, faqs] = await Promise.all([
-    getPayloadHero(),
-    getPayloadFAQ('homepage'),
-  ])
+  const hero = await getPayloadHero()
 
   return (
     <>
@@ -40,7 +34,7 @@ export default async function HomePage() {
       <ServicesSection />
       <TradesSection />
       <ServiceAreaMap />
-      <FAQSection faqs={faqs} />
+      <FAQSection />
     </>
   )
 }

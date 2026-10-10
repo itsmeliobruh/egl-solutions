@@ -57,7 +57,7 @@ export default async function ThankYouPage({
           YOU&apos;RE ALL SET!
         </h1>
         <p className="font-body text-[#AAAAAA] text-base md:text-lg max-w-lg mx-auto mb-8 md:mb-12">
-          Your free 15-minute intro call with EGL Marketing is booked. We&apos;re looking forward to it.
+          Your free Local Visibility Audit with EGL Marketing is booked. We&apos;re looking forward to it.
         </p>
 
         {/* What happens next */}
@@ -81,7 +81,7 @@ export default async function ThankYouPage({
             <li className="flex items-start gap-4">
               <Clock size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                It&apos;s 15 minutes, no pressure, just a straight look at where your business could be losing leads and what it would take to fix it.
+                No pressure, just a straight look at where your business could be losing leads and what it would take to fix it.
               </span>
             </li>
             <li className="flex items-start gap-4">

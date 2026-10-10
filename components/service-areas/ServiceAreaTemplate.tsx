@@ -20,10 +20,10 @@ const trades = [
 
 const reasons = [
   'Deep understanding of the local service business landscape',
-  'Month-to-month agreements, no long-term contracts',
+  'No long-term contracts',
   'Full-service marketing: website, ads, content, and automation',
   'AI-powered systems that work 24/7 on your behalf',
-  'Transparent pricing and reporting, no surprises',
+  'Plans start at $499/month, with a report every month',
   'Built and proven for trades and home service businesses',
 ]
 

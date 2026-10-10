@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://eglmarketing.co/contact' },
   openGraph: {
     title: 'Contact EGL Marketing',
-    description: 'Schedule a free 15-minute intro call with EGL Marketing. No obligation.',
+    description: 'Book a free, no-pressure audit call with EGL Marketing. No obligation.',
     url: 'https://eglmarketing.co/contact',
   },
 }
@@ -41,7 +41,7 @@ export default function ContactPage() {
               <span className="text-inferno">BUSINESS TOGETHER</span>
             </h1>
             <p className="font-body text-light/75 text-lg leading-relaxed mb-8">
-              Schedule a free 15-minute intro call. We&apos;ll learn about your business, show you
+              Book a free, no-pressure audit call. We&apos;ll learn about your business, show you
               live client accounts, answer every question, and decide together if we&apos;re a good
               fit, zero pressure.
             </p>
@@ -86,7 +86,7 @@ export default function ContactPage() {
           <div className="bg-mid border border-steel rounded p-8">
             <h2 className="font-display text-3xl text-bone tracking-wider mb-3">SCHEDULE A FREE CALL</h2>
             <p className="font-body text-sm text-[#CCCCCC] leading-relaxed mb-6">
-              15 minutes. No obligation. We&apos;ll show you exactly how we can help your specific
+              No pressure. No obligation. We&apos;ll show you exactly how we can help your specific
               business generate more leads and scale faster.
             </p>
             <a

@@ -23,7 +23,7 @@ const values = [
   { title: 'Results First', description: 'Every system we build is designed around measurable outcomes: more calls, more leads, more revenue.' },
   { title: 'Full Transparency', description: 'No surprise fees, no confusing reports. You always know what we\'re doing and what results it\'s producing.' },
   { title: 'Local Expertise', description: 'We\'re based in Connecticut and we understand the local service business landscape from the inside.' },
-  { title: 'No Long Contracts', description: 'Month-to-month agreements because we\'re confident our results will keep you. No pressure, just performance.' },
+  { title: 'No Long-Term Contracts', description: 'We\'d rather keep you with results than paperwork. No pressure, just performance.' },
   { title: 'Done-For-You', description: 'We handle everything end-to-end. You focus on running your business; we handle the marketing.' },
   { title: 'AI-Powered', description: 'We integrate cutting-edge AI tools into every system, from lead capture to follow-up to content creation.' },
 ]

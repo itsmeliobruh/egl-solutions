@@ -131,7 +131,7 @@ export default function BookingClient() {
                 PICK YOUR TIME SLOT
               </h1>
               <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto">
-                Choose a time that works for you. The call is 15 minutes: focused, pressure-free, and actually useful.
+                Choose a time that works for you. The call is focused, pressure-free, and actually useful.
               </p>
             </div>
 

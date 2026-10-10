@@ -112,7 +112,7 @@ export default function ServicesSection() {
             BUILT FOR <CyclingTrade />
           </h2>
           <p className="font-body text-muted text-sm">
-            Built for local service businesses that are serious about growth.
+            Built for local service businesses that are serious about growth. Plans start at $499/month. Your exact plan comes from your free audit.
           </p>
         </motion.div>
 

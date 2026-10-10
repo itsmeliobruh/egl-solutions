@@ -14,11 +14,11 @@ export default function TermsPage() {
         <SectionLabel label="LEGAL" className="mb-3" />
         <h1 className="font-display text-5xl text-bone tracking-wider mb-8">TERMS &amp; CONDITIONS</h1>
         <div className="prose prose-invert max-w-none font-body text-muted space-y-6 text-sm leading-relaxed">
-          <p>Last updated: January 1, 2026</p>
+          <p>Last updated: October 10, 2026</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">1. Services</h2>
           <p>EGL Marketing provides digital marketing services including website design, lead generation, content creation, and marketing automation for local service businesses. All services are delivered on a month-to-month basis unless otherwise agreed in writing.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">2. Payment</h2>
-          <p>Monthly service fees are billed in advance. All payments are due on the agreed billing date. Failure to pay within 7 days of the due date may result in suspension of services.</p>
+          <p>Monthly service fees are billed in advance. All payments are due on the agreed billing date. Failure to pay within 7 days of the due date may result in suspension of services. Setup fees are paid before work begins and are non-refundable.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">3. Cancellation</h2>
           <p>Clients may cancel services with 30 days written notice to info@eglmarketing.co. There are no long-term contracts or cancellation fees.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">4. Intellectual Property</h2>
