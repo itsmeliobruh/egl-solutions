@@ -37,7 +37,7 @@ export default function ProcessSection({ steps }: { steps?: ProcessStepData[] | 
             href={BOOKING_URL}
             className="inline-block bg-inferno text-black font-display text-xl px-10 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
           >
-            ⚡ SCHEDULE A CALL ⚡
+            ⚡ GET MY FREE LOCAL VISIBILITY AUDIT ⚡
           </a>
         </motion.div>
       </div>

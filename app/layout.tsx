@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s | EGL Marketing',
   },
   description:
-    'EGL Marketing helps local service businesses in Connecticut grow with high-converting websites, lead generation, AI automation, and content creation. Based in Wethersfield, CT. Call (860) 200-3455.',
+    'EGL Marketing helps local service businesses in Connecticut grow with high-converting websites, lead generation, AI automation, and content creation. Based in Wethersfield, CT.',
   keywords: [
     'marketing agency Connecticut',
     'lead generation CT',

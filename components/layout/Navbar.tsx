@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown, Phone } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const BOOKING_URL = '/book'
@@ -180,41 +180,25 @@ export default function Navbar() {
             <Link href="/contact" className="hover:text-inferno transition-colors">Contact</Link>
           </div>
 
-          {/* ── DESKTOP RIGHT: Phone + CTA ───────────────────────── */}
+          {/* ── DESKTOP RIGHT: CTA ───────────────────────── */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <a
-              href="tel:+18602003455"
-              className="flex items-center gap-2 text-sm font-body font-semibold text-black bg-white hover:bg-gray-100 px-4 py-2.5 rounded-full whitespace-nowrap transition-all shadow-sm"
-              aria-label="Call EGL Marketing"
-            >
-              <Phone size={14} />
-              (860) 200-3455
-            </a>
             <a
               href={BOOKING_URL}
               className="glass-btn-inferno font-display text-sm px-5 py-2.5 rounded-full tracking-widest whitespace-nowrap"
-              aria-label="Work with EGL Marketing"
+              aria-label="Get my free local visibility audit"
             >
-              WORK WITH US
+              GET MY FREE LOCAL VISIBILITY AUDIT
             </a>
           </div>
 
-          {/* ── MOBILE RIGHT: Phone icon + CTA + Hamburger ───────── */}
+          {/* ── MOBILE RIGHT: CTA + Hamburger ───────── */}
           <div className="lg:hidden flex items-center gap-2 flex-shrink-0">
-            <a
-              href="tel:+18602003455"
-              className="flex items-center gap-1.5 text-xs font-body font-semibold text-black bg-white hover:bg-gray-100 px-3 py-2 rounded-full whitespace-nowrap transition-all shadow-sm"
-              aria-label="Call EGL Marketing"
-            >
-              <Phone size={12} />
-              <span className="hidden xs:inline">(860) 200-3455</span>
-            </a>
             <a
               href={BOOKING_URL}
               className="glass-btn-inferno font-display text-xs px-3 py-2 rounded-full tracking-wider whitespace-nowrap"
-              aria-label="Work with EGL Marketing"
+              aria-label="Get my free local visibility audit"
             >
-              WORK WITH US
+              GET MY FREE LOCAL VISIBILITY AUDIT
             </a>
             <button
               className="text-light hover:text-inferno transition-colors p-1 ml-1"

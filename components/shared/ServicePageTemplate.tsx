@@ -47,7 +47,7 @@ export default function ServicePageTemplate({ service }: { service: Service }) {
               href={bookingUrl}
               className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
             >
-              ⚡ GET STARTED TODAY
+              ⚡ GET MY FREE LOCAL VISIBILITY AUDIT
             </a>
           </div>
         </div>

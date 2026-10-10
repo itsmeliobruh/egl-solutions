@@ -10,7 +10,7 @@ const steps = [
     number: '01',
     title: 'WE AUDIT YOUR ONLINE PRESENCE — FREE',
     body: 'A live 15-minute screen-share showing exactly where you\'re losing leads to competitors. Your Google profile, your website, your ads presence — compared side by side to the top businesses in your area. No pitch. Just real findings.',
-    cta: { label: 'Book your free audit →', href: BOOKING_URL },
+    cta: { label: 'Get My Free Local Visibility Audit →', href: BOOKING_URL },
   },
   {
     number: '02',

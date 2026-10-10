@@ -6,7 +6,6 @@ export default function JsonLd() {
     description:
       'Marketing agency specializing in websites, lead generation, and content creation for local service businesses in Connecticut.',
     url: 'https://eglmarketing.co',
-    telephone: '+18602003455',
     email: 'info@eglmarketing.co',
     address: {
       '@type': 'PostalAddress',

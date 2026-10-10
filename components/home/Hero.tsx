@@ -6,7 +6,7 @@ import ScrollArrows from '@/components/shared/ScrollArrows'
 import type { HeroData } from '@/lib/payload/queries'
 
 const DEFAULTS: HeroData = {
-  badgeText: 'LIMITED TIME: FREE WEBSITE BUILD ON US',
+  badgeText: '',
   headlineL1: 'EMPOWERING',
   headlineL2: 'LOCAL BUSINESS',
   headlineL3prefix: 'WITH',
@@ -14,7 +14,7 @@ const DEFAULTS: HeroData = {
   headlineL4: 'MARKETING',
   headlineL5: 'SOLUTIONS!',
   subtext: 'Most local businesses in Connecticut lose customers every week to competitors with a stronger online presence. We fix that — website, Google, leads, and content working together as one system.',
-  ctaPrimary: '⚡ WORK WITH US',
+  ctaPrimary: '⚡ GET MY FREE LOCAL VISIBILITY AUDIT',
   ctaSecondary: 'VIEW PRICING',
 }
 
@@ -49,17 +49,6 @@ export default function Hero({ data }: { data?: HeroData | null }) {
       <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full pt-16 pb-10 lg:pt-28 lg:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 bg-inferno/10 border border-inferno/40 rounded-full px-4 py-1.5 mb-4"
-            >
-              <span className="w-2 h-2 rounded-full bg-inferno animate-pulse" />
-              <span className="font-mono text-[10px] text-inferno uppercase tracking-[0.18em]">
-                {d.badgeText}
-              </span>
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -100,7 +89,7 @@ export default function Hero({ data }: { data?: HeroData | null }) {
                 onClick={scrollToForm}
                 className="lg:hidden inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-base px-6 py-3 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
               >
-                {d.ctaPrimary}
+                ⚡ GET MY FREE LOCAL VISIBILITY AUDIT
               </button>
               <button
                 onClick={scrollToProcess}

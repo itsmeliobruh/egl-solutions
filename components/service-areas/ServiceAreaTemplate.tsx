@@ -1,6 +1,6 @@
 import type { ServiceArea } from '@/lib/serviceAreas'
 import Link from 'next/link'
-import { Check, Phone } from 'lucide-react'
+import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
 import { Card } from '@/components/shared/Card'
@@ -76,13 +76,7 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
               href={BOOKING_URL}
               className="inline-flex items-center justify-center gap-2 bg-inferno text-black font-display text-lg px-8 py-4 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
             >
-              ⚡ GET A FREE CONSULTATION
-            </a>
-            <a
-              href="tel:+18602003455"
-              className="inline-flex items-center justify-center gap-2 bg-white text-black font-display text-sm px-8 py-4 rounded tracking-widest hover:bg-gray-100 transition-colors shadow-sm"
-            >
-              <Phone size={16} /> (860) 200-3455
+              ⚡ GET MY FREE LOCAL VISIBILITY AUDIT
             </a>
           </div>
         </div>
@@ -119,7 +113,7 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
                     {s.name}
                   </h3>
                   <p className="font-body text-xs text-[#666666] leading-relaxed mb-3">{s.description}</p>
-                  <span className="font-display text-sm text-[#FF5500]">Book a Free Call →</span>
+                  <span className="font-display text-sm text-[#FF5500]">Get My Free Local Visibility Audit →</span>
                 </Card>
               </Link>
             ))}
@@ -192,7 +186,6 @@ export default function ServiceAreaTemplate({ area }: { area: ServiceArea }) {
             name: 'EGL Marketing',
             description: `Marketing agency serving local service businesses in ${location}.`,
             url: `https://eglmarketing.co/service-areas/${area.slug}`,
-            telephone: '+18602003455',
             email: 'info@eglmarketing.co',
             address: {
               '@type': 'PostalAddress',

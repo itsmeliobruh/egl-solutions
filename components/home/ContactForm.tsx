@@ -64,12 +64,6 @@ export default function ContactForm() {
           className="text-center mb-8"
         >
           <SectionLabel label="WORK WITH US" className="mb-3 justify-center" />
-          <div className="inline-flex items-center gap-2 bg-inferno/10 border border-inferno/40 rounded-full px-4 py-1.5 mb-4">
-            <span className="w-2 h-2 rounded-full bg-inferno animate-pulse" />
-            <span className="font-mono text-[10px] text-inferno uppercase tracking-[0.18em]">
-              LIMITED TIME: FREE WEBSITE BUILD ON US
-            </span>
-          </div>
           <h2 className="font-display text-4xl md:text-5xl text-bone tracking-wider">
             LET&apos;S GROW YOUR BUSINESS
           </h2>

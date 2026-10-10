@@ -27,7 +27,7 @@ export default function CTAStrip({
           href={bookingHref}
           className="inline-block bg-black text-bone font-display text-lg px-10 py-4 rounded tracking-widest hover:bg-void transition-colors shadow-lg"
         >
-          ⚡ SCHEDULE A CALL ⚡
+          ⚡ GET MY FREE LOCAL VISIBILITY AUDIT ⚡
         </a>
       </div>
     </section>

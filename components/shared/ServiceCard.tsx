@@ -48,7 +48,7 @@ export default function ServiceCard({
             href={bookingHref}
             className="font-mono text-[11px] text-[#FF5500] tracking-[0.1em] hover:underline"
           >
-            GET STARTED →
+            GET MY FREE LOCAL VISIBILITY AUDIT →
           </a>
         </div>
       </Card>

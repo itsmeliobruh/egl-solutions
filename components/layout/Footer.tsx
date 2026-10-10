@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react'
+import { Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react'
 
 const serviceLinks = [
   { href: '/services/local-presence-builder', label: 'Local Presence Builder' },
@@ -47,10 +47,6 @@ export default function Footer() {
               Helping local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems.
             </p>
             <div className="space-y-3 text-sm font-body">
-              <a href="tel:+18602003455" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
-                <Phone size={14} className="text-inferno flex-shrink-0" />
-                (860) 200-3455
-              </a>
               <a href="mailto:info@eglmarketing.co" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
                 <Mail size={14} className="text-inferno flex-shrink-0" />
                 info@eglmarketing.co

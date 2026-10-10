@@ -28,7 +28,7 @@ export default function TermsPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">6. Limitation of Liability</h2>
           <p>EGL Marketing shall not be liable for any indirect, incidental, or consequential damages. Our total liability shall not exceed the amounts paid by the client in the preceding month.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">7. Contact</h2>
-          <p>Questions about these Terms may be directed to info@eglmarketing.co or by calling <a href="tel:+18602003455" className="text-inferno">(860) 200-3455</a>.</p>
+          <p>Questions about these Terms may be directed to info@eglmarketing.co.</p>
         </div>
       </div>
     </section>

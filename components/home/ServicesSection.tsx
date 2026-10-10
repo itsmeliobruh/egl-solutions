@@ -67,7 +67,7 @@ const packages = [
       'Monthly website updates',
       'GBP maintenance & review monitoring',
     ],
-    goal: 'Once this foundation is generating leads and your phone is ringing, we scale you up to the Growth Engine.',
+    goal: 'Once this foundation is generating leads and your phone is ringing, we scale you up to the Market Dominator.',
     goalLabel: 'The Goal',
   },
   {
@@ -226,7 +226,7 @@ export default function ServicesSection() {
                     : 'bg-[#2A2320] text-bone hover:bg-inferno hover:text-black'
                 }`}
               >
-                BOOK A FREE CALL
+                GET MY FREE LOCAL VISIBILITY AUDIT
               </a>
             </motion.div>
           ))}

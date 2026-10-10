@@ -122,7 +122,7 @@ export default function ServiceAreaMap() {
             href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"
             className="inline-block bg-black text-bone font-display text-base px-10 py-4 rounded tracking-widest hover:bg-[#111] transition-colors shadow-lg"
           >
-            ⚡ SCHEDULE A CALL ⚡
+            ⚡ GET MY FREE LOCAL VISIBILITY AUDIT ⚡
           </a>
         </div>
       </motion.div>

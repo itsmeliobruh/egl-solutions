@@ -127,7 +127,7 @@ export default function TradesSection() {
             href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"
             className="flex-shrink-0 inline-block bg-[#FF5500] text-white font-display text-sm px-7 py-2.5 rounded tracking-widest hover:bg-[#CC3300] transition-colors shadow-[0_4px_20px_rgba(255,85,0,0.3)]"
           >
-            LET&apos;S TALK
+            GET MY FREE LOCAL VISIBILITY AUDIT
           </Link>
         </motion.div>
       </div>

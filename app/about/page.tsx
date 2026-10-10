@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Check, Phone } from 'lucide-react'
+import { Check } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
 
@@ -72,13 +72,7 @@ export default function AboutPage() {
                 href={BOOKING_URL}
                 className="inline-block bg-inferno text-black font-display text-sm px-8 py-3 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
               >
-                WORK WITH US
-              </a>
-              <a
-                href="tel:+18602003455"
-                className="inline-flex items-center gap-2 bg-white text-black font-body font-semibold text-sm px-6 py-3 rounded hover:bg-gray-100 transition-colors shadow-sm"
-              >
-                <Phone size={14} /> (860) 200-3455
+                GET MY FREE LOCAL VISIBILITY AUDIT
               </a>
             </div>
           </div>

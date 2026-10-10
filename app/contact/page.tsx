@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Mail, MapPin, Clock } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 
 export const metadata: Metadata = {
   title: 'Contact EGL Marketing | Marketing Agency in Wethersfield, CT',
   description:
-    'Get in touch with EGL Marketing. Free consultations for local service businesses in Connecticut. Call (860) 200-3455 or schedule online.',
+    'Get in touch with EGL Marketing. Free consultations for local service businesses in Connecticut. Book a free Local Visibility Audit online.',
   alternates: { canonical: 'https://eglmarketing.co/contact' },
   openGraph: {
     title: 'Contact EGL Marketing',
@@ -47,19 +47,6 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-4">
-              <a
-                href="tel:+18602003455"
-                className="flex items-center gap-4 bg-white rounded p-4 hover:bg-gray-100 transition-colors shadow-sm group"
-              >
-                <div className="w-10 h-10 rounded bg-inferno/10 border border-inferno/30 flex items-center justify-center flex-shrink-0">
-                  <Phone size={16} className="text-inferno" />
-                </div>
-                <div>
-                  <div className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] mb-0.5">Phone</div>
-                  <div className="font-body text-black font-semibold">(860) 200-3455</div>
-                </div>
-              </a>
-
               <a
                 href="mailto:info@eglmarketing.co"
                 className="flex items-center gap-4 bg-white rounded p-4 hover:bg-gray-100 transition-colors shadow-sm group"

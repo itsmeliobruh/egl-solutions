@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">6. Your Rights</h2>
           <p>You may request access to, correction of, or deletion of your personal information by contacting us at info@eglmarketing.co.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">7. Contact</h2>
-          <p>Privacy questions may be directed to info@eglmarketing.co or <a href="tel:+18602003455" className="text-inferno">(860) 200-3455</a>.</p>
+          <p>Privacy questions may be directed to info@eglmarketing.co.</p>
         </div>
       </div>
     </section>
