@@ -4,58 +4,35 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import SectionLabel from '@/components/shared/SectionLabel'
 
-const categories = [
+const homeGroups = [
   {
-    label: '🏗️ Home Services',
+    label: 'Build & Remodel',
     trades: [
       'General Contractors', 'Home Builders', 'Remodeling', 'Roofing',
-      'Plumbing', 'HVAC', 'Electricians', 'Painters', 'Landscapers',
-      'Flooring / Carpet Cleaning', 'Pressure Washing', 'Tree Service',
-      'Pest Control', 'Pool Construction', 'Fencing', 'Gutters',
-      'Junk Removal', 'Cleaning Services', 'Solar Installation',
-      'Garage Doors', 'Concrete / Driveways',
+      'Concrete / Driveways', 'Fencing', 'Pool Construction',
+      'Solar Installation', 'Garage Doors',
     ],
   },
   {
-    label: '💆 Health & Wellness',
+    label: 'Mechanical',
+    trades: ['HVAC', 'Plumbing', 'Electricians'],
+  },
+  {
+    label: 'Exterior & Property',
     trades: [
-      'Dentists', 'Chiropractors', 'Med Spas', 'Day Spas',
-      'Personal Trainers', 'Physical Therapy',
+      'Landscapers', 'Tree Service', 'Pressure Washing', 'Gutters', 'Painters',
+      'Pest Control', 'Cleaning Services', 'Junk Removal', 'Flooring / Carpet Cleaning',
     ],
-  },
-  {
-    label: '💅 Beauty',
-    trades: [
-      'Hair Salons', 'Barbershops', 'Nail Salons', 'Lash Studios', 'Tattoo Studios',
-    ],
-  },
-  {
-    label: '🚗 Auto',
-    trades: ['Car Cleaning / Detailing', 'Auto Repair', 'Window Tinting'],
-  },
-  {
-    label: '🍕 Food & Hospitality',
-    trades: ['Restaurants', 'Catering', 'Food Trucks', 'Bakeries'],
-  },
-  {
-    label: '🐾 Other',
-    trades: [
-      'Dog Groomers', 'Pet Services', 'Moving Companies',
-      'Photographers', 'Event Planners', 'Tutors',
-    ],
-  },
-  {
-    label: '👔 Professional',
-    trades: ['Real Estate Agents', 'Insurance Agents', 'Financial Advisors', 'Attorneys'],
   },
 ]
 
-// Group into 4 columns: col1 = Home Services alone, col2 = Health+Beauty, col3 = Auto+Food+Other, col4 = Professional
-const columns = [
-  [categories[0]],
-  [categories[1], categories[2]],
-  [categories[3], categories[4], categories[5]],
-  [categories[6]],
+const otherTrades = [
+  'Dentists', 'Chiropractors', 'Med Spas', 'Day Spas', 'Personal Trainers', 'Physical Therapy',
+  'Hair Salons', 'Barbershops', 'Nail Salons', 'Lash Studios', 'Tattoo Studios',
+  'Car Cleaning / Detailing', 'Auto Repair', 'Window Tinting',
+  'Restaurants', 'Catering', 'Food Trucks', 'Bakeries',
+  'Dog Groomers', 'Pet Services', 'Moving Companies', 'Photographers', 'Event Planners', 'Tutors',
+  'Real Estate Agents', 'Insurance Agents', 'Financial Advisors', 'Attorneys',
 ]
 
 export default function TradesSection() {
@@ -71,44 +48,63 @@ export default function TradesSection() {
         >
           <SectionLabel label="WHO WE WORK WITH" className="mb-3 justify-center" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider">
-            SERVING ALL THESE TRADES AND MORE
+            BUILT FOR CONNECTICUT HOME SERVICE CONTRACTORS
           </h2>
         </motion.div>
 
-        {/* Categorized grid */}
+        {/* Home services: the focus */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-[#2A2320] rounded-xl overflow-hidden mb-6"
+          className="grid grid-cols-1 md:grid-cols-3 border border-[#2A2320] rounded-xl overflow-hidden mb-6"
         >
-          {columns.map((col, ci) => (
+          {homeGroups.map((group, gi) => (
             <div
-              key={ci}
-              className={`p-6 lg:p-7 flex flex-col gap-7 ${
-                ci < columns.length - 1 ? 'border-b lg:border-b-0 lg:border-r border-[#2A2320]' : ''
+              key={group.label}
+              className={`p-6 lg:p-7 ${
+                gi < homeGroups.length - 1 ? 'border-b md:border-b-0 md:border-r border-[#2A2320]' : ''
               }`}
             >
-              {col.map((group) => (
-                <div key={group.label}>
-                  <span className="font-mono text-[9px] text-inferno uppercase tracking-[0.2em] pb-2.5 mb-3 border-b border-[#2A2320] block">
-                    {group.label}
+              <span className="font-mono text-[9px] text-inferno uppercase tracking-[0.2em] pb-2.5 mb-3 border-b border-[#2A2320] block">
+                {group.label}
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {group.trades.map((trade) => (
+                  <span
+                    key={trade}
+                    className="bg-[#1C1612] border border-[#2A2320] rounded text-[#C8C0B0] font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 leading-none hover:border-[#FF5500] hover:text-[#FF5500] transition-colors cursor-default whitespace-nowrap"
+                  >
+                    {trade}
                   </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {group.trades.map((trade) => (
-                      <span
-                        key={trade}
-                        className="bg-[#1C1612] border border-[#2A2320] rounded text-[#C8C0B0] font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 leading-none hover:border-[#FF5500] hover:text-[#FF5500] transition-colors cursor-default whitespace-nowrap"
-                      >
-                        {trade}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           ))}
+        </motion.div>
+
+        {/* Other local businesses: secondary */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="mb-6 px-1"
+        >
+          <span className="font-mono text-[9px] text-[#777] uppercase tracking-[0.2em] mb-3 block">
+            Other local businesses we work with
+          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {otherTrades.map((trade) => (
+              <span
+                key={trade}
+                className="border border-[#221D19] rounded text-[#7A7266] font-mono text-[9px] uppercase tracking-[0.1em] px-2 py-1 leading-none whitespace-nowrap"
+              >
+                {trade}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
         {/* CTA bar */}
