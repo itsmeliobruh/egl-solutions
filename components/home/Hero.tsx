@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import GHLForm from '@/components/shared/GHLForm'
 import ScrollArrows from '@/components/shared/ScrollArrows'
-import type { HeroData } from '@/lib/payload/queries'
+import type { HeroData } from '@/lib/types'
 
 const DEFAULTS: HeroData = {
   badgeText: '',
@@ -18,7 +18,7 @@ const DEFAULTS: HeroData = {
   ctaSecondary: 'VIEW PRICING',
 }
 
-// Hero copy lives here, not in the Payload database, so stale CMS content can't override it.
+// Hero copy lives here in code.
 export default function Hero(_props: { data?: HeroData | null }) {
   const d = DEFAULTS
 

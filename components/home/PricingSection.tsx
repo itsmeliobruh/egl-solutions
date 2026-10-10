@@ -4,7 +4,7 @@ import { Check } from 'lucide-react'
 import { PricingCard, type PricingCardData } from '@/components/pricing/PricingCard'
 import { PricingCarousel } from '@/components/pricing/PricingCarousel'
 import { BOOKING_LINKS } from '@/lib/bookingLinks'
-import type { ContentAddOnData } from '@/lib/payload/queries'
+import type { ContentAddOnData } from '@/lib/types'
 
 const CONSULTATION_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 

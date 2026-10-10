@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Card } from '@/components/shared/Card'
-import type { ProcessStepData } from '@/lib/payload/queries'
+import type { ProcessStepData } from '@/lib/types'
 
 const DEFAULT_STEPS: ProcessStepData[] = [
   {

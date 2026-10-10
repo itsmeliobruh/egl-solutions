@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
-import type { FAQItemData } from '@/lib/payload/queries'
+import type { FAQItemData } from '@/lib/types'
 
 const DEFAULT_FAQS: FAQItemData[] = [
   { question: 'Can you show me your work?', answer: 'Yes. On your audit call we\'ll show you real work we\'ve done for local businesses: video, websites and Google profiles.', group: 'homepage' },

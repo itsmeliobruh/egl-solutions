@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import SectionLabel from '@/components/shared/SectionLabel'
 import ProcessSteps from '@/components/shared/ProcessSteps'
-import type { ProcessStepData } from '@/lib/payload/queries'
+import type { ProcessStepData } from '@/lib/types'
 
 const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding'
 
