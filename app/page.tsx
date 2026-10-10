@@ -7,7 +7,6 @@ import ServicesSection from '@/components/home/ServicesSection'
 import TradesSection from '@/components/home/TradesSection'
 import ServiceAreaMap from '@/components/home/ServiceAreaMap'
 import FAQSection from '@/components/home/FAQSection'
-import { getPayloadHero } from '@/lib/payload/queries'
 
 export const metadata: Metadata = {
   title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
@@ -23,11 +22,10 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
-  const hero = await getPayloadHero()
 
   return (
     <>
-      <Hero data={hero} />
+      <Hero />
       <TrustBar />
       <PainSection />
       <HowItWorksSection />

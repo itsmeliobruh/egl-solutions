@@ -7,19 +7,20 @@ import type { HeroData } from '@/lib/payload/queries'
 
 const DEFAULTS: HeroData = {
   badgeText: '',
-  headlineL1: 'EMPOWERING',
-  headlineL2: 'LOCAL BUSINESS',
-  headlineL3prefix: 'WITH',
-  headlineL3outline: 'SMART',
-  headlineL4: 'MARKETING',
-  headlineL5: 'SOLUTIONS!',
-  subtext: 'Most local businesses in Connecticut lose customers every week to competitors with a stronger online presence. We fix that: website, Google, leads, and content working together as one system.',
+  headlineL1: 'SEE WHY',
+  headlineL2: 'HOMEOWNERS',
+  headlineL3prefix: 'CALL',
+  headlineL3outline: 'YOUR',
+  headlineL4: 'COMPETITORS',
+  headlineL5: 'INSTEAD OF YOU.',
+  subtext: 'Most Connecticut contractors lose jobs every week to competitors who show up first on Google. We fix that: your website, Google profile, reviews and lead follow-up working together as one system.',
   ctaPrimary: '⚡ GET MY FREE LOCAL VISIBILITY AUDIT',
   ctaSecondary: 'VIEW PRICING',
 }
 
-export default function Hero({ data }: { data?: HeroData | null }) {
-  const d = data ?? DEFAULTS
+// Hero copy lives here, not in the Payload database, so stale CMS content can't override it.
+export default function Hero(_props: { data?: HeroData | null }) {
+  const d = DEFAULTS
 
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
