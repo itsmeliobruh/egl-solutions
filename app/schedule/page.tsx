@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import ScheduleClient from './ScheduleClient'
 
 export const metadata: Metadata = {
-  title: 'Schedule a Call | EGL Marketing',
+  title: 'Schedule a Call',
   description:
     'Pick a time that works for you. A free, no-pressure audit call with EGL Marketing. No obligation.',
   alternates: { canonical: 'https://eglmarketing.co/schedule' },

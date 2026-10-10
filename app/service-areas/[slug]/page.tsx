@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!area) return {}
 
   const location = `${area.name}, ${area.state}`
-  const title = `Marketing Solutions for Local Businesses in ${location} | EGL Marketing`
+  const title = `Marketing Solutions for Local Businesses in ${location}`
   const description = area.description
 
   return {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     alternates: { canonical: `https://eglmarketing.co/service-areas/${area.slug}` },
     openGraph: {
-      title,
+      title: `${title} | EGL Marketing`,
       description,
       url: `https://eglmarketing.co/service-areas/${area.slug}`,
     },

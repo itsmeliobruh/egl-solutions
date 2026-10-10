@@ -7,7 +7,7 @@ import ScrollArrows from '@/components/shared/ScrollArrows'
 const GHL_FORM_URL = 'https://api.leadconnectorhq.com/widget/form/D8VQCSQTADxEdH5d62GR'
 
 export const metadata: Metadata = {
-  title: "You're All Set | EGL Marketing",
+  title: "You're All Set",
   description: 'Your call with EGL Marketing is confirmed. Check your email for the details.',
   alternates: { canonical: 'https://eglmarketing.co/thank-you' },
   robots: { index: false }, // keep funnel page out of search results

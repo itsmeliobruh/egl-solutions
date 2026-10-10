@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import BookingClient from './BookingClient'
 
 export const metadata: Metadata = {
-  title: 'Book a Free Call | EGL Marketing',
+  title: 'Book Your Free Local Visibility Audit',
   description:
     'Book your free Local Visibility Audit with EGL Marketing. No obligation, no pressure, just a focused conversation about growing your business.',
   alternates: { canonical: 'https://eglmarketing.co/book' },

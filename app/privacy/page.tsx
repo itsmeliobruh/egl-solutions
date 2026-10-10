@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import SectionLabel from '@/components/shared/SectionLabel'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | EGL Marketing',
+  title: 'Privacy Policy',
   description: 'Privacy Policy for EGL Marketing marketing agency.',
   alternates: { canonical: 'https://eglmarketing.co/privacy' },
 }

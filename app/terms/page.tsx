@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import SectionLabel from '@/components/shared/SectionLabel'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | EGL Marketing',
+  title: 'Terms & Conditions',
   description: 'Terms and Conditions for EGL Marketing marketing services.',
   alternates: { canonical: 'https://eglmarketing.co/terms' },
 }

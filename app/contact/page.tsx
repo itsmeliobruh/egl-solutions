@@ -3,7 +3,7 @@ import { Mail, MapPin, Clock } from 'lucide-react'
 import SectionLabel from '@/components/shared/SectionLabel'
 
 export const metadata: Metadata = {
-  title: 'Contact EGL Marketing | Marketing Agency in Wethersfield, CT',
+  title: 'Contact Us | Marketing Agency in Wethersfield, CT',
   description:
     'Get in touch with EGL Marketing. Free consultations for local service businesses in Connecticut. Book a free Local Visibility Audit online.',
   alternates: { canonical: 'https://eglmarketing.co/contact' },
@@ -42,7 +42,7 @@ export default function ContactPage() {
             </h1>
             <p className="font-body text-light/75 text-lg leading-relaxed mb-8">
               Book a free, no-pressure audit call. We&apos;ll learn about your business, show you
-              live client accounts, answer every question, and decide together if we&apos;re a good
+              where you&apos;re losing leads, answer every question, and decide together if we&apos;re a good
               fit, zero pressure.
             </p>
 

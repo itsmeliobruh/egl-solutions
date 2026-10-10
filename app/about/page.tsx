@@ -6,7 +6,7 @@ import SectionLabel from '@/components/shared/SectionLabel'
 import CTAStrip from '@/components/shared/CTAStrip'
 
 export const metadata: Metadata = {
-  title: 'About EGL Marketing | Local Marketing Agency in Wethersfield, CT',
+  title: 'About Us | Local Marketing Agency in Wethersfield, CT',
   description:
     'EGL Marketing is a results-driven marketing agency based in Wethersfield, CT helping local service businesses grow with websites, lead generation, AI automation, and content creation.',
   alternates: { canonical: 'https://eglmarketing.co/about' },
