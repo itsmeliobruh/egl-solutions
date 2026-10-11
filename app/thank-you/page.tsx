@@ -90,7 +90,7 @@ export default async function ThankYouPage({
             <li className="flex items-start gap-4">
               <PenLine size={18} className="text-[#FF5500] flex-shrink-0 mt-0.5" />
               <span className="font-body text-sm text-[#CCCCCC] leading-relaxed">
-                Optional: if you have two minutes, answer the two questions below so we can prep your audit before the call.
+                Optional: if you have two minutes, answer a few quick questions below so we can prep your audit before the call.
               </span>
             </li>
           </ul>
@@ -101,7 +101,10 @@ export default async function ThankYouPage({
         {/* Optional prep form */}
         <div className="mb-4 md:mb-6">
           <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-2">Optional · 2 minutes</p>
-          <h2 className="font-display text-3xl md:text-4xl text-white tracking-wide">HELP US PREP YOUR AUDIT</h2>
+          <h2 className="font-display text-3xl md:text-4xl text-white tracking-wide mb-3">HELP US PREP YOUR AUDIT</h2>
+          <p className="font-body text-sm md:text-base text-[#AAAAAA] leading-relaxed max-w-xl mx-auto">
+            When you provide us with more details about your business, the better prepared we&apos;ll be for the call. We will review your response and provide more context, ensuring our time together is as valuable as possible for you.
+          </p>
         </div>
         <ScaledGHLEmbed
           src={formUrl}
