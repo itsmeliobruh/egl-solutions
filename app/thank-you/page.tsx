@@ -3,6 +3,7 @@ import Script from 'next/script'
 import { CheckCircle, Mail, CalendarCheck, Clock, PenLine } from 'lucide-react'
 import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 import ScrollArrows from '@/components/shared/ScrollArrows'
+import AppointmentDetails from '@/components/thank-you/AppointmentDetails'
 
 const GHL_FORM_URL = 'https://api.leadconnectorhq.com/widget/form/D8VQCSQTADxEdH5d62GR'
 
@@ -56,9 +57,11 @@ export default async function ThankYouPage({
         <h1 className="font-display text-4xl md:text-6xl text-white tracking-wide mb-3 md:mb-4">
           YOU&apos;RE ALL SET!
         </h1>
-        <p className="font-body text-[#AAAAAA] text-base md:text-lg max-w-lg mx-auto mb-8 md:mb-12">
+        <p className="font-body text-[#AAAAAA] text-base md:text-lg max-w-lg mx-auto mb-6 md:mb-8">
           Your free Local Visibility Audit with EGL Marketing is booked. We&apos;re looking forward to it.
         </p>
+
+        <AppointmentDetails />
 
         {/* What happens next */}
         <div className="rounded-2xl border border-[#2A2A2A] bg-[#0D0D0D] p-6 md:p-8 text-left mb-4 md:mb-10">
@@ -95,12 +98,16 @@ export default async function ThankYouPage({
 
         <ScrollArrows />
 
-        {/* Help us help you form */}
+        {/* Optional prep form */}
+        <div className="mb-4 md:mb-6">
+          <p className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.22em] mb-2">Optional · 2 minutes</p>
+          <h2 className="font-display text-3xl md:text-4xl text-white tracking-wide">HELP US PREP YOUR AUDIT</h2>
+        </div>
         <ScaledGHLEmbed
           src={formUrl}
           iframeId="inline-D8VQCSQTADxEdH5d62GR"
           title="Main: Help Us Help You"
-          fallbackHeight={1399}
+          fallbackHeight={980}
           scaleToFit={false}
         />
 
