@@ -3,23 +3,20 @@
 import Script from 'next/script'
 import { useState, useLayoutEffect, useRef } from 'react'
 
-// Fallback guess used until the GHL embed script reports the form's real
-// content height. In production this page mounts *two* instances of this
-// same form (mobile + desktop, toggled with CSS only — both are always in
-// the DOM), sharing one hardcoded iframe id. That duplicate id seems to
-// confuse GHL's dynamic postMessage-based resize between the two instances
-// (confirmed: reliable in isolation locally, but stuck at this fallback in
-// production) — so this value is a static height GHL is expected to just
-// apply directly, matching the real measured mobile layout (single-column,
-// tallest of the two) plus a small buffer, rather than something we hope
-// gets overwritten.
-const FORM_NATURAL_HEIGHT_FALLBACK = 1320
+// Static content height of the GHL form (two instances on the page share one
+// iframe id, which breaks GHL's own resize, so this is what gets applied).
+// Measured 2026-10-11 after the logo/label changes: ~1008px at desktop width,
+// ~981px on mobile. Re-measure whenever the form changes in GHL; too big
+// leaves an empty band under the button, too small clips it.
+const FORM_NATURAL_HEIGHT_FALLBACK = 1015
 
 interface GHLFormProps {
   fitToViewport?: boolean
+  /** Scale the form to this element's height (e.g. the hero text block) instead of the viewport */
+  matchHeightRef?: React.RefObject<HTMLElement | null>
 }
 
-export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
+export default function GHLForm({ fitToViewport = false, matchHeightRef }: GHLFormProps) {
   const [zoom, setZoom] = useState(1)
   const [zoomReady, setZoomReady] = useState(!fitToViewport)
   // Held back until GHL's script reports the form's real height (or a
@@ -47,7 +44,8 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
       if (zoomFrozenRef.current) return
       // Navbar (80) + pt-28 (112) + pb-12 (48) + stats-bar area (155) + form top padding (40) + buffer (8)
       const reserved = 443
-      const available = window.innerHeight - reserved
+      const target = matchHeightRef?.current?.getBoundingClientRect().height
+      const available = target && target > 0 ? target : window.innerHeight - reserved
       const calculated = Math.min(1, available / naturalHeight)
       setZoom(Math.max(0.45, calculated))
       setZoomReady(true)
@@ -55,9 +53,10 @@ export default function GHLForm({ fitToViewport = false }: GHLFormProps) {
     }
 
     calculate()
+    document.fonts?.ready.then(calculate)
     window.addEventListener('resize', calculate)
     return () => window.removeEventListener('resize', calculate)
-  }, [fitToViewport, naturalHeight, heightConfirmed])
+  }, [fitToViewport, naturalHeight, heightConfirmed, matchHeightRef])
 
   // GHL's embed script overwrites the iframe's own inline height once it
   // measures the real content — pick that up so our wrapper matches it

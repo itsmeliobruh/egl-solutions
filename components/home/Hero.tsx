@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import GHLForm from '@/components/shared/GHLForm'
 import ScrollArrows from '@/components/shared/ScrollArrows'
@@ -21,6 +22,8 @@ const DEFAULTS: HeroData = {
 // Hero copy lives here in code.
 export default function Hero(_props: { data?: HeroData | null }) {
   const d = DEFAULTS
+  // The desktop form card is scaled to exactly this block's height so the two columns line up.
+  const textBlockRef = useRef<HTMLDivElement>(null)
 
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -50,7 +53,7 @@ export default function Hero(_props: { data?: HeroData | null }) {
       <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-16 w-full pt-16 pb-10 lg:pt-28 lg:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-
+            <div ref={textBlockRef}>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,10 +78,11 @@ export default function Hero(_props: { data?: HeroData | null }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="font-body text-light/80 text-base lg:text-lg leading-relaxed mb-4 lg:max-w-lg"
+              className="font-body text-light/80 text-base lg:text-lg leading-relaxed mb-4 lg:mb-0 lg:max-w-lg"
             >
               {d.subtext}
             </motion.p>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -122,9 +126,9 @@ export default function Hero(_props: { data?: HeroData | null }) {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:block lg:pt-10"
+            className="hidden lg:block"
           >
-            <GHLForm fitToViewport={true} />
+            <GHLForm fitToViewport={true} matchHeightRef={textBlockRef} />
           </motion.div>
         </div>
 
