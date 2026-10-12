@@ -86,6 +86,7 @@ const packages = [
       '1 on-site content shoot per month (EGL films)',
       '8–10 short-form videos cut from that footage',
       'Meta ads management with fresh creative monthly',
+      'Google Local Services Ads management',
       'Ongoing GBP optimization',
       'Automated review system monitoring',
       'Monthly performance report',
