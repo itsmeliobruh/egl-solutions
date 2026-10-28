@@ -48,7 +48,7 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <a
-                href="mailto:info@eglmarketing.co"
+                href="mailto:support@eglmarketing.co"
                 className="flex items-center gap-4 bg-white rounded p-4 hover:bg-gray-100 transition-colors shadow-sm group"
               >
                 <div className="w-10 h-10 rounded bg-inferno/10 border border-inferno/30 flex items-center justify-center flex-shrink-0">
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="font-mono text-[10px] text-[#888] uppercase tracking-[0.15em] mb-0.5">Email</div>
-                  <div className="font-body text-black font-semibold">info@eglmarketing.co</div>
+                  <div className="font-body text-black font-semibold">support@eglmarketing.co</div>
                 </div>
               </a>
 

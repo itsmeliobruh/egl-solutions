@@ -47,9 +47,9 @@ export default function Footer() {
               Helping local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems.
             </p>
             <div className="space-y-3 text-sm font-body">
-              <a href="mailto:info@eglmarketing.co" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
+              <a href="mailto:support@eglmarketing.co" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
                 <Mail size={14} className="text-inferno flex-shrink-0" />
-                info@eglmarketing.co
+                support@eglmarketing.co
               </a>
               <div className="flex items-start gap-2 text-muted">
                 <MapPin size={14} className="text-inferno flex-shrink-0 mt-0.5" />
