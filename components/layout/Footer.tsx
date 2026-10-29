@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react'
+import { Mail, MapPin, Phone, Clock, Facebook, Instagram } from 'lucide-react'
 
 const serviceLinks = [
   { href: '/services/local-presence-builder', label: 'Local Presence Builder' },
@@ -51,9 +51,13 @@ export default function Footer() {
                 <Mail size={14} className="text-inferno flex-shrink-0" />
                 support@eglmarketing.co
               </a>
+              <a href="tel:+18602003455" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
+                <Phone size={14} className="text-inferno flex-shrink-0" />
+                (860) 200-3455
+              </a>
               <div className="flex items-start gap-2 text-muted">
                 <MapPin size={14} className="text-inferno flex-shrink-0 mt-0.5" />
-                Wethersfield, CT
+                2550 Albany Ave #1080, West Hartford, CT 06117
               </div>
             </div>
             {/* Social */}
@@ -140,7 +144,7 @@ export default function Footer() {
       <div className="border-t border-steel">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-body text-xs text-muted">
-            © 2026 EGL Marketing. All Rights Reserved.
+            © 2026 EGL Marketing LLC. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4 font-body text-xs text-muted">
             <Link href="/terms" className="hover:text-light transition-colors">Terms & Conditions</Link>

@@ -4,6 +4,8 @@ import { CheckCircle, Mail, CalendarCheck, Clock, PenLine } from 'lucide-react'
 import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 import ScrollArrows from '@/components/shared/ScrollArrows'
 import AppointmentDetails from '@/components/thank-you/AppointmentDetails'
+import ChatCTACard from '@/components/shared/ChatCTACard'
+import { LEAD_FORM_ENABLED } from '@/lib/siteConfig'
 
 const GHL_FORM_URL = 'https://api.leadconnectorhq.com/widget/form/D8VQCSQTADxEdH5d62GR'
 
@@ -19,6 +21,16 @@ export default async function ThankYouPage({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
+  if (!LEAD_FORM_ENABLED) {
+    return (
+      <main className="min-h-screen bg-[#080808]">
+        <div className="max-w-xl mx-auto px-4 pt-28 pb-16">
+          <ChatCTACard autoOpen />
+        </div>
+      </main>
+    )
+  }
+
   const sp = await searchParams
   const get = (key: string) => {
     const v = sp[key]
