@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import GHLForm from '@/components/shared/GHLForm'
 import ChatCTACard from '@/components/shared/ChatCTACard'
-import { LEAD_FORM_ENABLED } from '@/lib/siteConfig'
+import { LEAD_FORM_ENABLED, openChatWidget } from '@/lib/siteConfig'
 import ScrollArrows from '@/components/shared/ScrollArrows'
 import type { HeroData } from '@/lib/types'
 
@@ -28,6 +28,7 @@ export default function Hero(_props: { data?: HeroData | null }) {
   const textBlockRef = useRef<HTMLDivElement>(null)
 
   const scrollToForm = () => {
+    if (!LEAD_FORM_ENABLED && openChatWidget()) return
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
   const scrollToPricing = () => {
