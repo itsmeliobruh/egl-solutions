@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, DM_Sans, DM_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
@@ -70,6 +71,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <ConditionalFooter />
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6ae3913730238e54019a645a"
+          data-source="WEB_USER"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
