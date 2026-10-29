@@ -51,10 +51,11 @@ export default function Footer() {
                 <Mail size={14} className="text-inferno flex-shrink-0" />
                 support@eglmarketing.co
               </a>
-              <a href="tel:+18602003455" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
+              {/* Plain text, not a tel: link: GHL's A2P scanner flagged phone contact info on widget pages (2026-10-29) */}
+              <div className="flex items-center gap-2 text-light">
                 <Phone size={14} className="text-inferno flex-shrink-0" />
                 (860) 200-3455
-              </a>
+              </div>
               <div className="flex items-start gap-2 text-muted">
                 <MapPin size={14} className="text-inferno flex-shrink-0 mt-0.5" />
                 2550 Albany Ave #1080, West Hartford, CT 06117
