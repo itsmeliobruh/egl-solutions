@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import BookingClient from './BookingClient'
+import ChatCTACard from '@/components/shared/ChatCTACard'
+import { LEAD_FORM_ENABLED } from '@/lib/siteConfig'
 
 export const metadata: Metadata = {
   title: 'Book Your Free Local Visibility Audit',
@@ -11,6 +13,16 @@ export const metadata: Metadata = {
 }
 
 export default function BookPage() {
+  if (!LEAD_FORM_ENABLED) {
+    return (
+      <main className="min-h-screen bg-[#080808]">
+        <div className="max-w-xl mx-auto px-4 pt-28 pb-16">
+          <ChatCTACard autoOpen />
+        </div>
+      </main>
+    )
+  }
+
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-[#080808] flex items-center justify-center">

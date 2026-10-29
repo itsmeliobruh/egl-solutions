@@ -5,6 +5,7 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import JsonLd from '@/components/shared/JsonLd'
+import ChatCTARouter from '@/components/shared/ChatCTARouter'
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main>{children}</main>
         <ConditionalFooter />
+        <ChatCTARouter />
         <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
