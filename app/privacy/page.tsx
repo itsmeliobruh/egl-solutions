@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">2. How We Use Your Information</h2>
           <p>We use collected information to provide and improve our services, communicate with you about your account, send marketing communications you&apos;ve opted into, and comply with legal obligations.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">3. SMS Data</h2>
-          <p>Phone numbers collected for SMS communications are not shared with third parties for their own marketing purposes. SMS opt-in data is not shared with any third party except as necessary to deliver the SMS service.</p>
+          <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging opt-in data and consent will not be shared with any third parties.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">4. Data Sharing</h2>
           <p>We do not sell your personal information. We may share information with service providers who assist in our operations, subject to confidentiality agreements.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">5. Cookies</h2>

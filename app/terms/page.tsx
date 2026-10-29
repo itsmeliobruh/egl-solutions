@@ -24,7 +24,7 @@ export default function TermsPage() {
           <h2 className="font-display text-2xl text-bone tracking-wide">4. Intellectual Property</h2>
           <p>Upon full payment of all outstanding balances, clients own the deliverables created specifically for their account. EGL Marketing retains ownership of all proprietary tools, systems, templates, and processes used in delivering services.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">5. SMS Communications</h2>
-          <p>By providing your phone number, you consent to receive SMS messages from EGL Marketing regarding your account, our services, and marketing updates. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe.</p>
+          <p>By opting in to text messages on our forms, you agree to receive SMS from EGL Marketing about your account, appointments and the services you requested, plus marketing updates if you opt in to them. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply HELP for help or email support@eglmarketing.co. Reply STOP to opt out at any time.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">6. Limitation of Liability</h2>
           <p>EGL Marketing shall not be liable for any indirect, incidental, or consequential damages. Our total liability shall not exceed the amounts paid by the client in the preceding month.</p>
           <h2 className="font-display text-2xl text-bone tracking-wide">7. Contact</h2>
