@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
             {/* Social */}
             <div className="flex items-center gap-3 mt-6">
-              <a href="https://www.instagram.com/eglmarketing.co/" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Instagram" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
+              <a href="https://www.instagram.com/egl.marketing/" target="_blank" rel="noopener noreferrer" aria-label="EGL Marketing on Instagram" className="w-8 h-8 bg-steel rounded flex items-center justify-center text-muted hover:bg-inferno hover:text-black transition-all">
                 <Instagram size={15} />
               </a>
             </div>

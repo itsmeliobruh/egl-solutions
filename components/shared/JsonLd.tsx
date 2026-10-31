@@ -24,7 +24,7 @@ export default function JsonLd() {
       'New London County CT',
     ],
     openingHours: 'Mo-Su 09:00-19:00',
-    sameAs: ['https://www.instagram.com/eglmarketing.co/'],
+    sameAs: ['https://www.instagram.com/egl.marketing/'],
     priceRange: '$$',
   }
 
