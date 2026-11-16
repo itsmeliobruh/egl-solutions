@@ -2,7 +2,6 @@
 
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
-import GHLForm from '@/components/shared/GHLForm'
 import ChatCTACard from '@/components/shared/ChatCTACard'
 import { LEAD_FORM_ENABLED, openChatWidget } from '@/lib/siteConfig'
 import ScrollArrows from '@/components/shared/ScrollArrows'
@@ -121,7 +120,7 @@ export default function Hero(_props: { data?: HeroData | null }) {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="lg:hidden"
             >
-              {LEAD_FORM_ENABLED ? <GHLForm /> : <ChatCTACard />}
+              <ChatCTACard />
             </motion.div>
           </div>
 
@@ -131,9 +130,7 @@ export default function Hero(_props: { data?: HeroData | null }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden lg:block"
           >
-            {LEAD_FORM_ENABLED
-              ? <GHLForm fitToViewport={true} matchHeightRef={textBlockRef} />
-              : <ChatCTACard />}
+            <ChatCTACard />
           </motion.div>
         </div>
 
