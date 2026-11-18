@@ -8,6 +8,7 @@ import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
 
 const GHL_FORM_BASE     = 'https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL'
 const GHL_CALENDAR_URL  = 'https://api.leadconnectorhq.com/widget/booking/wFGbFB8J86G1btPMNuPz'
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
 
 // Vertical space (px) taken up by everything on screen besides the embed
 // itself — navbar + section padding + heading block + step indicator
@@ -56,13 +57,29 @@ export default function BookingClient() {
   const [step, setStep] = useState<1 | 2>(1)
   const params = useSearchParams()
 
-  // Build GHL form URL with services_interested pre-populated
+  // Build GHL form URL: services_interested pre-populated, plus any UTM tags
+  // (e.g. from the business card QR) forwarded so GHL saves the lead source.
   const ghlFormUrl = (() => {
-    const service = params.get('services_interested')
-    if (!service) return GHL_FORM_BASE
     const p = new URLSearchParams()
-    p.set('services_interested', service)
-    return `${GHL_FORM_BASE}?${p.toString()}`
+    const service = params.get('services_interested')
+    if (service) p.set('services_interested', service)
+    for (const key of UTM_KEYS) {
+      const v = params.get(key)
+      if (v) p.set(key, v)
+    }
+    const qs = p.toString()
+    return qs ? `${GHL_FORM_BASE}?${qs}` : GHL_FORM_BASE
+  })()
+
+  // Same UTM tags on the calendar step, so the booking carries the source too.
+  const ghlCalendarUrl = (() => {
+    const p = new URLSearchParams()
+    for (const key of UTM_KEYS) {
+      const v = params.get(key)
+      if (v) p.set(key, v)
+    }
+    const qs = p.toString()
+    return qs ? `${GHL_CALENDAR_URL}?${qs}` : GHL_CALENDAR_URL
   })()
 
   // Listen for GHL form submission via postMessage
@@ -138,7 +155,7 @@ export default function BookingClient() {
             <StepIndicator step={step} />
 
             <ScaledGHLEmbed
-              src={GHL_CALENDAR_URL}
+              src={ghlCalendarUrl}
               iframeId="inline-wFGbFB8J86G1btPMNuPz"
               title="EGL Marketing | Step 2: Book a Time"
               fallbackHeight={700}

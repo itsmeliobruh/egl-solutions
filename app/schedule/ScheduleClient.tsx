@@ -28,6 +28,11 @@ export default function ScheduleClient() {
     if (email)   p.set('email', email)
     if (phone)   p.set('phone', phone)
     if (service) p.set('notes', service)
+    // Forward UTM tags (e.g. from the business card QR) so GHL keeps the source.
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
+      const v = params.get(key)
+      if (v) p.set(key, v)
+    }
     const qs = p.toString()
     return qs ? `${GHL_CALENDAR_BASE}?${qs}` : GHL_CALENDAR_BASE
   })()
