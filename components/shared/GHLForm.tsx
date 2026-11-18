@@ -1,0 +1,227 @@
+'use client'
+
+import Script from 'next/script'
+import { useState, useLayoutEffect, useRef } from 'react'
+
+// Static content height of the GHL form (two instances on the page share one
+// iframe id, which breaks GHL's own resize, so this is what gets applied).
+// Measured 2026-10-11 after the logo/label changes: ~1008px at desktop width,
+// ~981px on mobile. Re-measure whenever the form changes in GHL; too big
+// leaves an empty band under the button, too small clips it.
+const FORM_NATURAL_HEIGHT_FALLBACK = 1015
+
+interface GHLFormProps {
+  fitToViewport?: boolean
+  /** Scale the form to this element's height (e.g. the hero text block) instead of the viewport */
+  matchHeightRef?: React.RefObject<HTMLElement | null>
+}
+
+export default function GHLForm({ fitToViewport = false, matchHeightRef }: GHLFormProps) {
+  const [zoom, setZoom] = useState(1)
+  const [zoomReady, setZoomReady] = useState(!fitToViewport)
+  // Held back until GHL's script reports the form's real height (or a
+  // timeout elapses) — reveals the form only once, already at its final
+  // size, instead of showing it at the fallback size and visibly resizing.
+  const [heightConfirmed, setHeightConfirmed] = useState(!fitToViewport)
+  const [naturalHeight, setNaturalHeight] = useState(FORM_NATURAL_HEIGHT_FALLBACK)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  // Freezes the zoom scale once the form has been shown, so a *later*
+  // height increase makes the card grow taller (the page scrolls to
+  // reach it) instead of re-shrinking everything to keep re-fitting.
+  const zoomFrozenRef = useRef(false)
+  const ready = zoomReady && heightConfirmed
+  // GHL's embed script expects this exact id to find and resize the
+  // iframe (it appends its own "___1"/"___2" suffix internally when it
+  // finds more than one on the page, to tell our two instances apart).
+  // A custom id here makes it unable to find the iframe at all, so it
+  // never fires its resize — that's what caused the iframe to get stuck.
+  const iframeId = 'inline-wBCLWyveluv1QqGnAKzL'
+
+  useLayoutEffect(() => {
+    if (!fitToViewport) return
+
+    const calculate = () => {
+      if (zoomFrozenRef.current) return
+      // Navbar (80) + pt-28 (112) + pb-12 (48) + stats-bar area (155) + form top padding (40) + buffer (8)
+      const reserved = 443
+      const target = matchHeightRef?.current?.getBoundingClientRect().height
+      const available = target && target > 0 ? target : window.innerHeight - reserved
+      const calculated = Math.min(1, available / naturalHeight)
+      setZoom(Math.max(0.45, calculated))
+      setZoomReady(true)
+      if (heightConfirmed) zoomFrozenRef.current = true
+    }
+
+    calculate()
+    document.fonts?.ready.then(calculate)
+    window.addEventListener('resize', calculate)
+    return () => window.removeEventListener('resize', calculate)
+  }, [fitToViewport, naturalHeight, heightConfirmed, matchHeightRef])
+
+  // GHL's embed script overwrites the iframe's own inline height once it
+  // measures the real content — pick that up so our wrapper matches it
+  // instead of the fallback guess. Don't reveal the form until this
+  // fires (or a timeout elapses), so it never visibly resizes on screen.
+  //
+  // GHL's script also sets `overflow: auto` on the iframe itself. Inside
+  // our `transform: scale()` wrapper, that iframe's native scrollbar
+  // chrome doesn't scale down with the rest of the content — it can
+  // show up as a faint ghost rectangle at the iframe's original,
+  // unscaled bounds. Force it back to `hidden` every time GHL's script
+  // touches the style, so that can't happen.
+  useLayoutEffect(() => {
+    if (!iframeRef.current) return
+    const el = iframeRef.current
+    const enforceOverflow = () => {
+      if (el.style.overflow !== 'hidden') el.style.overflow = 'hidden'
+      if (el.getAttribute('scrolling') !== 'no') el.setAttribute('scrolling', 'no')
+    }
+    // GHL's script keeps re-measuring on an ongoing basis and each small
+    // correction is a few pixels of noise — acting on every one reads as
+    // the card jittering/bouncing. But some height changes are real (a
+    // new view appearing), so: ignore small deltas always, but still
+    // apply large ones even after the initial reveal.
+    let debounceTimer: ReturnType<typeof setTimeout>
+    const observer = new MutationObserver(() => {
+      enforceOverflow()
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
+        const match = el.style.height.match(/[\d.]+/)
+        if (!match) return
+        const measured = parseFloat(match[0])
+        if (measured <= 100) return
+        const threshold = heightConfirmed ? 60 : 4
+        if (Math.abs(measured - naturalHeight) > threshold) {
+          setNaturalHeight(measured)
+          setHeightConfirmed(true)
+        }
+      }, 250)
+    })
+    observer.observe(el, { attributes: true, attributeFilter: ['style'] })
+    enforceOverflow()
+    // Safety net: reveal anyway after 2.5s in case GHL's script is
+    // blocked or slow, so the form doesn't stay hidden indefinitely.
+    const timeout = setTimeout(() => setHeightConfirmed(true), 2500)
+    return () => {
+      observer.disconnect()
+      clearTimeout(debounceTimer)
+      clearTimeout(timeout)
+    }
+  }, [fitToViewport, naturalHeight, heightConfirmed])
+
+  const scaledHeight = naturalHeight * zoom
+
+  return (
+    <div
+      className="w-full"
+      id={fitToViewport ? undefined : 'contact-form'}
+      style={{ height: fitToViewport ? `${scaledHeight}px` : undefined }}
+    >
+      {/* Liquid glass container */}
+      <div
+        style={{
+          position: 'relative',
+          borderRadius: '20px',
+          overflow: 'hidden',
+          // Chromium has a known bug where `overflow: hidden` + `border-
+          // radius` on a parent doesn't fully clip a `transform`-scaled
+          // child right at the rounded corners — the child's rectangular
+          // edge peeks through as a "double corner" artifact. `contain:
+          // paint` forces proper containment of transformed descendants.
+          contain: 'paint',
+          height: fitToViewport ? `${scaledHeight}px` : undefined,
+          // Deep shadow + orange glow — tight, low blur radius so the
+          // glow hugs the card evenly on all four sides instead of a
+          // large 80px blur that reads unevenly against the dark bg
+          boxShadow: `
+            0 0 0 1px rgba(255, 255, 255, 0.06),
+            0 0 10px rgba(0, 0, 0, 0.35),
+            0 0 24px rgba(0, 0, 0, 0.4),
+            0 0 24px rgba(255, 85, 0, 0.10),
+            0 0 0 1px rgba(255, 85, 0, 0.07) inset
+          `,
+          opacity: ready ? 1 : 0,
+          // GHL can report a *later* height update after the card is
+          // already revealed. Without a height transition that resize
+          // snaps instantly, which reads as the card jumping/bouncing.
+          transition: 'opacity 0.3s ease, height 0.3s ease',
+        }}
+      >
+        {/* Specular highlight — top-left shine like glass */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            borderRadius: '20px',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)',
+            zIndex: 2,
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Top edge highlight */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: '10%',
+            right: '10%',
+            height: '1px',
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)',
+            zIndex: 3,
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/*
+          CSS `zoom` on the iframe itself made GHL's embed script (which
+          reads/reacts to the iframe's own layout) unstable — the form
+          would render then go blank a few seconds later. `transform:
+          scale` is purely visual and doesn't touch the iframe's internal
+          layout, so GHL's script sees it at its natural, unscaled size.
+          The width is inflated by 1/zoom so that after the visual
+          scale-down it still spans 100% of the outer card.
+        */}
+        <div
+          style={
+            fitToViewport
+              ? { width: `${100 / zoom}%`, transform: `scale(${zoom})`, transformOrigin: 'top left' }
+              : undefined
+          }
+        >
+          <iframe
+            ref={iframeRef}
+            src="https://api.leadconnectorhq.com/widget/form/wBCLWyveluv1QqGnAKzL"
+            style={{
+              width: '100%',
+              height: `${naturalHeight}px`,
+              border: 'none',
+              borderRadius: 0,
+              display: 'block',
+            }}
+            id={iframeId}
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Main: Website Form"
+            data-height={FORM_NATURAL_HEIGHT_FALLBACK}
+            data-layout-iframe-id={iframeId}
+            data-form-id="wBCLWyveluv1QqGnAKzL"
+            title="Main: Website Form"
+            scrolling="no"
+          />
+        </div>
+      </div>
+
+      <Script
+        src="https://link.msgsndr.com/js/form_embed.js"
+        strategy="afterInteractive"
+      />
+    </div>
+  )
+}
