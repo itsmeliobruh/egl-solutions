@@ -5,7 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [],
   },
   async redirects() {
-    return [{ source: '/pricing', destination: '/', permanent: false }]
+    return [
+      { source: '/pricing', destination: '/', permanent: false },
+      // GHL forms link their terms checkbox to /terms-and-conditions by default.
+      { source: '/terms-and-conditions', destination: '/terms', permanent: true },
+    ]
   },
   async headers() {
     return [
