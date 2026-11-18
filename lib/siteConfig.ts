@@ -1,10 +1,8 @@
-// A2P 10DLC review (2026-10-29): carriers require the GHL chat widget to be the
-// only form on the site that collects SMS consent. While this is false, every
-// booking CTA (/book links) opens the chat widget and the lead form is hidden.
-// To restore the full site: set this to true, and remove the "agree to receive
-// text messages" line from the GHL form's T&C checkbox first.
-// Snapshot of the site before this change: git tag `pre-a2p-chat-only`.
-export const LEAD_FORM_ENABLED = false
+// A2P 10DLC: the campaign was approved 2026-11-17, so the lead form is back on.
+// The GHL chat widget is still the only thing on the site that collects SMS consent
+// (the website form's T&C line no longer mentions texts). Set this to false to go
+// back to chat-only mode (every /book link opens the chat widget instead).
+export const LEAD_FORM_ENABLED = true
 
 type ChatWidgetWindow = Window & {
   leadConnector?: { chatWidget?: { openWidget?: () => void } }
