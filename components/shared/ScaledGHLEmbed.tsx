@@ -11,9 +11,9 @@ interface ScaledGHLEmbedProps {
   fallbackHeight: number
   /**
    * Height (px) to use on phones (< 768px wide) instead of fallbackHeight.
-   * GHL's widgets stopped posting their height (2026-11-18), so the
-   * fallback is final; a calendar on a phone needs room for its tallest
-   * view (the time-slot list), which is much taller than on desktop.
+   * Starting height only: the real per-step height arrives through GHL's
+   * iFrameSizer messages (see the listener below). Pick the tallest view
+   * (the time-slot list) so nothing is clipped before the first message.
    */
   mobileFallbackHeight?: number
   /** Vertical px reserved elsewhere on screen (navbar, headings, padding, footer content) — ignored when scaleToFit is false */
@@ -175,6 +175,28 @@ export default function ScaledGHLEmbed({
       clearTimeout(timeout)
     }
   }, [naturalHeight, heightConfirmed])
+
+  // GHL widgets still post their real content height to the parent page as
+  // iframe-resizer messages ("[iFrameSizer]<iframeId>:<height>:<width>:<type>"),
+  // even though form_embed.js no longer applies them to the iframe style
+  // (measured 2026-11-18 on the audit calendar: 1395 on the phone time-slot
+  // list, 1034 on the "One more click" form step). Size to each step's real
+  // height so short steps don't sit on a tall, empty box.
+  useLayoutEffect(() => {
+    if (!iframeId) return
+    const onMessage = (e: MessageEvent) => {
+      if (e.source !== iframeRef.current?.contentWindow) return
+      if (typeof e.data !== 'string' || !e.data.startsWith('[iFrameSizer]')) return
+      const [id, h] = e.data.slice('[iFrameSizer]'.length).split(':')
+      if (!id.startsWith(iframeId)) return
+      const measured = parseFloat(h)
+      if (!(measured > 100)) return
+      setNaturalHeight((prev) => (Math.abs(measured - prev) > 4 ? measured : prev))
+      setHeightConfirmed(true)
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [iframeId])
 
   const scaledHeight = naturalHeight * zoom
   const formId = src.split('?')[0].split('/').filter(Boolean).pop()
