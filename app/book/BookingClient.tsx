@@ -165,6 +165,7 @@ export default function BookingClient() {
               // ~990px max; phone up to ~1395px (time-slot list). 700 cut it off.
               fallbackHeight={1000}
               mobileFallbackHeight={1420}
+              scaleToFit={false}
               reservedSpace={STEP2_RESERVED}
             />
 
