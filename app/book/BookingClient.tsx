@@ -126,7 +126,10 @@ export default function BookingClient() {
               src={ghlFormUrl}
               iframeId="inline-wBCLWyveluv1QqGnAKzL"
               title="EGL Marketing | Step 1: Your Info"
-              fallbackHeight={680}
+              // GHL's form no longer reports its height (2026-11-18), so this is
+              // the real height, not a guess: ~940px on a phone, same 1015 the
+              // homepage form uses. 680 cut off email, terms and the submit button.
+              fallbackHeight={1015}
               reservedSpace={STEP1_RESERVED}
             />
           </div>
