@@ -11,7 +11,7 @@ export default function TextClient() {
   const params = useSearchParams()
   const name = (params.get('name') || '').trim() || '[your name]'
   const biz = (params.get('biz') || params.get('business') || '').trim() || '[your business]'
-  const message = `Hi EGL! This is ${name} from ${biz}. Saving this number to send you video references.`
+  const message = `Hi EGL! This is ${name} from ${biz}. Saving this number to send you video ideas.`
 
   // iPhones want "&body=", everything else "?body=".
   const [sep, setSep] = useState('?')
@@ -24,10 +24,10 @@ export default function TextClient() {
     <section className="bg-void min-h-screen pt-32 pb-20 px-4">
       <div className="max-w-md mx-auto text-center">
         <p className="font-mono text-[10px] text-ember uppercase tracking-[0.22em] mb-3">
-          EGL Marketing References
+          EGL Video Ideas
         </p>
         <h1 className="font-display text-5xl text-bone tracking-wide mb-4">
-          SEND US YOUR VIDEO REFERENCES
+          SEND US YOUR VIDEO IDEAS
         </h1>
         <p className="font-body text-muted text-sm mb-8">
           Seen a video you love? Text it to us and it goes straight into your content plan.
@@ -36,7 +36,7 @@ export default function TextClient() {
         <div className="space-y-3 mb-10">
           <a
             href="/egl-references.vcf"
-            download="EGL Marketing References.vcf"
+            download="EGL Video Ideas.vcf"
             className="flex items-center justify-center gap-2 w-full rounded-lg bg-ember text-void font-display text-xl tracking-wider py-4"
           >
             <UserPlus size={20} /> 1. SAVE OUR NUMBER
