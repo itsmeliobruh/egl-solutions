@@ -55,6 +55,10 @@ export default function TextClient() {
           <li><span className="text-ember font-mono mr-2">02</span>Copy the link and text it to {DISPLAY}.</li>
           <li><span className="text-ember font-mono mr-2">03</span>Add a line about what you like about it. That&apos;s it.</li>
         </ol>
+        <p className="mt-6 text-left font-body text-sm text-muted border border-ember/30 rounded-lg p-4">
+          <span className="text-ember font-mono text-[11px] uppercase tracking-[0.18em] block mb-1">Tip</span>
+          Add a quick note in the same text as the link, like &ldquo;love the hook, too long though,&rdquo; and we won&apos;t need to ask.
+        </p>
       </div>
     </section>
   )
