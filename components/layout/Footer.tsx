@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2 text-muted">
                 <MapPin size={14} className="text-inferno flex-shrink-0 mt-0.5" />
-                2550 Albany Ave #1080, West Hartford, CT 06117
+                Wethersfield, CT
               </div>
             </div>
             {/* Social */}

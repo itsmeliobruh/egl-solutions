@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
         headers: [{ key: 'Content-Type', value: 'text/vcard; charset=utf-8' }],
       },
       {
+        source: '/melio-egl-marketing.vcf',
+        headers: [{ key: 'Content-Type', value: 'text/vcard; charset=utf-8' }],
+      },
+      {
         source: '/((?!api|admin).*)',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },

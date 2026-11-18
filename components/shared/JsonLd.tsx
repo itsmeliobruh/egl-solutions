@@ -9,7 +9,6 @@ export default function JsonLd() {
     email: 'support@eglmarketing.co',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Wethersfield',
       addressLocality: 'Wethersfield',
       addressRegion: 'CT',
       postalCode: '06109',

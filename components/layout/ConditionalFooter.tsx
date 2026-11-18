@@ -4,7 +4,8 @@ import { usePathname } from 'next/navigation'
 import Footer from './Footer'
 
 // Single-screen conversion funnels — keep them focused, no footer to scroll past.
-const HIDE_FOOTER_ROUTES = ['/book', '/schedule']
+// /card is the business card QR page: it already lists every contact detail.
+const HIDE_FOOTER_ROUTES = ['/book', '/schedule', '/card']
 
 export default function ConditionalFooter() {
   const pathname = usePathname()
