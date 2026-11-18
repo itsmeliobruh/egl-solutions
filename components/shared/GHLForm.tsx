@@ -10,6 +10,15 @@ import { useState, useLayoutEffect, useRef } from 'react'
 // leaves an empty band under the button, too small clips it.
 const FORM_NATURAL_HEIGHT_FALLBACK = 1015
 
+// GHL caps the form at 900px wide (`.form-builder--wrap` max-width) and its
+// page background is transparent. When the hero card is wider than that
+// (inside the scale-down), the dark card showed as bars on both sides, so the
+// hero card is narrowed to the form's own width (Melio picked this, 2026-11-18).
+const FORM_MAX_WIDTH = 900
+// The form's cream (#F5F0E8). Fills any leftover strip under the form so the
+// card's rounded bottom corners show cream instead of a dark band.
+const FORM_BG = '#F5F0E8'
+
 interface GHLFormProps {
   fitToViewport?: boolean
   /** Scale the form to this element's height (e.g. the hero text block) instead of the viewport */
@@ -130,6 +139,9 @@ export default function GHLForm({ fitToViewport = false, matchHeightRef }: GHLFo
           // paint` forces proper containment of transformed descendants.
           contain: 'paint',
           height: fitToViewport ? `${scaledHeight}px` : undefined,
+          ...(fitToViewport
+            ? { maxWidth: `${FORM_MAX_WIDTH * zoom}px`, margin: '0 auto', background: FORM_BG }
+            : {}),
           // Deep shadow + orange glow — tight, low blur radius so the
           // glow hugs the card evenly on all four sides instead of a
           // large 80px blur that reads unevenly against the dark bg
@@ -186,7 +198,11 @@ export default function GHLForm({ fitToViewport = false, matchHeightRef }: GHLFo
         <div
           style={
             fitToViewport
-              ? { width: `${100 / zoom}%`, transform: `scale(${zoom})`, transformOrigin: 'top left' }
+              ? {
+                  width: `min(${100 / zoom}%, ${FORM_MAX_WIDTH}px)`,
+                  transform: `scale(${zoom})`,
+                  transformOrigin: 'top left',
+                }
               : undefined
           }
         >
