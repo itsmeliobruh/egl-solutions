@@ -81,7 +81,10 @@ export default function ScheduleClient() {
           src={calendarUrl}
           iframeId="inline-wFGbFB8J86G1btPMNuPz"
           title="Schedule a call with EGL Marketing"
-          fallbackHeight={700}
+          // Measured 2026-11-18 (GHL no longer reports height): desktop
+          // ~990px max; phone up to ~1395px (time-slot list). 700 cut it off.
+          fallbackHeight={1000}
+          mobileFallbackHeight={1420}
           reservedSpace={RESERVED}
         />
 

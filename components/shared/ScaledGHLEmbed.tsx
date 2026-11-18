@@ -9,6 +9,13 @@ interface ScaledGHLEmbedProps {
   title: string
   /** Best-guess content height (px) before GHL's script reports the real one */
   fallbackHeight: number
+  /**
+   * Height (px) to use on phones (< 768px wide) instead of fallbackHeight.
+   * GHL's widgets stopped posting their height (2026-11-18), so the
+   * fallback is final; a calendar on a phone needs room for its tallest
+   * view (the time-slot list), which is much taller than on desktop.
+   */
+  mobileFallbackHeight?: number
   /** Vertical px reserved elsewhere on screen (navbar, headings, padding, footer content) — ignored when scaleToFit is false */
   reservedSpace?: number
   /** Floor for how small the embed is allowed to scale down to */
@@ -46,6 +53,7 @@ export default function ScaledGHLEmbed({
   iframeId,
   title,
   fallbackHeight,
+  mobileFallbackHeight,
   reservedSpace = 0,
   minZoom = 0.45,
   alwaysShow = true,
@@ -63,6 +71,16 @@ export default function ScaledGHLEmbed({
   // the original viewport slot.
   const zoomFrozenRef = useRef(false)
   const ready = zoomReady && heightConfirmed
+
+  // Phones get their own (taller) height when one is given.
+  useLayoutEffect(() => {
+    if (!mobileFallbackHeight) return
+    const pick = () =>
+      setNaturalHeight(window.innerWidth < 768 ? mobileFallbackHeight : fallbackHeight)
+    pick()
+    window.addEventListener('resize', pick)
+    return () => window.removeEventListener('resize', pick)
+  }, [mobileFallbackHeight, fallbackHeight])
 
   useLayoutEffect(() => {
     const calculate = () => {

@@ -161,7 +161,10 @@ export default function BookingClient() {
               src={ghlCalendarUrl}
               iframeId="inline-wFGbFB8J86G1btPMNuPz"
               title="EGL Marketing | Step 2: Book a Time"
-              fallbackHeight={700}
+              // Measured 2026-11-18 (GHL no longer reports height): desktop
+              // ~990px max; phone up to ~1395px (time-slot list). 700 cut it off.
+              fallbackHeight={1000}
+              mobileFallbackHeight={1420}
               reservedSpace={STEP2_RESERVED}
             />
 
