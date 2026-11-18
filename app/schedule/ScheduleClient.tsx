@@ -23,7 +23,8 @@ export default function ScheduleClient() {
     const email = params.get('email') || ''
     const phone = params.get('phone') || params.get('phone_raw') || ''
     const service = params.get('services_interested') || ''
-    if (name)    p.set('name', name)
+    // GHL's booking form only prefills its name field from `full_name`.
+    if (name)    p.set('full_name', name)
     if (email)   p.set('email', email)
     if (phone)   p.set('phone', phone)
     if (service) p.set('notes', service)
