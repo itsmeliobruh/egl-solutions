@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { MessageSquare, UserPlus } from 'lucide-react'
+import { QRCodeSVG } from 'qrcode.react'
 
 const NUMBER = '+18608123596'
 const DISPLAY = '(860) 812-3596'
@@ -15,8 +16,13 @@ export default function TextClient() {
 
   // iPhones want "&body=", everything else "?body=".
   const [sep, setSep] = useState('?')
+  // Computers (e.g. the GHL "Send Video Ideas" menu link) can't text: show a QR to open this on a phone.
+  const [desktop, setDesktop] = useState(false)
+  const [pageUrl, setPageUrl] = useState('')
   useEffect(() => {
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) setSep('&')
+    setDesktop(!window.matchMedia('(pointer: coarse)').matches)
+    setPageUrl(window.location.href)
   }, [])
   const smsHref = `sms:${NUMBER}${sep}body=${encodeURIComponent(message)}`
 
@@ -32,6 +38,16 @@ export default function TextClient() {
         <p className="font-body text-muted text-sm mb-8">
           Seen a video you love? Text it to us and it goes straight into your content plan.
         </p>
+
+        {desktop && pageUrl && (
+          <div className="mb-8 rounded-lg border border-ember/40 p-5">
+            <p className="font-mono text-[11px] text-ember uppercase tracking-[0.18em] mb-3">On a computer?</p>
+            <div className="inline-block bg-bone p-3 rounded">
+              <QRCodeSVG value={pageUrl} size={180} bgColor="#F0EDE8" fgColor="#080808" />
+            </div>
+            <p className="font-body text-sm text-muted mt-3">Scan this with your phone&apos;s camera to save our number and text us from there.</p>
+          </div>
+        )}
 
         <div className="space-y-3 mb-10">
           <a
