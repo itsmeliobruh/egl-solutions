@@ -167,7 +167,7 @@ export default function CardClient() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin size={15} className="text-inferno flex-shrink-0" /> Wethersfield, CT · serving all of Connecticut
+              <MapPin size={15} className="text-inferno flex-shrink-0" /> Wethersfield, CT · built for local businesses
             </li>
             <li className="flex items-center gap-3">
               <Clock size={15} className="text-inferno flex-shrink-0" /> 7 days a week, 9 AM to 7 PM
