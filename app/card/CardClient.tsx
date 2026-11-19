@@ -11,9 +11,11 @@ const DISPLAY = '(860) 200-3455'
 const EMAIL = 'melio@eglmarketing.co'
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
 const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
-// Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on "got your card":
-// keep that phrase if this wording changes.
-const INTRO = 'Hey Melio, got your card! This is... '
+// Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on these phrases
+// ("got your card" / "found you online"): keep them if this wording changes.
+const INTRO_CARD = 'Hey Melio, got your card! This is... '
+// Bio / link visitors never held a card (Melio: "Let's connect" -> "got your card" is weird).
+const INTRO_ONLINE = 'Hey Melio, found you online! This is... '
 
 export default function CardClient() {
   const params = useSearchParams()
@@ -36,7 +38,8 @@ export default function CardClient() {
   useEffect(() => {
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) setSep('&')
   }, [])
-  const introHref = `sms:${NUMBER}${sep}body=${encodeURIComponent(INTRO)}`
+  const intro = params.get('utm_source') === 'business_card' ? INTRO_CARD : INTRO_ONLINE
+  const introHref = `sms:${NUMBER}${sep}body=${encodeURIComponent(intro)}`
 
   // iPhone: open the "Create New Contact" sheet on its own, once per visit
   // (Melio, 2026-11-18). Android just downloads the file, so it keeps the button.
