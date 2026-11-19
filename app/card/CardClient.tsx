@@ -87,10 +87,10 @@ export default function CardClient() {
           href={introHref}
           className="flex items-center justify-center gap-2 w-full rounded-lg border border-inferno text-bone font-display text-xl tracking-wider py-4 hover:bg-inferno hover:text-void transition-colors"
         >
-          <MessageSquare size={20} /> TEXT ME YOUR NAME
+          <MessageSquare size={20} /> LET&apos;S CONNECT
         </a>
         <p className="text-center font-body text-xs text-muted mt-2 mb-6">
-          So I know who you are, and you&apos;re saved in my phone too.
+          Opens a text to me so I know who you are.
         </p>
 
         {/* 2. Book the audit */}
