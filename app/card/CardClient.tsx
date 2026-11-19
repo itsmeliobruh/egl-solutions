@@ -58,7 +58,12 @@ export default function CardClient() {
   return (
     <section className="bg-void min-h-screen pt-28 pb-16 px-4">
       {/* The GHL chat bubble covers the Call/Text/Email row on phones; this page is contact-only. */}
-      <style>{'chat-widget{display:none !important}'}</style>
+      <style>{`chat-widget{display:none !important}
+@keyframes egl-glow{0%,100%{box-shadow:0 0 14px 2px rgba(255,85,0,.45),0 0 0 0 rgba(255,85,0,.55)}50%{box-shadow:0 0 34px 8px rgba(255,85,0,.75),0 0 0 6px rgba(255,85,0,0)}}
+@keyframes egl-shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(320%) skewX(-20deg)}}
+.egl-connect{position:relative;overflow:hidden;animation:egl-glow 2.4s ease-in-out infinite}
+.egl-connect::after{content:'';position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);animation:egl-shine 3.2s ease-in-out infinite;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.egl-connect,.egl-connect::after{animation:none}}`}</style>
       <div className="max-w-md mx-auto">
         {/* Who */}
         <div className="text-center mb-8">
@@ -74,7 +79,7 @@ export default function CardClient() {
         {/* 1. Start a conversation (primary: bio visitors should reach out, Melio 2026-11-18) */}
         <a
           href={introHref}
-          className="flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5 shadow-inferno"
+          className="egl-connect flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5"
         >
           <MessageSquare size={22} /> LET&apos;S CONNECT
         </a>
