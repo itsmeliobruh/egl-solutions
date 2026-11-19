@@ -11,6 +11,9 @@ const DISPLAY = '(860) 200-3455'
 const EMAIL = 'melio@eglmarketing.co'
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
 const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
+// Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on "got your card":
+// keep that phrase if this wording changes.
+const INTRO = 'Hey Melio, got your card! This is '
 
 export default function CardClient() {
   const params = useSearchParams()
@@ -27,6 +30,13 @@ export default function CardClient() {
   })()
 
   const [saved, setSaved] = useState(false)
+
+  // iPhones want "&body=", everything else "?body=" (same as /text).
+  const [sep, setSep] = useState('?')
+  useEffect(() => {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) setSep('&')
+  }, [])
+  const introHref = `sms:${NUMBER}${sep}body=${encodeURIComponent(INTRO)}`
 
   // iPhone: open the "Create New Contact" sheet on its own, once per visit
   // (Melio, 2026-11-18). Android just downloads the file, so it keeps the button.
@@ -68,8 +78,19 @@ export default function CardClient() {
         >
           <UserPlus size={22} /> {saved ? 'SAVED? TAP TO SAVE AGAIN' : 'SAVE MY NUMBER'}
         </a>
-        <p className="text-center font-body text-xs text-muted mt-2 mb-6">
+        <p className="text-center font-body text-xs text-muted mt-2 mb-4">
           Adds me to your contacts so you know it&apos;s me when I call.
+        </p>
+
+        {/* 1b. Introduce yourself by text */}
+        <a
+          href={introHref}
+          className="flex items-center justify-center gap-2 w-full rounded-lg border border-inferno text-bone font-display text-xl tracking-wider py-4 hover:bg-inferno hover:text-void transition-colors"
+        >
+          <MessageSquare size={20} /> TEXT ME YOUR NAME
+        </a>
+        <p className="text-center font-body text-xs text-muted mt-2 mb-6">
+          So I know who you are, and you&apos;re saved in my phone too.
         </p>
 
         {/* 2. Book the audit */}
@@ -91,7 +112,7 @@ export default function CardClient() {
         <div className="grid grid-cols-3 gap-2 mb-8">
           {[
             { href: `tel:${NUMBER}`, icon: Phone, label: 'Call' },
-            { href: `sms:${NUMBER}`, icon: MessageSquare, label: 'Text' },
+            { href: introHref, icon: MessageSquare, label: 'Text' },
             { href: `mailto:${EMAIL}`, icon: Mail, label: 'Email' },
           ].map(({ href, icon: Icon, label }) => (
             <a
