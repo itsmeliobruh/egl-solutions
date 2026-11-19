@@ -24,7 +24,12 @@ const INTRO_BY_SOURCE: Record<string, string> = {
   youtube: 'Hey Melio, found you on YouTube! This is... ',
 }
 
-export default function CardClient() {
+// Social bios link to /links (Melio, 2026-11-18): conversation first (his goal: get a reply,
+// then book the audit), no Save My Number, no contact pop.
+// TikTok + YouTube handles still to add.
+const SOCIALS = [{ href: 'https://www.instagram.com/egl.marketing/', label: 'Instagram' }]
+
+export default function CardClient({ variant = 'card' }: { variant?: 'card' | 'social' }) {
   const params = useSearchParams()
 
   // Carry the card's UTM tags into /book so the lead keeps source = business_card.
@@ -53,7 +58,7 @@ export default function CardClient() {
   useEffect(() => {
     if (!/iPhone|iPod/.test(navigator.userAgent)) return
     // Only card scans: a bio/link visitor shouldn't get a contact sheet thrown at them.
-    if (params.get('utm_source') !== 'business_card') return
+    if (variant !== 'card' || params.get('utm_source') !== 'business_card') return
     try {
       if (sessionStorage.getItem('egl-card-vcf')) return
       sessionStorage.setItem('egl-card-vcf', '1')
@@ -86,6 +91,8 @@ export default function CardClient() {
           </p>
         </div>
 
+        {variant === 'card' ? (
+          <>
         {/* 1. Start a conversation (primary: bio visitors should reach out, Melio 2026-11-18) */}
         <a
           href={introHref}
@@ -124,6 +131,52 @@ export default function CardClient() {
             <CalendarCheck size={20} /> BOOK MY FREE AUDIT
           </a>
         </div>
+
+          </>
+        ) : (
+          <>
+        {/* 1. Start a conversation (primary: bio visitors should reach out, Melio 2026-11-18) */}
+        <a
+          href={introHref}
+          className="egl-connect flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5"
+        >
+          <MessageSquare size={22} /> LET&apos;S CONNECT
+        </a>
+        <p className="text-center font-body text-xs text-muted mt-2 mb-4">
+          Opens a text to me so I know who you are.
+        </p>
+
+        {/* 2. Book the audit */}
+        <div className="rounded-lg border border-inferno/40 bg-ash p-5 mb-6">
+          <p className="font-mono text-[10px] text-inferno uppercase tracking-[0.22em] mb-1">For local businesses</p>
+          <h2 className="font-display text-3xl text-bone tracking-wide leading-tight">FREE LOCAL VISIBILITY AUDIT</h2>
+          <p className="font-body text-sm text-muted mt-2 mb-4">
+            See exactly how customers find you online, and where you&apos;re losing them.
+          </p>
+          <a
+            href={bookHref}
+            className="flex items-center justify-center gap-2 w-full rounded-lg border border-inferno text-bone font-display text-xl tracking-wider py-4 hover:bg-inferno hover:text-void transition-colors"
+          >
+            <CalendarCheck size={20} /> BOOK MY FREE AUDIT
+          </a>
+        </div>
+
+            {/* Follow (social page only) */}
+            <div className="flex justify-center gap-3 mb-6">
+              {SOCIALS.map(({ href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[11px] uppercase tracking-[0.18em] text-bone border border-white/10 bg-mid rounded-full px-4 py-2 hover:border-inferno transition-colors"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </>
+        )}
 
         {/* 3. Reach me */}
         <div className="grid grid-cols-3 gap-2 mb-8">

@@ -58,7 +58,7 @@ export default function Navbar() {
 
   // /card is the link-in-bio / business card page: no site menu, so every tap keeps its UTMs
   // (the menu's audit button links to plain /book). Melio, 2026-11-18.
-  if (pathname?.startsWith('/card')) return null
+  if (pathname?.startsWith('/card') || pathname?.startsWith('/links')) return null
 
   return (
     <>
