@@ -13,7 +13,7 @@ const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'ut
 const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
 // Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on "got your card":
 // keep that phrase if this wording changes.
-const INTRO = 'Hey Melio, got your card! This is '
+const INTRO = 'Hey Melio, got your card! This is... '
 
 export default function CardClient() {
   const params = useSearchParams()
@@ -42,6 +42,8 @@ export default function CardClient() {
   // (Melio, 2026-11-18). Android just downloads the file, so it keeps the button.
   useEffect(() => {
     if (!/iPhone|iPod/.test(navigator.userAgent)) return
+    // Only card scans: a bio/link visitor shouldn't get a contact sheet thrown at them.
+    if (params.get('utm_source') !== 'business_card') return
     try {
       if (sessionStorage.getItem('egl-card-vcf')) return
       sessionStorage.setItem('egl-card-vcf', '1')
@@ -69,28 +71,28 @@ export default function CardClient() {
           </p>
         </div>
 
-        {/* 1. Save contact */}
+        {/* 1. Start a conversation (primary: bio visitors should reach out, Melio 2026-11-18) */}
+        <a
+          href={introHref}
+          className="flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5 shadow-inferno"
+        >
+          <MessageSquare size={22} /> LET&apos;S CONNECT
+        </a>
+        <p className="text-center font-body text-xs text-muted mt-2 mb-4">
+          Opens a text to me so I know who you are.
+        </p>
+
+        {/* 1b. Save contact (secondary: QR scans already auto-save on iPhone) */}
         <a
           href={VCF}
           download="Melio - EGL Marketing.vcf"
           onClick={() => setSaved(true)}
-          className="flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5 shadow-inferno"
-        >
-          <UserPlus size={22} /> {saved ? 'SAVED? TAP TO SAVE AGAIN' : 'SAVE MY NUMBER'}
-        </a>
-        <p className="text-center font-body text-xs text-muted mt-2 mb-4">
-          Adds me to your contacts so you know it&apos;s me when I call.
-        </p>
-
-        {/* 1b. Introduce yourself by text */}
-        <a
-          href={introHref}
           className="flex items-center justify-center gap-2 w-full rounded-lg border border-inferno text-bone font-display text-xl tracking-wider py-4 hover:bg-inferno hover:text-void transition-colors"
         >
-          <MessageSquare size={20} /> LET&apos;S CONNECT
+          <UserPlus size={20} /> {saved ? 'SAVED? TAP TO SAVE AGAIN' : 'SAVE MY NUMBER'}
         </a>
         <p className="text-center font-body text-xs text-muted mt-2 mb-6">
-          Opens a text to me so I know who you are.
+          Adds me to your contacts so you know it&apos;s me when I call.
         </p>
 
         {/* 2. Book the audit */}
