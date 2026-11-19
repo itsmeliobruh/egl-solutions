@@ -12,7 +12,7 @@ const EMAIL = 'melio@eglmarketing.co'
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
 const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
 // Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on these phrases
-// ("got your card" / "found you online" / "found you on"): keep them if this wording changes.
+// ("got your card" / "found you online" / "found you on" / "saw your sticker"): keep them if this wording changes.
 const INTRO_CARD = 'Hey Melio, got your card! This is... '
 // Bio / link visitors never held a card (Melio: "Let's connect" -> "got your card" is weird).
 // The platform name lets the workflow tag where a texter came from (texts carry no UTMs).
@@ -22,6 +22,7 @@ const INTRO_BY_SOURCE: Record<string, string> = {
   instagram: 'Hey Melio, found you on Instagram! This is... ',
   tiktok: 'Hey Melio, found you on TikTok! This is... ',
   youtube: 'Hey Melio, found you on YouTube! This is... ',
+  sticker: 'Hey Melio, saw your sticker! This is... ',
 }
 
 // Social bios link to /links (Melio, 2026-11-18): conversation first (his goal: get a reply,

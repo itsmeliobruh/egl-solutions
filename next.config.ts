@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
       { source: '/ig', destination: '/links?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio', permanent: false },
       { source: '/tt', destination: '/links?utm_source=tiktok&utm_medium=social&utm_campaign=link_in_bio', permanent: false },
       { source: '/yt', destination: '/links?utm_source=youtube&utm_medium=social&utm_campaign=link_in_bio', permanent: false },
+      // Die-cut QR sticker (Melio, 2026-11-19): own tag so sticker leads are counted apart.
+      { source: '/st', destination: '/links?utm_source=sticker&utm_medium=print&utm_campaign=qr_sticker', permanent: false },
       // The business card QR (GHL iEmc540oEQsO) used to point at /book and its 301 is
       // cached by phones that scanned it then. GHL tags every QR scan with lc_qr_id;
       // the /card page's own Book button doesn't, so this only catches QR scans.
