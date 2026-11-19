@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -23,6 +24,7 @@ const areaLinks = [
 ]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -53,6 +55,10 @@ export default function Navbar() {
     }
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
+
+  // /card is the link-in-bio / business card page: no site menu, so every tap keeps its UTMs
+  // (the menu's audit button links to plain /book). Melio, 2026-11-18.
+  if (pathname?.startsWith('/card')) return null
 
   return (
     <>

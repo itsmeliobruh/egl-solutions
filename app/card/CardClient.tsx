@@ -66,7 +66,7 @@ export default function CardClient() {
   }, [])
 
   return (
-    <section className="bg-void min-h-screen pt-28 pb-16 px-4">
+    <section className="bg-void min-h-screen pt-12 pb-16 px-4">
       {/* The GHL chat bubble covers the Call/Text/Email row on phones; this page is contact-only. */}
       <style>{`chat-widget{display:none !important}
 @keyframes egl-glow{0%,100%{box-shadow:0 0 14px 2px rgba(255,85,0,.45),0 0 0 0 rgba(255,85,0,.55)}50%{box-shadow:0 0 34px 8px rgba(255,85,0,.75),0 0 0 6px rgba(255,85,0,0)}}
