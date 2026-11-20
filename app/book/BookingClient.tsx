@@ -57,8 +57,8 @@ function StepIndicator({ step }: { step: 1 | 2 }) {
 // explaining everything, not just a form"). The form stays on top for people who are ready;
 // everything below answers the questions of people who aren't yet.
 const AUDIT_GETS = [
-  { t: 'How you stack up', d: 'Your Google profile, reviews, website, ads and content, side by side with the top businesses in your town.' },
-  { t: 'Where customers slip away', d: 'The exact spots people find you, then pick someone else instead.' },
+  { t: 'How you stack up', d: 'Your Facebook and Instagram, ads and videos, Google profile, reviews and website, side by side with the top businesses in your town.' },
+  { t: 'Where customers slip away', d: 'The exact spots people find you, then pick someone else instead. We even test your form and phone live, the way a customer would.' },
   { t: 'A clear plan', d: "What we'd fix first, and the plan and price for your business if it makes sense." },
 ]
 const AUDIT_STEPS = [
