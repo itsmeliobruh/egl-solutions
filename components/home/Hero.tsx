@@ -61,13 +61,18 @@ export default function Hero(_props: { data?: HeroData | null }) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl text-bone leading-tight tracking-wider mb-3"
+              className="font-display text-[clamp(32px,10vw,48px)] sm:text-6xl lg:text-7xl text-bone leading-tight tracking-wider mb-3"
             >
-              {d.headlineL1} {d.headlineL2} {d.headlineL3prefix}{' '}
-              <span className="text-transparent" style={{ WebkitTextStroke: '2px #FF5500' }}>
-                {d.headlineL3outline}
+              {d.headlineL1} {d.headlineL2}{' '}
+              {/* On phones, "CALL YOUR COMPETITORS" stays together on one line */}
+              <span className="whitespace-nowrap sm:whitespace-normal">
+                {d.headlineL3prefix}{' '}
+                <span className="text-transparent" style={{ WebkitTextStroke: '2px #FF5500' }}>
+                  {d.headlineL3outline}
+                </span>{' '}
+                <span className="text-inferno">{d.headlineL4}</span>
               </span>{' '}
-              <span className="text-inferno">{d.headlineL4}</span> {d.headlineL5}
+              {d.headlineL5}
             </motion.h1>
 
             <motion.p
