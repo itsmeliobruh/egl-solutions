@@ -99,6 +99,9 @@ export default function Hero(_props: { data?: HeroData | null }) {
               >
                 ⚡ GET MY FREE LOCAL VISIBILITY AUDIT
               </button>
+              <span className="lg:hidden self-center font-mono text-xs text-muted uppercase tracking-[0.2em]">
+                or
+              </span>
               <button
                 onClick={scrollToProcess}
                 className="lg:hidden inline-flex items-center justify-center gap-2 border border-[#3A3320] text-bone font-display text-sm tracking-widest px-6 py-3 rounded transition-all hover:text-inferno hover:border-inferno hover:shadow-[0_0_20px_rgba(255,85,0,0.35)]"
