@@ -282,11 +282,15 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           )}
 
           <ul className="space-y-3 font-body text-sm text-light">
-            <li className="flex items-center gap-3">
-              <Phone size={15} className="text-inferno flex-shrink-0" /> {DISPLAY}
+            <li>
+              <a href={`tel:${NUMBER}`} className="flex items-center gap-3 hover:text-inferno transition-colors">
+                <Phone size={15} className="text-inferno flex-shrink-0" /> {DISPLAY}
+              </a>
             </li>
-            <li className="flex items-center gap-3">
-              <Mail size={15} className="text-inferno flex-shrink-0" /> {EMAIL}
+            <li>
+              <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 hover:text-inferno transition-colors">
+                <Mail size={15} className="text-inferno flex-shrink-0" /> {EMAIL}
+              </a>
             </li>
             <li>
               <a href="/" className="flex items-center gap-3 hover:text-inferno transition-colors">
@@ -295,19 +299,20 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
             </li>
             <li>
               <a
-                href="https://www.instagram.com/egl.marketing/"
+                href={variant === 'social' ? 'https://www.instagram.com/melio/' : 'https://www.instagram.com/egl.marketing/'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:text-inferno transition-colors"
               >
-                <Instagram size={15} className="text-inferno flex-shrink-0" /> @egl.marketing
+                {/* Social page shows Melio's personal IG; the business card keeps the EGL account (Melio, 2026-11-20) */}
+                <Instagram size={15} className="text-inferno flex-shrink-0" /> {variant === 'social' ? '@melio' : '@egl.marketing'}
               </a>
             </li>
             <li className="flex items-center gap-3">
               <MapPin size={15} className="text-inferno flex-shrink-0" /> Wethersfield, Connecticut
             </li>
             <li className="flex items-center gap-3">
-              <Clock size={15} className="text-inferno flex-shrink-0" /> 7 days a week, 9 AM to 7 PM
+              <Clock size={15} className="text-inferno flex-shrink-0" /> 7 days a week, 9 AM to 7 PM ET
             </li>
           </ul>
         </div>
