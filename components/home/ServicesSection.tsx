@@ -38,7 +38,7 @@ const LPB_RUN: Row[] = [
 const CARDS = [
   { h: 'No contract', body: <><b className="text-bone">Month to month, 30 days&apos; notice.</b> If we&apos;re not earning it, fire us. Most agencies lock you in for a year.</> },
   { h: 'One per trade, per town', body: <>We film every client ourselves, so we take <b className="text-bone">one business per trade in each town.</b> When your spot is taken, it&apos;s taken.</> },
-  { h: 'You own everything', body: <>Your domain, your footage, your ad account, your Google profile, your number. <b className="text-bone">Leave and it all goes with you.</b></> },
+  { h: 'You own everything', body: <>Your domain, your footage, your ad account, your Google profile, your number. <b className="text-bone">Leave and it all goes with you.</b> Ad spend goes straight to Meta and Google, never through us.</> },
 ]
 
 function Stack({ label, rows }: { label: string; rows: Row[] }) {
@@ -97,7 +97,7 @@ export default function ServicesSection() {
               <div className="font-mono text-[12px] tracking-[0.12em] uppercase">Your plan</div>
               <div className="font-display text-[40px] leading-none mt-1.5">See if it makes sense for you</div>
               <p className="font-body text-[15px] leading-[1.45] mt-1.5">
-                Plans start at $499/month. On your free audit we show you where you&apos;re losing customers on Google, then the exact plan and price for your business. Ad spend goes straight to Meta and Google, never through us.
+                Plans start at $499/month. Your free audit shows where you&apos;re losing customers on Google and the exact plan for your business.
               </p>
               <a
                 href={BOOKING_URL}
@@ -106,7 +106,7 @@ export default function ServicesSection() {
                 Get my free local visibility audit
               </a>
               <p className="font-mono text-[13px] leading-[1.45] mt-2.5">
-                <b>This is a no-pressure call.</b> We show you what we found, and if it doesn&apos;t make sense for you, we&apos;ll tell you straight up. You keep the findings either way.
+                <b>No pressure.</b> If it&apos;s not a fit, we&apos;ll tell you. You keep the findings.
               </p>
             </div>
             {CARDS.map((c) => (
