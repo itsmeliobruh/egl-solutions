@@ -199,6 +199,17 @@ export default function ScaledGHLEmbed({
       )
     }
     let settle: ReturnType<typeof setTimeout>
+    // A cached widget can say Ready (and finish loading) before this effect is
+    // listening, so nobody starts the resizer and the card stays at the tall
+    // fallback (black band on phones, seen 2026-11-20). Keep poking it every
+    // second until the first height arrives, for up to 20 s.
+    let gotHeight = false
+    let tries = 0
+    const retry = setInterval(() => {
+      if (gotHeight || ++tries > 20) return clearInterval(retry)
+      startResizer()
+    }, 1000)
+    startResizer()
     const onMessage = (e: MessageEvent) => {
       if (e.source !== iframeRef.current?.contentWindow) return
       if (typeof e.data !== 'string') return
@@ -211,6 +222,7 @@ export default function ScaledGHLEmbed({
       if (!id.startsWith(iframeId)) return
       const measured = parseFloat(h)
       if (!(measured > 100)) return
+      gotHeight = true
       clearTimeout(settle)
       settle = setTimeout(() => {
         setNaturalHeight((prev) => (Math.abs(measured - prev) > 4 ? measured : prev))
@@ -223,6 +235,7 @@ export default function ScaledGHLEmbed({
       window.removeEventListener('message', onMessage)
       el?.removeEventListener('load', startResizer)
       clearTimeout(settle)
+      clearInterval(retry)
     }
   }, [iframeId])
 
