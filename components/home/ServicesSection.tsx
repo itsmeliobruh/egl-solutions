@@ -97,7 +97,7 @@ export default function ServicesSection() {
               <div className="font-mono text-[12px] tracking-[0.12em] uppercase">Your plan</div>
               <div className="font-display text-[40px] leading-none mt-1.5">See if it makes sense for you</div>
               <p className="font-body text-[15px] leading-[1.45] mt-1.5">
-                Plans start at $499/month. Your free audit shows where you&apos;re losing customers on Google and the exact plan for your business.
+                Plans start at $499/month. Your free audit shows where you&apos;re losing customers and the exact plan for your business.
               </p>
               <a
                 href={BOOKING_URL}
