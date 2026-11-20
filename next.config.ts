@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       // Link-in-bio short links (Melio, 2026-11-18): each platform tags its own traffic so
       // GHL's built-in first/latest attribution shows where a booking came from.
       { source: '/ig', destination: '/links?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio', permanent: false },
+      // @egl.marketing's bio (Melio, 2026-11-20): same page, own campaign so it's counted apart from Melio's personal /ig.
+      { source: '/egl-ig', destination: '/links?utm_source=instagram&utm_medium=social&utm_campaign=egl_link_in_bio', permanent: false },
       { source: '/tt', destination: '/links?utm_source=tiktok&utm_medium=social&utm_campaign=link_in_bio', permanent: false },
       { source: '/yt', destination: '/links?utm_source=youtube&utm_medium=social&utm_campaign=link_in_bio', permanent: false },
       // Die-cut QR sticker (Melio, 2026-11-19): own tag so sticker leads are counted apart.

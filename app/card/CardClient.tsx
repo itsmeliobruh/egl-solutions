@@ -90,6 +90,11 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           <p className="font-mono text-[11px] text-inferno uppercase tracking-[0.22em] mt-2">
             Founder &amp; CEO · EGL Marketing
           </p>
+          {variant === 'social' && (
+            <p className="font-body text-base text-light mt-3" style={{ textWrap: 'balance' }}>
+              I help local businesses get booked, not just seen.
+            </p>
+          )}
         </div>
 
         {variant === 'card' ? (
