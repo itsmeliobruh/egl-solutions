@@ -69,6 +69,10 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
   }, [])
   const intro = INTRO_BY_SOURCE[params.get('utm_source') ?? ''] ?? INTRO_ONLINE
   const introHref = `sms:${NUMBER}${sep}body=${encodeURIComponent(intro)}`
+  // Social bio visitors (IG/TikTok/YouTube) get no Call option: Melio works shifts and can't
+  // always pick up, and texts get the auto-reply (Melio, 2026-11-20). The sticker and the
+  // business card keep Call.
+  const showCall = variant === 'card' || params.get('utm_source') === 'sticker'
 
   // iPhone: open the "Create New Contact" sheet on its own, once per visit
   // (Melio, 2026-11-18). Android just downloads the file, so it keeps the button.
@@ -198,13 +202,20 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
         {/* Social page order (Melio, 2026-11-20): contact tiles, then the audit (glowing),
             then Let's Connect as a plain button, then Instagram. The /card page above is unchanged. */}
         {/* 1. Reach me */}
-        <div className="grid grid-cols-4 gap-2 mb-6">
-          {[
-            { href: `tel:${NUMBER}`, icon: Phone, label: 'Call' },
-            { href: introHref, icon: MessageSquare, label: 'Text' },
-            { href: `mailto:${EMAIL}`, icon: Mail, label: 'Email' },
-            { href: '/', icon: Globe, label: 'Website' },
-          ].map(({ href, icon: Icon, label }) => (
+        <div className={`grid ${showCall ? 'grid-cols-4' : 'grid-cols-3'} gap-2 mb-6`}>
+          {(showCall
+            ? [
+                { href: `tel:${NUMBER}`, icon: Phone, label: 'Call' },
+                { href: introHref, icon: MessageSquare, label: 'Text' },
+                { href: `mailto:${EMAIL}`, icon: Mail, label: 'Email' },
+                { href: '/', icon: Globe, label: 'Website' },
+              ]
+            : [
+                { href: '/', icon: Globe, label: 'Website' },
+                { href: introHref, icon: MessageSquare, label: 'Text' },
+                { href: `mailto:${EMAIL}`, icon: Mail, label: 'Email' },
+              ]
+          ).map(({ href, icon: Icon, label }) => (
             <a
               key={label}
               href={href}
@@ -282,11 +293,13 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           )}
 
           <ul className="space-y-3 font-body text-sm text-light">
+            {showCall && (
             <li>
               <a href={`tel:${NUMBER}`} className="flex items-center gap-3 hover:text-inferno transition-colors">
                 <Phone size={15} className="text-inferno flex-shrink-0" /> {DISPLAY}
               </a>
             </li>
+            )}
             <li>
               <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 hover:text-inferno transition-colors">
                 <Mail size={15} className="text-inferno flex-shrink-0" /> {EMAIL}
