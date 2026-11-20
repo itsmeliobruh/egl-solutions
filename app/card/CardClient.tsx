@@ -11,6 +11,8 @@ const DISPLAY = '(860) 200-3455'
 const EMAIL = 'melio@eglmarketing.co'
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
 const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
+// Social (/links) page wording, Melio 2026-11-20. /card keeps SERVICES above.
+const SOCIAL_SERVICES = ['Content', 'Meta Ads', 'Websites', 'Google Business', 'Automation']
 // Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on these phrases
 // ("got your card" / "found you online" / "found you on" / "saw your sticker"): keep them if this wording changes.
 const INTRO_CARD = 'Hey Melio, got your card! This is... '
@@ -94,6 +96,15 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
             <p className="font-body text-base text-light mt-3" style={{ textWrap: 'balance' }}>
               I help local businesses get booked, not just seen.
             </p>
+          )}
+          {variant === 'social' && (
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              {SOCIAL_SERVICES.map((s) => (
+                <span key={s} className="font-body text-sm text-bone bg-mid border border-white/10 rounded-full px-3 py-1">
+                  {s}
+                </span>
+              ))}
+            </div>
           )}
         </div>
 
@@ -227,6 +238,9 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
 
         {/* 4. Business details */}
         <div className="border-t border-white/10 pt-6">
+          {/* Social page shows the services up top under the hook line instead (Melio, 2026-11-20) */}
+          {variant === 'card' && (
+            <>
           <p className="font-mono text-[10px] text-inferno uppercase tracking-[0.22em] mb-3">What we do</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {SERVICES.map((s) => (
@@ -235,6 +249,8 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
               </span>
             ))}
           </div>
+            </>
+          )}
 
           <ul className="space-y-3 font-body text-sm text-light">
             <li className="flex items-center gap-3">
