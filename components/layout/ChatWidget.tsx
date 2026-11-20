@@ -2,16 +2,15 @@
 
 import Script from 'next/script'
 import { usePathname } from 'next/navigation'
+import { isFormPage } from '@/lib/siteConfig'
 
-// The GHL chat bubble stays off the booking funnel (Melio, 2026-11-20): those pages have
-// one job. It stays on the link-in-bio and card pages (Melio's call, same day).
+// The GHL chat bubble stays off every form/calendar page (FORM_PAGE_ROUTES, Melio
+// 2026-11-20): those pages have one job. It stays on the link-in-bio and card pages.
 // On these routes the widget script isn't loaded at all; the CSS rule also hides a bubble
 // that was already loaded on an earlier page before the visitor navigated here.
-const NO_CHAT_ROUTES = ['/book', '/schedule']
-
 export default function ChatWidget() {
   const pathname = usePathname()
-  const hidden = NO_CHAT_ROUTES.some((route) => pathname?.startsWith(route))
+  const hidden = isFormPage(pathname)
 
   if (hidden) return <style>{`chat-widget{display:none !important}`}</style>
 

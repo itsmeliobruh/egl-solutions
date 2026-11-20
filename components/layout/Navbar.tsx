@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { isFormPage } from '@/lib/siteConfig'
 
 const BOOKING_URL = '/book'
 
@@ -59,6 +60,9 @@ export default function Navbar() {
   // /card is the link-in-bio / business card page: no site menu, so every tap keeps its UTMs
   // (the menu's audit button links to plain /book). Melio, 2026-11-18.
   if (pathname?.startsWith('/card') || pathname?.startsWith('/links')) return null
+
+  // On form/calendar pages the audit button would pull people away from the form they're on.
+  const showCta = !isFormPage(pathname)
 
   return (
     <>
@@ -188,24 +192,24 @@ export default function Navbar() {
 
           {/* ── DESKTOP RIGHT: CTA ───────────────────────── */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <a
+            {showCta && <a
               href={BOOKING_URL}
               className="glass-btn-inferno font-display text-sm px-5 py-2.5 rounded-full tracking-widest whitespace-nowrap"
               aria-label="Get my free local visibility audit"
             >
               GET MY FREE LOCAL VISIBILITY AUDIT
-            </a>
+            </a>}
           </div>
 
           {/* ── MOBILE RIGHT: CTA + Hamburger ───────── */}
           <div className="lg:hidden flex items-center gap-2 flex-shrink-0">
-            <a
+            {showCta && <a
               href={BOOKING_URL}
               className="glass-btn-inferno font-display text-xs px-3 py-2 rounded-full tracking-wider whitespace-nowrap"
               aria-label="Get my free local visibility audit"
             >
               GET MY FREE LOCAL VISIBILITY AUDIT
-            </a>
+            </a>}
             <button
               className="text-light hover:text-inferno transition-colors p-1 ml-1"
               onClick={() => setMobileOpen(!mobileOpen)}
