@@ -4,6 +4,20 @@ import { useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import { CheckCircle, ChevronRight } from 'lucide-react'
 import ScaledGHLEmbed from '@/components/shared/ScaledGHLEmbed'
+import OfferDetails, { type OfferDetailsContent } from '@/components/shared/OfferDetails'
+
+// Audit details (moved out of the GHL calendar, whose title/description/details
+// toggles are off as of 2026-11-20). Another landing page can pass its own.
+const AUDIT_DETAILS: OfferDetailsContent = {
+  intro: "We'll look at:",
+  bullets: [
+    'Where you show up on Google when homeowners search for what you do',
+    'Your reviews next to your top competitors',
+    'Your website on a phone',
+    "Where you're losing calls and leads",
+  ],
+  outro: "No pressure. You keep the findings either way. If it makes sense, we'll show you how we'd fix it.",
+}
 
 const GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/booking/wFGbFB8J86G1btPMNuPz'
 
@@ -49,9 +63,10 @@ export default function ScheduleClient() {
           <h1 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-3">
             PICK YOUR AUDIT TIME
           </h1>
-          <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto mb-4">
+          <p className="font-body text-[#AAAAAA] text-sm max-w-md mx-auto mb-2">
             Choose a time that works for you. Plan on about 45 minutes: we&apos;ll walk through your audit together, with no pressure.
           </p>
+          <OfferDetails {...AUDIT_DETAILS} />
           <span className="inline-flex items-center gap-2 bg-[#FF5500]/10 border border-[#FF5500]/30 rounded-full px-4 py-1.5">
             <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />
             <span className="font-mono text-[10px] text-[#FF5500] uppercase tracking-[0.18em]">
