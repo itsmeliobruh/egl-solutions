@@ -63,15 +63,18 @@ export default function Hero(_props: { data?: HeroData | null }) {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display text-[clamp(32px,10vw,48px)] sm:text-6xl lg:text-7xl text-bone leading-tight tracking-wider mb-3"
             >
-              {d.headlineL1} {d.headlineL2}{' '}
-              {/* On phones, "CALL YOUR COMPETITORS" stays together on one line */}
-              <span className="whitespace-nowrap sm:whitespace-normal">
-                {d.headlineL3prefix}{' '}
-                <span className="text-transparent" style={{ WebkitTextStroke: '2px #FF5500' }}>
-                  {d.headlineL3outline}
-                </span>{' '}
-                <span className="text-inferno">{d.headlineL4}</span>
-              </span>{' '}
+              {/* Phones: 4 lines with COMPETITORS on an orange bar. sm and up: natural wrap. */}
+              {d.headlineL1} {d.headlineL2}
+              <br className="sm:hidden" />{' '}
+              {d.headlineL3prefix}{' '}
+              <span className="text-transparent" style={{ WebkitTextStroke: '2px #FF5500' }}>
+                {d.headlineL3outline}
+              </span>
+              <br className="sm:hidden" />{' '}
+              <span className="bg-inferno text-void px-2 sm:bg-transparent sm:text-inferno sm:px-0">
+                {d.headlineL4}
+              </span>
+              <br className="sm:hidden" />{' '}
               {d.headlineL5}
             </motion.h1>
 
