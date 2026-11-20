@@ -9,12 +9,14 @@ import OfferDetails, { type OfferDetailsContent } from '@/components/shared/Offe
 // Audit details (moved out of the GHL calendar, whose title/description/details
 // toggles are off as of 2026-11-20). Another landing page can pass its own.
 const AUDIT_DETAILS: OfferDetailsContent = {
-  intro: "We'll look at:",
+  intro: "Before we talk, we look at your business and what you sent us. On the call we'll find what's costing you jobs:",
   bullets: [
-    'Where you show up on Google when homeowners search for what you do',
-    'Your reviews next to your top competitors',
-    'Your website on a phone',
-    "Where you're losing calls and leads",
+    'Your numbers: leads, jobs, and what each one is worth',
+    "Who's seeing you on Facebook, Instagram and Google right now",
+    "Your reviews and ads next to your top competitors'",
+    'A live test of your form and phone, the way a customer reaches you',
+    'What happens to a lead after they reach out',
+    'Your #1 bottleneck, what it costs you, and the first fix we\'d make',
   ],
   outro: "No pressure. You keep the findings either way. If it makes sense, we'll show you how we'd fix it.",
 }
