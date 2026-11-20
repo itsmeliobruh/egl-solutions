@@ -44,7 +44,7 @@ export default function Footer() {
               <span className="font-display text-2xl text-bone tracking-wider">EGL MARKETING</span>
             </div>
             <p className="font-body text-sm text-muted leading-relaxed mb-6">
-              Helping local businesses get found on Google, follow up faster and book more customers with done-for-you growth systems.
+              We film your business, run your Facebook and Instagram ads and keep your Google and website sharp, so more people book with you.
             </p>
             <div className="space-y-3 text-sm font-body">
               <a href="mailto:support@eglmarketing.co" className="flex items-center gap-2 text-light hover:text-inferno transition-colors">
