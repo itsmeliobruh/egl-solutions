@@ -84,6 +84,21 @@ export default function HowItWorksSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="mt-12"
+        >
+          <a
+            href={BOOKING_URL}
+            className="flex items-center justify-center gap-2 bg-inferno text-black font-display text-base md:text-lg px-6 py-3.5 rounded tracking-widest hover:bg-scorch transition-colors shadow-inferno"
+          >
+            ⚡ GET MY FREE LOCAL VISIBILITY AUDIT
+          </a>
+        </motion.div>
       </div>
     </section>
   )
