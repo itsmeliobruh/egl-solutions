@@ -61,20 +61,13 @@ export default function Hero(_props: { data?: HeroData | null }) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl text-bone leading-none tracking-wider mb-3"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl text-bone leading-tight tracking-wider mb-3"
             >
-              {d.headlineL1}
-              <br />
-              {d.headlineL2}
-              <br />
-              {d.headlineL3prefix}{' '}
+              {d.headlineL1} {d.headlineL2} {d.headlineL3prefix}{' '}
               <span className="text-transparent" style={{ WebkitTextStroke: '2px #FF5500' }}>
                 {d.headlineL3outline}
-              </span>
-              <br />
-              <span className="text-inferno">{d.headlineL4}</span>
-              <br />
-              {d.headlineL5}
+              </span>{' '}
+              <span className="text-inferno">{d.headlineL4}</span> {d.headlineL5}
             </motion.h1>
 
             <motion.p
