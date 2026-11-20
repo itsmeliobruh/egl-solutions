@@ -15,16 +15,16 @@ const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
 const SOCIAL_SERVICES = ['Content', 'Meta Ads', 'Proven Systems', 'Websites', 'Google Business', 'Automation']
 // Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on these phrases
 // ("got your card" / "found you online" / "found you on" / "saw your sticker"): keep them if this wording changes.
-const INTRO_CARD = 'Hey Melio, got your card! This is... '
+const INTRO_CARD = "Hey Melio, I got your card! I'm reaching out because... "
 // Bio / link visitors never held a card (Melio: "Let's connect" -> "got your card" is weird).
 // The platform name lets the workflow tag where a texter came from (texts carry no UTMs).
-const INTRO_ONLINE = 'Hey Melio, found you online! This is... '
+const INTRO_ONLINE = "Hey Melio, I found you online! I'm reaching out because... "
 const INTRO_BY_SOURCE: Record<string, string> = {
   business_card: INTRO_CARD,
-  instagram: 'Hey Melio, found you on Instagram! This is... ',
-  tiktok: 'Hey Melio, found you on TikTok! This is... ',
-  youtube: 'Hey Melio, found you on YouTube! This is... ',
-  sticker: 'Hey Melio, saw your sticker! This is... ',
+  instagram: "Hey Melio, I found you on Instagram! I'm reaching out because... ",
+  tiktok: "Hey Melio, I found you on TikTok! I'm reaching out because... ",
+  youtube: "Hey Melio, I found you on YouTube! I'm reaching out because... ",
+  sticker: "Hey Melio, I saw your sticker! I'm reaching out because... ",
 }
 
 // Social bios link to /links (Melio, 2026-11-18): conversation first (his goal: get a reply,
