@@ -233,6 +233,11 @@ export default function ScaledGHLEmbed({
         <iframe
           ref={iframeRef}
           src={src}
+          // Show the widget as soon as its page has loaded (~0.5 s). GHL forms stopped
+          // reporting their height (2026-11-18), so waiting for that signal meant every
+          // visitor sat on a blank box until the 2.5 s timeout (measured 2026-11-20).
+          // Heights are measured fallbacks now, and real height messages still resize it.
+          onLoad={() => setHeightConfirmed(true)}
           allow="payment"
           style={{ width: '100%', height: `${naturalHeight}px`, border: 'none', display: 'block' }}
           id={iframeId}
