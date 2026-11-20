@@ -6,13 +6,13 @@ import SectionLabel from '@/components/shared/SectionLabel'
 const pains = [
   {
     emoji: '🔍',
-    heading: "THEY CAN'T FIND YOU",
-    body: 'People Google "dentist near me" or "plumber in Hartford" and your competitor shows up first, even though you\'re better. You\'re invisible where it counts.',
+    heading: 'NOBODY SEES YOU',
+    body: "Your competitor is all over Facebook and Instagram with real videos of their business. You post once a month, if that. People can't pick you if they never see you.",
   },
   {
     emoji: '🤷',
     heading: "THEY DON'T TRUST YOU YET",
-    body: 'You have five Google reviews and an outdated website. The business down the street has 80 reviews and a profile that sells itself.',
+    body: 'No videos, five Google reviews and an outdated website. The business down the street has 80 reviews and a feed full of happy customers.',
   },
   {
     emoji: '🚫',
@@ -22,7 +22,7 @@ const pains = [
   {
     emoji: '🤔',
     heading: "YOU DON'T KNOW WHAT'S WORKING",
-    body: "You've tried Facebook ads, a guy who \"does SEO,\" and a mailer. Something brought in that last customer, but you have no idea what. So you keep spending money blind.",
+    body: "You've boosted a few posts, paid a guy who \"does SEO\" and sent a mailer. Something brought in that last customer, but you have no idea what. So you keep spending money blind.",
   },
 ]
 

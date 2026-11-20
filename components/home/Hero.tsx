@@ -16,7 +16,7 @@ const DEFAULTS: HeroData = {
   headlineL3outline: 'YOUR',
   headlineL4: 'COMPETITORS',
   headlineL5: 'INSTEAD OF YOU.',
-  subtext: 'Most Connecticut local businesses lose customers every week to competitors who show up first on Google. We fix that: your website, Google profile, reviews and follow-up working together, so the people who find you book with you.',
+  subtext: 'Most Connecticut local businesses lose customers every week to competitors who show up first on Facebook, Instagram and Google. We fix that: we film your business, run your ads and keep your Google and website sharp, so the people who see you book with you.',
   ctaPrimary: '⚡ GET MY FREE LOCAL VISIBILITY AUDIT',
   ctaSecondary: 'VIEW PRICING',
 }

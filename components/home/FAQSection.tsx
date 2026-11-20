@@ -8,7 +8,7 @@ import type { FAQItemData } from '@/lib/types'
 
 const DEFAULT_FAQS: FAQItemData[] = [
   { question: 'Can you show me your work?', answer: 'Yes. On your audit call we\'ll show you real work we\'ve done for local businesses: video, websites and Google profiles.', group: 'homepage' },
-  { question: 'What sets you apart from other agencies?', answer: 'We come to your business and film your work, build your Google presence, and send you a report every month on your calls, rankings and reviews, so you always know what\'s working.', group: 'homepage' },
+  { question: 'What sets you apart from other agencies?', answer: 'We come to your business and film your work, turn it into ads that run on Facebook and Instagram, and keep your Google presence sharp. Every month you get a scoreboard of what you spent and what got booked, so you always know what\'s working.', group: 'homepage' },
   { question: 'Is the consultation free?', answer: 'Yes. The audit is completely free and there\'s no pressure. We show you exactly where you\'re losing leads, and you keep the findings either way.', group: 'homepage' },
   { question: 'How long does it take to build my system?', answer: 'Most systems are built and launched within 7–10 business days after receiving your onboarding information.', group: 'homepage' },
   { question: 'Do I need a contract?', answer: 'No long-term contracts. Plans are month to month with 30 days\' notice; only the setup fee is non-refundable. We\'d rather keep you with results than paperwork.', group: 'homepage' },

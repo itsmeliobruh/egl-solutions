@@ -8,19 +8,19 @@ const BOOKING_URL = '/book?services_interested=✅+FREE+Consultation+-+Need+Help
 const steps = [
   {
     number: '01',
-    title: 'WE AUDIT YOUR ONLINE PRESENCE. FREE.',
-    body: "A live screen-share showing exactly where you're losing customers to competitors: your Google profile, your reviews, your website and your ads, side by side with the top businesses in your town. No pressure. You keep the findings either way.",
+    title: 'WE AUDIT YOUR MARKETING. FREE.',
+    body: "A live screen-share showing exactly where you're losing customers: your ads, your videos and social, your Google profile and reviews, and your website, side by side with the top businesses in your town. No pressure. You keep the findings either way.",
     cta: { label: 'Get My Free Local Visibility Audit →', href: BOOKING_URL },
   },
   {
     number: '02',
     title: 'WE BUILD YOUR FOUNDATION',
-    body: 'A fast website that shows off your best work. A Google Business Profile built to rank in your town. A CRM that catches every lead, and a review system that builds your reputation while you work. Live in 7 to 10 days.',
+    body: 'A fast website, a Google profile built to rank in your town, a CRM that catches every lead and a review system that runs while you work. Every plan starts here. Live in 7 to 10 days.',
   },
   {
     number: '03',
-    title: 'WE KEEP THE CALLS COMING',
-    body: "Every month we keep your Google presence growing, your reviews coming in and your site fresh, plus a monthly shoot, videos and ads when you're ready for the Market Dominator. You get a monthly report on your calls, rankings and reviews, so you always know what's working.",
+    title: 'WE FILM, WE RUN THE ADS, YOU GET BOOKED',
+    body: "Once a month we film at your business and turn it into videos and ads for Facebook and Instagram. We test new ads every month, cut the losers and keep your Google and website fresh. You get a monthly scoreboard: what you spent and what got booked.",
   },
 ]
 
