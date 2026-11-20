@@ -30,7 +30,21 @@ const INTRO_BY_SOURCE: Record<string, string> = {
 // Social bios link to /links (Melio, 2026-11-18): conversation first (his goal: get a reply,
 // then book the audit), no Save My Number, no contact pop.
 // TikTok + YouTube handles still to add.
-const SOCIALS = [{ href: 'https://www.instagram.com/egl.marketing/', label: 'Instagram' }]
+// Social row under the services on /links (Melio, 2026-11-20).
+const SOCIAL_ROW = [
+  { href: 'https://www.instagram.com/its.melio/', handle: '@its.melio', net: 'instagram' },
+  { href: 'https://www.tiktok.com/@its.melio', handle: '@its.melio', net: 'tiktok' },
+  { href: 'https://www.instagram.com/egl.marketing/', handle: '@egl.marketing', net: 'instagram' },
+]
+
+// lucide has no TikTok mark; this is the standard single-path logo, drawn in currentColor.
+function TikTokIcon({ size = 14, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.78.12V9.8a5.68 5.68 0 0 0-.78-.05A5.68 5.68 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.3 4.3 0 0 1-3.24-1.48Z" />
+    </svg>
+  )
+}
 
 export default function CardClient({ variant = 'card' }: { variant?: 'card' | 'social' }) {
   const params = useSearchParams()
@@ -81,7 +95,9 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
 @keyframes egl-shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(320%) skewX(-20deg)}}
 .egl-connect{position:relative;overflow:hidden;animation:egl-glow 2.4s ease-in-out infinite}
 .egl-connect::after{content:'';position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);animation:egl-shine 3.2s ease-in-out infinite;pointer-events:none}
-@media (prefers-reduced-motion:reduce){.egl-connect,.egl-connect::after{animation:none}}`}</style>
+@keyframes egl-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.egl-tick{animation:egl-tick 22s linear infinite}
+@media (prefers-reduced-motion:reduce){.egl-connect,.egl-connect::after,.egl-tick{animation:none}}`}</style>
       <div className="max-w-md mx-auto">
         {/* Who */}
         <div className="text-center mb-8">
@@ -98,11 +114,38 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
             </p>
           )}
           {variant === 'social' && (
-            <div className="flex flex-wrap justify-center gap-2 mt-4">
-              {SOCIAL_SERVICES.map((s) => (
-                <span key={s} className="font-body text-sm text-bone bg-mid border border-white/10 rounded-full px-3 py-1">
-                  {s}
-                </span>
+            // One row that slides sideways (Melio, 2026-11-20: all services on one line). The list is
+            // drawn twice so the loop is seamless; screen readers get the first copy only.
+            <div
+              className="mt-4 overflow-hidden"
+              style={{ maskImage: 'linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)', WebkitMaskImage: 'linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)' }}
+            >
+              <div className="egl-tick flex w-max gap-2">
+                {[...SOCIAL_SERVICES, ...SOCIAL_SERVICES].map((s, i) => (
+                  <span
+                    key={i}
+                    aria-hidden={i >= SOCIAL_SERVICES.length}
+                    className="font-body text-sm text-bone bg-mid border border-white/10 rounded-full px-3 py-1 whitespace-nowrap"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {variant === 'social' && (
+            <div className="flex flex-wrap justify-center gap-2 mt-3">
+              {SOCIAL_ROW.map(({ href, handle, net }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 font-mono text-[11px] tracking-[0.06em] text-bone border border-inferno/40 rounded-full px-3 py-1.5 hover:border-inferno hover:text-inferno transition-colors"
+                >
+                  {net === 'tiktok' ? <TikTokIcon size={14} className="text-inferno" /> : <Instagram size={14} className="text-inferno" />}{' '}
+                  {handle}
+                </a>
               ))}
             </div>
           )}
@@ -199,20 +242,6 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           Opens a text to me so I know who you are.
         </p>
 
-            {/* Follow (social page only) */}
-            <div className="flex justify-center gap-3 mb-8">
-              {SOCIALS.map(({ href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-[11px] uppercase tracking-[0.18em] text-bone border border-white/10 bg-mid rounded-full px-4 py-2 hover:border-inferno transition-colors"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
           </>
         )}
 
