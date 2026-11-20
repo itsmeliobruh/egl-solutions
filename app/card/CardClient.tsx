@@ -141,18 +141,28 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           </>
         ) : (
           <>
-        {/* 1. Start a conversation (primary: bio visitors should reach out, Melio 2026-11-18) */}
-        <a
-          href={introHref}
-          className="egl-connect flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5"
-        >
-          <MessageSquare size={22} /> LET&apos;S CONNECT
-        </a>
-        <p className="text-center font-body text-xs text-muted mt-2 mb-4">
-          Opens a text to me so I know who you are.
-        </p>
+        {/* Social page order (Melio, 2026-11-20): contact tiles, then the audit (glowing),
+            then Let's Connect as a plain button, then Instagram. The /card page above is unchanged. */}
+        {/* 1. Reach me */}
+        <div className="grid grid-cols-4 gap-2 mb-6">
+          {[
+            { href: `tel:${NUMBER}`, icon: Phone, label: 'Call' },
+            { href: introHref, icon: MessageSquare, label: 'Text' },
+            { href: `mailto:${EMAIL}`, icon: Mail, label: 'Email' },
+            { href: '/', icon: Globe, label: 'Website' },
+          ].map(({ href, icon: Icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              className="flex flex-col items-center gap-1 rounded-lg bg-mid border border-white/10 py-4 text-bone hover:border-inferno transition-colors"
+            >
+              <Icon size={20} className="text-inferno" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.12em]">{label}</span>
+            </a>
+          ))}
+        </div>
 
-        {/* 2. Book the audit */}
+        {/* 2. Book the audit (primary, glowing) */}
         <div className="rounded-lg border border-inferno/40 bg-ash p-5 mb-6">
           <p className="font-mono text-[10px] text-inferno uppercase tracking-[0.22em] mb-1">For local businesses</p>
           <h2 className="font-display text-3xl text-bone tracking-wide leading-tight">FREE LOCAL VISIBILITY AUDIT</h2>
@@ -161,14 +171,25 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           </p>
           <a
             href={bookHref}
-            className="flex items-center justify-center gap-2 w-full rounded-lg border border-inferno text-bone font-display text-xl tracking-wider py-4 hover:bg-inferno hover:text-void transition-colors"
+            className="egl-connect flex items-center justify-center gap-2 w-full rounded-lg bg-inferno text-void font-display text-2xl tracking-wider py-5"
           >
-            <CalendarCheck size={20} /> BOOK MY FREE AUDIT
+            <CalendarCheck size={22} /> BOOK MY FREE AUDIT
           </a>
         </div>
 
+        {/* 3. Start a conversation (regular button) */}
+        <a
+          href={introHref}
+          className="flex items-center justify-center gap-2 w-full rounded-lg border border-inferno text-bone font-display text-xl tracking-wider py-4 hover:bg-inferno hover:text-void transition-colors"
+        >
+          <MessageSquare size={20} /> LET&apos;S CONNECT
+        </a>
+        <p className="text-center font-body text-xs text-muted mt-2 mb-6">
+          Opens a text to me so I know who you are.
+        </p>
+
             {/* Follow (social page only) */}
-            <div className="flex justify-center gap-3 mb-6">
+            <div className="flex justify-center gap-3 mb-8">
               {SOCIALS.map(({ href, label }) => (
                 <a
                   key={label}
@@ -184,7 +205,8 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
           </>
         )}
 
-        {/* 3. Reach me */}
+        {/* 3. Reach me (business card page only; the social page has it on top) */}
+        {variant === 'card' && (
         <div className="grid grid-cols-3 gap-2 mb-8">
           {[
             { href: `tel:${NUMBER}`, icon: Phone, label: 'Call' },
@@ -201,6 +223,7 @@ export default function CardClient({ variant = 'card' }: { variant?: 'card' | 's
             </a>
           ))}
         </div>
+        )}
 
         {/* 4. Business details */}
         <div className="border-t border-white/10 pt-6">
