@@ -12,7 +12,7 @@ const EMAIL = 'melio@eglmarketing.co'
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
 const SERVICES = ['Video Ads', 'Websites', 'Google Business', 'Automation']
 // Social (/links) page wording, Melio 2026-11-20. /card keeps SERVICES above.
-const SOCIAL_SERVICES = ['Content', 'Meta Ads', 'Websites', 'Google Business', 'Automation']
+const SOCIAL_SERVICES = ['Content', 'Meta Ads', 'Proven Systems', 'Websites', 'Google Business', 'Automation']
 // Melio, 2026-11-18. GHL workflow "EGL | Business Card Text Reply" keys on these phrases
 // ("got your card" / "found you online" / "found you on" / "saw your sticker"): keep them if this wording changes.
 const INTRO_CARD = 'Hey Melio, got your card! This is... '
