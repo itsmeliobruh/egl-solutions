@@ -32,7 +32,7 @@ const INTRO_BY_SOURCE: Record<string, string> = {
 // TikTok + YouTube handles still to add.
 // Social row under the services on /links (Melio, 2026-11-20).
 const SOCIAL_ROW = [
-  { href: 'https://www.instagram.com/its.melio/', handle: '@its.melio', net: 'instagram' },
+  { href: 'https://www.instagram.com/melio/', handle: '@melio', net: 'instagram' },
   { href: 'https://www.tiktok.com/@its.melio', handle: '@its.melio', net: 'tiktok' },
   { href: 'https://www.instagram.com/egl.marketing/', handle: '@egl.marketing', net: 'instagram' },
 ]
