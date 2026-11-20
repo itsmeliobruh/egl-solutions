@@ -38,6 +38,13 @@ interface ScaledGHLEmbedProps {
    * unless a specific embed is confirmed not to need it.
    */
   alwaysShow?: boolean
+  /**
+   * Wrap a GHL form in the same card as the homepage hero (Melio, 2026-11-20):
+   * cream fill, 20px corners, orange glow, and narrowed to the form's own max
+   * width so the corners hug the form instead of a wider transparent frame.
+   * Value = the form's max width in px (GHL forms cap at 900).
+   */
+  heroCardMaxWidth?: number
 }
 
 /**
@@ -58,6 +65,7 @@ export default function ScaledGHLEmbed({
   minZoom = 0.45,
   alwaysShow = true,
   scaleToFit = true,
+  heroCardMaxWidth,
 }: ScaledGHLEmbedProps) {
   const [zoom, setZoom] = useState(1)
   const [zoomReady, setZoomReady] = useState(false)
@@ -247,6 +255,22 @@ export default function ScaledGHLEmbed({
       className="rounded-2xl overflow-hidden"
       style={{
         height: `${scaledHeight}px`,
+        ...(heroCardMaxWidth
+          ? {
+              width: '100%',
+              maxWidth: `${heroCardMaxWidth * zoom}px`,
+              margin: '0 auto',
+              background: '#F5F0E8',
+              borderRadius: '20px',
+              boxShadow: `
+                0 0 0 1px rgba(255, 255, 255, 0.06),
+                0 0 10px rgba(0, 0, 0, 0.35),
+                0 0 24px rgba(0, 0, 0, 0.4),
+                0 0 24px rgba(255, 85, 0, 0.10),
+                0 0 0 1px rgba(255, 85, 0, 0.07) inset
+              `,
+            }
+          : {}),
         opacity: ready ? 1 : 0,
         // GHL can report a *later* height update after the card is
         // already revealed (e.g. the calendar's internal content
@@ -266,7 +290,7 @@ export default function ScaledGHLEmbed({
     >
       <div
         style={{
-          width: `${100 / zoom}%`,
+          width: heroCardMaxWidth ? `min(${100 / zoom}%, ${heroCardMaxWidth}px)` : `${100 / zoom}%`,
           transform: `scale(${zoom})`,
           transformOrigin: 'top left',
         }}

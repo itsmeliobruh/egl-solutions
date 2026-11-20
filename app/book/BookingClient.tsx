@@ -237,6 +237,8 @@ export default function BookingClient() {
               // (seen live 2026-11-20). 1120 shows the whole button with room to spare.
               mobileFallbackHeight={1120}
               reservedSpace={STEP1_RESERVED}
+              // Same cream, rounded, glowing card as the homepage hero form.
+              heroCardMaxWidth={900}
             />
 
             <AuditFunnel />
