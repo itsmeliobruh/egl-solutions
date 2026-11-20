@@ -73,7 +73,7 @@ const AUDIT_TRUST = [
 ]
 const AUDIT_FAQ = [
   { q: 'Is it really free?', a: 'Yes. No card, no catch. You keep everything we find.' },
-  { q: 'Is this a sales call?', a: "We'll show you what we found and, if it fits, the plan we'd run. If it doesn't make sense for you, we'll tell you straight up. No pressure." },
+  { q: 'Is this a sales call?', a: "Honestly? Partly. You get the full audit no matter what. If it looks like a fit, we'll show you the plan and price. If not, we'll tell you straight up." },
   { q: 'Do I need to prepare anything?', a: 'No. We do the research before the call. Just show up.' },
   { q: 'What do you actually do?', a: 'We film your business, run your Facebook and Instagram ads and keep your Google and website sharp, so more people book with you. Plans start at $499/month.' },
 ]
