@@ -19,7 +19,9 @@ export default function ChatWidget() {
     <Script
       src="https://widgets.leadconnectorhq.com/loader.js"
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="6afb6b7875f0c3a5205bf9c8"
+      // EGL Website Chat (built 2026-11-20, freely editable). The A2P Compliance widget
+      // 6afb6b7875f0c3a5205bf9c8 can't be cloned or freely edited, so it stays in GHL unused.
+      data-widget-id="6b0071dd1ac0b6fa59197f18"
       data-source="WEB_USER"
       strategy="afterInteractive"
     />
