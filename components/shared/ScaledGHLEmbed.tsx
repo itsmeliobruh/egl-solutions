@@ -182,20 +182,48 @@ export default function ScaledGHLEmbed({
   // (measured 2026-11-18 on the audit calendar: 1395 on the phone time-slot
   // list, 1034 on the "One more click" form step). Size to each step's real
   // height so short steps don't sit on a tall, empty box.
+  //
+  // Since ~2026-11-20 form_embed.js no longer starts the widget's resizer, so
+  // the widget only posts "[iFrameResizerChild]Ready" and never reports a
+  // height (the card sat at the fallback, a big empty gap on phones). We send
+  // the iframe-resizer init message ourselves when it says Ready (and on load,
+  // in case Ready fired first). Heights are applied after a short settle,
+  // because a step change reports a few transient sizes (e.g. 137 > 422 > 774).
   useLayoutEffect(() => {
     if (!iframeId) return
+    const el = iframeRef.current
+    const startResizer = () => {
+      el?.contentWindow?.postMessage(
+        `[iFrameSizer]${iframeId}:8:false:false:32:true:true:null:bodyOffset:null:null:0:false:parent:scroll:true:true:null:null`,
+        '*',
+      )
+    }
+    let settle: ReturnType<typeof setTimeout>
     const onMessage = (e: MessageEvent) => {
       if (e.source !== iframeRef.current?.contentWindow) return
-      if (typeof e.data !== 'string' || !e.data.startsWith('[iFrameSizer]')) return
+      if (typeof e.data !== 'string') return
+      if (e.data.startsWith('[iFrameResizerChild]Ready')) {
+        startResizer()
+        return
+      }
+      if (!e.data.startsWith('[iFrameSizer]')) return
       const [id, h] = e.data.slice('[iFrameSizer]'.length).split(':')
       if (!id.startsWith(iframeId)) return
       const measured = parseFloat(h)
       if (!(measured > 100)) return
-      setNaturalHeight((prev) => (Math.abs(measured - prev) > 4 ? measured : prev))
-      setHeightConfirmed(true)
+      clearTimeout(settle)
+      settle = setTimeout(() => {
+        setNaturalHeight((prev) => (Math.abs(measured - prev) > 4 ? measured : prev))
+        setHeightConfirmed(true)
+      }, 150)
     }
     window.addEventListener('message', onMessage)
-    return () => window.removeEventListener('message', onMessage)
+    el?.addEventListener('load', startResizer)
+    return () => {
+      window.removeEventListener('message', onMessage)
+      el?.removeEventListener('load', startResizer)
+      clearTimeout(settle)
+    }
   }, [iframeId])
 
   const scaledHeight = naturalHeight * zoom
