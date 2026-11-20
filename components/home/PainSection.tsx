@@ -7,22 +7,22 @@ const pains = [
   {
     emoji: '🔍',
     heading: "THEY CAN'T FIND YOU",
-    body: 'Homeowners Google "kitchen remodeler in Hartford" and your competitor shows up first, even though your work is better. You\'re invisible where it counts.',
+    body: 'People Google "dentist near me" or "plumber in Hartford" and your competitor shows up first, even though you\'re better. You\'re invisible where it counts.',
   },
   {
     emoji: '🤷',
     heading: "THEY DON'T TRUST YOU YET",
-    body: 'You have five Google reviews and an outdated website with no before-and-afters. The contractor down the street has 80 reviews and a portfolio that sells itself.',
+    body: 'You have five Google reviews and an outdated website. The business down the street has 80 reviews and a profile that sells itself.',
   },
   {
     emoji: '🚫',
     heading: 'LEADS FALL THROUGH THE CRACKS',
-    body: "Someone calls while you're on a job site. You miss it. They call someone else. You never had a system to catch and follow up with leads automatically.",
+    body: "Someone calls while you're with a customer. You miss it. They call someone else. You never had a system to catch every lead and follow up automatically.",
   },
   {
     emoji: '🤔',
     heading: "YOU DON'T KNOW WHAT'S WORKING",
-    body: "You've tried Facebook ads, a guy who \"does SEO,\" and a mailer. Something brought in that last job, but you have no idea what. So you keep spending money blind.",
+    body: "You've tried Facebook ads, a guy who \"does SEO,\" and a mailer. Something brought in that last customer, but you have no idea what. So you keep spending money blind.",
   },
 ]
 

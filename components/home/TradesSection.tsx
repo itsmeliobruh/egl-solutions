@@ -48,11 +48,11 @@ export default function TradesSection() {
         >
           <SectionLabel label="WHO WE WORK WITH" className="mb-3 justify-center" />
           <h2 className="font-display text-5xl md:text-6xl text-bone tracking-wider">
-            BUILT FOR CONNECTICUT HOME SERVICE CONTRACTORS
+            BUILT FOR CONNECTICUT LOCAL BUSINESSES
           </h2>
         </motion.div>
 
-        {/* Home services: the focus */}
+        {/* Home services */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function TradesSection() {
           ))}
         </motion.div>
 
-        {/* Other local businesses: secondary */}
+        {/* Health, beauty, auto, food and more */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,14 +92,14 @@ export default function TradesSection() {
           transition={{ duration: 0.4, delay: 0.15 }}
           className="mb-6 px-1"
         >
-          <span className="font-mono text-[9px] text-[#777] uppercase tracking-[0.2em] mb-3 block">
-            Other local businesses we work with
+          <span className="font-mono text-[9px] text-inferno uppercase tracking-[0.2em] mb-3 block">
+            Health, beauty, auto, food and more
           </span>
           <div className="flex flex-wrap gap-1.5">
             {otherTrades.map((trade) => (
               <span
                 key={trade}
-                className="border border-[#221D19] rounded text-[#7A7266] font-mono text-[9px] uppercase tracking-[0.1em] px-2 py-1 leading-none whitespace-nowrap"
+                className="bg-[#1C1612] border border-[#2A2320] rounded text-[#C8C0B0] font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1.5 leading-none hover:border-[#FF5500] hover:text-[#FF5500] transition-colors cursor-default whitespace-nowrap"
               >
                 {trade}
               </span>
@@ -117,7 +117,7 @@ export default function TradesSection() {
         >
           <p className="font-body text-sm text-[#999] leading-relaxed">
             <span className="text-bone font-medium">Don&apos;t see your trade?</span>{' '}
-            If you run a local service business, we can build the marketing system to grow it.
+            If you run a local business, we can build the system that books your customers.
           </p>
           <Link
             href="/book?services_interested=✅+FREE+Consultation+-+Need+Help+Deciding"

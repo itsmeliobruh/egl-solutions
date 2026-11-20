@@ -9,18 +9,18 @@ const steps = [
   {
     number: '01',
     title: 'WE AUDIT YOUR ONLINE PRESENCE. FREE.',
-    body: "A live screen-share showing exactly where you're losing jobs to competitors: your Google profile, your reviews, your website and your ads, side by side with the top businesses in your town. No pressure. You keep the findings either way.",
+    body: "A live screen-share showing exactly where you're losing customers to competitors: your Google profile, your reviews, your website and your ads, side by side with the top businesses in your town. No pressure. You keep the findings either way.",
     cta: { label: 'Get My Free Local Visibility Audit →', href: BOOKING_URL },
   },
   {
     number: '02',
     title: 'WE BUILD YOUR FOUNDATION',
-    body: 'A fast website that shows off your best work, filmed and photographed by us on your job sites. A Google Business Profile built to rank in your town. A CRM that catches every lead, and a review system that builds your reputation while you work. Live in 7 to 10 days.',
+    body: 'A fast website that shows off your best work. A Google Business Profile built to rank in your town. A CRM that catches every lead, and a review system that builds your reputation while you work. Live in 7 to 10 days.',
   },
   {
     number: '03',
     title: 'WE KEEP THE CALLS COMING',
-    body: "Every month we keep your Google presence growing, your reviews coming in and your site fresh, plus content and ads when you're ready to scale. You get a monthly report on your calls, rankings and reviews, so you always know what's working.",
+    body: "Every month we keep your Google presence growing, your reviews coming in and your site fresh, plus a monthly shoot, videos and ads when you're ready for the Market Dominator. You get a monthly report on your calls, rankings and reviews, so you always know what's working.",
   },
 ]
 

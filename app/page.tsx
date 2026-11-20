@@ -9,13 +9,13 @@ import ServiceAreaMap from '@/components/home/ServiceAreaMap'
 import FAQSection from '@/components/home/FAQSection'
 
 export const metadata: Metadata = {
-  title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
+  title: 'EGL Marketing | Done-For-You Growth Systems for Local Businesses',
   description:
-    'EGL Marketing helps local service businesses generate more leads, follow up faster, and book more jobs with done-for-you growth systems: website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT.',
+    'EGL Marketing helps local businesses generate more leads, follow up faster and book more appointments with done-for-you growth systems: website, CRM, ads, AI follow-up, reviews, and content. Based in Wethersfield, CT.',
   alternates: { canonical: 'https://eglmarketing.co' },
   openGraph: {
-    title: 'EGL Marketing | Done-For-You Growth Systems for Local Service Businesses',
-    description: 'Turn more attention into booked jobs. Website, CRM, ads, AI follow-up, reviews, and content for local service businesses in Connecticut.',
+    title: 'EGL Marketing | Done-For-You Growth Systems for Local Businesses',
+    description: 'Turn more attention into booked appointments. Website, CRM, ads, AI follow-up, reviews and content for local businesses in Connecticut.',
     url: 'https://eglmarketing.co',
     images: [{ url: 'https://eglmarketing.co/og-image.png', width: 1200, height: 630 }],
   },

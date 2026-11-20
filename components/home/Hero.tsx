@@ -11,12 +11,12 @@ import type { HeroData } from '@/lib/types'
 const DEFAULTS: HeroData = {
   badgeText: '',
   headlineL1: 'SEE WHY',
-  headlineL2: 'HOMEOWNERS',
+  headlineL2: 'CUSTOMERS',
   headlineL3prefix: 'CALL',
   headlineL3outline: 'YOUR',
   headlineL4: 'COMPETITORS',
   headlineL5: 'INSTEAD OF YOU.',
-  subtext: 'Most Connecticut contractors lose jobs every week to competitors who show up first on Google. We fix that: your website, Google profile, reviews and lead follow-up working together as one system.',
+  subtext: 'Most Connecticut local businesses lose customers every week to competitors who show up first on Google. We fix that: your website, Google profile, reviews and follow-up working together, so the people who find you book with you.',
   ctaPrimary: '⚡ GET MY FREE LOCAL VISIBILITY AUDIT',
   ctaSecondary: 'VIEW PRICING',
 }
