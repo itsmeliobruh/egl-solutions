@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, DM_Sans, DM_Mono } from 'next/font/google'
-import Script from 'next/script'
+import ChatWidget from '@/components/layout/ChatWidget'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
@@ -73,13 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <ConditionalFooter />
         <ChatCTARouter />
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6afb6b7875f0c3a5205bf9c8"
-          data-source="WEB_USER"
-          strategy="afterInteractive"
-        />
+        <ChatWidget />
       </body>
     </html>
   )
